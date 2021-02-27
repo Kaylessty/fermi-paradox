@@ -1,0 +1,21 @@
+#health-meter{
+    -fx-text-fill: red;
+    -fx-font: 32px "Lao MN";
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
+#money-display {
+    -fx-text-fill: yellow;
+    -fx-font: 32px "Lao MN";
+    -fx-effect: new dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0.0, 0.0);
+}
+
+.button {
+    -fx-background-color: grey;
+    -fx-text-fill: white;
+    -fx-background-radius: 5;
+}
+
+.root{
+
+}
