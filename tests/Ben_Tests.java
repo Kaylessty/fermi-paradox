@@ -33,7 +33,7 @@ public class ConfigScreenTest extends ApplicationTest {
         clickOn("Space Sword");
         clickOn(400, 10).write("Edgar Alan Poe");
         clickOn("Continue");
-        assertEquals(getBalance(), 3000);
+        assertEquals(Player.getBalance(), 3000);
     }
 
     /**
@@ -46,7 +46,7 @@ public class ConfigScreenTest extends ApplicationTest {
         clickOn("Blaster");
         clickOn(400, 10).write("Edgar Alan Poe");
         clickOn("Continue");
-        assertEquals(getBalance(), 2000);
+        assertEquals(Player.getBalance(), 2000);
     }
 
     /**
@@ -59,6 +59,6 @@ public class ConfigScreenTest extends ApplicationTest {
         clickOn("Sonar Gun");
         clickOn(400, 10).write("Edgar Alan Poe");
         clickOn("Continue");
-        assertEquals(getBalance(), 1000);
+        assertEquals(Player.getBalance(), 1000);
     }
 }
