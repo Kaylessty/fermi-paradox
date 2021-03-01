@@ -9,43 +9,48 @@ import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import static javafx.geometry.Pos.CENTER_LEFT;
+import static javafx.geometry.Pos.TOP_LEFT;
 
 public class ConfigScreen {
-    private int screenWidth;
-    private int screenHeight;
-    private TextField nameEntry;
+    private int SCREENWIDTH;
+    private int SCREENHEIGHT;
+    TextField nameEntry;
 
-    private Button proceed;
+    Button proceed;
 
-    private RadioButton easy;
-    private RadioButton amateur;
-    private RadioButton hard;
-    private RadioButton blaster;
-    private RadioButton spaceSword;
-    private RadioButton sonarGun;
+    RadioButton easy;
+    RadioButton amateur;
+    RadioButton hard;
+    RadioButton blaster;
+    RadioButton spaceSword;
+    RadioButton sonarGun;
 
-    private ToggleGroup difficulties;
-    private ToggleGroup weapons;
+    ToggleGroup difficulties;
+    ToggleGroup weapons;
 
-    private Label nameLabel;
-    private Label difficultyLabel;
-    private Label weaponLabel;
-    private HBox row1;
-    private HBox row2;
-    private HBox row3;
-    private VBox pillar;
-    private BorderPane frame;
-    private Scene configScreen;
+    Label nameLabel;
+    Label difficultyLabel;
+    Label weaponLabel;
+    HBox row1;
+    HBox row2;
+    HBox row3;
+    VBox pillar;
+    BorderPane frame;
+    Scene configScreen;
 
     /**
      * By default, this constructor initializes the game screen to size 800 by 800
      */
     public ConfigScreen() {
-        screenHeight = 600;
-        screenWidth = 800;
+        SCREENHEIGHT = 600;
+        SCREENWIDTH = 800;
     }
 
     /**
@@ -54,8 +59,8 @@ public class ConfigScreen {
      * @param height the height of the screen
      */
     public ConfigScreen(int width, int height) {
-        screenWidth = width;
-        screenHeight = height;
+        SCREENWIDTH = width;
+        SCREENHEIGHT = height;
     }
 
     /**
@@ -92,8 +97,7 @@ public class ConfigScreen {
         // Creating the continue button providing its functionality
         proceed = new Button("Continue");
 
-        // Adding radio buttons to corresponding labels, 
-        // and adding those bunches together into a VBox
+        // Adding radio buttons to corresponding labels, and adding those bunches together into a VBox
         row2 = new HBox(10, difficultyLabel, easy, amateur, hard);
         row3 = new HBox(10, weaponLabel, blaster, spaceSword, sonarGun);
         pillar = new VBox(20, row1, row2, row3);
@@ -105,7 +109,7 @@ public class ConfigScreen {
         frame = new BorderPane(pillar);
         frame.setAlignment(pillar, CENTER_LEFT);
         frame.setBottom(proceed);
-        configScreen = new Scene(frame, screenWidth, screenHeight);
+        configScreen = new Scene(frame, SCREENWIDTH, SCREENHEIGHT);
         configScreen.setFill(Color.MEDIUMORCHID);
     }
 
@@ -145,8 +149,6 @@ public class ConfigScreen {
      * This method is a getter for the scene
      * @return the configuration screen
      */
-    public Scene getScene() { 
-        return configScreen;
-    };
+    public Scene getScene() { return configScreen;};
 
 }

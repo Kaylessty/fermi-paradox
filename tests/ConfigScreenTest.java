@@ -9,7 +9,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 
 public class ConfigScreenTest extends ApplicationTest {
 
-    private Controller secondScreen;
+    Controller secondScreen;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -23,7 +23,7 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     @Test
-    public void testEmptyString() {
+    public void TestEmptyString() {
         sleep(2000);
         clickOn("easy");
         clickOn("Space Sword");
@@ -40,33 +40,7 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     @Test
-    public void testButtonsExist() {
+    public void TestButtonsExist() {
         verifyThat("Enter your name: ", NodeMatchers.isVisible());
-    }
-
-    @Test
-    public void testNoWeaponSelection() {
-        sleep(2000);
-        clickOn("easy");
-        clickOn(400, 10).write("Brit");
-        clickOn("Continue");
-        verifyThat("Close and try again.", NodeMatchers.isVisilbe());
-        clickOn("Close and try again.");
-        clickOn("Sonar Gun");
-        clickOn("Continue");
-        verifyThat("Health:", NodeMatchers.isVisible());
-    }
-
-    @Test
-    public void testNoDifficultySelection() {
-        sleep(2000);
-        clickOn("Blaster");
-        clickOn(400, 10).write("Brit");
-        clickOn("Continue");
-        verifyThat("Close and try again.", NodeMatchers.isVisilbe());
-        clickOn("Close and try again.");
-        clickOn("amateur");
-        clickOn("Continue");
-        verifyThat("Health:", NodeMatchers.isVisible());
     }
 }

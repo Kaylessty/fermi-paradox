@@ -19,7 +19,7 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Programming codes/CS_2340/Milestone_2/Git directory/SpaceDungeon" />
+    <property name="last_opened_file_path" value="$USER_HOME$/AppData/Local/SceneBuilder/SceneBuilder.exe" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
@@ -118,26 +118,26 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1614559337242">
+    <state x="463" y="123" key="FileChooserDialogImpl" timestamp="1614569924917">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614559337242" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1614553988493">
+    <state x="463" y="123" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1614569924917" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1614572112756">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1614553988493" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1614553988492">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1614572112756" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1614572112755">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1614553988492" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1614553988492">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1614572112755" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1614572112755">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1614553988492" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1614553988493">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1614572112755" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1614572112756">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1614553988493" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1614572112756" />
     <state x="163" y="0" key="SettingsEditor" timestamp="1614550537255">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
