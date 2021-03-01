@@ -12,6 +12,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.paint.Color;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+
 import static javafx.geometry.Pos.CENTER_LEFT;
 import static javafx.geometry.Pos.TOP_LEFT;
 
@@ -46,7 +49,7 @@ public class ConfigScreen {
      * By default, this constructor initializes the game screen to size 800 by 800
      */
     public ConfigScreen() {
-        SCREENHEIGHT = 800;
+        SCREENHEIGHT = 600;
         SCREENWIDTH = 800;
     }
 
@@ -64,9 +67,8 @@ public class ConfigScreen {
      * This method sets the configuration screen. It places all the nodes and the scene,
      * and sets the scene on the stage.
      * Functionality is implemented in Config_Screen_Controller.java
-     * @param primaryStage the stage where the configuration scene will be placed
      */
-    public void setConfigScreen(Stage primaryStage) {
+    public void setConfigScreen() {
         nameEntry = new TextField();
         nameEntry.setPrefColumnCount(30);
         nameLabel = new Label("Enter your name: ");
@@ -100,6 +102,7 @@ public class ConfigScreen {
         row3 = new HBox(10, weaponLabel, blaster, spaceSword, sonarGun);
         pillar = new VBox(20, row1, row2, row3);
 
+        // Decorating the buttons
 
 
         // Adding boxes to the scene and the scene to the stage
@@ -107,10 +110,7 @@ public class ConfigScreen {
         frame.setAlignment(pillar, CENTER_LEFT);
         frame.setBottom(proceed);
         configScreen = new Scene(frame, SCREENWIDTH, SCREENHEIGHT);
-        configScreen.setFill(Color.CORAL);
-        primaryStage.setScene((configScreen));
-        primaryStage.setTitle("Player Configuration Screen");
-        primaryStage.show();
+        configScreen.setFill(Color.MEDIUMORCHID);
     }
 
     /**
@@ -144,5 +144,11 @@ public class ConfigScreen {
     public ToggleGroup getWeapons() {
         return weapons;
     }
+
+    /**
+     * This method is a getter for the scene
+     * @return the configuration screen
+     */
+    public Scene getScene() { return configScreen;};
 
 }
