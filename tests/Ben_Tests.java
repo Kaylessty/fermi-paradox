@@ -61,4 +61,17 @@ public class ConfigScreenTest extends ApplicationTest {
         clickOn("Continue");
         assertEquals(Player.getBalance(), 1000);
     }
+
+    /**
+    *Test to see if health label exists.
+    */
+    @ Test
+    public void BalanceExists() {
+        sleep(2000);
+        clickOn("easy");
+        clickOn("Sonar Gun");
+        clickOn(400, 10).write("Edgar Alan Poe");
+        clickOn("Continue");
+        verifyThat("Health: ", NodeMatchers.isVisible());
+    }
 }
