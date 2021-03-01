@@ -3,14 +3,12 @@ import javafx.stage.Stage;
 import org.junit.Before;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
-import org.testfx.matcher.base.NodeMatchers;
 import static org.junit.Assert.assertEquals;
 
-import static org.testfx.api.FxAssert.verifyThat;
 
 public class ConfigScreenTest extends ApplicationTest {
 
-    Controller ;
+    private Controller secondScreen;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -24,10 +22,11 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     /**
-    *Test for easy difficulty to verify that proper values are delivered to third screen and displayed.
+    * Test for easy difficulty to verify that proper values 
+    * are delivered to third screen and displayed.
     */
     @Test
-    public void TestEasy() {
+    public void testEasy() {
         sleep(2000);
         clickOn("easy");
         clickOn("Space Sword");
@@ -37,10 +36,11 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     /**
-    *Test for eas difficulty to verify that proper values are delivered to third screen and displayed.
+    * Test for eas difficulty to verify that proper values 
+    * are delivered to third screen and displayed.
     */
     @Test
-    public void TestAmateur() {
+    public void testAmateur() {
         sleep(2000);
         clickOn("amateur");
         clickOn("Blaster");
@@ -50,10 +50,11 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     /**
-    *Test for eas difficulty to verify that proper values are delivered to third screen and displayed.
+    * Test for eas difficulty to verify that proper values 
+    * are delivered to third screen and displayed.
     */
     @Test
-    public void TestHard() {
+    public void testHard() {
         sleep(2000);
         clickOn("easy");
         clickOn("Sonar Gun");

@@ -1,11 +1,11 @@
 package main;
 
 public class Player {
-    static int health;
-    static String name;
-    static int balance;
-    static int strength;
-    static int speed;
+    private static int health;
+    private static String name;
+    private static int balance;
+    private static int strength;
+    private static int speed;
 
 
     public static String getName() {
