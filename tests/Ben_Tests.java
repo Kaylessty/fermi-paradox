@@ -64,10 +64,10 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     /**
-    *Test to see if health label exists.
+    * Test to see if health label exists.
     */
-    @ Test
-    public void BalanceExists() {
+    @Test
+    public void balanceExists() {
         sleep(2000);
         clickOn("easy");
         clickOn("Sonar Gun");

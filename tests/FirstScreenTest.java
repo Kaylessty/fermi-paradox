@@ -1,6 +1,5 @@
 import main.Controller;
 import javafx.stage.Stage;
-import org.junit.Before;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 
