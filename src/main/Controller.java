@@ -1,7 +1,6 @@
 package main;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Optional;
 
 import javafx.application.Application;
@@ -12,12 +11,9 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.*;
-import javafx.scene.input.InputMethodEvent;
-import javafx.scene.input.InputMethodTextRun;
 import javafx.stage.Stage;
 import view.ConfigScreen;
 import view.FirstScreen;
-import javafx.event.EventType;
 import main.Player;
 
 /**
@@ -57,11 +53,6 @@ public class Controller extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
         Scene scene = new Scene(root, 800, 600);
         window.setScene(scene);
-        money.setText(Integer.toString(Player.getBalance()));
-        health.setText(Integer.toString(Player.getHealth()));
-        ArrayList<InputMethodTextRun> words = new ArrayList<>();
-        InputMethodTextRun
-        InputMethodEvent moneyTextChange = new InputMethodEvent(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, money.getText(), Player.getBalance(),10);
         window.show();
     }
 
@@ -84,16 +75,22 @@ public class Controller extends Application {
                         Player.setBalance(3000);
                         Player.setSpeed(10);
                         Player.setStrength(1200);
+                        money = new Label(Integer.toString(Player.getBalance()));
+                        health = new Label(Integer.toString(Player.getHealth()));
                         // else if the difficulty is "amateur"
                     } else if (((RadioButton) (screen2.getDifficulties().getSelectedToggle())).getText().equals("amateur")) {
                         Player.setBalance(2000);
                         Player.setSpeed(7);
                         Player.setStrength(900);
+                        money = new Label(Integer.toString(Player.getBalance()));
+                        health = new Label(Integer.toString(Player.getHealth()));
                         // else if the difficulty is "hard"
                     } else if (((RadioButton) (screen2.getDifficulties().getSelectedToggle())).getText().equals("hard")) {
                         Player.setBalance(1000);
                         Player.setSpeed(5);
                         Player.setStrength(600);
+                        money = new Label(Integer.toString(Player.getBalance()));
+                        health = new Label(Integer.toString(Player.getHealth()));
                     }
                     goToThirdScreen();
                     // if the user name is blank
