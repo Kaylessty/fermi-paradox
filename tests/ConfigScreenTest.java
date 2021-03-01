@@ -43,4 +43,30 @@ public class ConfigScreenTest extends ApplicationTest {
     public void testButtonsExist() {
         verifyThat("Enter your name: ", NodeMatchers.isVisible());
     }
+
+    @Test
+    public void testNoWeaponSelection() {
+        sleep(2000);
+        clickOn("easy");
+        clickOn(400, 10).write("Brit");
+        clickOn("Continue");
+        verifyThat("Close and try again.", NodeMatchers.isVisilbe());
+        clickOn("Close and try again.");
+        clickOn("Sonar Gun");
+        clickOn("Continue");
+        verifyThat("Health:", NodeMatchers.isVisible());
+    }
+
+    @Test
+    public void testNoDifficultySelection() {
+        sleep(2000);
+        clickOn("Blaster");
+        clickOn(400, 10).write("Brit");
+        clickOn("Continue");
+        verifyThat("Close and try again.", NodeMatchers.isVisilbe());
+        clickOn("Close and try again.");
+        clickOn("amateur");
+        clickOn("Continue");
+        verifyThat("Health:", NodeMatchers.isVisible());
+    }
 }

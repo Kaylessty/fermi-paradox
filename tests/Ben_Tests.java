@@ -36,7 +36,7 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     /**
-    * Test for eas difficulty to verify that proper values 
+    * Test for amateur difficulty to verify that proper values 
     * are delivered to third screen and displayed.
     */
     @Test
@@ -50,7 +50,7 @@ public class ConfigScreenTest extends ApplicationTest {
     }
 
     /**
-    * Test for eas difficulty to verify that proper values 
+    * Test for hard difficulty to verify that proper values 
     * are delivered to third screen and displayed.
     */
     @Test
