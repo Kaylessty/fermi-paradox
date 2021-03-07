@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1">
+   <bottom>
+      <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="341.0">
+               <children>
+                  <Label fx:id="health" prefHeight="49.0" prefWidth="321.0" style="-fx-text-fill: red; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),10,0.5,0.0,0.0) dropshadow(gaussian, rgba(0,0,0,0.3),10,0.7,0.0,0.0);" text="100 HP">
+                     <font>
+                        <Font name="Lao MN" size="32.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </bottom>
+   <top>
+      <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="246.0">
+               <children>
+                  <Label id="money" fx:id="money" contentDisplay="CENTER" prefHeight="49.0" prefWidth="214.0" style="-fx-text-fill: yellow; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),10,0.7,0.0,0.0);" text="\$100">
+                     <font>
+                        <Font name="Lao MN" size="32.0" />
+                     </font></Label>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </top>
+</BorderPane>

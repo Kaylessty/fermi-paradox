@@ -60,8 +60,7 @@ public class Controller extends Application {
         money.setText(Integer.toString(Player.getBalance()));
         health.setText(Integer.toString(Player.getHealth()));
         ArrayList<InputMethodTextRun> words = new ArrayList<>();
-        InputMethodTextRun
-        InputMethodEvent moneyTextChange = new InputMethodEvent(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, money.getText(), Player.getBalance(),10);
+        //InputMethodEvent moneyTextChange = new InputMethodEvent(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, money.getText(), Player.getBalance(),10);
         window.show();
     }
 
