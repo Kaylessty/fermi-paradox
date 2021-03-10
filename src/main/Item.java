@@ -20,8 +20,8 @@ public class Item implements Locatable, Collectible {
  * returnCost, walkable, url)
  */
     public enum Possession  {
-        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, "resources/images/sword.png"),
-        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, "resources/images/sword.png");
+        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, "../resources/images/sword.png"),
+        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, "../resources/images/sword.png");
 
         private final String type;
         private final int damage;

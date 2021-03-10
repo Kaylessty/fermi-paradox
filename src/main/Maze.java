@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Random;
+import java.util.ArrayList;
 
 /**
  * The Maze class acts as a graph of sorts for the Rooms, all existing doors can be found in the rooms array and all
@@ -25,18 +26,22 @@ public class Maze {
             rooms[i] = new Room(x,y);
             doornum += rooms[i].getDoornumber();
         }
+        System.out.println("basic rooms created");
         doors = new Door[doornum];
         Room curRoom;
         int curDoorNumber;
         int counter;
         int dcount = 0;
         for(int i = 0; i < doornum; i++) {
+            System.out.println("first for");
             curRoom = rooms[i];
             Door[] doorlist = curRoom.getDoors();
             for(int j = curRoom.getCurDoors(); j <curRoom.getDoors().length; j++){
+                System.out.println("inside for");
                 int v = 1;
                 int k = 1;
                 while(v==1) {
+                    System.out.println("while");
                     if(rooms[j+i+k].getDoors().length==rooms[j+i+k].getCurDoors()) {
                         v = 1;
                     } else {
@@ -45,19 +50,32 @@ public class Maze {
                         rooms[j+i+k].addDoor(newDoor);
                         doors[dcount] = newDoor;
                         dcount++;
+                        v=0; // added to stop infinite while loop
                         k = 0;
                     }
                     if((j+i+k)==rooms.length-1) {
+                        v=0; // added to stop infinite while loop
                         k = 0;
                     }
                 }
 
             }
         }
+        System.out.println("the culprit is the second for");
     }
 
     public Door[] getDoors() {
         return doors;
+    }
+
+    public Door[] getDoorsOfRoom(Room room) {
+        ArrayList<Door> roomDoors = new ArrayList<Door>();
+        for (Door d : doors) {
+            if (d.getRoomA().equals(room) || d.getRoomB().equals(room)) {
+                roomDoors.add(d);
+            }
+        }
+        return (Door [])roomDoors.toArray();
     }
 
     public int getDoornum() {

@@ -50,7 +50,7 @@ public class ConfigScreenTest extends ApplicationTest {
         clickOn("easy");
         clickOn(400, 10).write("Brit");
         clickOn("Continue");
-        verifyThat("Close and try again.", NodeMatchers.isVisilbe());
+        verifyThat("Close and try again.", NodeMatchers.isVisible());
         clickOn("Close and try again.");
         clickOn("Sonar Gun");
         clickOn("Continue");
@@ -63,7 +63,7 @@ public class ConfigScreenTest extends ApplicationTest {
         clickOn("Blaster");
         clickOn(400, 10).write("Brit");
         clickOn("Continue");
-        verifyThat("Close and try again.", NodeMatchers.isVisilbe());
+        verifyThat("Close and try again.", NodeMatchers.isVisible());
         clickOn("Close and try again.");
         clickOn("amateur");
         clickOn("Continue");

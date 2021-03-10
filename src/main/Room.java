@@ -6,7 +6,7 @@ import java.util.Random;
  * The outer 12 pixels around all the edges are walls which are separate from the 18x18 blocks.
  */
 public class Room {
-    private Random rNum = new Random();
+    private static Random rNum = new Random();
     private int row;
     private int column;
     private Locatable[][] room = new Locatable[18][18];

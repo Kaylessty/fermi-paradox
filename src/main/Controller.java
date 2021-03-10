@@ -53,11 +53,15 @@ public class Controller extends Application {
         screen2.getProceed().setOnAction(new ProceedHandler());
     }
 
+    private void configSetUp() {
+
+    }
+
     private void goToThirdScreen() throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
         Scene scene = new Scene(root, 800, 600);
         window.setScene(scene);
-        money.setText(Integer.toString(Player.getBalance()));
+        //money.setText(Integer.toString(Player.getBalance()));
         health.setText(Integer.toString(Player.getHealth()));
         ArrayList<InputMethodTextRun> words = new ArrayList<>();
         //InputMethodEvent moneyTextChange = new InputMethodEvent(InputMethodEvent.INPUT_METHOD_TEXT_CHANGED, money.getText(), Player.getBalance(),10);

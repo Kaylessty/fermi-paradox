@@ -1,12 +1,15 @@
 import main.Controller;
+import main.Player;
 import javafx.stage.Stage;
 import org.junit.Before;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import static org.junit.Assert.assertEquals;
+import org.testfx.matcher.base.NodeMatchers;
+import static org.testfx.api.FxAssert.verifyThat;
 
 
-public class ConfigScreenTest extends ApplicationTest {
+public class Ben_Tests extends ApplicationTest {
 
     private Controller secondScreen;
 
