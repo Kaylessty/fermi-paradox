@@ -40,7 +40,6 @@ public class RoomController extends Application {
         System.out.println("made maze");
         currRoom = theMaze.getRooms()[0];
         System.out.println("got current room");
-        currRoom.setDoors(theMaze.getDoorsOfRoom(currRoom));
         System.out.println("reassigned doors");
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);

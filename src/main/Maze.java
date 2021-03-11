@@ -32,7 +32,7 @@ public class Maze {
         int curDoorNumber;
         int counter;
         int dcount = 0;
-        for(int i = 0; i < doornum; i++) {
+        for(int i = 0; i < roomnum; i++) {
             System.out.println("first for");
             curRoom = rooms[i];
             Door[] doorlist = curRoom.getDoors();
@@ -60,22 +60,13 @@ public class Maze {
                 }
 
             }
+            System.out.println("room added");
         }
         System.out.println("the culprit is the second for");
     }
 
     public Door[] getDoors() {
         return doors;
-    }
-
-    public Door[] getDoorsOfRoom(Room room) {
-        ArrayList<Door> roomDoors = new ArrayList<Door>();
-        for (Door d : doors) {
-            if (d.getRoomA().equals(room) || d.getRoomB().equals(room)) {
-                roomDoors.add(d);
-            }
-        }
-        return (Door [])roomDoors.toArray();
     }
 
     public int getDoornum() {
