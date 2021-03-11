@@ -20,7 +20,7 @@ public class Maze {
      * Creates a maze and fills it with a random number between 5 and 20 random rooms of size x and y.
      */
     public Maze() {
-        roomnum = 5 + rNum.nextInt(20);
+        roomnum = 10 + rNum.nextInt(10);
         rooms = new Room[roomnum];
         for(int i = 0; i < roomnum; i++) {
             rooms[i] = new Room(x,y);
@@ -42,8 +42,21 @@ public class Maze {
                 int k = 1;
                 while(v==1) {
                     System.out.println("while");
-                    if(rooms[j+i+k].getDoors().length==rooms[j+i+k].getCurDoors()) {
-                        v = 1;
+                    System.out.println("doors");
+                    System.out.println(curRoom.getDoors().length);
+                    System.out.println("room num");
+                    System.out.println(i);
+                    System.out.println("room amount");
+                    System.out.println(rooms.length);
+                    if(j+i+k>=rooms.length) {
+                        Door[] doors1 = new Door[curRoom.getCurDoors()];
+                        for (int n = 0; n < curRoom.getCurDoors(); n++) {
+                            doors1[n] = curRoom.getDoors()[n];
+                        }
+                        curRoom.setDoors(doors1);
+                        return;
+                    } else if (rooms[j+i+k].getDoors().length==rooms[j+i+k].getCurDoors()){
+                        y = 1;
                     } else {
                         Door newDoor = new Door(rooms[i],rooms[j+i+k]);
                         curRoom.addDoor(newDoor);
@@ -57,6 +70,7 @@ public class Maze {
                         v=0; // added to stop infinite while loop
                         k = 0;
                     }
+                    System.out.println("whileout");
                 }
 
             }
