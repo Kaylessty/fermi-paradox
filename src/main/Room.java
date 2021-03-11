@@ -13,6 +13,7 @@ public class Room {
     private int doornumber;
     private int roomtype;
     private Door[] doors;
+    private boolean hasHatch = false;
 
 
     /**
@@ -72,5 +73,8 @@ public class Room {
             }
         }
         return ret;
+    }
+    public void setHasHatch(boolean hasHatch) {
+        this.hasHatch = hasHatch;
     }
 }

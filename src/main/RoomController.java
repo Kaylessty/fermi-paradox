@@ -42,6 +42,7 @@ public class RoomController extends Application {
         System.out.println("got current room");
         currRoom.setDoors(currRoom.getDoors());
         System.out.println("reassigned doors");
+        System.out.println(currRoom.getDoornumber());
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
         System.out.println("objects added to room");
