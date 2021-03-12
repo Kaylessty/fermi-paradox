@@ -73,4 +73,16 @@ public class Room {
         }
         return ret;
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) {
+            return false;
+        }
+        if (!(o instanceof Room)) {
+            return false;
+        }
+        Room r = (Room) o;
+        return r.row == this.row && r.column == this.column;
+    }
 }

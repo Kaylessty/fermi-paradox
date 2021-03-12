@@ -26,7 +26,7 @@ public class Maze {
             rooms[i] = new Room(x,y);
             doornum += rooms[i].getDoornumber();
         }
-        System.out.println("basic rooms created");
+        //System.out.println("basic rooms created");
         doors = new Door[doornum];
         Room curRoom;
         int curDoorNumber;
@@ -41,13 +41,13 @@ public class Maze {
                 int v = 1;
                 int k = 1;
                 while(v==1) {
-                    System.out.println("while");
+                    /*System.out.println("while");
                     System.out.println("doors");
                     System.out.println(curRoom.getDoors().length);
                     System.out.println("room num");
                     System.out.println(i);
                     System.out.println("room amount");
-                    System.out.println(rooms.length);
+                    System.out.println(rooms.length);*/
                     if(j+i+k>=rooms.length) {
                         Door[] doors1 = new Door[curRoom.getCurDoors()];
                         for (int n = 0; n < curRoom.getCurDoors(); n++) {
@@ -70,13 +70,13 @@ public class Maze {
                         v=0; // added to stop infinite while loop
                         k = 0;
                     }
-                    System.out.println("whileout");
+                    //System.out.println("whileout");
                 }
 
             }
-            System.out.println("room added");
+            //System.out.println("room added");
         }
-        System.out.println("the culprit is the second for");
+        //System.out.println("the culprit is the second for");
     }
 
     public Door[] getDoors() {
