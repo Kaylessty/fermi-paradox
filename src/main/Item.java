@@ -1,11 +1,6 @@
 package main;
 
 
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-
-import java.io.FileInputStream;
-
 public class Item implements Locatable, Collectible {
 
     private Possession thing;

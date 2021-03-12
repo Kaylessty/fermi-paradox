@@ -1,9 +1,12 @@
 package main;
 
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
+
 public class Player {
-    private static int health;
+    private static IntegerProperty health;
     private static String name;
-    private static int balance;
+    private static IntegerProperty balance;
     private static int strength;
     private static int speed;
 
@@ -12,11 +15,11 @@ public class Player {
         return name;
     }
 
-    public static int getHealth() {
+    public static IntegerProperty getHealth() {
         return health;
     }
 
-    public static int getBalance() {
+    public static IntegerProperty getBalance() {
         return balance;
     }
 
@@ -29,11 +32,11 @@ public class Player {
     }
 
     public static void setBalance(int balance1) {
-        balance = balance1;
+        balance = new SimpleIntegerProperty(balance1);
     }
 
     public static void setHealth(int health1) {
-        health = health1;
+        health = new SimpleIntegerProperty(health1);
     }
 
     public static void setName(String name1) {
