@@ -32,6 +32,8 @@ public class RoomController extends Application {
         //this is to test
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
+        //this is to see what the hatch looks like
+        //currRoom.setHasHatch(true);
 
         //*****************************
 
@@ -75,6 +77,19 @@ public class RoomController extends Application {
                 }
             }
         }
+        // Display the hatch if need be
+        if (currRoom.getHasHatch()) {
+            try {
+                Image picture = new Image("resources/images/exit_portal.png", 100.0, 100.0, true, true);
+                ImageView pictureView = new ImageView(picture);
+                pictureView.setX(350);
+                pictureView.setY(250);
+                pictureView.setOnMouseClicked(e -> escape());
+                root.getChildren().add(pictureView);
+            } catch (IllegalArgumentException e) {
+                System.out.println("The file/image for the item could not be found.");
+            }
+        }
 
         // Display the Doors
         for (int i = 0; i < currRoom.getDoors().length; i++) {
@@ -110,9 +125,24 @@ public class RoomController extends Application {
         displayRoom();
         scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
-        theStage.setScene(scene1);
         theStage.show();
         // that changed the room
+    }
+
+    public void escape() {
+        root = new Group();
+        try {
+            Image background = new Image("resources/images/Background.png");
+            ImageView doneBackground = new ImageView(background);
+            root.getChildren().add(doneBackground);
+        } catch (IllegalArgumentException e) {
+            System.out.println("The file/image for the item could not be found.");
+        }
+        Text congrats = new Text(375, 280, "YOU ESCAPED!");
+        root.getChildren().add(congrats);
+        scene1 = new Scene(root, 800, 600);
+        theStage.setScene(scene1);
+        theStage.show();
     }
 
     public static void main(String[] args) {

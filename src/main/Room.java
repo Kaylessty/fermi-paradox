@@ -106,4 +106,8 @@ public class Room {
     public void setHasHatch ( boolean hasHatch){
         this.hasHatch = hasHatch;
     }
+
+    public boolean getHasHatch() {
+        return hasHatch;
+    }
 }
