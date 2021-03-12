@@ -49,7 +49,7 @@ public class RoomController extends Application {
         root = new Group();
         pillar = new VBox();
         try {
-            ImageView background = new ImageView(new Image("resources/images/Background.png"));
+            ImageView background = new ImageView(new Image("resources/images/room_background.png"));
             pillar.getChildren().add(background);
         } catch (IllegalArgumentException e) {
             System.out.println("background pic not found");
@@ -82,11 +82,20 @@ public class RoomController extends Application {
         }
         // Display the Doors
         for (int i = 0; i < currRoom.getDoors().length; i++) {
-            System.out.println("a door should print");
-            Rectangle rectDoor = new Rectangle(560, (i+1)*50, 20, 40);
-            final Door d = currRoom.getDoors()[i];
-            rectDoor.setOnMouseClicked(e -> changeRoom(d));
-            root.getChildren().add(rectDoor);
+            try {
+                Image picture = new Image("resources/images/door-right.png", 200.0, 200.0, true, true);
+                ImageView pictureView = new ImageView(picture);
+                pictureView.setX(400);
+                pictureView.setY((i+1)*50);
+                final Door d = currRoom.getDoors()[i];
+                pictureView.setOnMouseClicked(e -> changeRoom(d));
+                root.getChildren().add(pictureView);
+            } catch (IllegalArgumentException e) {
+                System.out.println("The file/image for the item could not be found.");
+            }
+            //Rectangle rectDoor = new Rectangle(560, (i+1)*50, 20, 40);
+            //rectDoor.setOnMouseClicked(e -> changeRoom(d));
+            //root.getChildren().add(rectDoor);
         }
     }
 
