@@ -1,6 +1,7 @@
 package main;
 
 import java.util.Random;
+
 /**
  * This class describes a room. A room is a 2-D array (18 by 18) where each block in the room is 32x32 pixels.
  * The outer 12 pixels around all the edges are walls which are separate from the 18x18 blocks.

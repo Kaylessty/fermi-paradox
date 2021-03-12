@@ -6,13 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import javafx.scene.shape.Rectangle;
-
-
-import java.awt.*;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import javafx.stage.Stage;
 
 public class RoomController extends Application {
 
