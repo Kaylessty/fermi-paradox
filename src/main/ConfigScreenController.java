@@ -83,10 +83,10 @@ public class ConfigScreenController {
                     Player.setSpeed(5);
                     Player.setStrength(600);
                 }
-                money = new Label("Should get replaced");
-                health = new Label("Should definitely get replaced");
-                money.textProperty().bind(Player.getBalance().asString());
-                health.textProperty().bind(Player.getHealth().asString());
+                //money = new Label("Should get replaced");
+                //health = new Label("Should definitely get replaced");
+                //money.textProperty().bind(Player.getBalance().asString());
+                //health.textProperty().bind(Player.getHealth().asString());
                 Parent viewParent = FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
                 Scene viewScene = new Scene(viewParent, 800, 600);
 
