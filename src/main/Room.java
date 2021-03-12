@@ -100,7 +100,7 @@ public class Room {
             return false;
         }
         Room r = (Room) o;
-        return r.row == this.row && r.column == this.column;
+        return r.roomName == this.roomName;
     }
 
     public void setHasHatch ( boolean hasHatch){
