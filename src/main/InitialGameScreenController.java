@@ -16,6 +16,7 @@ public class InitialGameScreenController {
     public void initialize() {
         money.textProperty().bind(Player.getBalance().asString());
         health.textProperty().bind(Player.getHealth().asString());
+
     }
 
 }

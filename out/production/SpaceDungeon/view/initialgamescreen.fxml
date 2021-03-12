@@ -4,32 +4,36 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="341.0">
-               <children>
-                  <Label fx:id="health" prefHeight="49.0" prefWidth="321.0" style="-fx-text-fill: red; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),10,0.5,0.0,0.0) dropshadow(gaussian, rgba(0,0,0,0.3),10,0.7,0.0,0.0);">
-                     <font>
-                        <Font name="Lao MN" size="32.0" />
-                     </font></Label>
-               </children>
-            </VBox>
+            <Text fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text=" Hp ">
+               <font>
+                  <Font name="Lao MN" size="32.0" />
+               </font>
+            </Text>
+            <Label fx:id="health" prefHeight="55.0" prefWidth="76.0" style="-fx-text-fill: red; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),10,0.5,0.0,0.0) dropshadow(gaussian, rgba(0,0,0,0.3),10,0.7,0.0,0.0);">
+               <font>
+                  <Font name="Lao MN" size="32.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
    </bottom>
    <top>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
-            <VBox alignment="CENTER" prefHeight="80.0" prefWidth="246.0">
-               <children>
-                  <Label fx:id="money" contentDisplay="CENTER" prefHeight="49.0" prefWidth="146.0" style="-fx-text-fill: yellow; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),10,0.7,0.0,0.0);">
-                     <font>
-                        <Font name="Lao MN" size="32.0" />
-                     </font></Label>
-               </children>
-            </VBox>
+            <Text fill="#fcee2f" strokeType="OUTSIDE" strokeWidth="0.0" text="\$ ">
+               <font>
+                  <Font name="Lao MN" size="32.0" />
+               </font>
+            </Text>
+            <Label fx:id="money" contentDisplay="CENTER" prefHeight="55.0" prefWidth="146.0" style="-fx-text-fill: yellow; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),10,0.7,0.0,0.0);">
+               <font>
+                  <Font name="Lao MN" size="32.0" />
+               </font>
+            </Label>
          </children>
       </HBox>
    </top>

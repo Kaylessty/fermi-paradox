@@ -22,7 +22,7 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
   </component>
-  <component name="RunManager" selected="Application.RoomController">
+  <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="SpaceDungeon" />
@@ -57,8 +57,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.RoomController" />
         <item itemvalue="Application.Main" />
+        <item itemvalue="Application.RoomController" />
       </list>
     </recent_temporary>
   </component>
