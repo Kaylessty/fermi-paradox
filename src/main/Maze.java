@@ -21,9 +21,9 @@ public class Maze {
     public Maze() {
         roomnum = 10 + rNum.nextInt(10);
         rooms = new Room[roomnum];
-        rooms[0] = new Room(x, y, 4, 1);
+        rooms[0] = new Room(x, y, 4, 1, "first");
         for(int i = 1; i < roomnum; i++) {
-            rooms[i] = new Room(x,y);
+            rooms[i] = new Room(x,y,"" + i);
             doornum += rooms[i].getDoornumber();
         }
 

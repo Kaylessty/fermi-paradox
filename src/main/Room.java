@@ -15,6 +15,7 @@ public class Room {
     private int roomtype;
     private Door[] doors;
     private boolean hasHatch = false;
+    private String roomName;
 
 
     /**
@@ -22,21 +23,23 @@ public class Room {
      * @param row the row number on the grid where this room is. Rows start at 0.
      * @param column the column number on the grid where the room is. Columns start at 0.
      */
-    public Room(int row, int column) {
+    public Room(int row, int column, String roomName) {
         this.row = row;
         this.column = column;
         room = new Locatable[18][18];
         doornumber = 1 + rNum.nextInt(4);
         roomtype = 1 + rNum.nextInt(3);
         doors = new Door[doornumber];
+        this.roomName = "room " + roomName;
     }
 
-    public Room(int row, int column, int doornumber, int roomtype) {
+    public Room(int row, int column, int doornumber, int roomtype, String roomName) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
         this.roomtype = roomtype;
         doors = new Door[doornumber];
+        this.roomName = "room " + roomName;
     }
 
     public void addObject(Locatable object, int x, int y) {
@@ -50,6 +53,10 @@ public class Room {
 
     public Door[] getDoors() {
         return doors;
+    }
+
+    public String getRoomName() {
+        return roomName;
     }
 
     public void setDoors(Door[] doors) {
@@ -74,6 +81,14 @@ public class Room {
             }
         }
         return ret;
+    }
+
+    public int getRow() {
+        return row;
+    }
+
+    public int getColumn() {
+        return column;
     }
 
     @Override

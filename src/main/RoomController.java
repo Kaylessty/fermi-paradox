@@ -6,8 +6,8 @@ import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
-import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
+import javafx.scene.text.Text;
 
 public class RoomController extends Application {
 
@@ -26,16 +26,10 @@ public class RoomController extends Application {
 
     @Override
     public void start(Stage primaryStage) {
-        // This is just to test the accuracy of the program pre Room class
-        /*Locatable[][] room1 = new Locatable[18][18];
-        room1[0][0] = new Item(Item.Possession.SPACESWORD, 0, 0);
-        room1[6][10] = new Item(Item.Possession.SONARGUN, 6, 10);
-        currRoom = room1;*/
-
-        // This is to test
+        //Create the maze
         theMaze = new Maze();
         currRoom = theMaze.getRooms()[0];
-        currRoom.setDoors(currRoom.getDoors());
+        //this is to test
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
 
@@ -49,15 +43,21 @@ public class RoomController extends Application {
         } catch (IllegalArgumentException e) {
             System.out.println("background pic not found");
         }
-            root.getChildren().add(pillar);
-            displayRoom();
-            scene1 = new Scene(root, 576, 576);
-            primaryStage.setScene(scene1);
-            primaryStage.show();
-            theStage = primaryStage;
+        //Add pillar/background before displayRoom()!
+        root.getChildren().add(pillar);
+        displayRoom();
+        scene1 = new Scene(root, 800, 600);
+        primaryStage.setScene(scene1);
+        primaryStage.show();
+        theStage = primaryStage;
     }
 
     public void displayRoom() {
+        // For testing: shows the room that we are in
+        Text t = new Text(50, 50, currRoom.getRoomName());
+        root.getChildren().add(t);
+
+        // Displays the items currently in the room
         for (int row = 0; row < currRoom.getRoom().length; row++) {
             for (int column = 0; column < currRoom.getRoom()[row].length; column++) {
                 if (currRoom.getRoom()[row][column] != null) {
@@ -75,38 +75,44 @@ public class RoomController extends Application {
                 }
             }
         }
+
         // Display the Doors
         for (int i = 0; i < currRoom.getDoors().length; i++) {
             try {
-                Image picture = new Image("resources/images/door-right.png", 200.0, 200.0, true, true);
-                ImageView pictureView = new ImageView(picture);
-                pictureView.setX(400);
-                pictureView.setY((i+1)*50);
                 final Door d = currRoom.getDoors()[i];
+                Image picture = new Image("resources/images/door.png", 15.0, 30.0, true, true);
+                ImageView pictureView = new ImageView(picture);
+                if (i % 2 == 1) {
+                    pictureView.setX(10);
+                } else {
+                    pictureView.setX(780);
+                }
+                pictureView.setY((i+1)*50);
                 pictureView.setOnMouseClicked(e -> changeRoom(d));
                 root.getChildren().add(pictureView);
             } catch (IllegalArgumentException e) {
                 System.out.println("The file/image for the item could not be found.");
             }
-            //Rectangle rectDoor = new Rectangle(560, (i+1)*50, 20, 40);
-            //rectDoor.setOnMouseClicked(e -> changeRoom(d));
-            //root.getChildren().add(rectDoor);
         }
     }
 
     private void changeRoom(Door door) {
+        System.out.println("changed room");
+        //check which room we should be changing to, could be an issue with room equality
         if (currRoom.equals(door.getRoomA())) {
             currRoom = door.getRoomB();
         } else {
             currRoom = door.getRoomA();
         }
+        // each scene needs its own group
         root = new Group();
         root.getChildren().add(pillar);
         displayRoom();
-        scene1 = new Scene(root, 576, 576);
+        scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
         theStage.setScene(scene1);
         theStage.show();
+        // that changed the room
     }
 
     public static void main(String[] args) {
