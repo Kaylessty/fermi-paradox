@@ -1,7 +1,6 @@
 package main;
 
 import java.util.Random;
-import java.util.ArrayList;
 
 /**
  * The Maze class acts as a graph of sorts for the Rooms, all existing doors can be found in the rooms array and all
@@ -22,32 +21,24 @@ public class Maze {
     public Maze() {
         roomnum = 10 + rNum.nextInt(10);
         rooms = new Room[roomnum];
-        for(int i = 0; i < roomnum; i++) {
+        rooms[0] = new Room(x, y, 4, 1);
+        for(int i = 1; i < roomnum; i++) {
             rooms[i] = new Room(x,y);
             doornum += rooms[i].getDoornumber();
         }
-        //System.out.println("basic rooms created");
+
         doors = new Door[doornum];
         Room curRoom;
         int curDoorNumber;
         int counter;
         int dcount = 0;
         for(int i = 0; i < roomnum; i++) {
-            System.out.println("first for");
             curRoom = rooms[i];
             Door[] doorlist = curRoom.getDoors();
             for(int j = curRoom.getCurDoors(); j <curRoom.getDoors().length; j++){
-                System.out.println("inside for");
                 int v = 1;
                 int k = 1;
                 while(v==1) {
-                    /*System.out.println("while");
-                    System.out.println("doors");
-                    System.out.println(curRoom.getDoors().length);
-                    System.out.println("room num");
-                    System.out.println(i);
-                    System.out.println("room amount");
-                    System.out.println(rooms.length);*/
                     if(j+i+k>=rooms.length) {
                         Door[] doors1 = new Door[curRoom.getCurDoors()];
                         for (int n = 0; n < curRoom.getCurDoors(); n++) {
@@ -70,13 +61,11 @@ public class Maze {
                         v=0; // added to stop infinite while loop
                         k = 0;
                     }
-                    //System.out.println("whileout");
                 }
 
             }
-            //System.out.println("room added");
         }
-        //System.out.println("the culprit is the second for");
+        rooms[rooms.length-1].setHasHatch(true);
     }
 
     public Door[] getDoors() {

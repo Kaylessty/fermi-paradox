@@ -13,6 +13,7 @@ public class Room {
     private int doornumber;
     private int roomtype;
     private Door[] doors;
+    private boolean hasHatch = false;
 
 
     /**
@@ -67,7 +68,7 @@ public class Room {
     public int getCurDoors() {
         int ret = 0;
         for (int i = 0; i < doors.length; i++) {
-            if(doors[i] != null) {
+            if (doors[i] != null) {
                 ret++;
             }
         }
@@ -75,7 +76,7 @@ public class Room {
     }
 
     @Override
-    public boolean equals(Object o) {
+    public boolean equals(Object o){
         if (o == null) {
             return false;
         }
@@ -84,5 +85,9 @@ public class Room {
         }
         Room r = (Room) o;
         return r.row == this.row && r.column == this.column;
+    }
+
+    public void setHasHatch ( boolean hasHatch){
+        this.hasHatch = hasHatch;
     }
 }

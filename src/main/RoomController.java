@@ -67,9 +67,6 @@ public class RoomController extends Application {
             for (int column = 0; column < currRoom.getRoom()[row].length; column++) {
                 if (currRoom.getRoom()[row][column] != null) {
                     Locatable important = currRoom.getRoom()[row][column];
-                    //Rectangle thing = new Rectangle(row, column);
-                    //root.getChildren().add(thing);
-                    //System.out.println("we got here");
                     String imageURL = important.getImageURL();
                     try {
                         Image picture = new Image(imageURL, 50.0, 50.0, true, true);
