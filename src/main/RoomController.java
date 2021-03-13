@@ -114,6 +114,7 @@ public class RoomController extends Application {
     private void changeRoom(Door door) {
         System.out.println("changed room");
         //check which room we should be changing to, could be an issue with room equality
+        System.out.println(door.getRoomA().getRoomName());
         if (currRoom.equals(door.getRoomA())) {
             currRoom = door.getRoomB();
         } else {
