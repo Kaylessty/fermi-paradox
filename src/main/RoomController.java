@@ -55,7 +55,9 @@ public class RoomController extends Application {
         primaryStage.show();
         theStage = primaryStage;
     }
-
+   /*
+   This method displays the current room on the scene.
+    */
     public void displayRoom() {
         // For testing: shows the room that we are in
         Text t = new Text(50, 50, currRoom.getRoomName());
@@ -117,7 +119,9 @@ public class RoomController extends Application {
             }
         }
     }
-
+    /*
+    This method this changes the current room
+     */
     private void changeRoom(Door door) {
         System.out.println("changed room");
         lastDoor = door;
@@ -137,7 +141,9 @@ public class RoomController extends Application {
         theStage.show();
         // that changed the room
     }
-
+    /*
+    This method escapes the maze and displays the ending scene
+     */
     public void escape() {
         root = new Group();
         try {
