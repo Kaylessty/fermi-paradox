@@ -67,9 +67,12 @@ public class Room {
         return doornumber;
     }
     public void addDoor(Door door) {
+        int g = 0;
         for (int i = 0; i < doors.length; i++) {
-            if(doors[i] == null) {
+            if(doors[i] == null && g != 1) {
                 doors[i] = door;
+                g = 1;
+                return;
             }
         }
     }

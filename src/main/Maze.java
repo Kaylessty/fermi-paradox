@@ -21,12 +21,13 @@ public class Maze {
     public Maze() {
         roomnum = 10 + rNum.nextInt(10);
         rooms = new Room[roomnum];
+        System.out.println(rooms.length);
         rooms[0] = new Room(x, y, 4, 1, "first");
         for(int i = 1; i < roomnum; i++) {
             rooms[i] = new Room(x,y,"" + i);
             doornum += rooms[i].getDoornumber();
         }
-
+        rooms[rooms.length-2] = new Room(x, y, 4, 1, "last");
         doors = new Door[doornum];
         Room curRoom;
         int curDoorNumber;
@@ -34,38 +35,42 @@ public class Maze {
         int dcount = 0;
         for(int i = 0; i < roomnum; i++) {
             curRoom = rooms[i];
-            Door[] doorlist = curRoom.getDoors();
-            for(int j = curRoom.getCurDoors(); j <curRoom.getDoors().length; j++){
+            int k = 1;
+            int cudoor = curRoom.getCurDoors();
+            for(int j = 0; j <curRoom.getDoors().length-cudoor; j++){
                 int v = 1;
-                int k = 1;
                 while(v==1) {
-                    if(j+i+k>=rooms.length) {
+                    if(i+k >= rooms.length) {
                         Door[] doors1 = new Door[curRoom.getCurDoors()];
                         for (int n = 0; n < curRoom.getCurDoors(); n++) {
                             doors1[n] = curRoom.getDoors()[n];
                         }
                         curRoom.setDoors(doors1);
-                        return;
-                    } else if (rooms[j+i+k].getDoors().length==rooms[j+i+k].getCurDoors()){
+                        v = 0;
+                    } else if (rooms[i+k].getDoors().length-1<=rooms[i+k].getCurDoors() || rooms[i+k].getDoors().length == 1){
                         y = 1;
+                        k += 1;
                     } else {
-                        Door newDoor = new Door(rooms[i],rooms[j+i+k]);
-                        curRoom.addDoor(newDoor);
-                        rooms[j+i+k].addDoor(newDoor);
-                        doors[dcount] = newDoor;
-                        dcount++;
-                        v=0; // added to stop infinite while loop
-                        k = 0;
+                        if(rooms[i].getDoors().length>rooms[i].getCurDoors()) {
+                            Door newDoor = new Door(rooms[i],rooms[i+k]);
+                            curRoom.addDoor(newDoor);
+                            rooms[i + k].addDoor(newDoor);
+                            rooms[i].addDoor(newDoor);
+                            doors[dcount] = newDoor;
+                            dcount++;
+                        }
+                        k += 1;
+                        v = 0; // added to stop infinite while loop
                     }
-                    if((j+i+k)==rooms.length-1) {
+                    if((i+k)==rooms.length-1) {
+                        k += 1;
                         v=0; // added to stop infinite while loop
-                        k = 0;
                     }
                 }
 
             }
         }
-        rooms[rooms.length-1].setHasHatch(true);
+        rooms[rooms.length-2].setHasHatch(true);
     }
 
     public Door[] getDoors() {
