@@ -17,6 +17,7 @@ public class RoomController extends Application {
     private Maze theMaze;
     private VBox pillar;
     private Stage theStage;
+    private Door lastDoor;
 
     /*
     public RoomController(Locatable[][] currRoom) {
@@ -28,6 +29,7 @@ public class RoomController extends Application {
     public void start(Stage primaryStage) {
         //Create the maze
         theMaze = new Maze();
+        lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
@@ -95,12 +97,17 @@ public class RoomController extends Application {
         for (int i = 0; i < currRoom.getDoors().length; i++) {
             try {
                 final Door d = currRoom.getDoors()[i];
-                Image picture = new Image("resources/images/door.png", 15.0, 30.0, true, true);
+                Image picture;
+                if (!d.equals(lastDoor)) {
+                    picture = new Image("resources/images/door.png", 20.0, 40.0, true, true);
+                } else {
+                    picture = new Image("resources/images/other-door.png", 20.0, 40.0, true, true);
+                }
                 ImageView pictureView = new ImageView(picture);
                 if (i % 2 == 1) {
                     pictureView.setX(10);
                 } else {
-                    pictureView.setX(780);
+                    pictureView.setX(785);
                 }
                 pictureView.setY((i+1)*50);
                 pictureView.setOnMouseClicked(e -> changeRoom(d));
@@ -113,6 +120,7 @@ public class RoomController extends Application {
 
     private void changeRoom(Door door) {
         System.out.println("changed room");
+        lastDoor = door;
         //check which room we should be changing to, could be an issue with room equality
         System.out.println(door.getRoomA().getRoomName());
         if (currRoom.equals(door.getRoomA())) {
