@@ -17,6 +17,11 @@ public class Maze {
 
     /**
      * Creates a maze and fills it with a random number between 10 and 20 random rooms.
+    private int x;
+    private int y;
+
+    /**
+     * Creates a maze and fills it with a random number between 5 and 20 random rooms of size x and y.
      */
     public Maze() {
         roomnum = 10 + rNum.nextInt(10);
@@ -27,6 +32,8 @@ public class Maze {
         for(int i = 1; i < roomnum; i++) {
             rooms[i] = new Room(x,y,"" + i);
             // Shouldn't doornum start off at the value 4?
+        for(int i = 1; i < roomnum; i++) {
+            rooms[i] = new Room(x,y,"" + i);
             doornum += rooms[i].getDoornumber();
         }
         rooms[rooms.length-2] = new Room(x, y, 4, 1, "last");
@@ -44,6 +51,8 @@ public class Maze {
             for(int j = 0; j <curRoom.getDoors().length-cudoor; j++){
                 int v = 1;
                 // Finding a suitable room to connect to the door
+            for(int j = 0; j <curRoom.getDoors().length-cudoor; j++){
+                int v = 1;
                 while(v==1) {
                     if(i+k >= rooms.length) {
                         Door[] doors1 = new Door[curRoom.getCurDoors()];

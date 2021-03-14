@@ -12,7 +12,12 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 
+
 public class RoomController {
+
+=======
+
+public class RoomController extends Application {
 
     private Room currRoom;
     private Scene scene1;
@@ -25,6 +30,8 @@ public class RoomController {
     private Label health;
     InitialGameScreenController temp = new InitialGameScreenController();
 
+    private Stage theStage;
+    private Door lastDoor;
 
     /*
     public RoomController(Locatable[][] currRoom) {
@@ -33,6 +40,8 @@ public class RoomController {
      */
 
     public RoomController() {
+    @Override
+    public void start(Stage primaryStage) {
         //Create the maze
         theMaze = new Maze();
         lastDoor = null;
@@ -41,6 +50,9 @@ public class RoomController {
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
         //this is to see what the hatch looks like
+        //currRoom.setHasHatch(true);
+
+        //*****************************
 
         root = new Group();
         pillar = new VBox();
@@ -60,6 +72,16 @@ public class RoomController {
     /*
     This method displays the current room on the scene.
      */
+        root.getChildren().add(pillar);
+        displayRoom();
+        scene1 = new Scene(root, 800, 600);
+        primaryStage.setScene(scene1);
+        primaryStage.show();
+        theStage = primaryStage;
+    }
+   /*
+   This method displays the current room on the scene.
+    */
     public void displayRoom() {
         // For testing: shows the room that we are in
         Text t = new Text(50, 50, currRoom.getRoomName());
@@ -121,6 +143,46 @@ public class RoomController {
                 System.out.println("The file/image for the item could not be found.");
             }
         }
+    }
+    /*
+    This method this changes the current room
+     */
+    private void changeRoom(Door door) {
+        System.out.println("changed room");
+        lastDoor = door;
+        //check which room we should be changing to, could be an issue with room equality
+        System.out.println(door.getRoomA().getRoomName());
+        if (currRoom.equals(door.getRoomA())) {
+            currRoom = door.getRoomB();
+        } else {
+            currRoom = door.getRoomA();
+        }
+        // each scene needs its own group
+        root = new Group();
+        root.getChildren().add(pillar);
+        displayRoom();
+        scene1 = new Scene(root, 800, 600);
+        theStage.setScene(scene1);
+        theStage.show();
+        // that changed the room
+    }
+    /*
+    This method escapes the maze and displays the ending scene
+     */
+    public void escape() {
+        root = new Group();
+        try {
+            Image background = new Image("resources/images/Background.png");
+            ImageView doneBackground = new ImageView(background);
+            root.getChildren().add(doneBackground);
+        } catch (IllegalArgumentException e) {
+            System.out.println("The file/image for the item could not be found.");
+        }
+        Text congrats = new Text(375, 280, "YOU ESCAPED!");
+        root.getChildren().add(congrats);
+        scene1 = new Scene(root, 800, 600);
+        theStage.setScene(scene1);
+        theStage.show();
     }
     /*
     This method this changes the current room

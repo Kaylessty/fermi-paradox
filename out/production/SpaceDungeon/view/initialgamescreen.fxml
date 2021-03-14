@@ -4,7 +4,11 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
+<<<<<<< HEAD
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
+=======
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
    <bottom>
       <HBox alignment="CENTER_LEFT" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
          <children>
@@ -18,7 +22,10 @@
                   <Font name="Lao MN" size="32.0" />
                </font>
             </Label>
+<<<<<<< HEAD
             <Button fx:id="enteringMaze" alignment="CENTER_RIGHT" mnemonicParsing="false" onAction="#enterMaze" text="Enter the maze" />
+=======
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
          </children>
       </HBox>
    </bottom>

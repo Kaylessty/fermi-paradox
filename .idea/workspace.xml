@@ -7,6 +7,7 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+<<<<<<< HEAD
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
@@ -14,6 +15,8 @@
       </list>
     </option>
   </component>
+=======
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -32,6 +35,7 @@
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+<<<<<<< HEAD
     <property name="Downloaded.Files.Path.Enabled" value="false" />
     <property name="Repository.Attach.Annotations" value="false" />
     <property name="Repository.Attach.JavaDocs" value="false" />
@@ -39,6 +43,11 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Desktop/SpaceDungeon-Brent" />
+=======
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../javafx/javafx-sdk-11.0.2/lib" />
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -47,6 +56,10 @@
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="SpaceDungeon" />
+<<<<<<< HEAD
+=======
+      <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml" />
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -60,6 +73,10 @@
     <configuration name="RoomController" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.RoomController" />
       <module name="SpaceDungeon" />
+<<<<<<< HEAD
+=======
+      <option name="VM_PARAMETERS" value="--module-path $PATH_TO_FX$ --add-modules javafx.controls,javafx.fxml" />
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -81,6 +98,7 @@
       </list>
     </recent_temporary>
   </component>
+<<<<<<< HEAD
   <component name="ServiceViewManager">
     <option name="viewStates">
       <list>
@@ -94,6 +112,9 @@
     </option>
   </component>
   <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+=======
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -112,13 +133,18 @@
       <map>
         <entry key="MAIN">
           <value>
+<<<<<<< HEAD
             <State>
               <option name="COLUMN_ORDER" />
             </State>
+=======
+            <State />
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
           </value>
         </entry>
       </map>
     </option>
+<<<<<<< HEAD
   </component>
   <component name="WindowStateProjectService">
     <state x="275" y="26" key="#Configure_Path_Variables" timestamp="1615682042380">
@@ -177,5 +203,8 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1615682263247" />
+=======
+    <option name="oldMeFiltersMigrated" value="true" />
+>>>>>>> 90fdaee13dbd90969d41bcceed9c4d0cf97a5f21
   </component>
 </project>
