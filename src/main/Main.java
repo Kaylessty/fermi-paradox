@@ -10,8 +10,8 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private Parent rootNode;
-    private Label money;
-    private Label health;
+//    private Label money;
+//    private Label health;
 
     public static void main(final String[] args) {
         Application.launch(args);
@@ -21,8 +21,8 @@ public class Main extends Application {
     public void init() throws Exception {
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/firstscreen.fxml"));
         rootNode = fxmlLoader.load();
-        money = ConfigScreenController.getMoney();
-        health = ConfigScreenController.getHealth();
+//        money = ConfigScreenController.getMoney();
+//        health = ConfigScreenController.getHealth();
     }
 
     @Override

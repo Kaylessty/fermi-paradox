@@ -2,7 +2,9 @@ package main;
 
 import javafx.beans.property.IntegerProperty;
 import javafx.beans.property.SimpleIntegerProperty;
-
+/*
+This acts as a data class for the player of the game.
+ */
 public class Player {
     private static IntegerProperty health;
     private static String name;
