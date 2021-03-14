@@ -113,13 +113,5 @@ public class ConfigScreenController {
         }
     }
 
-    public static Label getMoney() {
-        return money;
-    }
-
-    public static Label getHealth() {
-        return health;
-    }
 }
-
 

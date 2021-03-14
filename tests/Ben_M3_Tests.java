@@ -9,7 +9,7 @@ import org.testfx.matcher.base.NodeMatchers;
 import static org.testfx.api.FxAssert.verifyThat;
 
 
-public class Ben_Tests extends ApplicationTest {
+public class Ben_M3_Tests extends ApplicationTest {
 
     private Controller secondScreen;
 
