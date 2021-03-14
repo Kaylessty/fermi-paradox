@@ -1,11 +1,13 @@
 package main;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
 import javafx.scene.Group;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
@@ -17,8 +19,12 @@ public class RoomController {
     private Group root;
     private Maze theMaze;
     private VBox pillar;
-    private Stage theStage;
+    private Stage theStage = Main.getPrimaryStage();
     private Door lastDoor;
+    private Label money;
+    private Label health;
+    InitialGameScreenController temp = new InitialGameScreenController();
+
 
     /*
     public RoomController(Locatable[][] currRoom) {
@@ -26,8 +32,7 @@ public class RoomController {
     }
      */
 
-    @FXML
-    public void playGame() {
+    public RoomController() {
         //Create the maze
         theMaze = new Maze();
         lastDoor = null;
@@ -36,9 +41,6 @@ public class RoomController {
         currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
         //this is to see what the hatch looks like
-        //currRoom.setHasHatch(true);
-
-        //*****************************
 
         root = new Group();
         pillar = new VBox();
@@ -49,17 +51,15 @@ public class RoomController {
             System.out.println("background pic not found");
         }
         //Add pillar/background before displayRoom()!
+
         root.getChildren().add(pillar);
         displayRoom();
-        //theStage = (Stage)root.getScene().getWindow(); // Might work?
         scene1 = new Scene(root, 800, 600);
-        theStage.setScene(scene1); // Here is the NullPointerException ****************-------__________----------______**********
-        theStage.setResizable(false);
-        theStage.show();
+
     }
-   /*
-   This method displays the current room on the scene.
-    */
+    /*
+    This method displays the current room on the scene.
+     */
     public void displayRoom() {
         // For testing: shows the room that we are in
         Text t = new Text(50, 50, currRoom.getRoomName());
@@ -114,6 +114,7 @@ public class RoomController {
                     pictureView.setX(785);
                 }
                 pictureView.setY((i+1)*50);
+                // No more exceptions
                 pictureView.setOnMouseClicked(e -> changeRoom(d));
                 root.getChildren().add(pictureView);
             } catch (IllegalArgumentException e) {
@@ -139,8 +140,10 @@ public class RoomController {
         root.getChildren().add(pillar);
         displayRoom();
         scene1 = new Scene(root, 800, 600);
+
         theStage.setScene(scene1);
         theStage.show();
+
         // that changed the room
     }
     /*
@@ -162,4 +165,9 @@ public class RoomController {
         theStage.show();
     }
 
+    public Scene getScene() {
+        return scene1;
+    }
+
 }
+

@@ -14,6 +14,8 @@ import java.io.IOException;
 
 public class InitialGameScreenController {
 
+    Scene scene;
+
     @FXML
     private Label health;
 
@@ -33,17 +35,23 @@ public class InitialGameScreenController {
     @FXML
     private void enterMaze(ActionEvent event) {
         try {
-            Parent viewParent = FXMLLoader.load(getClass().getResource("/view/roomcontroller.fxml"));
-            Scene viewScene = new Scene(viewParent, 800, 600);
-
-            //This line gets the Stage information
-            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            window.setScene(viewScene);
-            window.setResizable(false);
-            window.show();
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/roomcontroller.fxml"));
+            Parent viewParent = loader.load();
+            RoomController roomControl = loader.getController();
+            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            scene = roomControl.getScene();
+            window.setScene(scene);
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
+    }
+
+    public Label getMoney() {
+        return money;
+    }
+
+    public Label getHealth() {
+        return health;
     }
 
 }
