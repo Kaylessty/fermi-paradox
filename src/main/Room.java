@@ -103,7 +103,7 @@ public class Room {
             return false;
         }
         Room r = (Room) o;
-        return r.roomName == this.roomName;
+        return r.roomName.equals(this.roomName);
     }
 
     public void setHasHatch ( boolean hasHatch){

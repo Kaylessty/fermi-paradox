@@ -1,4 +1,4 @@
-import main.Controller;
+import main.Main;
 import main.Player;
 import javafx.stage.Stage;
 import org.junit.Before;
@@ -11,11 +11,11 @@ import static org.testfx.api.FxAssert.verifyThat;
 
 public class Ben_Tests extends ApplicationTest {
 
-    private Controller secondScreen;
+    private Main secondScreen;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        secondScreen = new Controller();
+        secondScreen = new Main();
         secondScreen.start(primaryStage);
     }
 

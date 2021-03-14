@@ -1,4 +1,4 @@
-import main.Controller;
+import main.Main;
 import javafx.stage.Stage;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
@@ -8,7 +8,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 public class FirstScreenTest extends ApplicationTest {
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Controller controller = new Controller();
+        Main controller = new Main();
         controller.start(primaryStage);
     }
 

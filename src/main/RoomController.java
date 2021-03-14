@@ -122,6 +122,10 @@ public class RoomController {
             }
         }
     }
+
+    public Room getCurrRoom() {
+        return currRoom;
+    }
     /*
     This method this changes the current room
      */
