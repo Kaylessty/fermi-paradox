@@ -14,7 +14,7 @@ public interface Locatable {
 
     /**
      * This method is helpful in displaying the Locatable object.
-     * @return
+     * @return the image url
      */
     String getImageURL();
 

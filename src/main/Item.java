@@ -6,17 +6,21 @@ public class Item implements Locatable, Collectible {
     private Possession thing;
     private int row;
     private int column;
-/**
- * This enum represents all the possible Items the Player can carry with him/her.
- * All of these items can be carried and therefore implement both Locatable and Collectible.
- * The fields of each enum type passed into the constructor represent properties of the item.
- * These fields are in the order
- * (String type, damage, range, housingSpace, healthBoost, strengthBoost, speedBoost, purchaseCost,
- * returnCost, walkable, url)
- */
+
+    /**
+     * This enum represents all the possible Items the Player can carry with him/her.
+     * All of these items can be carried and therefore implement both Locatable and Collectible.
+     * The fields of each enum type passed into the constructor represent properties of the item.
+     * These fields are in the order
+     * (String type, damage, range, housingSpace, healthBoost,
+     * strengthBoost, speedBoost, purchaseCost,
+     * returnCost, walkable, url)
+     */
     public enum Possession  {
-        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, "resources/images/sword.png"),
-        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, "resources/images/sword.png");
+        SPACESWORD("Weapon", 200, 1,
+                0,  "resources/images/sword.png"),
+        SONARGUN("Weapon", 150, 10,
+                0, "resources/images/sword.png");
 
         private final String type;
         private final int damage;
@@ -30,19 +34,20 @@ public class Item implements Locatable, Collectible {
         private final boolean walkable;
         private final String imageURL;
 
-        Possession(String type, int damage, int range, int housingSpace, int healthBoost,
-                   int strengthBoost, int speedBoost, int purchaseCost, int returnCost,
-                   boolean walkable, String imageURL) {
+        //Possession(String type, int damage, int range, int housingSpace, int healthBoost,
+        //int strengthBoost, int speedBoost, int purchaseCost, int returnCost,
+        //boolean walkable, String imageURL) {
+        Possession(String type, int damage, int range, int purchaseCost, String imageURL) {
             this.type = type;
             this.damage = damage;
             this.range = range;
-            this.housingSpace = housingSpace;
-            this.healthBoost = healthBoost;
-            this.strengthBoost = strengthBoost;
-            this.speedBoost = speedBoost;
+            this.housingSpace = 0;
+            this.healthBoost = 0;
+            this.strengthBoost = 0;
+            this.speedBoost = 0;
             this.purchaseCost = purchaseCost;
-            this.returnCost = returnCost;
-            this.walkable = walkable;
+            this.returnCost = 0;
+            this.walkable = false;
             this.imageURL = imageURL;
         }
     }
@@ -85,6 +90,7 @@ public class Item implements Locatable, Collectible {
 
     /**
      * This method overrides the method from the Locatable interface.
+     * @return String the image url
      */
     public String getImageURL() {
         return thing.imageURL;

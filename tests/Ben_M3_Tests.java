@@ -44,17 +44,12 @@ public class Ben_M3_Tests extends ApplicationTest {
     }
 
     /**
-     * TODO: This test doesn't function
-    * Test to ensure that upon exiting a room and returning through the same
-    * door, you return to the room you were just in.
-    */
-    //@Test
-   /*public void testDoorReturn() {
-        //Note: Logic assumes door order is "logical" in a sense, and that array pos links to room pos.
-        clickOn(get);
-        clickOn(getDoors()[2]);
-        assertEquals(currRoom.getRoomName(), "room first");
-    }*/
+     * Test to ensure that the minimum required number of rooms exist
+     */
+    @Test
+    public void testRoomNumber() {
+        assertEquals((getRooms().length - 2) >= 8, true);
+    }
 
     /**
     * Test to ensure existance of an exit room upon random generation
