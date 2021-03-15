@@ -39,15 +39,11 @@ public class Ben_Tests extends ApplicationTest {
     }
 
     /**
-    * Test to ensure that upon exiting a room and returning through the same
-    * door, you return to the room you were just in.
+    * Test to ensure that the minimum required number of rooms exist
     */
     @Test
-    public void testDoorReturn() {
-        //Note: Logic assumes door order is "logical" in a sense, and that array pos links to room pos.
-        clickOn(getDoors()[0]);
-        clickOn(getDoors()[2]);
-        assertEquals(currRoom.getRoomName(), "room first");
+    public void testRoomNumber() {
+        assertEquals((getRooms().length - 2) >= 8, true);
     }
 
     /**
