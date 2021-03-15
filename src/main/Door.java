@@ -3,27 +3,15 @@ package main;
 /**
  * This class acts as the door from room to room as well as the node connecting the rooms
  */
-public class Door implements Locatable {
+public class Door {
     private Room roomA;
     private Room roomB;
     private String imageUrl;
-    private int x;
-    private int y;
 
     public Door(Room roomA, Room roomB) {
         this.roomA = roomA;
         this.roomB = roomB;
         this.imageUrl = "resources/images/door.png";
-        x = 8;
-        y = 0;
-    }
-
-    public Door(Room roomA, Room roomB, String url, int x, int y) {
-        this.roomA = roomA;
-        this.roomB = roomB;
-        this.imageUrl = url;
-        this.x = x;
-        this.y = y;
     }
 
     public Room getRoomA() {
@@ -34,7 +22,7 @@ public class Door implements Locatable {
         return roomB;
     }
 
-    public String getImageURL() { return imageUrl; }
+    public String getImageUrl() { return imageUrl; }
 
     public void setRoomA(Room roomA) {
         this.roomA = roomA;
@@ -44,19 +32,7 @@ public class Door implements Locatable {
         this.roomB = roomB;
     }
 
-    public void setImageURL(String url) { this.imageUrl = url;}
-
-    public void setX(int x) {
-        this.x = x;
-    }
-
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int[] getLocation() {
-        return new int[] {x, y};
-    }
+    public void setImageUrl(String url) { this.imageUrl = url;}
 
 
     @Override
@@ -68,7 +44,7 @@ public class Door implements Locatable {
             return false;
         }
         Door d = (Door) obj;
-        return roomA.equals(d.getRoomA()) && roomB.equals(d.getRoomB());
+        return roomA.equals(d.roomA) && roomB.equals(d.roomB);
     }
 
     //something to be used if row/column of rooms gets updated
