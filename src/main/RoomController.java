@@ -1,15 +1,12 @@
 package main;
 
 import javafx.application.Application;
-import javafx.fxml.FXML;
-import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -19,17 +16,13 @@ public class RoomController {
 
     private Room currRoom;
     private Scene scene1;
-    private BorderPane root;
+    private Group root;
     private Maze theMaze;
     private VBox pillar;
     private Stage theStage = Main.getPrimaryStage();
     private Door lastDoor;
-    private Label health;
     private Label money;
-    private HBox topRow;
-    private HBox bottomRow;
-    private Text healthText;
-    private Text moneyText;
+    private Label health;
     InitialGameScreenController temp = new InitialGameScreenController();
 
 
@@ -49,7 +42,7 @@ public class RoomController {
         currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
         //this is to see what the hatch looks like
 
-        root = new BorderPane();
+        root = new Group();
         pillar = new VBox();
         try {
             ImageView background = new ImageView(new Image("resources/images/room_background.png"));
@@ -58,27 +51,8 @@ public class RoomController {
             System.out.println("background pic not found");
         }
         //Add pillar/background before displayRoom()!
-        health = new Label("");
-        money = new Label("");
-        topRow = new HBox();
-        bottomRow = new HBox();
-        moneyText = new Text("$: ");
-        healthText = new Text("Health: ");
-        moneyText.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-fill: yellow; -fx-font: 32pt 'Lao MN'");
-        healthText.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-fill: red; -fx-font: 32pt 'Lao MN'");
-        money.textProperty().bind(Player.getBalance().asString());
-        health.textProperty().bind(Player.getHealth().asString());
-        money.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 32pt 'Lao MN'");
-        health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 32pt 'Lao MN'");
-        topRow.getChildren().addAll(moneyText, money);
-        bottomRow.getChildren().addAll(healthText,health);
-        topRow.setAlignment(Pos.CENTER);
-        bottomRow.setAlignment(Pos.CENTER);
-        root.getChildren().addAll(pillar);
+
+        root.getChildren().add(pillar);
         displayRoom();
         scene1 = new Scene(root, 800, 600);
 
@@ -90,8 +64,6 @@ public class RoomController {
         // For testing: shows the room that we are in
         Text t = new Text(50, 50, currRoom.getRoomName());
         root.getChildren().add(t);
-        root.setTop(topRow);
-        root.setBottom(bottomRow);
 
         // Displays the items currently in the room
         for (int row = 0; row < currRoom.getRoom().length; row++) {
@@ -100,11 +72,16 @@ public class RoomController {
                     Locatable important = currRoom.getRoom()[row][column];
                     String imageURL = important.getImageURL();
                     try {
-                        Image picture = new Image(imageURL, 50.0, 50.0, true, true);
+                        Image picture = new Image(imageURL, 32.0, 32.0, true, true);
                         ImageView pictureView = new ImageView(picture);
-                        pictureView.setX(row * 32);
-                        pictureView.setY(column * 32);
+                        pictureView.setX(column * 32 + 210);//***______________-----------***********
+                        pictureView.setY(row * 32);//***______________-----------***********
                         root.getChildren().add(pictureView);
+                        //**************************************************************************************************************
+                        if (important instanceof Door) {
+                            pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
+                        }
+                        //**************************************************************************************************************8
                     } catch (IllegalArgumentException e) {
                         System.out.println("The file/image for the item could not be found.");
                     }
@@ -126,6 +103,7 @@ public class RoomController {
         }
 
         // Display the Doors
+        /*
         for (int i = 0; i < currRoom.getDoors().length; i++) {
             try {
                 final Door d = currRoom.getDoors()[i];
@@ -149,10 +127,8 @@ public class RoomController {
                 System.out.println("The file/image for the item could not be found.");
             }
         }
-    }
 
-    public Room getCurrRoom() {
-        return currRoom;
+         */
     }
     /*
     This method this changes the current room
@@ -168,7 +144,7 @@ public class RoomController {
             currRoom = door.getRoomA();
         }
         // each scene needs its own group
-        root = new BorderPane();
+        root = new Group();
         root.getChildren().add(pillar);
         displayRoom();
         scene1 = new Scene(root, 800, 600);
@@ -182,7 +158,7 @@ public class RoomController {
     This method escapes the maze and displays the ending scene
      */
     public void escape() {
-        root = new BorderPane();
+        root = new Group();
         try {
             Image background = new Image("resources/images/Background.png");
             ImageView doneBackground = new ImageView(background);
@@ -202,3 +178,4 @@ public class RoomController {
     }
 
 }
+
