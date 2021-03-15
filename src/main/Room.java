@@ -12,7 +12,7 @@ public class Room {
     private int column;
     private Locatable[][] room = new Locatable[18][18];
     private int doornumber;
-    private int roomtype;
+    private int distance;
     private Door[] doors;
     private boolean hasHatch = false;
     private String roomName;
@@ -28,22 +28,31 @@ public class Room {
         this.column = column;
         room = new Locatable[18][18];
         doornumber = 1 + rNum.nextInt(4);
-        roomtype = 1 + rNum.nextInt(3);
+        distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
     }
 
-    public Room(int row, int column, int doornumber, int roomtype, String roomName) {
+    public Room(int row, int column, int doornumber, int distance, String roomName) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
-        this.roomtype = roomtype;
+        this.distance = distance;
+        doors = new Door[doornumber];
+        this.roomName = "room " + roomName;
+    }
+
+    public Room(int row, int column, int doornumber, String roomName) {
+        this.row = row;
+        this.column = column;
+        this.doornumber = doornumber;
+        this.distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
     }
 
     public void addObject(Locatable object, int x, int y) {
-        room[x][y] = object;
+        room[y][x] = object;
     }
 
 
@@ -54,6 +63,20 @@ public class Room {
     public Door[] getDoors() {
         return doors;
     }
+
+    /*
+    public void removeDoor(Door door) {
+        int curDoorNum = this.getCurDoors();
+        for (int index = 0; index < curDoorNum; index++) {
+            if (door.equals(doors[index])) {
+                for (; index < curDoorNum; index++) {
+                    doors[index] = doors[index + 1];
+                }
+                break;
+            }
+        }
+    }
+     */
 
     public String getRoomName() {
         return roomName;
@@ -67,6 +90,15 @@ public class Room {
         return doornumber;
     }
     public void addDoor(Door door) {
+        if (door.getRoomA().equals(this)) {
+            if (door.getRoomB().getDistance() + 1 < distance) {
+                distance = door.getRoomB().getDistance() + 1;
+            }
+        } else {
+            if (door.getRoomA().getDistance() + 1 < distance) {
+                distance = door.getRoomA().getDistance() + 1;
+            }
+        }
         int g = 0;
         for (int i = 0; i < doors.length; i++) {
             if(doors[i] == null && g != 1) {
@@ -103,7 +135,7 @@ public class Room {
             return false;
         }
         Room r = (Room) o;
-        return r.roomName.equals(this.roomName);
+        return r.getRoomName().equals(this.roomName);
     }
 
     public void setHasHatch ( boolean hasHatch){
@@ -112,5 +144,13 @@ public class Room {
 
     public boolean getHasHatch() {
         return hasHatch;
+    }
+
+    public void setDistance(int dist) {
+        distance = dist;
+    }
+
+    public int getDistance() {
+        return distance;
     }
 }

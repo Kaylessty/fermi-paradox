@@ -72,11 +72,16 @@ public class RoomController {
                     Locatable important = currRoom.getRoom()[row][column];
                     String imageURL = important.getImageURL();
                     try {
-                        Image picture = new Image(imageURL, 50.0, 50.0, true, true);
+                        Image picture = new Image(imageURL, 32.0, 32.0, true, true);
                         ImageView pictureView = new ImageView(picture);
-                        pictureView.setX(row * 32);
-                        pictureView.setY(column * 32);
+                        pictureView.setX(column * 32 + 210);//***______________-----------***********
+                        pictureView.setY(row * 32);//***______________-----------***********
                         root.getChildren().add(pictureView);
+                        //**************************************************************************************************************
+                        if (important instanceof Door) {
+                            pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
+                        }
+                        //**************************************************************************************************************8
                     } catch (IllegalArgumentException e) {
                         System.out.println("The file/image for the item could not be found.");
                     }
@@ -98,6 +103,7 @@ public class RoomController {
         }
 
         // Display the Doors
+        /*
         for (int i = 0; i < currRoom.getDoors().length; i++) {
             try {
                 final Door d = currRoom.getDoors()[i];
@@ -121,10 +127,8 @@ public class RoomController {
                 System.out.println("The file/image for the item could not be found.");
             }
         }
-    }
 
-    public Room getCurrRoom() {
-        return currRoom;
+         */
     }
     /*
     This method this changes the current room
@@ -174,3 +178,4 @@ public class RoomController {
     }
 
 }
+
