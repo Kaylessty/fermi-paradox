@@ -3,19 +3,12 @@
   <component name="ChangeListManager">
     <list default="true" id="b64e6353-1444-4d2d-b372-dc7e36a983cf" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/css/SecondScreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/Background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/door-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/exit_portal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/initialscreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/other-door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/room_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/configscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MazeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/firstscreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/roomcontroller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/roomcontroller.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,6 +17,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="ProjectId" id="1pm54ZkzkNI2OWdLmqIxIIGZ2wH" />
   <component name="ProjectViewState">
@@ -38,7 +39,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
   </component>
@@ -73,5 +74,46 @@
       <updated>1615774982346</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="1">
+          <value>
+            <State>
+              <option name="SHOW_ONLY_AFFECTED_CHANGES" value="true" />
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="HEAD" />
+                      </list>
+                    </value>
+                  </entry>
+                  <entry key="structure">
+                    <value>
+                      <list>
+                        <option value="dir:/Users/brentnguyen/Documents/GitHub/SpaceDungeon/src/view" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="OPEN_GENERIC_TABS">
+      <map>
+        <entry key="1" value="TOOL_WINDOW" />
+      </map>
+    </option>
   </component>
 </project>

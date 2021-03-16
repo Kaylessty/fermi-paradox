@@ -13,8 +13,14 @@
                   <Font name="Lao MN" size="40.0" />
                </font>
             </Label>
-            <Button fx:id="newButton" mnemonicParsing="false" onAction="#goToConfigScreen" text="New Game" />
-            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#endGame" text="Exit Game" />
+            <Button fx:id="newButton" mnemonicParsing="false" onAction="#goToConfigScreen" text="New Game">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font></Button>
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#endGame" text="Exit Game">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font></Button>
          </children>
       </VBox>
    </children>
