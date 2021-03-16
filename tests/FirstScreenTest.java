@@ -9,12 +9,13 @@ public class FirstScreenTest extends ApplicationTest {
     @Override
     public void start(Stage primaryStage) throws Exception {
         Main controller = new Main();
+        controller.init();
         controller.start(primaryStage);
     }
 
     @Test
-    public void testTitle() {
-        verifyThat("Space Game!", NodeMatchers.isNotNull());
+    public void testEG() {
+        verifyThat("Exit Game", NodeMatchers.isNotNull());
     }
     @Test
     public void testNG() {
