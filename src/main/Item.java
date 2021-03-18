@@ -3,6 +3,7 @@ package main;
 
 public class Item implements Locatable, Collectible {
 
+    private String name;
     private Possession thing;
     private int row;
     private int column;
@@ -15,9 +16,9 @@ public class Item implements Locatable, Collectible {
  * returnCost, walkable, url)
  */
     public enum Possession  {
-        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, "resources/images/sword.png"),
-        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, "resources/images/sword.png");
-
+        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/sword.png"),
+        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/sword.png"),
+        ID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, false, 100, "resources/images/ID.png");
         private final String type;
         private final int damage;
         private final int range;
@@ -28,11 +29,13 @@ public class Item implements Locatable, Collectible {
         private final int purchaseCost;
         private final int returnCost;
         private final boolean walkable;
+        private final boolean unlocker;
+        private final int idLevel;
         private final String imageURL;
 
         Possession(String type, int damage, int range, int housingSpace, int healthBoost,
                    int strengthBoost, int speedBoost, int purchaseCost, int returnCost,
-                   boolean walkable, String imageURL) {
+                   boolean walkable, boolean unlocker, int idLevel, String imageURL) {
             this.type = type;
             this.damage = damage;
             this.range = range;
@@ -43,7 +46,13 @@ public class Item implements Locatable, Collectible {
             this.purchaseCost = purchaseCost;
             this.returnCost = returnCost;
             this.walkable = walkable;
+            this.unlocker = unlocker;
+            this.idLevel = idLevel;
             this.imageURL = imageURL;
+        }
+
+        public int getIdLevel() {
+            return idLevel;
         }
     }
 
@@ -53,10 +62,11 @@ public class Item implements Locatable, Collectible {
      * @param row the x-location of where this item will be placed in the room
      * @param column the y-location of where this item will be placed in the room
      */
-    public Item(Possession thing, int row, int column) {
+    public Item(Possession thing, int row, int column, String name) {
         this.thing = thing;
         this.row = row;
         this.column = column;
+        this.name = name;
     }
 
     /**
@@ -96,5 +106,9 @@ public class Item implements Locatable, Collectible {
      */
     public Possession getPossession() {
         return thing;
+    }
+
+    public String getName() {
+        return name;
     }
 }

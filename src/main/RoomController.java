@@ -5,6 +5,8 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -13,6 +15,8 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
+
+import javax.swing.text.Position;
 
 public class RoomController {
 
@@ -29,6 +33,8 @@ public class RoomController {
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
+    ChoiceBox<Item> inv;
+    Inventory playerInventory;
     InitialGameScreenController temp = new InitialGameScreenController();
 
 
@@ -44,12 +50,18 @@ public class RoomController {
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
-        currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
+        currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0, "Space Sword"), 0, 0);
+        currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10,  "SONARGUN"), 6, 10);
+        currRoom.addObject(new Item(Item.Possession.ID, 9, 10,  "ID"), 9, 10);
+        //currRoom.removeObject(6,10);
         //this is to see what the hatch looks like
 
         root = new BorderPane();
         pillar = new VBox();
+        //makes Inventory
+        playerInventory = new Inventory("Player Inventory ");
+        inv = new ChoiceBox<>();
+        //
         try {
             ImageView background = new ImageView(new Image("resources/images/room_background.png"));
             pillar.getChildren().add(background);
@@ -74,7 +86,7 @@ public class RoomController {
         health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
                 + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 32pt 'Lao MN'");
         topRow.getChildren().addAll(moneyText, money);
-        bottomRow.getChildren().addAll(healthText,health);
+        bottomRow.getChildren().addAll(inv,healthText,health);
         topRow.setAlignment(Pos.CENTER);
         bottomRow.setAlignment(Pos.CENTER);
         root.getChildren().add(pillar);
@@ -106,6 +118,9 @@ public class RoomController {
                         //**************************************************************************************************************
                         if (important instanceof Door) {
                             pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
+                        }
+                        if (important instanceof Item) {
+                            pictureView.setOnMouseClicked(e -> pickUp((Item)important));
                         }
                         //**************************************************************************************************************8
                     } catch (IllegalArgumentException e) {
@@ -160,6 +175,17 @@ public class RoomController {
     This method this changes the current room
      */
     private void changeRoom(Door door) {
+        if(inv.getValue() != null) {
+            int idlvl = inv.getValue().getPossession().getIdLevel();
+            if (door.getLocked() == true && idlvl > door.getRoomA().getNumRoom()) {
+                System.out.println("door unlocked");
+                door.setLocked(false);
+            }
+        }
+        if (door.getLocked() == true) {
+            System.out.println("door locked");
+            return;
+        }
         System.out.println("changed room");
         lastDoor = door;
         //check which room we should be changing to, could be an issue with room equality
@@ -177,6 +203,7 @@ public class RoomController {
 
         theStage.setScene(scene1);
         theStage.show();
+        System.out.println(currRoom.getMonsterNum());
 
         // that changed the room
     }
@@ -199,6 +226,14 @@ public class RoomController {
         theStage.show();
     }
 
+    public void pickUp(Item item) {
+        playerInventory.addItem(item);
+        inv.getItems().add(item);
+        int[] pos;
+        pos = item.getLocation();
+        currRoom.removeObject(pos[0], pos[1]);
+        displayRoom();
+    }
     public Scene getScene() {
         return scene1;
     }
