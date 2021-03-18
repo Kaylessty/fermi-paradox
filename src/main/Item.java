@@ -16,9 +16,12 @@ public class Item implements Locatable, Collectible {
  * returnCost, walkable, url)
  */
     public enum Possession  {
-        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/sword.png"),
-        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/sword.png"),
-        ID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, false, 100, "resources/images/ID.png");
+        A_ENERGYSWORD("Weapon", 100000, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/A_ENERGYSWORD.png"),
+        A_SHOCKRIFLE("Weapon", 100000, 100, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/A_SHOCKRIFLE.png"),
+        IMPROVISEDSWORD("Weapon", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDSWORD.png"),
+        IMPROVISEDGUN("Weapon", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDGUN.png"),
+        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, false, 100, "resources/images/ID.png"),
+        ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, false, 1, "resources/images/ID.png");
         private final String type;
         private final int damage;
         private final int range;
@@ -109,6 +112,10 @@ public class Item implements Locatable, Collectible {
     }
 
     public String getName() {
+        return name;
+    }
+
+    public String toString() {
         return name;
     }
 }

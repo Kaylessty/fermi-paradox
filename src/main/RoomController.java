@@ -50,9 +50,12 @@ public class RoomController {
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0, "Space Sword"), 0, 0);
-        currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10,  "SONARGUN"), 6, 10);
-        currRoom.addObject(new Item(Item.Possession.ID, 9, 10,  "ID"), 9, 10);
+        currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 5, 5, "Annihilative Energy Sword"), 5, 5);
+        currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,  "Annihilative Shock Rifle"), 6, 10);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,  "Improvised Sword"), 4, 11);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,  "Improvised Gun"), 7, 12);
+        currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,  "Administrator ID"), 9, 10);
+        currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,  "Visitor ID"), 3, 15);
         //currRoom.removeObject(6,10);
         //this is to see what the hatch looks like
 
