@@ -15,10 +15,10 @@ public class Item implements Locatable, Collectible {
  * returnCost, walkable, url)
  */
     public enum Possession  {
-        A_ENERGYSWORD("Weapon", 100000, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/A_ENERGYSWORD.png"),
-        A_SHOCKRIFLE("Weapon", 100000, 100, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/A_SHOCKRIFLE.png"),
-        IMPROVISEDSWORD("Weapon", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDSWORD.png"),
-        IMPROVISEDGUN("Weapon", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDGUN.png"),
+        A_ENERGYSWORD("Sword", 100000, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/A_ENERGYSWORD.png"),
+        A_SHOCKRIFLE("Gun", 100000, 100, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/A_SHOCKRIFLE.png"),
+        IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDSWORD.png"),
+        IMPROVISEDGUN("Gun", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDGUN.png"),
         AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100, "resources/images/ID.png"),
         HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1, "resources/images/Horn.png"),
         ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1, "resources/images/ID.png");
@@ -130,10 +130,12 @@ public class Item implements Locatable, Collectible {
      */
     public int getSize() {
         switch (thing.type) {
-            case "Weapon":
-                return 64;
+            case "Gun":
+                return 84;
             case "ID":
-                return 25;
+                return 75;
+            case "Sword":
+                return 100;
             default:
                 return 40;
         }
