@@ -16,6 +16,9 @@ public class Room {
     private Door[] doors;
     private boolean hasHatch = false;
     private String roomName;
+    private int monsterNum;
+    private int numRoom;
+    private int special;
 
 
     /**
@@ -23,7 +26,7 @@ public class Room {
      * @param row the row number on the grid where this room is. Rows start at 0.
      * @param column the column number on the grid where the room is. Columns start at 0.
      */
-    public Room(int row, int column, String roomName) {
+    public Room(int row, int column, String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         room = new Locatable[18][18];
@@ -31,30 +34,45 @@ public class Room {
         distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
+        this.monsterNum = 1+ rNum.nextInt(2);
+        this.numRoom = numRoom;
+        special = rNum.nextInt(10);
+        if(special == 9) {
+            this.roomName = "Clown Room";
+            addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
+        }
     }
 
-    public Room(int row, int column, int doornumber, int distance, String roomName) {
+    public Room(int row, int column, int doornumber, int distance, int monsterNum, String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
         this.distance = distance;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
+        this.monsterNum = monsterNum;
+        this.numRoom = numRoom;
     }
 
-    public Room(int row, int column, int doornumber, String roomName) {
+    public Room(int row, int column, int doornumber, int monsterNum, String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
         this.distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
+        this.monsterNum = monsterNum;
+        this.numRoom = numRoom;
     }
 
     public void addObject(Locatable object, int x, int y) {
         room[y][x] = object;
     }
 
+    public void removeObject(int x, int y) {
+        room[y][x] = null;
+        System.out.println("removed");
+    }
 
     public Locatable[][] getRoom() {
         return room;
@@ -118,6 +136,10 @@ public class Room {
         return ret;
     }
 
+    public int getMonsterNum() {
+        return monsterNum;
+    }
+
     public int getRow() {
         return row;
     }
@@ -152,5 +174,9 @@ public class Room {
 
     public int getDistance() {
         return distance;
+    }
+
+    public int getNumRoom() {
+        return numRoom;
     }
 }

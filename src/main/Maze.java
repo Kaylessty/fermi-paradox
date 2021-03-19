@@ -22,14 +22,15 @@ public class Maze {
         roomnum = 26 + rNum.nextInt(10);
         rooms = new Room[roomnum];
         System.out.println("Number of rooms: " + rooms.length);
-        rooms[0] = new Room(x, y, 4, 0, "starting");
+        rooms[0] = new Room(x, y, 4, 0, 0,"starting",0);
         doornum = 4;
         for(int i = 1; i < roomnum; i++) {
-            rooms[i] = new Room(x,y,"" + i);
+            rooms[i] = new Room(x,y,"" + i,i);
             // Shouldn't doornum start off at the value 4?
             doornum += rooms[i].getDoornumber();
         }
-        rooms[rooms.length-2] = new Room(x, y, 4, "last");
+        rooms[rooms.length-2] = new Room(x, y, 4,0, "last", rooms.length-2);
+        rooms[rooms.length-2].setHasHatch(true);
         doors = new Door[doornum];
         Room curRoom;
         int dcount = 0;
@@ -147,17 +148,17 @@ public class Maze {
         }
 
         // Find the room that is furthest away
-        Room furthest = rooms[0];
-        for (int i = 0; i < roomnum; i++) {
-            if (rooms[i].getDistance() >= furthest.getDistance()) {
-                furthest = rooms[i];
-            }
-            if (rooms[i].getDistance() >= 6) {
-                System.out.println("Found a room!");
-                rooms[i].setHasHatch(true);
-                break;
-            }
-        }
+//        Room furthest = rooms[0];
+//        for (int i = 0; i < roomnum; i++) {
+//            if (rooms[i].getDistance() >= furthest.getDistance()) {
+//                furthest = rooms[i];
+//            }
+//            if (rooms[i].getDistance() >= 6) {
+//                System.out.println("Found a room!");
+//                rooms[i].setHasHatch(true);
+//                break;
+//            }
+//        }
         /*
         if (furthest.getDistance() < 6) {
             System.out.println("Making room further.");

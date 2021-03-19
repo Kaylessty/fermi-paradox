@@ -1,8 +1,8 @@
 package main;
 
-
 public class Item implements Locatable, Collectible {
 
+    private String name;
     private Possession thing;
     private int row;
     private int column;
@@ -15,9 +15,13 @@ public class Item implements Locatable, Collectible {
  * returnCost, walkable, url)
  */
     public enum Possession  {
-        SPACESWORD("Weapon", 200, 1, 2, 0, 0, 0, 500, 300, true, "resources/images/sword.png"),
-        SONARGUN("Weapon", 150, 10, 3, 0, 0, 0, 600, 250, true, "resources/images/sword.png");
-
+        A_ENERGYSWORD("Sword", 100000, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/A_ENERGYSWORD.png"),
+        A_SHOCKRIFLE("Gun", 100000, 100, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/A_SHOCKRIFLE.png"),
+        IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDSWORD.png"),
+        IMPROVISEDGUN("Gun", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDGUN.png"),
+        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100, "resources/images/ID.png"),
+        HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1, "resources/images/Horn.png"),
+        ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1, "resources/images/ID.png");
         private final String type;
         private final int damage;
         private final int range;
@@ -28,11 +32,13 @@ public class Item implements Locatable, Collectible {
         private final int purchaseCost;
         private final int returnCost;
         private final boolean walkable;
+        private final boolean unlocker;
+        private final int idLevel;
         private final String imageURL;
 
         Possession(String type, int damage, int range, int housingSpace, int healthBoost,
                    int strengthBoost, int speedBoost, int purchaseCost, int returnCost,
-                   boolean walkable, String imageURL) {
+                   boolean walkable, boolean unlocker, int idLevel, String imageURL) {
             this.type = type;
             this.damage = damage;
             this.range = range;
@@ -43,7 +49,13 @@ public class Item implements Locatable, Collectible {
             this.purchaseCost = purchaseCost;
             this.returnCost = returnCost;
             this.walkable = walkable;
+            this.unlocker = unlocker;
+            this.idLevel = idLevel;
             this.imageURL = imageURL;
+        }
+
+        public int getIdLevel() {
+            return idLevel;
         }
     }
 
@@ -53,10 +65,11 @@ public class Item implements Locatable, Collectible {
      * @param row the x-location of where this item will be placed in the room
      * @param column the y-location of where this item will be placed in the room
      */
-    public Item(Possession thing, int row, int column) {
+    public Item(Possession thing, int row, int column, String name) {
         this.thing = thing;
         this.row = row;
         this.column = column;
+        this.name = name;
     }
 
     /**
@@ -97,4 +110,34 @@ public class Item implements Locatable, Collectible {
     public Possession getPossession() {
         return thing;
     }
+
+    /**
+     * getter for the name instance variable
+     * @return String name
+     */
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public String toString() {
+        return name;
+    }
+
+    /**
+     * function to get the appropriate size of the item based on type
+     * @return int size based on the item type
+     */
+    public int getSize() {
+        switch (thing.type) {
+            case "Gun":
+                return 84;
+            case "ID":
+                return 75;
+            case "Sword":
+                return 100;
+            default:
+                return 40;
+        }
+    };
 }

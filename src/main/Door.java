@@ -9,6 +9,7 @@ public class Door implements Locatable {
     private String imageUrl;
     private int x;
     private int y;
+    private Boolean locked = true;
 
     public Door(Room roomA, Room roomB) {
         this.roomA = roomA;
@@ -56,6 +57,14 @@ public class Door implements Locatable {
 
     public int[] getLocation() {
         return new int[] {x, y};
+    }
+
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public boolean getLocked() {
+        return locked;
     }
 
 

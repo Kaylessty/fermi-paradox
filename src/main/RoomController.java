@@ -5,14 +5,19 @@ import javafx.geometry.Pos;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
+
+import javax.swing.text.Position;
 
 public class RoomController {
 
@@ -29,6 +34,8 @@ public class RoomController {
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
+    ChoiceBox<Item> inv;
+    Inventory playerInventory;
     InitialGameScreenController temp = new InitialGameScreenController();
 
 
@@ -44,12 +51,22 @@ public class RoomController {
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
-        currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
+        currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 5, 5, "Annihilative Energy Sword"), 5, 5);
+        currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,  "Annihilative Shock Rifle"), 6, 10);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,  "Improvised Sword"), 4, 11);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,  "Improvised Gun"), 7, 12);
+        currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,  "Administrator ID"), 9, 10);
+        currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,  "Visitor ID"), 3, 15);
+        //currRoom.removeObject(6,10);
         //this is to see what the hatch looks like
+        //currRoom.setHasHatch(true);
 
         root = new BorderPane();
         pillar = new VBox();
+        //makes Inventory
+        playerInventory = new Inventory("Player Inventory ");
+        inv = new ChoiceBox<>();
+        //
         try {
             ImageView background = new ImageView(new Image("resources/images/room_background.png"));
             pillar.getChildren().add(background);
@@ -74,7 +91,7 @@ public class RoomController {
         health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
                 + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 32pt 'Lao MN'");
         topRow.getChildren().addAll(moneyText, money);
-        bottomRow.getChildren().addAll(healthText,health);
+        bottomRow.getChildren().addAll(inv,healthText,health);
         topRow.setAlignment(Pos.CENTER);
         bottomRow.setAlignment(Pos.CENTER);
         root.getChildren().add(pillar);
@@ -98,7 +115,13 @@ public class RoomController {
                     Locatable important = currRoom.getRoom()[row][column];
                     String imageURL = important.getImageURL();
                     try {
-                        Image picture = new Image(imageURL, 32.0, 32.0, true, true);
+                        Image picture;
+                        if (important instanceof Item) {
+                            picture = new Image(imageURL, ((Item)important).getSize(), ((Item)important).getSize(), true, true);
+
+                        } else {
+                            picture = new Image(imageURL, 32.0, 32.0, true, true);
+                        }
                         ImageView pictureView = new ImageView(picture);
                         pictureView.setX(column * 32 + 210);//***______________-----------***********
                         pictureView.setY(row * 32);//***______________-----------***********
@@ -106,6 +129,12 @@ public class RoomController {
                         //**************************************************************************************************************
                         if (important instanceof Door) {
                             pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
+                        }
+                        if (important instanceof Item) {
+                            pictureView.setOnMouseClicked(e -> {
+                                pickUp((Item)important);
+                                refreshRoom();
+                            });
                         }
                         //**************************************************************************************************************8
                     } catch (IllegalArgumentException e) {
@@ -127,39 +156,23 @@ public class RoomController {
                 System.out.println("The file/image for the item could not be found.");
             }
         }
-
-        // Display the Doors
-        /*
-        for (int i = 0; i < currRoom.getDoors().length; i++) {
-            try {
-                final Door d = currRoom.getDoors()[i];
-                Image picture;
-                if (!d.equals(lastDoor)) {
-                    picture = new Image("resources/images/door.png", 20.0, 40.0, true, true);
-                } else {
-                    picture = new Image("resources/images/other-door.png", 20.0, 40.0, true, true);
-                }
-                ImageView pictureView = new ImageView(picture);
-                if (i % 2 == 1) {
-                    pictureView.setX(10);
-                } else {
-                    pictureView.setX(785);
-                }
-                pictureView.setY((i+1)*50);
-                // No more exceptions
-                pictureView.setOnMouseClicked(e -> changeRoom(d));
-                root.getChildren().add(pictureView);
-            } catch (IllegalArgumentException e) {
-                System.out.println("The file/image for the item could not be found.");
-            }
-        }
-
-         */
     }
-    /*
-    This method this changes the current room
+
+    /**
+     * This method this changes the current room
      */
     private void changeRoom(Door door) {
+        if(inv.getValue() != null) {
+            int idlvl = inv.getValue().getPossession().getIdLevel();
+            if (door.getLocked() == true && idlvl > door.getRoomA().getNumRoom()) {
+                System.out.println("door unlocked");
+                door.setLocked(false);
+            }
+        }
+        if (door.getLocked() == true) {
+            System.out.println("door locked");
+            return;
+        }
         System.out.println("changed room");
         lastDoor = door;
         //check which room we should be changing to, could be an issue with room equality
@@ -177,11 +190,30 @@ public class RoomController {
 
         theStage.setScene(scene1);
         theStage.show();
+        System.out.println(currRoom.getMonsterNum());
 
         // that changed the room
     }
-    /*
-    This method escapes the maze and displays the ending scene
+
+    /**
+     * This method this refreshes the current room
+     */
+    private void refreshRoom() {
+
+        System.out.println("refresh room");
+        // each scene needs its own group
+        root = new BorderPane();
+        root.getChildren().add(pillar);
+        displayRoom();
+        scene1 = new Scene(root, 800, 600);
+        theStage.setScene(scene1);
+        theStage.show();
+        System.out.println(currRoom.getMonsterNum());
+        // that changed the room
+    }
+
+    /**
+     * This method escapes the maze and displays the ending scene
      */
     public void escape() {
         root = new BorderPane();
@@ -193,12 +225,30 @@ public class RoomController {
             System.out.println("The file/image for the item could not be found.");
         }
         Text congrats = new Text(375, 280, "YOU ESCAPED!");
+        congrats.setFill(Color.AQUAMARINE);
         root.getChildren().add(congrats);
         scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
         theStage.show();
     }
 
+    /**
+     * this method allows the player to pickup an item
+     * @param item Item the player picks up
+     */
+    public void pickUp(Item item) {
+        playerInventory.addItem(item);
+        inv.getItems().add(item);
+        int[] pos;
+        pos = item.getLocation();
+        currRoom.removeObject(pos[0], pos[1]);
+        displayRoom();
+    }
+
+    /**
+     * returns the scene1
+     * @return scene1
+     */
     public Scene getScene() {
         return scene1;
     }
