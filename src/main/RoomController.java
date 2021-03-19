@@ -232,6 +232,10 @@ public class RoomController {
         theStage.show();
     }
 
+    /**
+     * this method allows the player to pickup an item
+     * @param item Item the player picks up
+     */
     public void pickUp(Item item) {
         playerInventory.addItem(item);
         inv.getItems().add(item);
@@ -240,6 +244,11 @@ public class RoomController {
         currRoom.removeObject(pos[0], pos[1]);
         displayRoom();
     }
+
+    /**
+     * returns the scene1
+     * @return scene1
+     */
     public Scene getScene() {
         return scene1;
     }

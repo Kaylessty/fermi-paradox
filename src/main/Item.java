@@ -1,6 +1,5 @@
 package main;
 
-
 public class Item implements Locatable, Collectible {
 
     private String name;
@@ -112,14 +111,23 @@ public class Item implements Locatable, Collectible {
         return thing;
     }
 
+    /**
+     * getter for the name instance variable
+     * @return String name
+     */
     public String getName() {
         return name;
     }
 
+    @Override
     public String toString() {
         return name;
     }
 
+    /**
+     * function to get the appropriate size of the item based on type
+     * @return int size based on the item type
+     */
     public int getSize() {
         switch (thing.type) {
             case "Weapon":
