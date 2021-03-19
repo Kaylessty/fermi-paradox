@@ -18,6 +18,7 @@ public class Room {
     private String roomName;
     private int monsterNum;
     private int numRoom;
+    private int special;
 
 
     /**
@@ -35,6 +36,11 @@ public class Room {
         this.roomName = "room " + roomName;
         this.monsterNum = 1+ rNum.nextInt(2);
         this.numRoom = numRoom;
+        special = rNum.nextInt(10);
+        if(special == 9) {
+            this.roomName = "Clown Room";
+            addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
+        }
     }
 
     public Room(int row, int column, int doornumber, int distance, int monsterNum, String roomName, int numRoom) {
