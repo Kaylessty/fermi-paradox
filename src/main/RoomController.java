@@ -123,7 +123,10 @@ public class RoomController {
                             pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
                         }
                         if (important instanceof Item) {
-                            pictureView.setOnMouseClicked(e -> pickUp((Item)important));
+                            pictureView.setOnMouseClicked(e -> {
+                                pickUp((Item)important);
+                                refreshRoom();
+                            });
                         }
                         //**************************************************************************************************************8
                     } catch (IllegalArgumentException e) {
@@ -145,37 +148,10 @@ public class RoomController {
                 System.out.println("The file/image for the item could not be found.");
             }
         }
-
-        // Display the Doors
-        /*
-        for (int i = 0; i < currRoom.getDoors().length; i++) {
-            try {
-                final Door d = currRoom.getDoors()[i];
-                Image picture;
-                if (!d.equals(lastDoor)) {
-                    picture = new Image("resources/images/door.png", 20.0, 40.0, true, true);
-                } else {
-                    picture = new Image("resources/images/other-door.png", 20.0, 40.0, true, true);
-                }
-                ImageView pictureView = new ImageView(picture);
-                if (i % 2 == 1) {
-                    pictureView.setX(10);
-                } else {
-                    pictureView.setX(785);
-                }
-                pictureView.setY((i+1)*50);
-                // No more exceptions
-                pictureView.setOnMouseClicked(e -> changeRoom(d));
-                root.getChildren().add(pictureView);
-            } catch (IllegalArgumentException e) {
-                System.out.println("The file/image for the item could not be found.");
-            }
-        }
-
-         */
     }
-    /*
-    This method this changes the current room
+
+    /**
+     * This method this changes the current room
      */
     private void changeRoom(Door door) {
         if(inv.getValue() != null) {
@@ -210,8 +186,26 @@ public class RoomController {
 
         // that changed the room
     }
-    /*
-    This method escapes the maze and displays the ending scene
+
+    /**
+     * This method this refreshes the current room
+     */
+    private void refreshRoom() {
+
+        System.out.println("refresh room");
+        // each scene needs its own group
+        root = new BorderPane();
+        root.getChildren().add(pillar);
+        displayRoom();
+        scene1 = new Scene(root, 800, 600);
+        theStage.setScene(scene1);
+        theStage.show();
+        System.out.println(currRoom.getMonsterNum());
+        // that changed the room
+    }
+
+    /**
+     * This method escapes the maze and displays the ending scene
      */
     public void escape() {
         root = new BorderPane();
