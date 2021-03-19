@@ -119,4 +119,15 @@ public class Item implements Locatable, Collectible {
     public String toString() {
         return name;
     }
+
+    public int getSize() {
+        switch (thing.type) {
+            case "Weapon":
+                return 64;
+            case "ID":
+                return 25;
+            default:
+                return 40;
+        }
+    };
 }

@@ -13,6 +13,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 
@@ -58,6 +59,7 @@ public class RoomController {
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,  "Visitor ID"), 3, 15);
         //currRoom.removeObject(6,10);
         //this is to see what the hatch looks like
+        //currRoom.setHasHatch(true);
 
         root = new BorderPane();
         pillar = new VBox();
@@ -113,7 +115,13 @@ public class RoomController {
                     Locatable important = currRoom.getRoom()[row][column];
                     String imageURL = important.getImageURL();
                     try {
-                        Image picture = new Image(imageURL, 32.0, 32.0, true, true);
+                        Image picture;
+                        if (important instanceof Item) {
+                            picture = new Image(imageURL, ((Item)important).getSize(), ((Item)important).getSize(), true, true);
+
+                        } else {
+                            picture = new Image(imageURL, 32.0, 32.0, true, true);
+                        }
                         ImageView pictureView = new ImageView(picture);
                         pictureView.setX(column * 32 + 210);//***______________-----------***********
                         pictureView.setY(row * 32);//***______________-----------***********
@@ -217,6 +225,7 @@ public class RoomController {
             System.out.println("The file/image for the item could not be found.");
         }
         Text congrats = new Text(375, 280, "YOU ESCAPED!");
+        congrats.setFill(Color.AQUAMARINE);
         root.getChildren().add(congrats);
         scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
