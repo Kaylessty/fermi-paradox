@@ -4,7 +4,6 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.stage.Stage;
 
 public class Main extends Application {
@@ -12,9 +11,6 @@ public class Main extends Application {
     private Parent rootNode;
 
     private static Stage stage;
-
-//    private Label money;
-//    private Label health;
 
 
     public static void main(final String[] args) {
@@ -36,19 +32,9 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
         stage.setTitle("Elon Musk: Alien Destroyer");
-        stage.setScene(new Scene(rootNode,800,600));
+        stage.setScene(new Scene(rootNode, 800, 600));
         stage.show();
 
-
-//        money = ConfigScreenController.getMoney();
-//        health = ConfigScreenController.getHealth();
-    }
-
-    @Override
-    public void start(Stage stage) throws Exception {
-        stage.setTitle("Elon Musk: Alien Destroyer");
-        stage.setScene(new Scene(rootNode,800,600));
-        stage.show();
     }
 
 }

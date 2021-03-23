@@ -1,61 +1,65 @@
 package main;
 
-import javafx.application.Application;
-import javafx.scene.Group;
-import javafx.scene.Node;
+import javafx.event.EventHandler;
+import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 
-
 public class RoomController {
-
-=======
-
-public class RoomController extends Application {
 
     private Room currRoom;
     private Scene scene1;
-    private Group root;
+    private BorderPane root;
     private Maze theMaze;
     private VBox pillar;
     private Stage theStage = Main.getPrimaryStage();
     private Door lastDoor;
     private Label money;
     private Label health;
-    InitialGameScreenController temp = new InitialGameScreenController();
+    private InitialGameScreenController temp = new InitialGameScreenController();
+    private HBox topRow;
+    private HBox bottomRow;
+    private Text healthText;
+    private Text moneyText;
+    private ChoiceBox<Item> inv;
+    private Inventory playerInventory;
+    private Player player1;
+    private Monster[] monstersInRoom;
 
-    private Stage theStage;
-    private Door lastDoor;
-
-    /*
-    public RoomController(Locatable[][] currRoom) {
-        this.currRoom = currRoom;
-    }
+    /**
+     * This class controls the actions that occur within a room including keyEvents and displaying the room
      */
-
     public RoomController() {
-    @Override
-    public void start(Stage primaryStage) {
+
         //Create the maze
         theMaze = new Maze();
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.SPACESWORD, 0, 0), 0, 0);
-        currRoom.addObject(new Item(Item.Possession.SONARGUN, 6, 10), 6, 10);
-        //this is to see what the hatch looks like
-        //currRoom.setHasHatch(true);
+        currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 2, 2, "Annihilative Energy Sword"), 2, 2);
+        currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,  "Annihilative Shock Rifle"), 6, 10);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,  "Improvised Sword"), 4, 11);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,  "Improvised Gun"), 7, 12);
+        currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,  "Administrator ID"), 9, 10);
+        currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,  "Visitor ID"), 3, 15);
 
-        //*****************************
-
-        root = new Group();
+        root = new BorderPane();
         pillar = new VBox();
+        //makes Inventory
+        playerInventory = new Inventory("Player Inventory ");
+        inv = new ChoiceBox<>();
+        //
         try {
             ImageView background = new ImageView(new Image("resources/images/room_background.png"));
             pillar.getChildren().add(background);
@@ -64,29 +68,41 @@ public class RoomController extends Application {
         }
         //Add pillar/background before displayRoom()!
 
+        health = new Label("");
+        money = new Label("");
+        topRow = new HBox();
+        bottomRow = new HBox();
+        moneyText = new Text("$: ");
+        healthText = new Text("Health: ");
+        moneyText.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
+                + " 10,0.7,0.0,0.0); -fx-fill: yellow; -fx-font: 32pt 'Lao MN'");
+        healthText.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
+                + " 10,0.7,0.0,0.0); -fx-fill: red; -fx-font: 32pt 'Lao MN'");
+        money.textProperty().bind(Player.getBalance().asString());
+        health.textProperty().bind(Player.getHealth().asString());
+        money.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
+                + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 32pt 'Lao MN'");
+        health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
+                + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 32pt 'Lao MN'");
+        topRow.getChildren().addAll(moneyText, money);
+        bottomRow.getChildren().addAll(inv, healthText, health);
+        topRow.setAlignment(Pos.CENTER);
+        bottomRow.setAlignment(Pos.CENTER);
         root.getChildren().add(pillar);
         displayRoom();
         scene1 = new Scene(root, 800, 600);
 
     }
+
     /*
     This method displays the current room on the scene.
      */
-        root.getChildren().add(pillar);
-        displayRoom();
-        scene1 = new Scene(root, 800, 600);
-        primaryStage.setScene(scene1);
-        primaryStage.show();
-        theStage = primaryStage;
-    }
-   /*
-   This method displays the current room on the scene.
-    */
     public void displayRoom() {
         // For testing: shows the room that we are in
         Text t = new Text(50, 50, currRoom.getRoomName());
         root.getChildren().add(t);
-
+        root.setTop(topRow);
+        root.setBottom(bottomRow);
         // Displays the items currently in the room
         for (int row = 0; row < currRoom.getRoom().length; row++) {
             for (int column = 0; column < currRoom.getRoom()[row].length; column++) {
@@ -94,11 +110,30 @@ public class RoomController extends Application {
                     Locatable important = currRoom.getRoom()[row][column];
                     String imageURL = important.getImageURL();
                     try {
-                        Image picture = new Image(imageURL, 50.0, 50.0, true, true);
+                        Image picture;
+                        if (important instanceof Item) {
+                            picture = new Image(imageURL, 64, 64, true, true);
+
+                        } else {
+                            picture = new Image(imageURL, 32.0, 32.0, true, true);
+                        }
                         ImageView pictureView = new ImageView(picture);
-                        pictureView.setX(row * 32);
-                        pictureView.setY(column * 32);
+                        pictureView.setX(column * 32 + 210);
+                        pictureView.setY(row * 32);
                         root.getChildren().add(pictureView);
+                        if (important instanceof Door) {
+                            pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
+                        }
+                        if (important instanceof Item) {
+                            pictureView.setOnMouseClicked(e -> {
+                                pickUp((Item)important);
+                                refreshRoom();
+                            });
+                        }
+                        if (important instanceof Player) {
+                            player1 = (Player) important;
+                            pictureView.setOnKeyPressed(new MovementController());
+                        }
                     } catch (IllegalArgumentException e) {
                         System.out.println("The file/image for the item could not be found.");
                     }
@@ -118,36 +153,23 @@ public class RoomController extends Application {
                 System.out.println("The file/image for the item could not be found.");
             }
         }
+    }
 
-        // Display the Doors
-        for (int i = 0; i < currRoom.getDoors().length; i++) {
-            try {
-                final Door d = currRoom.getDoors()[i];
-                Image picture;
-                if (!d.equals(lastDoor)) {
-                    picture = new Image("resources/images/door.png", 20.0, 40.0, true, true);
-                } else {
-                    picture = new Image("resources/images/other-door.png", 20.0, 40.0, true, true);
-                }
-                ImageView pictureView = new ImageView(picture);
-                if (i % 2 == 1) {
-                    pictureView.setX(10);
-                } else {
-                    pictureView.setX(785);
-                }
-                pictureView.setY((i+1)*50);
-                // No more exceptions
-                pictureView.setOnMouseClicked(e -> changeRoom(d));
-                root.getChildren().add(pictureView);
-            } catch (IllegalArgumentException e) {
-                System.out.println("The file/image for the item could not be found.");
+    /**
+     * This method this changes the current room
+     */
+    private void changeRoom(Door door) {
+        if(inv.getValue() != null) {
+            int idlvl = inv.getValue().getPossession().getIdLevel();
+            if (door.getLocked() && idlvl > door.getRoomA().getNumRoom()) {
+                System.out.println("door unlocked");
+                door.setLocked(false);
             }
         }
-    }
-    /*
-    This method this changes the current room
-     */
-    private void changeRoom(Door door) {
+        if (door.getLocked()) {
+            System.out.println("door locked");
+            return;
+        }
         System.out.println("changed room");
         lastDoor = door;
         //check which room we should be changing to, could be an issue with room equality
@@ -157,20 +179,42 @@ public class RoomController extends Application {
         } else {
             currRoom = door.getRoomA();
         }
+        monstersInRoom = currRoom.getMonsters();
         // each scene needs its own group
-        root = new Group();
+        root = new BorderPane();
+        root.getChildren().add(pillar);
+        displayRoom();
+        scene1 = new Scene(root, 800, 600);
+
+        theStage.setScene(scene1);
+        theStage.show();
+        System.out.println(currRoom.getMonsterNum());
+
+        // that changed the room
+    }
+
+    /**
+     * This method this refreshes the current room
+     */
+    private void refreshRoom() {
+
+        System.out.println("refresh room");
+        // each scene needs its own group
+        root = new BorderPane();
         root.getChildren().add(pillar);
         displayRoom();
         scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
         theStage.show();
+        System.out.println(currRoom.getMonsterNum());
         // that changed the room
     }
-    /*
-    This method escapes the maze and displays the ending scene
+
+    /**
+     * This method escapes the maze and displays the ending scene
      */
     public void escape() {
-        root = new Group();
+        root = new BorderPane();
         try {
             Image background = new Image("resources/images/Background.png");
             ImageView doneBackground = new ImageView(background);
@@ -179,56 +223,76 @@ public class RoomController extends Application {
             System.out.println("The file/image for the item could not be found.");
         }
         Text congrats = new Text(375, 280, "YOU ESCAPED!");
+        congrats.setFill(Color.AQUAMARINE);
         root.getChildren().add(congrats);
         scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
         theStage.show();
     }
-    /*
-    This method this changes the current room
+
+    /**
+     * this method allows the player to pickup an item
+     * @param item Item the player picks up
      */
-    private void changeRoom(Door door) {
-        System.out.println("changed room");
-        lastDoor = door;
-        //check which room we should be changing to, could be an issue with room equality
-        System.out.println(door.getRoomA().getRoomName());
-        if (currRoom.equals(door.getRoomA())) {
-            currRoom = door.getRoomB();
-        } else {
-            currRoom = door.getRoomA();
-        }
-        // each scene needs its own group
-        root = new Group();
-        root.getChildren().add(pillar);
+    public void pickUp(Item item) {
+        playerInventory.addItem(item);
+        inv.getItems().add(item);
+        int[] pos;
+        pos = item.getLocation();
+        currRoom.removeObject(pos[0], pos[1]);
         displayRoom();
-        scene1 = new Scene(root, 800, 600);
-
-        theStage.setScene(scene1);
-        theStage.show();
-
-        // that changed the room
     }
-    /*
-    This method escapes the maze and displays the ending scene
+
+    /**
+     * returns the scene1
+     * @return scene1
      */
-    public void escape() {
-        root = new Group();
-        try {
-            Image background = new Image("resources/images/Background.png");
-            ImageView doneBackground = new ImageView(background);
-            root.getChildren().add(doneBackground);
-        } catch (IllegalArgumentException e) {
-            System.out.println("The file/image for the item could not be found.");
-        }
-        Text congrats = new Text(375, 280, "YOU ESCAPED!");
-        root.getChildren().add(congrats);
-        scene1 = new Scene(root, 800, 600);
-        theStage.setScene(scene1);
-        theStage.show();
-    }
-
     public Scene getScene() {
         return scene1;
+    }
+
+
+    /**
+     * This class is where player movement functionality should be implemented.
+     * In this class, KeyEvents should be handled.
+     */
+    class MovementController implements EventHandler<KeyEvent> {
+
+        /**
+         * The if-statements will likely go here
+         * @param e the key pressed that creates this class
+         */
+        public void handle(KeyEvent e) {
+            if (e.getCode() == KeyCode.W) {
+                if (inv.getValue() != null) {
+                    Item.Possession carrying = inv.getValue().getPossession();
+                    int range = carrying.getRange();
+                    boolean foundMonster = false;
+                    for (Monster monster : monstersInRoom) {
+                        if (Math.hypot((int) (player1.getLocation()[0] - monster.getLocation()[0]),
+                                (int) (player1.getLocation()[1] - monster.getLocation()[1])) <= range) {
+                            foundMonster = true;
+                            monster.setHealth(monster.getHealth() - carrying.getDamage());// attack monster
+                            if (monster.getHealth() <= 0) {
+                                currRoom.removeObject(monster.getLocation()[0], monster.getLocation()[1]);
+                                System.out.println("Monster killed");
+                                refreshRoom();
+                            }
+                        }
+                    }
+                    if (!foundMonster) {
+                        System.out.println("No monster within range");
+                    }
+                }
+            } else if (e.getCode() == KeyCode.UP) {
+                currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
+                player1.setLocation(player1.getLocation()[0], player1.getLocation()[1] + 1);
+                currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
+                refreshRoom();
+            } else if (e.getCode() == KeyCode.A) {
+                System.out.println("You pressed the letter A");
+            }
+        }
     }
 
 }

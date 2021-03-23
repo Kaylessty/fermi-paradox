@@ -4,7 +4,6 @@ import java.util.Random;
 
 /**
  * This class describes a room. A room is a 2-D array (18 by 18) where each block in the room is 32x32 pixels.
- * The outer 12 pixels around all the edges are walls which are separate from the 18x18 blocks.
  */
 public class Room {
     private static Random rNum = new Random();
@@ -12,10 +11,14 @@ public class Room {
     private int column;
     private Locatable[][] room = new Locatable[18][18];
     private int doornumber;
-    private int roomtype;
+    private int distance;
     private Door[] doors;
     private boolean hasHatch = false;
     private String roomName;
+    private int monsterNum;
+    private Monster[] killThem;
+    private int numRoom;
+    private int special;
 
 
     /**
@@ -23,29 +26,71 @@ public class Room {
      * @param row the row number on the grid where this room is. Rows start at 0.
      * @param column the column number on the grid where the room is. Columns start at 0.
      */
-    public Room(int row, int column, String roomName) {
+    public Room(int row, int column, String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         room = new Locatable[18][18];
         doornumber = 1 + rNum.nextInt(4);
-        roomtype = 1 + rNum.nextInt(3);
+        distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
+        this.monsterNum = 1+ rNum.nextInt(2);
+        killThem = new Monster[monsterNum];
+        this.numRoom = numRoom;
+        special = rNum.nextInt(10);
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
+        if(special == 9) {
+            this.roomName = "Clown Room";
+            addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
+        }
     }
 
-    public Room(int row, int column, int doornumber, int roomtype, String roomName) {
+    public Room(int row, int column, int doornumber, int distance, int monsterNum, String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
-        this.roomtype = roomtype;
+        this.distance = distance;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
+        this.monsterNum = monsterNum;
+        killThem = new Monster[monsterNum];
+        this.numRoom = numRoom;
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
+    }
+
+    public Room(int row, int column, int doornumber, int monsterNum, String roomName, int numRoom) {
+        this.row = row;
+        this.column = column;
+        this.doornumber = doornumber;
+        this.distance = 999;
+        doors = new Door[doornumber];
+        this.roomName = "room " + roomName;
+        this.monsterNum = monsterNum;
+        killThem = new Monster[monsterNum];
+        this.numRoom = numRoom;
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
+    }
+
+    private void addMonsters() {
+        for (int index = 0; index < monsterNum; index++) {
+            killThem[index] = new Monster();
+        }
     }
 
     public void addObject(Locatable object, int x, int y) {
-        room[x][y] = object;
+        room[y][x] = object;
     }
 
+    public void removeObject(int x, int y) {
+        room[y][x] = null;
+        System.out.println("removed");
+    }
 
     public Locatable[][] getRoom() {
         return room;
@@ -67,6 +112,15 @@ public class Room {
         return doornumber;
     }
     public void addDoor(Door door) {
+        if (door.getRoomA().equals(this)) {
+            if (door.getRoomB().getDistance() + 1 < distance) {
+                distance = door.getRoomB().getDistance() + 1;
+            }
+        } else {
+            if (door.getRoomA().getDistance() + 1 < distance) {
+                distance = door.getRoomA().getDistance() + 1;
+            }
+        }
         int g = 0;
         for (int i = 0; i < doors.length; i++) {
             if(doors[i] == null && g != 1) {
@@ -86,6 +140,10 @@ public class Room {
         return ret;
     }
 
+    public int getMonsterNum() {
+        return monsterNum;
+    }
+
     public int getRow() {
         return row;
     }
@@ -103,7 +161,7 @@ public class Room {
             return false;
         }
         Room r = (Room) o;
-        return r.roomName == this.roomName;
+        return r.getRoomName().equals(this.roomName);
     }
 
     public void setHasHatch ( boolean hasHatch){
@@ -113,4 +171,18 @@ public class Room {
     public boolean getHasHatch() {
         return hasHatch;
     }
+
+    public void setDistance(int dist) {
+        distance = dist;
+    }
+
+    public int getDistance() {
+        return distance;
+    }
+
+    public int getNumRoom() {
+        return numRoom;
+    }
+
+    public Monster[] getMonsters() { return killThem; }
 }

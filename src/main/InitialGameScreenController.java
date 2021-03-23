@@ -13,12 +13,6 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-
-
-
-import javafx.fxml.FXML;
-import javafx.scene.control.Label;
-
 public class InitialGameScreenController {
 
     Scene scene;
@@ -28,7 +22,6 @@ public class InitialGameScreenController {
 
     @FXML
     private Label money;
-
 
     @FXML
     private Button enteringMaze;
