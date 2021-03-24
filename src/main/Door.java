@@ -35,7 +35,9 @@ public class Door implements Locatable {
         return roomB;
     }
 
-    public String getImageURL() { return imageUrl; }
+    public String getImageURL() {
+        return imageUrl;
+    }
 
     public void setRoomA(Room roomA) {
         this.roomA = roomA;
@@ -45,7 +47,9 @@ public class Door implements Locatable {
         this.roomB = roomB;
     }
 
-    public void setImageURL(String url) { this.imageUrl = url;}
+    public void setImageURL(String url) {
+        this.imageUrl = url;
+    }
 
     public void setX(int x) {
         this.x = x;

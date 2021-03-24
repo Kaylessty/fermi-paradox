@@ -56,14 +56,18 @@ public class Player implements Locatable {
         strength = strength1;
     }
 
-    public int[] getLocation() { return new int[] {x,y}; }
+    public int[] getLocation() {
+        return new int[] {x, y};
+    }
 
     public void setLocation(int x, int y) {
         this.x = x;
         this.y = y;
     }
 
-    public String getImageURL() { return recentImageURL; }
+    public String getImageURL() {
+        return recentImageURL;
+    }
 
     public String getUpImageURL() {
         recentImageURL = "resources/images/player-up.png";

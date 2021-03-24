@@ -3,7 +3,8 @@ package main;
 import java.util.Random;
 
 /**
- * This class describes a room. A room is a 2-D array (18 by 18) where each block in the room is 32x32 pixels.
+ * This class describes a room. A room is a 2-D array (18 by 18) where each block in the room is
+ * 32x32 pixels.
  */
 public class Room {
     private static Random rNum = new Random();
@@ -25,6 +26,8 @@ public class Room {
      * This constructor initializes the location of this room on the grid-like maze
      * @param row the row number on the grid where this room is. Rows start at 0.
      * @param column the column number on the grid where the room is. Columns start at 0.
+     * @param roomName the name of the room. Will be displayed when room appears
+     * @param numRoom the number associated with the room. Helps to find relative depth in maze
      */
     public Room(int row, int column, String roomName, int numRoom) {
         this.row = row;
@@ -34,20 +37,21 @@ public class Room {
         distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
-        this.monsterNum = 1+ rNum.nextInt(2);
+        this.monsterNum = 1 + rNum.nextInt(2);
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(10);
         if (!roomName.equals("first") && !roomName.equals("last")) {
             addMonsters();
         }
-        if(special == 9) {
+        if (special == 9) {
             this.roomName = "Clown Room";
             addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
         }
     }
 
-    public Room(int row, int column, int doornumber, int distance, int monsterNum, String roomName, int numRoom) {
+    public Room(int row, int column, int doornumber, int distance, int monsterNum,
+                String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
@@ -123,7 +127,7 @@ public class Room {
         }
         int g = 0;
         for (int i = 0; i < doors.length; i++) {
-            if(doors[i] == null && g != 1) {
+            if (doors[i] == null && g != 1) {
                 doors[i] = door;
                 g = 1;
                 return;
@@ -153,7 +157,7 @@ public class Room {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == null) {
             return false;
         }
@@ -164,7 +168,7 @@ public class Room {
         return r.getRoomName().equals(this.roomName);
     }
 
-    public void setHasHatch ( boolean hasHatch){
+    public void setHasHatch(boolean hasHatch) {
         this.hasHatch = hasHatch;
     }
 
@@ -184,5 +188,7 @@ public class Room {
         return numRoom;
     }
 
-    public Monster[] getMonsters() { return killThem; }
+    public Monster[] getMonsters() {
+        return killThem;
+    }
 }

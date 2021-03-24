@@ -6,22 +6,29 @@ public class Item implements Locatable, Collectible {
     private Possession thing;
     private int x;
     private int y;
-/**
- * This enum represents all the possible Items the Player can carry with him/her.
- * All of these items can be carried and therefore implement both Locatable and Collectible.
- * The fields of each enum type passed into the constructor represent properties of the item.
- * These fields are in the order
- * (String type, damage, range, housingSpace, healthBoost, strengthBoost, speedBoost, purchaseCost,
- * returnCost, walkable, unlocker, idLevel, url)
- */
+    /**
+    * This enum represents all the possible Items the Player can carry with him/her.
+    * All of these items can be carried and therefore implement both Locatable and Collectible.
+    * The fields of each enum type passed into the constructor represent properties of the item.
+    * These fields are in the order
+    * (String type, damage, range, housingSpace, healthBoost, strengthBoost, speedBoost,
+     * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
+    */
     public enum Possession  {
-        A_ENERGYSWORD("Sword", 100000, 1, 4, 0, 0, 0, 500, 300, true, false, -1, "resources/images/A_ENERGYSWORD.png"),
-        A_SHOCKRIFLE("Gun", 100000, 100, 4, 0, 0, 0, 600, 250, true, false, -1, "resources/images/A_SHOCKRIFLE.png"),
-        IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDSWORD.png"),
-        IMPROVISEDGUN("Gun", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDGUN.png"),
-        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100, "resources/images/ID.png"),
-        HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1, "resources/images/Horn.png"),
-        ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1, "resources/images/ID.png");
+        A_ENERGYSWORD("Sword", 100000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/A_ENERGYSWORD.png"),
+        A_SHOCKRIFLE("Gun", 100000, 100, 4, 0, 0, 0, 600, 250, true, false, -1,
+                "resources/images/A_SHOCKRIFLE.png"),
+        IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1,
+                "resources/images/IMPROVISEDSWORD.png"),
+        IMPROVISEDGUN("Gun", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1,
+                "resources/images/IMPROVISEDGUN.png"),
+        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100,
+                "resources/images/ID.png"),
+        HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/Horn.png"),
+        ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1,
+                "resources/images/ID.png");
         private final String type;
         private final int damage;
         private final int range;
@@ -107,6 +114,7 @@ public class Item implements Locatable, Collectible {
 
     /**
      * This method overrides the method from the Locatable interface.
+     * @return the path to the image of this Item
      */
     public String getImageURL() {
         return thing.imageURL;

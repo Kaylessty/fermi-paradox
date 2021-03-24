@@ -35,7 +35,7 @@ public class FirstScreenController {
         Scene tableViewScene = new Scene(tableViewParent);
 
         //This line gets the Stage information
-        Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
 
         window.setScene(tableViewScene);
         window.show();

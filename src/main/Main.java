@@ -17,7 +17,7 @@ public class Main extends Application {
         Application.launch(args);
     }
 
-    static public Stage getPrimaryStage() {
+    public static Stage getPrimaryStage() {
         return Main.stage;
     }
 

@@ -2,57 +2,22 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/JavaFxApplication.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Entity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Grid.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/A_ENERGYSWORD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/A_SHOCKRIFLE.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/Horn.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/ID.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/IMPROVISEDGUN.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/IMPROVISEDSWORD.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/M3_Tests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/MazeTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/tests/RoomDisplayTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/libraries/lib.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/lib.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceDungeon-abdulrahman.iml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/css/SecondScreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/images/Background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/images/initialscreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/images/sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/view/configscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/view/firstscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/view/initialgamescreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/Background.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/Background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/roomcontroller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/roomcontroller.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/abdulrahman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/abdulrahman.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Collectible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Collectible.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Entity.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/FirstScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/FirstScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Grid.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Locatable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Locatable.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/Background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/images/Background.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/sword.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/firstscreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/roomcontroller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/roomcontroller.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Ben_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/FirstScreenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/FirstScreenTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -82,16 +47,15 @@
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$USER_HOME$/Documents/cs2340_checks.xml" />
-    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="org.infernus.idea.checkstyle.CheckStyleConfigurable" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
   <component name="RunManager">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="SpaceDungeon" />
-      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\Java\javafx-sdk-11.0.2\lib&quot; --add-modules javafx.controls,javafx.fxml" />
       <extension name="coverage">
         <pattern>
           <option name="PATTERN" value="main.*" />
@@ -134,10 +98,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616356729495">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616554009019">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1616356729495" />
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1616554009019" />
     <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1616502287696">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -150,22 +114,22 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="389" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616457004596" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1616528974280">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1616554190427">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616528974280" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1616528974214">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616554190427" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1616554190426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616528974214" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1616528974185">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616554190426" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1616554190425">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616528974185" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1616528974234">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616554190425" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1616554190426">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616528974215" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616554190426" />
     <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1616515016750">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -182,10 +146,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1616515016749" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1616530306561">
+    <state x="163" y="0" key="SettingsEditor" timestamp="1616553897995">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616530306560" />
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616553897995" />
     <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1616429236505">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

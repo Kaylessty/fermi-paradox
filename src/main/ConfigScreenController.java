@@ -57,7 +57,7 @@ public class ConfigScreenController {
     void startGame(ActionEvent event) throws IOException {
         try {
             // If the user name is not blank
-            if (!nameEntry.getText().strip().equals("")
+            if (!nameEntry.getText().trim().equals("")
                     && difficulties.getSelectedToggle() != null
                     && weapons.getSelectedToggle() != null) {
                 Player.setName(nameEntry.getText());
@@ -87,11 +87,12 @@ public class ConfigScreenController {
                 //health = new Label("Should definitely get replaced");
                 //money.textProperty().bind(Player.getBalance().asString());
                 //health.textProperty().bind(Player.getHealth().asString());
-                Parent viewParent = FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
+                Parent viewParent =
+                        FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
                 Scene viewScene = new Scene(viewParent, 800, 600);
 
                 //This line gets the Stage information
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(viewScene);
                 window.setResizable(false);
                 window.show();
@@ -99,7 +100,7 @@ public class ConfigScreenController {
             } else {
                 Dialog<ButtonType> warningMessage = new Dialog<>();
                 warningMessage.setContentText("You forgot to fill out a field.");
-                warningMessage.getDialogPane().setPrefSize(420,420);
+                warningMessage.getDialogPane().setPrefSize(420, 420);
                 ButtonType close = new ButtonType("Close and try again.",
                         ButtonBar.ButtonData.CANCEL_CLOSE);
                 warningMessage.getDialogPane().getButtonTypes().add(close);

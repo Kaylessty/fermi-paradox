@@ -3,8 +3,8 @@ package main;
 import java.util.Random;
 
 /**
- * The Maze class acts as a graph of sorts for the Rooms, all existing doors can be found in the rooms array and all
- * existing doors can be found in the doors array. the ints x and y should be used to determine room size.
+ * The Maze class acts as a graph of sorts for the Rooms, all existing rooms can be found in the
+ * rooms array and all existing doors can be found in the doors array.
  */
 public class Maze {
     private Random rNum = new Random();
@@ -22,33 +22,33 @@ public class Maze {
         roomnum = 26 + rNum.nextInt(10);
         rooms = new Room[roomnum];
         System.out.println("Number of rooms: " + rooms.length);
-        rooms[0] = new Room(x, y, 4, 0, 0,"starting",0);
+        rooms[0] = new Room(x, y, 4, 0, 0, "starting", 0);
         // Create a new player and add it to the first room
         Player player1 = new Player();
         player1.setLocation(8, 8);
-        rooms[0].addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);//******************************************
+        rooms[0].addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
         doornum = 4;
-        for(int i = 1; i < roomnum; i++) {
-            rooms[i] = new Room(x,y,"" + i,i);
+        for (int i = 1; i < roomnum; i++) {
+            rooms[i] = new Room(x, y, "" + i, i);
             // Shouldn't doornum start off at the value 4?
             doornum += rooms[i].getDoornumber();
         }
-        rooms[rooms.length-2] = new Room(x, y, 4,0, "last", rooms.length-2);
-        rooms[rooms.length-2].setHasHatch(true);
+        rooms[rooms.length - 2] = new Room(x, y, 4, 0, "last", rooms.length - 2);
+        rooms[rooms.length - 2].setHasHatch(true);
         doors = new Door[doornum];
         Room curRoom;
         int dcount = 0;
         // Iterate over each room
-        for(int i = 0; i < roomnum; i++) {
+        for (int i = 0; i < roomnum; i++) {
             curRoom = rooms[i];
             int k = 1;
             int cudoor = curRoom.getCurDoors();
             // Iterates over the number of doors left to be added in that room
-            for(int j = 0; j < curRoom.getDoors().length-cudoor; j++) {
+            for (int j = 0; j < curRoom.getDoors().length - cudoor; j++) {
                 int v = 1;
                 // Finding a suitable room to connect to the door
-                while(v==1) {
-                    if(i+k >= rooms.length) {
+                while (v == 1) {
+                    if (i + k >= rooms.length) {
                         // Is this all really necessary? I feel like only the v=0; is.
                         Door[] doors1 = new Door[curRoom.getCurDoors()];
                         for (int n = 0; n < curRoom.getCurDoors(); n++) {
@@ -56,13 +56,13 @@ public class Maze {
                         }
                         curRoom.setDoors(doors1);
                         v = 0;
-                    } else if (rooms[i+k].getDoors().length == rooms[i+k].getCurDoors() ||
-                            rooms[i+k].getDoors().length - rooms[i+k].getCurDoors() == 1) {
+                    } else if (rooms[i + k].getDoors().length == rooms[i + k].getCurDoors()
+                            || rooms[i + k].getDoors().length - rooms[i + k].getCurDoors() == 1) {
                         y = 1;
                         k += 1;
                     } else {
-                        if(rooms[i].getDoors().length > rooms[i].getCurDoors()) {
-                            Door newDoor = new Door(rooms[i],rooms[i+k]);
+                        if (rooms[i].getDoors().length > rooms[i].getCurDoors()) {
+                            Door newDoor = new Door(rooms[i], rooms[i + k]);
                             boolean found = false;
                             while (!found) {
                                 int potentialLocation = rNum.nextInt(4);
@@ -139,7 +139,8 @@ public class Maze {
                                 }
                             }
                             rooms[i + k].addDoor(oppositeDoor);
-                            rooms[i + k].addObject(oppositeDoor, oppositeDoor.getLocation()[0], oppositeDoor.getLocation()[1]);
+                            rooms[i + k].addObject(oppositeDoor, oppositeDoor.getLocation()[0],
+                                    oppositeDoor.getLocation()[1]);
                             rooms[i].addDoor(newDoor);
                             doors[dcount] = newDoor;
                             dcount++;

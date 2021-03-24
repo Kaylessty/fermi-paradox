@@ -5,7 +5,7 @@ public class Inventory {
     private Item[] contents = new Item[8];
     private String name;
     private int currHousingSpace;
-    private final int MAXIMUM_CAPACITY = 20;
+    private final int maximumCAPACITY = 20;
 
     public Inventory(String name) {
         this.name = name;
@@ -13,9 +13,9 @@ public class Inventory {
     }
 
     public boolean addItem(Item toAdd) {
-        if (toAdd.getSize() + currHousingSpace <= MAXIMUM_CAPACITY) {
-            for(int i = 0; i < contents.length; i++) {
-                if(contents[i] == null) {
+        if (toAdd.getSize() + currHousingSpace <= maximumCAPACITY) {
+            for (int i = 0; i < contents.length; i++) {
+                if (contents[i] == null) {
                     contents[i] = toAdd;
                     break;
                 }
@@ -32,7 +32,11 @@ public class Inventory {
         return contents[index];
     }
 
-    public int getCurrHousingSpace() { return currHousingSpace; }
+    public int getCurrHousingSpace() {
+        return currHousingSpace;
+    }
 
-    public void setCurrHousingSpace(int number) { currHousingSpace = number; }
+    public void setCurrHousingSpace(int number) {
+        currHousingSpace = number;
+    }
 }
