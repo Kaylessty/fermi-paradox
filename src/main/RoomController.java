@@ -10,6 +10,8 @@ import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.input.KeyCode;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -243,6 +245,25 @@ public class RoomController {
         pos = item.getLocation();
         currRoom.removeObject(pos[0], pos[1]);
         displayRoom();
+    }
+
+    public void keyReader(int key) {
+        //NOTE: I was unable to figure out how to do this with
+        //a switch statement, kept getting error, so using if/else.
+        scene1.addEventHandler(KeyEvent.KEY_PRESSED, (key1) -> {
+            if (key1.getCode() == KeyCode.LEFT) {
+                //move left
+            } else if (key1.getCode() == KeyCode.RIGHT) {
+                //move right
+            } else if (key1.getCode() == KeyCode.UP) {
+                //move up
+            } else if (key1.getCode() == KeyCode.DOWN) {
+                //move down
+            }
+        });
+
+        //further keys can be added to this list for other actions in GameState
+        //ex. attack, menu, interact
     }
 
     /**
