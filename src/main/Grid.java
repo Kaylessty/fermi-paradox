@@ -26,7 +26,7 @@ public class Grid {
      * @param e Entity being moved
      */
     public void moveRight(Entity e) {
-        if ((e.getCurrentPos() % 18) != 7) {
+        if ((e.getCurrentPos() % 18) != 17) {
             e.setCurrentPos(e.getCurrentPos() + 1);
         }
     }
