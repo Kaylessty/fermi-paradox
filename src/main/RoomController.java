@@ -255,6 +255,14 @@ public class RoomController {
         //displayRoom();
     }
 
+    public void drop() {
+        Item toDrop = inv.getValue();
+        playerInventory.dropItem(toDrop);
+        inv.getItems().remove(toDrop);
+        int[] loc = player1.getLocation();
+        currRoom.addObject(toDrop, loc[0],loc[1]);
+    }
+
     /**
      * returns the scene1
      * @return scene1
@@ -299,6 +307,8 @@ public class RoomController {
                         System.out.println("No monster within range");
                     }
                 }
+            } else if (e.getCode() == KeyCode.Q) {
+                drop();
             } else if (e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
                 System.out.println("You pressed up");
                 int[] pos = player1.getLocation();
