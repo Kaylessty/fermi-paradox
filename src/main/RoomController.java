@@ -60,7 +60,8 @@ public class RoomController {
                 "Administrator ID"), 9, 10);
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
                 "Visitor ID"), 3, 15);
-
+        //adds items to room
+        currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
         pillar = new VBox();
         //makes Inventory
