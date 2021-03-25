@@ -5,12 +5,15 @@ import javafx.beans.property.SimpleIntegerProperty;
 /*
 This acts as a data class for the player of the game.
  */
-public class Player {
+public class Player implements Locatable {
     private static IntegerProperty health;
     private static String name;
     private static IntegerProperty balance;
     private static int strength;
     private static int speed;
+    private int x;
+    private int y;
+    private String recentImageURL = "resources/images/player-down.png";
 
 
     public static String getName() {
@@ -51,5 +54,38 @@ public class Player {
 
     public static void setStrength(int strength1) {
         strength = strength1;
+    }
+
+    public int[] getLocation() {
+        return new int[] {x, y};
+    }
+
+    public void setLocation(int x, int y) {
+        this.x = x;
+        this.y = y;
+    }
+
+    public String getImageURL() {
+        return recentImageURL;
+    }
+
+    public String getUpImageURL() {
+        recentImageURL = "resources/images/player-up.png";
+        return recentImageURL;
+    }
+
+    public String getDownImageURL() {
+        recentImageURL = "resources/images/player-down.png";
+        return recentImageURL;
+    }
+
+    public String getRightImageURL() {
+        recentImageURL = "resources/images/player-right.png";
+        return recentImageURL;
+    }
+
+    public String getLeftImageURL() {
+        recentImageURL = "resources/images/player-left.png";
+        return recentImageURL;
     }
 }

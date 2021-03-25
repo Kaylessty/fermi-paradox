@@ -1,6 +1,5 @@
-import main.Main;
-import main.Maze;
-import main.RoomController;
+import main.Controller;
+import main.Player;
 import javafx.stage.Stage;
 import org.junit.Before;
 import org.junit.Test;
@@ -10,17 +9,14 @@ import org.testfx.matcher.base.NodeMatchers;
 import static org.testfx.api.FxAssert.verifyThat;
 
 
-public class Ben_M3_Tests extends ApplicationTest {
+public class Ben_Tests extends ApplicationTest {
 
-    private Main secondScreen;
-    private RoomController test;
+    private Controller secondScreen;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        secondScreen = new Main();
+        secondScreen = new Controller();
         secondScreen.start(primaryStage);
-
-        test = new RoomController();
     }
 
     @Before
@@ -35,12 +31,11 @@ public class Ben_M3_Tests extends ApplicationTest {
     }
 
     /**
-    * Test to ensure that upon starting a game, you begin in "room first"
-    */
+     * Test to ensure that upon starting a game, you begin in "room first"
+     */
     @Test
     public void testMazeInitialization() {
-        test = new RoomController();
-        assertEquals(test.getCurrRoom().getRoomName(), "room first");
+        assertEquals(currRoom.getRoomName(), "room first");
     }
 
     /**
@@ -52,15 +47,14 @@ public class Ben_M3_Tests extends ApplicationTest {
     }
 
     /**
-    * Test to ensure existance of an exit room upon random generation
-    */
+     * Test to ensure existance of an exit room upon random generation
+     */
     @Test
     public void testForExit() {
-        Maze testMaze = new Maze();
-        int a = testMaze.getRooms().length;
-        boolean exitExists = false;
+        private int a = getRooms().length;
+        private boolean exitExists = false;
         for (int k = 0; k < a; k++) {
-            if ((testMaze.getRooms()[k].getRoomName()).equals("room last")) {
+            if ((getRooms()[k].getRoomName).equals("room last")) {
                 exitExists = true;
             }
         }
@@ -68,8 +62,8 @@ public class Ben_M3_Tests extends ApplicationTest {
     }
 
     /**
-    * Test to ensure that the room label is actually visible
-    */
+     * Test to ensure that the room label is actually visible
+     */
     @Test
     public void roomLabelExists() {
         verifyThat("room first", NodeMatchers.isVisible());

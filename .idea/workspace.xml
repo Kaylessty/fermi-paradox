@@ -1,38 +1,230 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b64e6353-1444-4d2d-b372-dc7e36a983cf" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/roomcontroller.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Monster.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/A_ENERGYSWORD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/A_SHOCKRIFLE.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/Horn.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/ID.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/IMPROVISEDGUN.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/IMPROVISEDSWORD.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/kappa.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/new-door-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/new-door-left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/new-door-right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/new-door-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/player-down.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/player-left.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/player-right.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/resources/images/player-up.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tests/RoomDisplayTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/checkstyle-idea.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceDungeon-abdulrahman.iml" beforeDir="false" afterPath="$PROJECT_DIR$/JavaFxApplication.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceDungeon-master.iml" beforeDir="false" afterPath="$PROJECT_DIR$/abdulrahman.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/css/SecondScreen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/images/Background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/images/initialscreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/resources/images/sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/view/configscreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/view/firstscreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon-abdulrahman/view/initialgamescreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/css/SecondScreen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/Background.png" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/Background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/door-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/exit_portal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/initialscreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/other-door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/room_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/configscreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Collectible.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Collectible.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Door.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Door.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Locatable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Locatable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/images/Background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/images/Background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/images/sword.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/roomcontroller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/roomcontroller.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/Ben_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/FirstScreenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/FirstScreenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M3_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M3_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MazeTest.java" afterDir="false" />
     </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1q4i10Igi9KHS2iqrkfUcJNEfbW" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="Downloaded.Files.Path.Enabled" value="true" />
+    <property name="Repository.Attach.Annotations" value="false" />
+    <property name="Repository.Attach.JavaDocs" value="false" />
+    <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../cs2340_checks.xml" />
+    <property name="project.structure.last.edited" value="SDKs" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode" />
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager">
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.Main" />
+      <module name="SpaceDungeon" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b64e6353-1444-4d2d-b372-dc7e36a983cf" name="Default Changelist" comment="" />
-      <created>1615774982346</created>
+      <changelist id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="" />
+      <created>1616345047338</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1615774982346</updated>
+      <updated>1616345047338</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1616554009019">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="137" y="23" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1366.728@0.0.1366.728" timestamp="1616554009019" />
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1616502287696">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1616502287696" />
+    <state x="437" y="83" key="DetectedRootsChooserDialog" timestamp="1616358492196">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="437" y="83" key="DetectedRootsChooserDialog/0.0.1366.728@0.0.1366.728" timestamp="1616358492195" />
+    <state x="389" y="109" key="FileChooserDialogImpl" timestamp="1616457004596">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="389" y="109" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616457004596" />
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1616554190427">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616554190427" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1616554190426">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616554190426" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1616554190425">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616554190425" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1616554190426">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616554190426" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1616515016750">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616515016750" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1616515016749">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1616515016749" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1616515016748">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1616515016748" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1616515016749">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1616515016749" />
+    <state x="163" y="0" key="SettingsEditor" timestamp="1616553897995">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616553897995" />
+    <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1616429236505">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="391" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616429236505" />
+    <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1616432556628">
+      <screen x="0" y="0" width="1366" height="728" />
+    </state>
+    <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1616432556628" />
   </component>
 </project>

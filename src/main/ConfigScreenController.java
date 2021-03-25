@@ -57,7 +57,7 @@ public class ConfigScreenController {
     void startGame(ActionEvent event) throws IOException {
         try {
             // If the user name is not blank
-            if (!nameEntry.getText().equals("")
+            if (!nameEntry.getText().trim().equals("")
                     && difficulties.getSelectedToggle() != null
                     && weapons.getSelectedToggle() != null) {
                 Player.setName(nameEntry.getText());
@@ -114,5 +114,14 @@ public class ConfigScreenController {
         }
     }
 
+    public static Label getMoney() {
+        return money;
+    }
+
+    public static Label getHealth() {
+        return health;
+    }
+
 }
+
 

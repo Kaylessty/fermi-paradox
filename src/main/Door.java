@@ -8,6 +8,7 @@ public class Door implements Locatable {
     private String imageUrl;
     private int x;
     private int y;
+    private Boolean locked = true;
 
     public Door(Room roomA, Room roomB) {
         this.roomA = roomA;
@@ -65,6 +66,7 @@ public class Door implements Locatable {
         this.roomB = roomB;
     }
 
+
     /**
      * setter for imageUrl
      * @param url String for new val
@@ -73,6 +75,7 @@ public class Door implements Locatable {
         this.imageUrl = url;
     }
 
+
     /**
      * setter for X instance var
      * @param x int for new val
@@ -80,6 +83,7 @@ public class Door implements Locatable {
     public void setX(int x) {
         this.x = x;
     }
+
 
     /**
      * setter for Y instance var
@@ -95,6 +99,15 @@ public class Door implements Locatable {
     }
 
 
+    public void setLocked(boolean locked) {
+        this.locked = locked;
+    }
+
+    public boolean getLocked() {
+        return locked;
+    }
+
+
     @Override
     public boolean equals(Object obj) {
         if (obj == null) {
@@ -104,31 +117,7 @@ public class Door implements Locatable {
             return false;
         }
         Door d = (Door) obj;
-        return roomA.equals(d.roomA) && roomB.equals(d.roomB);
+        return roomA.equals(d.getRoomA()) && roomB.equals(d.getRoomB());
     }
 
-    //something to be used if row/column of rooms gets updated
-    public String doorPlacement(Room room) {
-        if (room.equals(roomA)) {
-            if (room.getRow() > roomB.getRow()) {
-                return "left";
-            } else if (room.getRow() < roomB.getRow()) {
-                return "right";
-            } else if (room.getColumn() > roomB.getColumn()) {
-                return "up";
-            } else {
-                return "down";
-            }
-        } else {
-            if (room.getRow() > roomA.getRow()) {
-                return "left";
-            } else if (room.getRow() < roomA.getRow()) {
-                return "right";
-            } else if (room.getColumn() > roomA.getColumn()) {
-                return "up";
-            } else {
-                return "down";
-            }
-        }
-    }
 }
