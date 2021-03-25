@@ -276,7 +276,7 @@ public class RoomController {
          */
         public void handle(KeyEvent e) {
             System.out.println("Reached inner class");
-            if (e.getCode() == KeyCode.W) {
+            if (e.getCode() == KeyCode.E) {
                 if (inv.getValue() != null) {
                     Item.Possession carrying = inv.getValue().getPossession();
                     int range = carrying.getRange();
@@ -299,7 +299,7 @@ public class RoomController {
                         System.out.println("No monster within range");
                     }
                 }
-            } else if (e.getCode() == KeyCode.UP) {
+            } else if (e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
                 System.out.println("You pressed up");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at top of room
@@ -315,7 +315,7 @@ public class RoomController {
                         refreshRoom();
                     }
                 }
-            } else if (e.getCode() == KeyCode.DOWN) {
+            } else if (e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.S) {
                 System.out.println("You pressed down");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at bottom of room
@@ -331,7 +331,7 @@ public class RoomController {
                         refreshRoom();
                     }
                 }
-            } else if (e.getCode() == KeyCode.RIGHT) {
+            } else if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
                 System.out.println("You pressed right");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at very right of room
@@ -347,7 +347,7 @@ public class RoomController {
                         refreshRoom();
                     }
                 }
-            } else if (e.getCode() == KeyCode.LEFT) {
+            } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
                 System.out.println("You pressed left");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at very left of room
