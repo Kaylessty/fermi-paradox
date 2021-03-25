@@ -48,16 +48,10 @@ public class RoomController {
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 2, 2,
-                "Annihilative Energy Sword"), 2, 2);
-        currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
-                "Annihilative Shock Rifle"), 6, 10);
         currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,
                 "Improvised Sword"), 4, 11);
         currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,
                 "Improvised Gun"), 7, 12);
-        currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,
-                "Administrator ID"), 9, 10);
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
                 "Visitor ID"), 3, 15);
         //adds items to room
@@ -260,7 +254,10 @@ public class RoomController {
         playerInventory.dropItem(toDrop);
         inv.getItems().remove(toDrop);
         int[] loc = player1.getLocation();
-        currRoom.addObject(toDrop, loc[0],loc[1]);
+        loc[1] = loc[1] -1;
+        toDrop.setPosition(loc);
+        currRoom.addObject(new Item(toDrop.getPossession(), loc[0], loc[1],
+                toDrop.getName()), loc[0], loc[1]);
     }
 
     /**
@@ -309,6 +306,15 @@ public class RoomController {
                 }
             } else if (e.getCode() == KeyCode.Q) {
                 drop();
+                refreshRoom();
+            } else if (e.getCode() == KeyCode.P) {
+                currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 2, 2,
+                        "Annihilative Energy Sword"), 2, 2);
+                currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
+                        "Annihilative Shock Rifle"), 6, 10);
+                currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,
+                        "Administrator ID"), 9, 10);
+                refreshRoom();
             } else if (e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
                 System.out.println("You pressed up");
                 int[] pos = player1.getLocation();

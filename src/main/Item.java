@@ -118,6 +118,10 @@ public class Item implements Locatable, Collectible {
         return position;
     }
 
+    public void setPosition(int[] pos) {
+        this.x = pos[0];
+        this.x = pos[1];
+    }
     /**
      * This method overrides the method from the Locatable interface.
      * @return the path to the image of this Item
