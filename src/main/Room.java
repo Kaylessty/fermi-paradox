@@ -47,6 +47,18 @@ public class Room {
         if (special == 9) {
             this.roomName = "Clown Room";
             addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
+            addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 15, 15);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 15, 13);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 13, 15);
+            addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 0, 1);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 0, 0);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 0);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 15, 1);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 15, 0);
+            addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 14, 0);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 0, 14);
+            addObject(new Item(Item.Possession.BALLOON_B, 15, 15, "Red Balloon"), 0, 15);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
         }
     }
 
