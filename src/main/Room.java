@@ -3,8 +3,8 @@ package main;
 import java.util.Random;
 
 /**
- * This class describes a room. A room is a 2-D array (18 by 18) where each block in the room is 32x32 pixels.
- * The outer 12 pixels around all the edges are walls which are separate from the 18x18 blocks.
+ * This class describes a room. A room is a 2-D array (18 by 18) where each block in the room is
+ * 32x32 pixels.
  */
 public class Room {
     private static Random rNum = new Random();
@@ -17,6 +17,7 @@ public class Room {
     private boolean hasHatch = false;
     private String roomName;
     private int monsterNum;
+    private Monster[] killThem;
     private int numRoom;
     private int special;
 
@@ -25,6 +26,8 @@ public class Room {
      * This constructor initializes the location of this room on the grid-like maze
      * @param row the row number on the grid where this room is. Rows start at 0.
      * @param column the column number on the grid where the room is. Columns start at 0.
+     * @param roomName the name of the room. Will be displayed when room appears
+     * @param numRoom the number associated with the room. Helps to find relative depth in maze
      */
     public Room(int row, int column, String roomName, int numRoom) {
         this.row = row;
@@ -34,16 +37,33 @@ public class Room {
         distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
-        this.monsterNum = 1+ rNum.nextInt(2);
+        this.monsterNum = 1 + rNum.nextInt(2);
+        killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(10);
-        if(special == 9) {
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
+        if (special == 9) {
             this.roomName = "Clown Room";
             addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
+            addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 15, 15);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 15, 13);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 13, 15);
+            addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 0, 1);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 0, 0);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 0);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 15, 1);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 15, 0);
+            addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 14, 0);
+            addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 0, 14);
+            addObject(new Item(Item.Possession.BALLOON_B, 15, 15, "Red Balloon"), 0, 15);
+            addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
         }
     }
 
-    public Room(int row, int column, int doornumber, int distance, int monsterNum, String roomName, int numRoom) {
+    public Room(int row, int column, int doornumber, int distance, int monsterNum,
+                String roomName, int numRoom) {
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
@@ -51,7 +71,11 @@ public class Room {
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
         this.monsterNum = monsterNum;
+        killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
     }
 
     public Room(int row, int column, int doornumber, int monsterNum, String roomName, int numRoom) {
@@ -62,7 +86,17 @@ public class Room {
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
         this.monsterNum = monsterNum;
+        killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
+    }
+
+    private void addMonsters() {
+        for (int index = 0; index < monsterNum; index++) {
+            killThem[index] = new Monster();
+        }
     }
 
     public void addObject(Locatable object, int x, int y) {
@@ -81,20 +115,6 @@ public class Room {
     public Door[] getDoors() {
         return doors;
     }
-
-    /*
-    public void removeDoor(Door door) {
-        int curDoorNum = this.getCurDoors();
-        for (int index = 0; index < curDoorNum; index++) {
-            if (door.equals(doors[index])) {
-                for (; index < curDoorNum; index++) {
-                    doors[index] = doors[index + 1];
-                }
-                break;
-            }
-        }
-    }
-     */
 
     public String getRoomName() {
         return roomName;
@@ -119,7 +139,7 @@ public class Room {
         }
         int g = 0;
         for (int i = 0; i < doors.length; i++) {
-            if(doors[i] == null && g != 1) {
+            if (doors[i] == null && g != 1) {
                 doors[i] = door;
                 g = 1;
                 return;
@@ -149,7 +169,7 @@ public class Room {
     }
 
     @Override
-    public boolean equals(Object o){
+    public boolean equals(Object o) {
         if (o == null) {
             return false;
         }
@@ -160,7 +180,7 @@ public class Room {
         return r.getRoomName().equals(this.roomName);
     }
 
-    public void setHasHatch ( boolean hasHatch){
+    public void setHasHatch(boolean hasHatch) {
         this.hasHatch = hasHatch;
     }
 
@@ -178,5 +198,9 @@ public class Room {
 
     public int getNumRoom() {
         return numRoom;
+    }
+
+    public Monster[] getMonsters() {
+        return killThem;
     }
 }

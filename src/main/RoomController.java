@@ -1,15 +1,12 @@
 package main;
 
-import javafx.application.Application;
+import javafx.event.EventHandler;
 import javafx.geometry.Pos;
-import javafx.scene.Group;
-import javafx.scene.Node;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -18,8 +15,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
-
-import javax.swing.text.Position;
 
 public class RoomController {
 
@@ -32,37 +27,35 @@ public class RoomController {
     private Door lastDoor;
     private Label money;
     private Label health;
+    private InitialGameScreenController temp = new InitialGameScreenController();
     private HBox topRow;
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
-    ChoiceBox<Item> inv;
-    Inventory playerInventory;
-    InitialGameScreenController temp = new InitialGameScreenController();
+    private ChoiceBox<Item> inv;
+    private Inventory playerInventory;
+    private Player player1;
+    private Monster[] monstersInRoom;
 
-
-    /*
-    public RoomController(Locatable[][] currRoom) {
-        this.currRoom = currRoom;
-    }
+    /**
+     * This class controls the actions that occur within a room including keyEvents and
+     * displaying the room
      */
-
     public RoomController() {
+
         //Create the maze
         theMaze = new Maze();
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 5, 5, "Annihilative Energy Sword"), 5, 5);
-        currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,  "Annihilative Shock Rifle"), 6, 10);
-        currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,  "Improvised Sword"), 4, 11);
-        currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,  "Improvised Gun"), 7, 12);
-        currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,  "Administrator ID"), 9, 10);
-        currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,  "Visitor ID"), 3, 15);
-        //currRoom.removeObject(6,10);
-        //this is to see what the hatch looks like
-        //currRoom.setHasHatch(true);
-
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,
+                "Improvised Sword"), 4, 11);
+        currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,
+                "Improvised Gun"), 7, 12);
+        currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
+                "Visitor ID"), 3, 15);
+        //adds items to room
+        currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
         pillar = new VBox();
         //makes Inventory
@@ -70,12 +63,14 @@ public class RoomController {
         inv = new ChoiceBox<>();
         //
         try {
-            ImageView background = new ImageView(new Image("resources/images/room_background.png"));
+            ImageView background = new ImageView(
+                    new Image("resources/images/room_background.png"));
             pillar.getChildren().add(background);
         } catch (IllegalArgumentException e) {
             System.out.println("background pic not found");
         }
         //Add pillar/background before displayRoom()!
+
         health = new Label("");
         money = new Label("");
         topRow = new HBox();
@@ -93,7 +88,7 @@ public class RoomController {
         health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
                 + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 32pt 'Lao MN'");
         topRow.getChildren().addAll(moneyText, money);
-        bottomRow.getChildren().addAll(inv,healthText,health);
+        bottomRow.getChildren().addAll(inv, healthText, health);
         topRow.setAlignment(Pos.CENTER);
         bottomRow.setAlignment(Pos.CENTER);
         root.getChildren().add(pillar);
@@ -101,6 +96,7 @@ public class RoomController {
         scene1 = new Scene(root, 800, 600);
 
     }
+
     /*
     This method displays the current room on the scene.
      */
@@ -119,26 +115,29 @@ public class RoomController {
                     try {
                         Image picture;
                         if (important instanceof Item) {
-                            picture = new Image(imageURL, ((Item)important).getSize(), ((Item)important).getSize(), true, true);
+                            picture = new Image(imageURL, 64, 64, true, true);
 
                         } else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
                         }
                         ImageView pictureView = new ImageView(picture);
-                        pictureView.setX(column * 32 + 210);//***______________-----------***********
-                        pictureView.setY(row * 32);//***______________-----------***********
+                        pictureView.setX(column * 32 + 210);
+                        pictureView.setY(row * 32);
                         root.getChildren().add(pictureView);
-                        //**************************************************************************************************************
                         if (important instanceof Door) {
-                            pictureView.setOnMouseClicked(e -> changeRoom((Door)important));
+                            pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
                         }
                         if (important instanceof Item) {
                             pictureView.setOnMouseClicked(e -> {
-                                pickUp((Item)important);
+                                pickUp((Item) important);
                                 refreshRoom();
                             });
                         }
-                        //**************************************************************************************************************8
+                        if (important instanceof Player) {
+                            System.out.println("Reached instanceof Player");
+                            player1 = (Player) important;
+                            root.setOnKeyPressed(new MovementController());
+                        }
                     } catch (IllegalArgumentException e) {
                         System.out.println("The file/image for the item could not be found.");
                     }
@@ -148,7 +147,8 @@ public class RoomController {
         // Display the hatch if need be
         if (currRoom.getHasHatch()) {
             try {
-                Image picture = new Image("resources/images/exit_portal.png", 100.0, 100.0, true, true);
+                Image picture = new Image("resources/images/exit_portal.png", 100.0,
+                        100.0, true, true);
                 ImageView pictureView = new ImageView(picture);
                 pictureView.setX(350);
                 pictureView.setY(250);
@@ -161,17 +161,18 @@ public class RoomController {
     }
 
     /**
-     * This method this changes the current room
+     * This method changes the current room
+     * @param door The door that connects current room to other room that player will move to
      */
     private void changeRoom(Door door) {
-        if(inv.getValue() != null) {
+        if (inv.getValue() != null) {
             int idlvl = inv.getValue().getPossession().getIdLevel();
-            if (door.getLocked() == true && idlvl > door.getRoomA().getNumRoom()) {
+            if (door.getLocked() && idlvl > door.getRoomA().getNumRoom()) {
                 System.out.println("door unlocked");
                 door.setLocked(false);
             }
         }
-        if (door.getLocked() == true) {
+        if (door.getLocked()) {
             System.out.println("door locked");
             return;
         }
@@ -184,6 +185,7 @@ public class RoomController {
         } else {
             currRoom = door.getRoomA();
         }
+        monstersInRoom = currRoom.getMonsters();
         // each scene needs its own group
         root = new BorderPane();
         root.getChildren().add(pillar);
@@ -244,26 +246,18 @@ public class RoomController {
         int[] pos;
         pos = item.getLocation();
         currRoom.removeObject(pos[0], pos[1]);
-        displayRoom();
+        //displayRoom();
     }
 
-    public void keyReader(int key) {
-        //NOTE: I was unable to figure out how to do this with
-        //a switch statement, kept getting error, so using if/else.
-        scene1.addEventHandler(KeyEvent.KEY_PRESSED, (key1) -> {
-            if (key1.getCode() == KeyCode.LEFT) {
-                //move left
-            } else if (key1.getCode() == KeyCode.RIGHT) {
-                //move right
-            } else if (key1.getCode() == KeyCode.UP) {
-                //move up
-            } else if (key1.getCode() == KeyCode.DOWN) {
-                //move down
-            }
-        });
-
-        //further keys can be added to this list for other actions in GameState
-        //ex. attack, menu, interact
+    public void drop() {
+        Item toDrop = inv.getValue();
+        playerInventory.dropItem(toDrop);
+        inv.getItems().remove(toDrop);
+        int[] loc = player1.getLocation();
+        loc[1] = loc[1] -1;
+        toDrop.setPosition(loc);
+        currRoom.addObject(new Item(toDrop.getPossession(), loc[0], loc[1],
+                toDrop.getName()), loc[0], loc[1]);
     }
 
     /**
@@ -272,6 +266,121 @@ public class RoomController {
      */
     public Scene getScene() {
         return scene1;
+    }
+
+
+    /**
+     * This class is where player movement functionality should be implemented.
+     * In this class, KeyEvents should be handled.
+     */
+    private class MovementController implements EventHandler<KeyEvent> {
+
+        /**
+         * The if-statements will likely go here
+         * @param e the key pressed that creates this class
+         */
+        public void handle(KeyEvent e) {
+            System.out.println("Reached inner class");
+            if (e.getCode() == KeyCode.E) {
+                if (inv.getValue() != null) {
+                    Item.Possession carrying = inv.getValue().getPossession();
+                    int range = carrying.getRange();
+                    boolean foundMonster = false;
+                    for (Monster monster : monstersInRoom) {
+                        if (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
+                                (player1.getLocation()[1] - monster.getLocation()[1])) <= range) {
+                            foundMonster = true;
+                            // attack monster
+                            monster.setHealth(monster.getHealth() - carrying.getDamage());
+                            if (monster.getHealth() <= 0) {
+                                currRoom.removeObject(monster.getLocation()[0],
+                                        monster.getLocation()[1]);
+                                System.out.println("Monster killed");
+                                refreshRoom();
+                            }
+                        }
+                    }
+                    if (!foundMonster) {
+                        System.out.println("No monster within range");
+                    }
+                }
+            } else if (e.getCode() == KeyCode.Q) {
+                drop();
+                refreshRoom();
+            } else if (e.getCode() == KeyCode.P) {
+                currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 2, 2,
+                        "Annihilative Energy Sword"), 2, 2);
+                currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
+                        "Annihilative Shock Rifle"), 6, 10);
+                currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,
+                        "Administrator ID"), 9, 10);
+                refreshRoom();
+            } else if (e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
+                System.out.println("You pressed up");
+                int[] pos = player1.getLocation();
+                // If the player isn't already at top of room
+                if (pos[1] != 0) {
+                    if (currRoom.getRoom()[pos[1] - 1][pos[0]] == null
+                            || currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
+                        currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
+                        player1.setLocation(player1.getLocation()[0],
+                                player1.getLocation()[1] - 1);
+                        currRoom.addObject(player1, player1.getLocation()[0],
+                                player1.getLocation()[1]);
+                        player1.getUpImageURL();
+                        refreshRoom();
+                    }
+                }
+            } else if (e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.S) {
+                System.out.println("You pressed down");
+                int[] pos = player1.getLocation();
+                // If the player isn't already at bottom of room
+                if (pos[1] != currRoom.getRoom()[0].length - 1) {
+                    if (currRoom.getRoom()[pos[1] + 1][pos[0]] == null
+                            || currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
+                        currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
+                        player1.setLocation(player1.getLocation()[0],
+                                player1.getLocation()[1] + 1);
+                        currRoom.addObject(player1, player1.getLocation()[0],
+                                player1.getLocation()[1]);
+                        player1.getDownImageURL();
+                        refreshRoom();
+                    }
+                }
+            } else if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
+                System.out.println("You pressed right");
+                int[] pos = player1.getLocation();
+                // If the player isn't already at very right of room
+                if (pos[0] != currRoom.getRoom().length - 1) {
+                    if (currRoom.getRoom()[pos[1]][pos[0] + 1] == null
+                            || currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
+                        currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
+                        player1.setLocation(player1.getLocation()[0] + 1,
+                                player1.getLocation()[1]);
+                        currRoom.addObject(player1, player1.getLocation()[0],
+                                player1.getLocation()[1]);
+                        player1.getRightImageURL();
+                        refreshRoom();
+                    }
+                }
+            } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
+                System.out.println("You pressed left");
+                int[] pos = player1.getLocation();
+                // If the player isn't already at very left of room
+                if (pos[0] != 0) {
+                    if (currRoom.getRoom()[pos[1]][pos[0] - 1] == null
+                            || currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
+                        currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
+                        player1.setLocation(player1.getLocation()[0] - 1,
+                                player1.getLocation()[1]);
+                        currRoom.addObject(player1, player1.getLocation()[0],
+                                player1.getLocation()[1]);
+                        player1.getLeftImageURL();
+                        refreshRoom();
+                    }
+                }
+            }
+        }
     }
 
 }

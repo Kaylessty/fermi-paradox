@@ -4,24 +4,45 @@ public class Item implements Locatable, Collectible {
 
     private String name;
     private Possession thing;
-    private int row;
-    private int column;
-/**
- * This enum represents all the possible Items the Player can carry with him/her.
- * All of these items can be carried and therefore implement both Locatable and Collectible.
- * The fields of each enum type passed into the constructor represent properties of the item.
- * These fields are in the order
- * (String type, damage, range, housingSpace, healthBoost, strengthBoost, speedBoost, purchaseCost,
- * returnCost, walkable, url)
- */
+    private int x;
+    private int y;
+    /**
+    * This enum represents all the possible Items the Player can carry with him/her.
+    * All of these items can be carried and therefore implement both Locatable and Collectible.
+    * The fields of each enum type passed into the constructor represent properties of the item.
+    * These fields are in the order
+    * (String type, damage, range, housingSpace, healthBoost, strengthBoost, speedBoost,
+     * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
+    */
     public enum Possession  {
-        A_ENERGYSWORD("Sword", 100000, 1, 2, 0, 0, 0, 500, 300, true, false, -1, "resources/images/A_ENERGYSWORD.png"),
-        A_SHOCKRIFLE("Gun", 100000, 100, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/A_SHOCKRIFLE.png"),
-        IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDSWORD.png"),
-        IMPROVISEDGUN("Gun", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1, "resources/images/IMPROVISEDGUN.png"),
-        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100, "resources/images/ID.png"),
-        HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1, "resources/images/Horn.png"),
-        ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1, "resources/images/ID.png");
+        A_ENERGYSWORD("Sword", 100000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/A_ENERGYSWORD.png"),
+        ENERGYSWORD("Sword", 400, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/ENERGYSWORD.png"),
+        LASER("Gun", 150, 10, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/LASER.png"),
+        SONICRIFLE("Gun", 350, 4, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/SONICRIFLE.png"),
+        A_SHOCKRIFLE("Gun", 100000, 100, 4, 0, 0, 0, 600, 250, true, false, -1,
+                "resources/images/A_SHOCKRIFLE.png"),
+        IMPROVISEDSWORD("Sword", 100, 1, 3, 0, 0, 0, 600, 250, true, false, -1,
+                "resources/images/IMPROVISEDSWORD.png"),
+        IMPROVISEDGUN("Gun", 56, 5, 3, 0, 0, 0, 600, 250, true, false, -1,
+                "resources/images/IMPROVISEDGUN.png"),
+        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100,
+                "resources/images/ID.png"),
+        HORN("misc", 1, 1, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/Horn.png"),
+        BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_R.png"),
+        BALLOON_G("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_G.png"),
+        BALLOON_Y("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_Y.png"),
+        BALLOON_B("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_B.png"),
+        ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1,
+                "resources/images/ID.png");
         private final String type;
         private final int damage;
         private final int range;
@@ -57,18 +78,27 @@ public class Item implements Locatable, Collectible {
         public int getIdLevel() {
             return idLevel;
         }
+
+        public int getRange() {
+            return range;
+        }
+
+        public int getDamage() {
+            return damage;
+        }
     }
 
     /**
      * This is a constructor that initializes aht the item is along with where it is in the room.
      * @param thing describes the item it can be. Look at the enum in this class
-     * @param row the x-location of where this item will be placed in the room
-     * @param column the y-location of where this item will be placed in the room
+     * @param x the x-location of where this item will be placed in the room
+     * @param y the y-location of where this item will be placed in the room
+     * @param name the name of the Item
      */
-    public Item(Possession thing, int row, int column, String name) {
+    public Item(Possession thing, int x, int y, String name) {
         this.thing = thing;
-        this.row = row;
-        this.column = column;
+        this.x = x;
+        this.y = y;
         this.name = name;
     }
 
@@ -80,8 +110,8 @@ public class Item implements Locatable, Collectible {
     @Override
     public int[] getLocation() {
         int[] location = new int[2];
-        location[0] = row;
-        location[1] = column;
+        location[0] = x;
+        location[1] = y;
         return location;
     }
 
@@ -92,12 +122,17 @@ public class Item implements Locatable, Collectible {
      */
     @Override
     public int[] getPosition() {
-        int[] position = {row, column};
+        int[] position = {x, y};
         return position;
     }
 
+    public void setPosition(int[] pos) {
+        this.x = pos[0];
+        this.x = pos[1];
+    }
     /**
      * This method overrides the method from the Locatable interface.
+     * @return the path to the image of this Item
      */
     public String getImageURL() {
         return thing.imageURL;
@@ -129,15 +164,6 @@ public class Item implements Locatable, Collectible {
      * @return int size based on the item type
      */
     public int getSize() {
-        switch (thing.type) {
-            case "Gun":
-                return 84;
-            case "ID":
-                return 75;
-            case "Sword":
-                return 100;
-            default:
-                return 40;
-        }
-    };
+        return thing.housingSpace;
+    }
 }

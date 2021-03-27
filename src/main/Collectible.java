@@ -2,7 +2,8 @@ package main;
 
 
 /**
- * This interface should be implemented for all objects that implement Locatable but can also be carried by the Player.
+ * This interface should be implemented for all objects that implement Locatable
+ * but can also be carried by the Player.
  */
 public interface Collectible {
 

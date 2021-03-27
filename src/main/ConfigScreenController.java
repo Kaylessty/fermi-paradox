@@ -57,7 +57,7 @@ public class ConfigScreenController {
     void startGame(ActionEvent event) throws IOException {
         try {
             // If the user name is not blank
-            if (!nameEntry.getText().equals("")
+            if (!nameEntry.getText().trim().equals("")
                     && difficulties.getSelectedToggle() != null
                     && weapons.getSelectedToggle() != null) {
                 Player.setName(nameEntry.getText());
@@ -83,15 +83,33 @@ public class ConfigScreenController {
                     Player.setSpeed(5);
                     Player.setStrength(600);
                 }
+                if (((RadioButton)
+                        (weapons.getSelectedToggle())).getText().equals("Blaster")) {
+                    Maze.setStartItem(new Item(Item.Possession.LASER, 4, 4,
+                            "Laser"));
+                    // else if the difficulty is "amateur"
+                } else if (((RadioButton)
+                        (weapons.getSelectedToggle())).getText().equals("Space Sword")
+                ) {
+                    Maze.setStartItem(new Item(Item.Possession.ENERGYSWORD, 4, 4,
+                            "Energy Sword"));
+                    // else if the difficulty is "hard"
+                } else if (((RadioButton)
+                        (weapons.getSelectedToggle())).getText().equals("Sonar Gun")
+                ) {
+                    Maze.setStartItem(new Item(Item.Possession.SONICRIFLE, 4, 4,
+                            "Sonic Rifle"));
+                }
                 //money = new Label("Should get replaced");
                 //health = new Label("Should definitely get replaced");
                 //money.textProperty().bind(Player.getBalance().asString());
                 //health.textProperty().bind(Player.getHealth().asString());
-                Parent viewParent = FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
+                Parent viewParent =
+                        FXMLLoader.load(getClass().getResource("/view/initialgamescreen.fxml"));
                 Scene viewScene = new Scene(viewParent, 800, 600);
 
                 //This line gets the Stage information
-                Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+                Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 window.setScene(viewScene);
                 window.setResizable(false);
                 window.show();
@@ -99,7 +117,7 @@ public class ConfigScreenController {
             } else {
                 Dialog<ButtonType> warningMessage = new Dialog<>();
                 warningMessage.setContentText("You forgot to fill out a field.");
-                warningMessage.getDialogPane().setPrefSize(420,420);
+                warningMessage.getDialogPane().setPrefSize(420, 420);
                 ButtonType close = new ButtonType("Close and try again.",
                         ButtonBar.ButtonData.CANCEL_CLOSE);
                 warningMessage.getDialogPane().getButtonTypes().add(close);
@@ -111,6 +129,18 @@ public class ConfigScreenController {
         } catch (IOException ioException) {
             ioException.printStackTrace();
         }
+    }
+
+    public static Label getMoney() {
+        return money;
+    }
+
+    public static Label getHealth() {
+        return health;
+    }
+
+    public ToggleGroup getWeapons() {
+        return weapons;
     }
 
 }

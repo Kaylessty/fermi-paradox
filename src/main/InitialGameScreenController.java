@@ -1,5 +1,6 @@
 package main;
 
+
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -14,7 +15,7 @@ import java.io.IOException;
 
 public class InitialGameScreenController {
 
-    Scene scene;
+    private Scene scene;
 
     @FXML
     private Label health;
@@ -38,7 +39,7 @@ public class InitialGameScreenController {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/roomcontroller.fxml"));
             Parent viewParent = loader.load();
             RoomController roomControl = loader.getController();
-            Stage window = (Stage)((Node)event.getSource()).getScene().getWindow();
+            Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
             scene = roomControl.getScene();
             window.setScene(scene);
         } catch (IOException ioException) {

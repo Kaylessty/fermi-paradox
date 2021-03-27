@@ -29,7 +29,7 @@ public interface Locatable {
 
     /**
      * This method is helpful in displaying the Locatable object.
-     * @return
+     * @return the path to the image file
      */
     String getImageURL();
 
