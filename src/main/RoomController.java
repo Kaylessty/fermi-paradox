@@ -322,6 +322,9 @@ public class RoomController {
                 if (pos[1] != 0) {
                     if (currRoom.getRoom()[pos[1] - 1][pos[0]] == null
                             || currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1] - 1][pos[0]]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
                                 player1.getLocation()[1] - 1);
@@ -340,6 +343,9 @@ public class RoomController {
                 if (pos[1] != currRoom.getRoom()[0].length - 1) {
                     if (currRoom.getRoom()[pos[1] + 1][pos[0]] == null
                             || currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1] + 1][pos[0]]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
                                 player1.getLocation()[1] + 1);
@@ -358,6 +364,9 @@ public class RoomController {
                 if (pos[0] != currRoom.getRoom().length - 1) {
                     if (currRoom.getRoom()[pos[1]][pos[0] + 1] == null
                             || currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1]][pos[0] + 1]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] + 1,
                                 player1.getLocation()[1]);
@@ -376,6 +385,9 @@ public class RoomController {
                 if (pos[0] != 0) {
                     if (currRoom.getRoom()[pos[1]][pos[0] - 1] == null
                             || currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1]][pos[0] - 1]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] - 1,
                                 player1.getLocation()[1]);
