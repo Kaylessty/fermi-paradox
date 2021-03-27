@@ -7,6 +7,7 @@ import java.util.Random;
  * rooms array and all existing doors can be found in the doors array.
  */
 public class Maze {
+    private static Item startItem;
     private Random rNum = new Random();
     private Room[] rooms;
     private Door[] doors;
@@ -167,5 +168,13 @@ public class Maze {
 
     public Room[] getRooms() {
         return rooms;
+    }
+
+    public static void setStartItem(Item start) {
+        startItem = start;
+    }
+
+    public static Item getStartItem() {
+        return startItem;
     }
 }

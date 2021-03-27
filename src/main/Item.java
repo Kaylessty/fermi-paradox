@@ -17,6 +17,12 @@ public class Item implements Locatable, Collectible {
     public enum Possession  {
         A_ENERGYSWORD("Sword", 100000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
                 "resources/images/A_ENERGYSWORD.png"),
+        ENERGYSWORD("Sword", 400, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/ENERGYSWORD.png"),
+        LASER("Gun", 150, 10, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/LASER.png"),
+        SONICRIFLE("Gun", 350, 4, 4, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/SONICRIFLE.png"),
         A_SHOCKRIFLE("Gun", 100000, 100, 4, 0, 0, 0, 600, 250, true, false, -1,
                 "resources/images/A_SHOCKRIFLE.png"),
         IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1,
@@ -27,6 +33,14 @@ public class Item implements Locatable, Collectible {
                 "resources/images/ID.png"),
         HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
                 "resources/images/Horn.png"),
+        BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_R.png"),
+        BALLOON_G("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_G.png"),
+        BALLOON_Y("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_Y.png"),
+        BALLOON_B("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+                "resources/images/BALLOON_B.png"),
         ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1,
                 "resources/images/ID.png");
         private final String type;
@@ -112,6 +126,10 @@ public class Item implements Locatable, Collectible {
         return position;
     }
 
+    public void setPosition(int[] pos) {
+        this.x = pos[0];
+        this.x = pos[1];
+    }
     /**
      * This method overrides the method from the Locatable interface.
      * @return the path to the image of this Item

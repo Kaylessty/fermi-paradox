@@ -1,5 +1,7 @@
 package main;
 
+import animatefx.animation.BounceIn;
+import animatefx.animation.Swing;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -48,19 +50,14 @@ public class RoomController {
         lastDoor = null;
         currRoom = theMaze.getRooms()[0];
         //this is to test
-        currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 2, 2,
-                "Annihilative Energy Sword"), 2, 2);
-        currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
-                "Annihilative Shock Rifle"), 6, 10);
         currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,
                 "Improvised Sword"), 4, 11);
         currRoom.addObject(new Item(Item.Possession.IMPROVISEDGUN, 7, 12,
                 "Improvised Gun"), 7, 12);
-        currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,
-                "Administrator ID"), 9, 10);
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
                 "Visitor ID"), 3, 15);
-
+        //adds items to room
+        currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
         pillar = new VBox();
         //makes Inventory
@@ -254,6 +251,17 @@ public class RoomController {
         //displayRoom();
     }
 
+    public void drop() {
+        Item toDrop = inv.getValue();
+        playerInventory.dropItem(toDrop);
+        inv.getItems().remove(toDrop);
+        int[] loc = player1.getLocation();
+        loc[1] = loc[1] -1;
+        toDrop.setPosition(loc);
+        currRoom.addObject(new Item(toDrop.getPossession(), loc[0], loc[1],
+                toDrop.getName()), loc[0], loc[1]);
+    }
+
     /**
      * returns the scene1
      * @return scene1
@@ -274,8 +282,9 @@ public class RoomController {
          * @param e the key pressed that creates this class
          */
         public void handle(KeyEvent e) {
-            System.out.println("Reached inner class");
-            if (e.getCode() == KeyCode.W) {
+            new BounceIn(money).play();
+            new Swing(health).play();
+            if (e.getCode() == KeyCode.E) {
                 if (inv.getValue() != null) {
                     Item.Possession carrying = inv.getValue().getPossession();
                     int range = carrying.getRange();
@@ -298,7 +307,18 @@ public class RoomController {
                         System.out.println("No monster within range");
                     }
                 }
-            } else if (e.getCode() == KeyCode.UP) {
+            } else if (e.getCode() == KeyCode.Q) {
+                drop();
+                refreshRoom();
+            } else if (e.getCode() == KeyCode.P) {
+                currRoom.addObject(new Item(Item.Possession.A_ENERGYSWORD, 2, 2,
+                        "Annihilative Energy Sword"), 2, 2);
+                currRoom.addObject(new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
+                        "Annihilative Shock Rifle"), 6, 10);
+                currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,
+                        "Administrator ID"), 9, 10);
+                refreshRoom();
+            } else if (e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
                 System.out.println("You pressed up");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at top of room
@@ -314,7 +334,7 @@ public class RoomController {
                         refreshRoom();
                     }
                 }
-            } else if (e.getCode() == KeyCode.DOWN) {
+            } else if (e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.S) {
                 System.out.println("You pressed down");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at bottom of room
@@ -330,7 +350,7 @@ public class RoomController {
                         refreshRoom();
                     }
                 }
-            } else if (e.getCode() == KeyCode.RIGHT) {
+            } else if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
                 System.out.println("You pressed right");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at very right of room
@@ -346,7 +366,7 @@ public class RoomController {
                         refreshRoom();
                     }
                 }
-            } else if (e.getCode() == KeyCode.LEFT) {
+            } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
                 System.out.println("You pressed left");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at very left of room

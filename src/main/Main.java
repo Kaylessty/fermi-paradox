@@ -34,7 +34,6 @@ public class Main extends Application {
         stage.setTitle("Elon Musk: Alien Destroyer");
         stage.setScene(new Scene(rootNode, 800, 600));
         stage.show();
-
     }
 
 }

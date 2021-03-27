@@ -83,6 +83,23 @@ public class ConfigScreenController {
                     Player.setSpeed(5);
                     Player.setStrength(600);
                 }
+                if (((RadioButton)
+                        (weapons.getSelectedToggle())).getText().equals("Blaster")) {
+                    Maze.setStartItem(new Item(Item.Possession.LASER, 4, 4,
+                            "Laser"));
+                    // else if the difficulty is "amateur"
+                } else if (((RadioButton)
+                        (weapons.getSelectedToggle())).getText().equals("Space Sword")
+                ) {
+                    Maze.setStartItem(new Item(Item.Possession.ENERGYSWORD, 4, 4,
+                            "Energy Sword"));
+                    // else if the difficulty is "hard"
+                } else if (((RadioButton)
+                        (weapons.getSelectedToggle())).getText().equals("Sonar Gun")
+                ) {
+                    Maze.setStartItem(new Item(Item.Possession.SONICRIFLE, 4, 4,
+                            "Sonic Rifle"));
+                }
                 //money = new Label("Should get replaced");
                 //health = new Label("Should definitely get replaced");
                 //money.textProperty().bind(Player.getBalance().asString());
@@ -120,6 +137,10 @@ public class ConfigScreenController {
 
     public static Label getHealth() {
         return health;
+    }
+
+    public ToggleGroup getWeapons() {
+        return weapons;
     }
 
 }
