@@ -124,9 +124,9 @@ public class RoomController {
                         pictureView.setX(column * 32 + 210);
                         pictureView.setY(row * 32);
                         root.getChildren().add(pictureView);
-                        if (important instanceof Door) {
-                            pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
-                        }
+                        //if (important instanceof Door) {
+                        //    pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
+                        //}
                         if (important instanceof Item) {
                             pictureView.setOnMouseClicked(e -> {
                                 pickUp((Item) important);
@@ -329,6 +329,8 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getUpImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1] - 1][pos[0]]);
                     }
                 }
             } else if (e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.S) {
@@ -345,6 +347,8 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getDownImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1] + 1][pos[0]]);
                     }
                 }
             } else if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
@@ -361,6 +365,8 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getRightImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1]][pos[0] + 1]);
                     }
                 }
             } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
@@ -377,6 +383,8 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getLeftImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1]][pos[0] - 1]);
                     }
                 }
             }

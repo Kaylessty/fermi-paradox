@@ -28,7 +28,6 @@ public class Monster implements Locatable {
         this.health = health;
     }
 
-
     public String getImageURL() {
         return "resources/images/kappa.jpg";
     }

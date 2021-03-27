@@ -13,21 +13,6 @@ public interface Locatable {
     int[] getLocation();
 
     /**
-     * This method is intended to retrieve to an object's stored
-     * position in the Grid array for quick access: This position should
-     * be able to be translated into a location for image removal and
-     * addition on the screen.
-     * @return position in grid array
-     */
-    int getGridPosition();
-
-    /**
-     * This method is intended to set to an object's stored
-     * position in the Grid array
-     */
-    void setGridPosition(int pos);
-
-    /**
      * This method is helpful in displaying the Locatable object.
      * @return the path to the image file
      */
