@@ -2,7 +2,7 @@ package main;
 
 import java.util.Random;
 
-public class Monster implements Locatable {
+public abstract class Monster implements Locatable {
 
     private int x;
     private int y;
@@ -12,8 +12,9 @@ public class Monster implements Locatable {
     public Monster() {
         x = 3 + generator.nextInt(14);
         y = 3 + generator.nextInt(14);
-        health = 2800;
     }
+
+    public abstract void damage(int amount, MathHelper.Direction knockback);
 
     @Override
     public int[] getLocation() {
