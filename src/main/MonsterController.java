@@ -104,12 +104,12 @@ public class MonsterController {
 //                target.setStroke(Color.YELLOW);
 //                target.setStrokeWidth(4);
                 //
-                Image picture = new Image("resources/images/Borepit.png", 150.0,
-                        150.0, true, true);
+                Image picture = new Image("resources/images/Borepit.png", 75.0,
+                        75.0, true, true);
                 ImageView target = new ImageView(picture);
-                target.setX(user.getLocation()[0] * 32 + 158);
-                target.setY(user.getLocation()[1] * 32 - 80);
-                //
+                target.setX(user.getLocation()[0] * 32 + 210);
+                target.setY(user.getLocation()[1] * 32 - 30);
+                //@
                 Platform.runLater(() -> {
                     root.getChildren().add(target);
                 });
@@ -122,8 +122,8 @@ public class MonsterController {
                 } catch (InterruptedException ie) {
                     Thread.currentThread().interrupt();
                 }
-                Image picture1 = new Image("resources/images/Borespike.png", 150.0,
-                        150.0, true, true);
+                Image picture1 = new Image("resources/images/Borespike.png", 75.0,
+                        75.0, true, true);
                 ImageView projectile = new ImageView(picture1);
                 projectile.setX(target.getX());
                 projectile.setY(target.getY());
