@@ -192,13 +192,16 @@ public class RoomController {
         }
         System.out.println("changed room");
         lastDoor = door;
+        // Remove Player from previous room
+        currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
         //check which room we should be changing to, could be an issue with room equality
-        System.out.println(door.getRoomA().getRoomName());
+        //System.out.println(door.getRoomA().getRoomName());
         if (currRoom.equals(door.getRoomA())) {
             currRoom = door.getRoomB();
         } else {
             currRoom = door.getRoomA();
         }
+        System.out.println(currRoom.getRoomName());
         int doorX = door.getLocation()[0];
         int doorY = door.getLocation()[1];
         // door was at top in previous room
@@ -218,6 +221,7 @@ public class RoomController {
             player1.setLocation(1, 9);
             currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
         }
+        player1.setRoom(currRoom);
         // each scene needs its own group
         root = new BorderPane();
         root.getChildren().add(pillar);
@@ -229,6 +233,7 @@ public class RoomController {
         theStage.setScene(scene1);
         theStage.show();
         System.out.println("Number of monsters:" + currRoom.getMonsterNum());
+        System.out.println("Number of doors: " + currRoom.getDoors().length);
         monstersInRoom = currRoom.getMonsters();
         monsterControllers = new MonsterController[monstersInRoom.length];
         /*
@@ -334,7 +339,7 @@ public class RoomController {
                     int range = carrying.getRange();
                     boolean foundMonster = false;
                     // Iterating over the monsters in the room
-                    for (int counter = 0; counter < monstersInRoom.length; counter++) {
+                    for (int counter = 0; counter < monstersInRoom.length; counter++) {//*******************************_-_-_-_-
                         if (monstersInRoom[counter] == null) {
                             continue;
                         }
@@ -348,7 +353,7 @@ public class RoomController {
                             // allow monster to attack back, assuming not yet attacked
                             if (!monster.getHasBeenAttacked()) {
                                 monsterControllers[counter] = new MonsterController(monstersInRoom[counter], scene1, root,
-                                        theStage, player1);
+                                        theStage, player1, currRoom);
                                 monster.setHasBeenAttacked(true);
                             }
                             foundMonster = true;

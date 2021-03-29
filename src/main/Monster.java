@@ -55,4 +55,6 @@ public abstract class Monster implements Locatable {
     public void setHasBeenAttacked(boolean status) {
         hasBeenAttacked = status;
     }
+
+    public abstract int getOriginalHealth();
 }

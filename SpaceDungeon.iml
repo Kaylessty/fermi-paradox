@@ -13,5 +13,6 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="JavaFX 11 SDK" level="project" />
     <orderEntry type="library" name="io.github.typhon0:AnimateFX:1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: bbush9:GameFeatures:3.0" level="project" />
   </component>
 </module>

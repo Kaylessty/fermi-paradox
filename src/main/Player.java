@@ -14,6 +14,7 @@ public class Player implements Locatable {
     private int x;
     private int y;
     private String recentImageURL = "resources/images/player-down.png";
+    private static Room box;
 
 
     public static String getName() {
@@ -87,5 +88,13 @@ public class Player implements Locatable {
     public String getLeftImageURL() {
         recentImageURL = "resources/images/player-left.png";
         return recentImageURL;
+    }
+
+    public static Room getRoom() {
+        return box;
+    }
+
+    public static void setRoom(Room box1) {
+        box = box1;
     }
 }

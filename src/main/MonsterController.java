@@ -26,18 +26,21 @@ public class MonsterController {
     //private Stage theStage;
     private Player user;
     private boolean hasBeenAttacked;
+    private Room room;
 
     // This default constructor should not be used
     private MonsterController() {
     }
 
-    public MonsterController(Monster monster, Scene scene, Pane root, Stage stage, Player user) {
+    public MonsterController(Monster monster, Scene scene, Pane root, Stage stage, Player user,
+                             Room room) {
         thisMonster = monster;
         timer = new Timer();
         scene1 = scene;
         this.root = root;
         //theStage = stage;
         this.user = user;
+        this.room = room;
         attack();
     }
 
@@ -86,6 +89,11 @@ public class MonsterController {
         public void run() {
             if (thisMonster.getHealth() <= 0) {
                 timer.cancel();
+                // If player ran out of room before killing monster
+            } else if (room != user.getRoom()) {
+                timer.cancel();
+                thisMonster.setHealth(thisMonster.getOriginalHealth());
+                thisMonster.setHasBeenAttacked(false);
             } else {
                 Circle target = new Circle(user.getLocation()[0] * 32 + 226,
                         user.getLocation()[1] * 32 + 16, 16, Color.DIMGREY);//***********player1
