@@ -45,7 +45,7 @@ public abstract class Monster implements Locatable {
 
 
     public String getImageURL() {
-        return "resources/images/Teaff.png";
+        return "resources/images/Eyebore.png";
     }
 
     public boolean getHasBeenAttacked() {
