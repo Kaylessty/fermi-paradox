@@ -43,6 +43,9 @@ public abstract class Monster implements Locatable {
         return damage;
     }
 
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 
     public String getImageURL() {
         return "resources/images/Eyebore.png";

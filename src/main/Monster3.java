@@ -1,20 +1,20 @@
 package main;
 
-public class Monster1 extends Monster {
+public class Monster3 extends Monster {
 
     private int health;
     private int speed;
-    private static final int ORIGINAL_HEALTH = 2800;
-    public Monster1() {
-        this(2800,2);
+    private static final int ORIGINAL_HEALTH = 999999999;
+    public Monster3() {
+        this(999999999,1);
     }
-    public Monster1(int health, int speed) {
+    public Monster3(int health, int speed) {
         this.health = health;
         this.speed = speed;
     }
     @Override
     public String getImageURL() {
-        return "resources/images/Eyebore.png";
+        return "resources/images/Tim.png";
     }
 
     @Override

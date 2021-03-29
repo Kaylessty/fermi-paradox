@@ -1,7 +1,7 @@
 package main;
 
-import animatefx.animation.FadeOut;
-import animatefx.animation.Flash;
+//import animatefx.animation.FadeOut;
+//import animatefx.animation.Flash;
 import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;

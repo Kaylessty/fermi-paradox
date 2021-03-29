@@ -95,7 +95,21 @@ public class Room {
 
     private void addMonsters() {
         for (int index = 0; index < monsterNum; index++) {
-            Monster creature = new Monster1();
+            int pick1 = 1 + rNum.nextInt(7);
+            Monster creature;
+            if(pick1 == 1 || pick1 == 2 || pick1 == 3) {
+                creature = new Monster1();
+                creature.setHealth(2800);
+                creature.setDamage(1000);
+            } else if(pick1 == 4 || pick1 == 5 || pick1 == 6) {
+                creature = new Monster2();
+                creature.setHealth(4000);
+                creature.setDamage(2000);
+            } else {
+                creature = new Monster3();
+                creature.setHealth(10000);
+                creature.setDamage(4999);
+            }
             killThem[index] = creature;//********************************************************
             room[creature.getLocation()[1]][creature.getLocation()[0]] = creature;//******************
         }
