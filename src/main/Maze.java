@@ -139,12 +139,15 @@ public class Maze {
                             }
                             //curRoom.addDoor(newDoor);
                             // Adding similar door to other Room that the door connects to
+                            oppositeDoor.setCon(newDoor);
+                            newDoor.setCon(oppositeDoor);
                             rooms[i + k].addDoor(oppositeDoor);
                             rooms[i + k].addObject(oppositeDoor, oppositeDoor.getLocation()[0],
                                     oppositeDoor.getLocation()[1]);
                             rooms[i].addDoor(newDoor);
                             doors[dcount] = newDoor;
                             dcount++;
+
                         }
                         k += 1;
                         v = 0; // added to stop infinite while loop

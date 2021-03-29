@@ -10,6 +10,7 @@ public class Door implements Locatable {
     private int x;
     private int y;
     private Boolean locked = true;
+    private Door con;
 
     public Door(Room roomA, Room roomB) {
         this.roomA = roomA;
@@ -107,5 +108,13 @@ public class Door implements Locatable {
                 return "down";
             }
         }
+    }
+
+    public Door getCon() {
+        return con;
+    }
+
+    public void setCon(Door con) {
+        this.con = con;
     }
 }

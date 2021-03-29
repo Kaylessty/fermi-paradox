@@ -185,6 +185,7 @@ public class RoomController {
             if (door.getLocked() && idlvl > door.getRoomA().getNumRoom()) {
                 System.out.println("door unlocked");
                 door.setLocked(false);
+                door.getCon().setLocked(false);
             }
         }
         if (door.getLocked()) {
@@ -372,6 +373,7 @@ public class RoomController {
                                     // Iterate over all doors and unlock them
                                     for (Door pathway : currRoom.getDoors()) {
                                         pathway.setLocked(false);
+                                        pathway.getCon().setLocked(false);
                                     }
                                     // Restore health of Player
                                     player1.setHealth(5000);
