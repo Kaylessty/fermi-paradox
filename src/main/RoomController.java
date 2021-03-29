@@ -42,6 +42,7 @@ public class RoomController {
     private Monster[] monstersInRoom;
     private MonsterController[] monsterControllers;
     private List<Node> keepTrack;
+    private Item dropped;
 
     /**
      * This class controls the actions that occur within a room including keyEvents and
@@ -293,6 +294,7 @@ public class RoomController {
     }
 
     public void drop() {
+        dropped = inv.getValue();
         Item toDrop = inv.getValue();
         playerInventory.dropItem(toDrop);
         inv.getItems().remove(toDrop);
@@ -380,7 +382,7 @@ public class RoomController {
                         System.out.println("No monster within range");
                     }
                 }
-            } else if (e.getCode() == KeyCode.Q) {
+            } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {
                 drop();
                 refreshRoom();
             } else if (e.getCode() == KeyCode.P) {
