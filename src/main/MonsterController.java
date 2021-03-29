@@ -4,6 +4,8 @@ import animatefx.animation.FadeOut;
 import animatefx.animation.Flash;
 import javafx.application.Platform;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.beans.binding.Bindings;
@@ -53,7 +55,7 @@ public class MonsterController {
         }
     }
 
-    private void damageCalculation(Shape projectile) {
+    private void damageCalculation(ImageView projectile) {
         double x_coord = user.getLocation()[0] * 32 + 210;//*************************************************player1
         double y_coord = user.getLocation()[1] * 32;//*********************************************player1
         // If the center of the player is inside the region of the projectile
@@ -95,24 +97,39 @@ public class MonsterController {
                 thisMonster.setHealth(thisMonster.getOriginalHealth());
                 thisMonster.setHasBeenAttacked(false);
             } else {
-                Circle target = new Circle(user.getLocation()[0] * 32 + 226,
-                        user.getLocation()[1] * 32 + 16, 16, Color.DIMGREY);//***********player1
-                target.setStroke(Color.YELLOW);
-                target.setStrokeWidth(4);
+
+                //
+//                Circle target = new Circle(user.getLocation()[0] * 32 + 226,
+//                        user.getLocation()[1] * 32 + 16, 16, Color.DIMGREY);//***********player1
+//                target.setStroke(Color.YELLOW);
+//                target.setStrokeWidth(4);
+                //
+                Image picture = new Image("resources/images/Borepit.png", 150.0,
+                        150.0, true, true);
+                ImageView target = new ImageView(picture);
+                target.setX(user.getLocation()[0] * 32 + 158);
+                target.setY(user.getLocation()[1] * 32 - 80);
+                //
                 Platform.runLater(() -> {
                     root.getChildren().add(target);
                 });
                 //scene1.setRoot(root);
                 //theStage.setScene(scene1);
-                new Flash(target).setCycleCount(3).playOnFinished(new FadeOut(target)).play();
+                //new Flash(target).setCycleCount(3).playOnFinished(new FadeOut(target)).play();
                 //target.setVisible(false);
                 try {
                     TimeUnit.SECONDS.sleep(2);
                 } catch (InterruptedException ie) {
                     Thread.currentThread().interrupt();
                 }
-                Circle projectile = new Circle(target.getCenterX(), target.getCenterY(),
-                        target.getRadius(), Color.DARKRED);
+                Image picture1 = new Image("resources/images/Borespike.png", 150.0,
+                        150.0, true, true);
+                ImageView projectile = new ImageView(picture1);
+                projectile.setX(target.getX());
+                projectile.setY(target.getY());
+
+//                Circle projectile = new Circle(target.getCenterX(), target.getCenterY(),
+//                        target.getRadius(), Color.DARKRED);
                 Platform.runLater(() -> {
                     root.getChildren().add(projectile);
                 });
@@ -123,7 +140,7 @@ public class MonsterController {
                 }
                 //scene1.setRoot(root);
                 //theStage.setScene(scene1);
-                new FadeOut(projectile).play();
+                //new FadeOut(projectile).play();
                 MonsterController.this.damageCalculation(projectile);
             }
         }
