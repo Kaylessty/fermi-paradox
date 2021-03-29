@@ -73,7 +73,7 @@ public class Room {
         this.monsterNum = monsterNum;
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
-        if (!roomName.equals("first") && !roomName.equals("last")) {
+        if (!roomName.equals("last") && !roomName.equals("first")) {
             addMonsters();
         }
     }
@@ -88,14 +88,16 @@ public class Room {
         this.monsterNum = monsterNum;
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
-        if (!roomName.equals("first") && !roomName.equals("last")) {
+        if (!roomName.equals("last") && !roomName.equals("first")) {
             addMonsters();
         }
     }
 
     private void addMonsters() {
         for (int index = 0; index < monsterNum; index++) {
-            killThem[index] = new Monster();
+            Monster creature = new Monster1();
+            killThem[index] = creature;//********************************************************
+            room[creature.getLocation()[1]][creature.getLocation()[0]] = creature;//******************
         }
     }
 
@@ -158,6 +160,10 @@ public class Room {
 
     public int getMonsterNum() {
         return monsterNum;
+    }
+
+    public void setMonsterNum(int number) {
+        monsterNum = number;
     }
 
     public int getRow() {

@@ -2,59 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/css/SecondScreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/Background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/door-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/exit_portal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/initialscreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/new-door-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/other-door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/resources/images/room_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/configscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/firstscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/initialgamescreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/SpaceDungeon/view/roomcontroller.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/css/SecondScreen.css" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/A_ENERGYSWORD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/A_SHOCKRIFLE.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/Background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/Horn.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/ID.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/IMPROVISEDGUN.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/IMPROVISEDSWORD.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/door-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/exit_portal.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/initialscreen.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/kappa.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/new-door-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/new-door-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/new-door-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/new-door-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/other-door.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/player-down.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/player-left.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/player-right.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/player-up.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/resources/images/room_background.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/configscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/firstscreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/roomcontroller.fxml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -173,10 +125,10 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="456" y="175" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1366.728@0.0.1366.728" timestamp="1616705587616" />
-    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1616800575366">
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser" timestamp="1616934145620">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1616800575366" />
+    <state x="488" y="74" key="#com.intellij.ide.util.MemberChooser/0.0.1366.728@0.0.1366.728" timestamp="1616934145620" />
     <state x="423" y="151" key="#com.intellij.ide.util.TreeClassChooserDialog" timestamp="1616621694086">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -193,38 +145,38 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="325" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616803620850" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1616812309439">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1616984595807">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616812309439" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1616812309439">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616984595807" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1616984595806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616812309439" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1616812309439">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1616984595806" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1616984595806">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616812309439" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1616812309439">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1616984595806" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1616984595807">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616812309439" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1616515016750">
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1616984595807" />
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1616946724232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616515016750" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1616515016749">
+    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1616946724232" />
+    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1616946724232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1616515016749" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1616515016748">
+    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1616946724232" />
+    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1616946724232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1616515016748" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1616515016749">
+    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1616946724232" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1616946724232">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1616515016749" />
+    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1616946724232" />
     <state x="213" y="23" key="Maven.ArtifactSearchDialog" timestamp="1616804248519">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
@@ -233,14 +185,14 @@
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616806298673" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616804741358">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1616898586820">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1616804741358" />
-    <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1616429236505">
+    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1616898586820" />
+    <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1616845707281">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
-    <state x="391" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616429236505" />
+    <state x="391" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616845707281" />
     <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1616804166044">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

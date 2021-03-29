@@ -1,7 +1,10 @@
 package main;
 
-import animatefx.animation.BounceIn;
-import animatefx.animation.Swing;
+import animatefx.animation.FadeInLeft;
+import animatefx.animation.Flash;
+import javafx.application.Platform;
+import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -13,10 +16,16 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
+import javafx.scene.shape.Circle;
+import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class RoomController {
 
@@ -38,6 +47,7 @@ public class RoomController {
     private Inventory playerInventory;
     private Player player1;
     private Monster[] monstersInRoom;
+    private MonsterController[] monsterControllers;
 
     /**
      * This class controls the actions that occur within a room including keyEvents and
@@ -96,7 +106,14 @@ public class RoomController {
         root.getChildren().add(pillar);
         displayRoom();
         scene1 = new Scene(root, 800, 600);
-
+        monstersInRoom = currRoom.getMonsters();
+        monsterControllers = new MonsterController[monstersInRoom.length];
+        /*
+        for (int j = 0; j < monstersInRoom.length; j++) {
+            monsterControllers[j] = new MonsterController(monstersInRoom[j], scene1, root,
+                    theStage, player1);
+        }
+         */
     }
 
     /*
@@ -126,9 +143,9 @@ public class RoomController {
                         pictureView.setX(column * 32 + 210);
                         pictureView.setY(row * 32);
                         root.getChildren().add(pictureView);
-                        if (important instanceof Door) {
-                            pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
-                        }
+                        //if (important instanceof Door) {
+                            //pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
+                        //}
                         if (important instanceof Item) {
                             pictureView.setOnMouseClicked(e -> {
                                 pickUp((Item) important);
@@ -136,7 +153,7 @@ public class RoomController {
                             });
                         }
                         if (important instanceof Player) {
-                            System.out.println("Reached instanceof Player");
+                            //System.out.println("Reached instanceof Player");
                             player1 = (Player) important;
                             root.setOnKeyPressed(new MovementController());
                         }
@@ -187,7 +204,25 @@ public class RoomController {
         } else {
             currRoom = door.getRoomA();
         }
-        monstersInRoom = currRoom.getMonsters();
+        int doorX = door.getLocation()[0];
+        int doorY = door.getLocation()[1];
+        // door was at top in previous room
+        if (doorX == 8) {
+            player1.setLocation(9, 16);
+            currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
+            // door was at bottom in previous room
+        } else if (doorX == 9) {
+            player1.setLocation(8, 1);
+            currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
+            // door was at left in previous room
+        } else if (doorX == 0) {
+            player1.setLocation(16, 8);
+            currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
+            // door was at right in previous room
+        } else if (doorX == 17) {
+            player1.setLocation(1, 9);
+            currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
+        }
         // each scene needs its own group
         root = new BorderPane();
         root.getChildren().add(pillar);
@@ -196,7 +231,15 @@ public class RoomController {
 
         theStage.setScene(scene1);
         theStage.show();
-        System.out.println(currRoom.getMonsterNum());
+        System.out.println("Number of monsters:" + currRoom.getMonsterNum());
+        monstersInRoom = currRoom.getMonsters();
+        monsterControllers = new MonsterController[monstersInRoom.length];
+        /*
+        for (int j = 0; j < monstersInRoom.length; j++) {
+            monsterControllers[j] = new MonsterController(monstersInRoom[j], scene1, root,
+                    theStage, player1);
+        }
+        */
 
         // that changed the room
     }
@@ -214,7 +257,7 @@ public class RoomController {
         scene1 = new Scene(root, 800, 600);
         theStage.setScene(scene1);
         theStage.show();
-        System.out.println(currRoom.getMonsterNum());
+        System.out.println("Number of monsters: " + currRoom.getMonsterNum());
         // that changed the room
     }
 
@@ -282,25 +325,51 @@ public class RoomController {
          * @param e the key pressed that creates this class
          */
         public void handle(KeyEvent e) {
-            new BounceIn(money).play();
-            new Swing(health).play();
+            // Player tries to attack
             if (e.getCode() == KeyCode.E) {
                 if (inv.getValue() != null) {
                     Item.Possession carrying = inv.getValue().getPossession();
                     int range = carrying.getRange();
                     boolean foundMonster = false;
-                    for (Monster monster : monstersInRoom) {
-                        if (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
-                                (player1.getLocation()[1] - monster.getLocation()[1])) <= range) {
-                            foundMonster = true;
+                    // Iterating over the monsters in the room
+                    for (int counter = 0; counter < monstersInRoom.length; counter++) {
+                        if (monstersInRoom[counter] == null) {
+                            continue;
+                        }
+                        Monster monster = monstersInRoom[counter];
+                        // if player is close enough to a monster
+                        double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
+                                (player1.getLocation()[1] - monster.getLocation()[1])));
+                        if (distance <= range) {
                             // attack monster
                             monster.setHealth(monster.getHealth() - carrying.getDamage());
-                            if (monster.getHealth() <= 0) {
+                            // allow monster to attack back, assuming not yet attacked
+                            if (!monster.getHasBeenAttacked()) {
+                                monsterControllers[counter] = new MonsterController(monstersInRoom[counter], scene1, root,
+                                        theStage, player1);
+                                monster.setHasBeenAttacked(true);
+                            }
+                            foundMonster = true;
+                            // check if monster is alive
+                            if (monster.getHealth() <= 0) {//***********************************Check back later
+                                // Remove monster
                                 currRoom.removeObject(monster.getLocation()[0],
                                         monster.getLocation()[1]);
                                 System.out.println("Monster killed");
+                                monstersInRoom[counter] = null;
+                                monsterControllers[counter] = null;
+                                currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
+                                if (currRoom.getMonsterNum() == 0) {
+                                    // Iterate over all doors and unlock them
+                                    for (Door pathway : currRoom.getDoors()) {
+                                        pathway.setLocked(false);
+                                    }
+                                }
                                 refreshRoom();
                             }
+                        }
+                        if (foundMonster) {
+                            break;
                         }
                     }
                     if (!foundMonster) {
@@ -318,13 +387,16 @@ public class RoomController {
                 currRoom.addObject(new Item(Item.Possession.AAID, 9, 10,
                         "Administrator ID"), 9, 10);
                 refreshRoom();
+                // Movement of Player
             } else if (e.getCode() == KeyCode.UP || e.getCode() == KeyCode.W) {
-                System.out.println("You pressed up");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at top of room
                 if (pos[1] != 0) {
                     if (currRoom.getRoom()[pos[1] - 1][pos[0]] == null
                             || currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1] - 1][pos[0]]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
                                 player1.getLocation()[1] - 1);
@@ -332,15 +404,19 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getUpImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1] - 1][pos[0]]);
                     }
                 }
             } else if (e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.S) {
-                System.out.println("You pressed down");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at bottom of room
                 if (pos[1] != currRoom.getRoom()[0].length - 1) {
                     if (currRoom.getRoom()[pos[1] + 1][pos[0]] == null
                             || currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1] + 1][pos[0]]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
                                 player1.getLocation()[1] + 1);
@@ -348,15 +424,19 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getDownImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1] + 1][pos[0]]);
                     }
                 }
             } else if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
-                System.out.println("You pressed right");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at very right of room
                 if (pos[0] != currRoom.getRoom().length - 1) {
                     if (currRoom.getRoom()[pos[1]][pos[0] + 1] == null
                             || currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1]][pos[0] + 1]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] + 1,
                                 player1.getLocation()[1]);
@@ -364,15 +444,19 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getRightImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1]][pos[0] + 1]);
                     }
                 }
             } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
-                System.out.println("You pressed left");
                 int[] pos = player1.getLocation();
                 // If the player isn't already at very left of room
                 if (pos[0] != 0) {
                     if (currRoom.getRoom()[pos[1]][pos[0] - 1] == null
                             || currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
+                        if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
+                            pickUp((Item)currRoom.getRoom()[pos[1]][pos[0] - 1]);
+                        }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] - 1,
                                 player1.getLocation()[1]);
@@ -380,11 +464,111 @@ public class RoomController {
                                 player1.getLocation()[1]);
                         player1.getLeftImageURL();
                         refreshRoom();
+                    } else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Door) {
+                        changeRoom((Door)currRoom.getRoom()[pos[1]][pos[0] - 1]);
                     }
                 }
+            } else if (e.getCode() == KeyCode.G) {
+                Circle fireball = new Circle(8, Color.DARKORANGE);
+                fireball.setCenterX(400);
+                fireball.setCenterY(150);
+                DoubleProperty testing = new SimpleDoubleProperty(player1.getLocation()[0] * 32 + 210 - fireball.getCenterX());//*********
+                //fireball.translateXProperty().bindBidirectional(testing);
+                fireball.setTranslateX(200);
+                root.getChildren().add(fireball);
+                System.out.println("Player Position: (" + player1.getLocation()[0] * 32 + 210 + ", " + player1.getLocation()[1] * 32 + ")");
+                new FadeInLeft(fireball).setSpeed(2).play();
+                System.out.println(fireball.getCenterX() + " " + fireball.getCenterY());
             }
         }
     }
+
+
+//***********************************************************************************************************************************************************
+
+/*
+    class MonsterController {
+
+        private Monster thisMonster;
+        private Timer timer;
+        private TimerTask timerTask;
+        //private Scene scene1;
+        //private Pane root;
+        //private Stage theStage;
+        //private Player user;
+        private boolean hasBeenAttacked;
+
+        // This default constructor should not be used
+        private MonsterController() {
+        }
+
+        public MonsterController(Monster monster, Scene scene, Pane root, Stage stage, Player user) {
+            thisMonster = monster;
+            timer = new Timer();
+            scene1 = scene;
+            //this.root = root;
+            theStage = stage;
+            //this.user = user;
+            attack();
+        }
+
+        public void attack() {
+            if (thisMonster.getHealth() > 0) {
+                timerTask = new innerClass();
+                timer.scheduleAtFixedRate(timerTask, 0, 3000);
+            } else {
+                timer.cancel();
+            }
+        }
+
+        private void damageCalculation(Shape projectile) {
+            double x_coord = player1.getLocation()[0] * 32 + 210;//*************************************************player1
+            double y_coord = player1.getLocation()[1] * 32;//*********************************************player1
+            // If the center of the player is inside the region of the projectile
+            if (x_coord > projectile.getBoundsInParent().getMinX()
+                    && x_coord < projectile.getBoundsInParent().getMaxX()
+                    && y_coord > projectile.getBoundsInParent().getMinY()
+                    && y_coord < projectile.getBoundsInParent().getMaxY()) {
+                Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());//Change 1000 to monster's damage
+            }
+            if (Player.getHealth().get() <= 0) {
+                timer.cancel();
+                playerLoses();
+            }
+        }
+
+        private void playerLoses() {
+            System.out.println("You lost :(");
+        }
+    }
+
+    class innerClass extends TimerTask {
+        public void run() {
+            Circle target = new Circle(player1.getLocation()[0] * 32 + 226,
+                    player1.getLocation()[1] * 32 + 16, 16, Color.DIMGREY);//***********player1
+            target.setStroke(Color.YELLOW);
+            target.setStrokeWidth(4);
+            Platform.runLater(() -> {
+                root.getChildren().add(target);
+            });
+            //scene1.setRoot(root);
+            //theStage.setScene(scene1);
+            new Flash(target).setCycleCount(3).play();
+            //target.setVisible(false);
+            Circle projectile = new Circle(target.getCenterX(), target.getCenterY(),
+                    target.getRadius(), Color.DARKRED);
+            Platform.runLater(() -> {
+                root.getChildren().add(projectile);
+            });
+            //scene1.setRoot(root);
+            //theStage.setScene(scene1);
+            //new FadeOut(projectile).play();
+            //MonsterController.damageCalculation(projectile);
+        }
+    }
+
+ */
+
 
 }
 
