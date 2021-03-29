@@ -1,12 +1,8 @@
 package main;
 
-import animatefx.animation.FadeInLeft;
-import animatefx.animation.Flash;
-import javafx.application.Platform;
-import javafx.beans.property.DoubleProperty;
-import javafx.beans.property.SimpleDoubleProperty;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
@@ -16,16 +12,13 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
-import javafx.scene.shape.Circle;
-import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
 
-import java.util.Timer;
-import java.util.TimerTask;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RoomController {
 
@@ -48,6 +41,7 @@ public class RoomController {
     private Player player1;
     private Monster[] monstersInRoom;
     private MonsterController[] monsterControllers;
+    private List<Node> keepTrack;
 
     /**
      * This class controls the actions that occur within a room including keyEvents and
@@ -70,6 +64,7 @@ public class RoomController {
         currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
         pillar = new VBox();
+        keepTrack = new ArrayList<>();
         //makes Inventory
         playerInventory = new Inventory("Player Inventory ");
         inv = new ChoiceBox<>();
@@ -104,16 +99,11 @@ public class RoomController {
         topRow.setAlignment(Pos.CENTER);
         bottomRow.setAlignment(Pos.CENTER);
         root.getChildren().add(pillar);
+        //keepTrack.add(pillar);//*****************************************************************
         displayRoom();
         scene1 = new Scene(root, 800, 600);
         monstersInRoom = currRoom.getMonsters();
         monsterControllers = new MonsterController[monstersInRoom.length];
-        /*
-        for (int j = 0; j < monstersInRoom.length; j++) {
-            monsterControllers[j] = new MonsterController(monstersInRoom[j], scene1, root,
-                    theStage, player1);
-        }
-         */
     }
 
     /*
@@ -123,8 +113,11 @@ public class RoomController {
         // For testing: shows the room that we are in
         Text t = new Text(50, 50, currRoom.getRoomName());
         root.getChildren().add(t);
+        keepTrack.add(t);
         root.setTop(topRow);
         root.setBottom(bottomRow);
+        keepTrack.add(topRow);
+        keepTrack.add(bottomRow);
         // Displays the items currently in the room
         for (int row = 0; row < currRoom.getRoom().length; row++) {
             for (int column = 0; column < currRoom.getRoom()[row].length; column++) {
@@ -143,6 +136,7 @@ public class RoomController {
                         pictureView.setX(column * 32 + 210);
                         pictureView.setY(row * 32);
                         root.getChildren().add(pictureView);
+                        keepTrack.add(pictureView);
                         //if (important instanceof Door) {
                             //pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
                         //}
@@ -173,6 +167,7 @@ public class RoomController {
                 pictureView.setY(250);
                 pictureView.setOnMouseClicked(e -> escape());
                 root.getChildren().add(pictureView);
+                keepTrack.add(pictureView);
             } catch (IllegalArgumentException e) {
                 System.out.println("The file/image for the item could not be found.");
             }
@@ -226,6 +221,8 @@ public class RoomController {
         // each scene needs its own group
         root = new BorderPane();
         root.getChildren().add(pillar);
+        keepTrack.clear();
+        //keepTrack.add(pillar);//**********************************************************************
         displayRoom();
         scene1 = new Scene(root, 800, 600);
 
@@ -249,15 +246,16 @@ public class RoomController {
      */
     private void refreshRoom() {
 
-        System.out.println("refresh room");
+        //System.out.println("refresh room");
         // each scene needs its own group
-        root = new BorderPane();
-        root.getChildren().add(pillar);
+        //root = new BorderPane();
+        root.getChildren().removeAll(keepTrack);
+        //root.getChildren().add(pillar);//***************************************************************
         displayRoom();
-        scene1 = new Scene(root, 800, 600);
-        theStage.setScene(scene1);
-        theStage.show();
-        System.out.println("Number of monsters: " + currRoom.getMonsterNum());
+        //scene1 = new Scene(root, 800, 600);
+        //theStage.setScene(scene1);
+        //theStage.show();
+        //System.out.println("Number of monsters: " + currRoom.getMonsterNum());
         // that changed the room
     }
 
@@ -314,6 +312,10 @@ public class RoomController {
     }
 
 
+
+
+
+
     /**
      * This class is where player movement functionality should be implemented.
      * In this class, KeyEvents should be handled.
@@ -364,6 +366,8 @@ public class RoomController {
                                     for (Door pathway : currRoom.getDoors()) {
                                         pathway.setLocked(false);
                                     }
+                                    // Restore health of Player
+                                    player1.setHealth(5000);
                                 }
                                 refreshRoom();
                             }
@@ -468,107 +472,8 @@ public class RoomController {
                         changeRoom((Door)currRoom.getRoom()[pos[1]][pos[0] - 1]);
                     }
                 }
-            } else if (e.getCode() == KeyCode.G) {
-                Circle fireball = new Circle(8, Color.DARKORANGE);
-                fireball.setCenterX(400);
-                fireball.setCenterY(150);
-                DoubleProperty testing = new SimpleDoubleProperty(player1.getLocation()[0] * 32 + 210 - fireball.getCenterX());//*********
-                //fireball.translateXProperty().bindBidirectional(testing);
-                fireball.setTranslateX(200);
-                root.getChildren().add(fireball);
-                System.out.println("Player Position: (" + player1.getLocation()[0] * 32 + 210 + ", " + player1.getLocation()[1] * 32 + ")");
-                new FadeInLeft(fireball).setSpeed(2).play();
-                System.out.println(fireball.getCenterX() + " " + fireball.getCenterY());
             }
         }
     }
-
-
-//***********************************************************************************************************************************************************
-
-/*
-    class MonsterController {
-
-        private Monster thisMonster;
-        private Timer timer;
-        private TimerTask timerTask;
-        //private Scene scene1;
-        //private Pane root;
-        //private Stage theStage;
-        //private Player user;
-        private boolean hasBeenAttacked;
-
-        // This default constructor should not be used
-        private MonsterController() {
-        }
-
-        public MonsterController(Monster monster, Scene scene, Pane root, Stage stage, Player user) {
-            thisMonster = monster;
-            timer = new Timer();
-            scene1 = scene;
-            //this.root = root;
-            theStage = stage;
-            //this.user = user;
-            attack();
-        }
-
-        public void attack() {
-            if (thisMonster.getHealth() > 0) {
-                timerTask = new innerClass();
-                timer.scheduleAtFixedRate(timerTask, 0, 3000);
-            } else {
-                timer.cancel();
-            }
-        }
-
-        private void damageCalculation(Shape projectile) {
-            double x_coord = player1.getLocation()[0] * 32 + 210;//*************************************************player1
-            double y_coord = player1.getLocation()[1] * 32;//*********************************************player1
-            // If the center of the player is inside the region of the projectile
-            if (x_coord > projectile.getBoundsInParent().getMinX()
-                    && x_coord < projectile.getBoundsInParent().getMaxX()
-                    && y_coord > projectile.getBoundsInParent().getMinY()
-                    && y_coord < projectile.getBoundsInParent().getMaxY()) {
-                Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());//Change 1000 to monster's damage
-            }
-            if (Player.getHealth().get() <= 0) {
-                timer.cancel();
-                playerLoses();
-            }
-        }
-
-        private void playerLoses() {
-            System.out.println("You lost :(");
-        }
-    }
-
-    class innerClass extends TimerTask {
-        public void run() {
-            Circle target = new Circle(player1.getLocation()[0] * 32 + 226,
-                    player1.getLocation()[1] * 32 + 16, 16, Color.DIMGREY);//***********player1
-            target.setStroke(Color.YELLOW);
-            target.setStrokeWidth(4);
-            Platform.runLater(() -> {
-                root.getChildren().add(target);
-            });
-            //scene1.setRoot(root);
-            //theStage.setScene(scene1);
-            new Flash(target).setCycleCount(3).play();
-            //target.setVisible(false);
-            Circle projectile = new Circle(target.getCenterX(), target.getCenterY(),
-                    target.getRadius(), Color.DARKRED);
-            Platform.runLater(() -> {
-                root.getChildren().add(projectile);
-            });
-            //scene1.setRoot(root);
-            //theStage.setScene(scene1);
-            //new FadeOut(projectile).play();
-            //MonsterController.damageCalculation(projectile);
-        }
-    }
-
- */
-
-
 }
 

@@ -6,9 +6,9 @@ import javafx.beans.property.SimpleIntegerProperty;
 This acts as a data class for the player of the game.
  */
 public class Player implements Locatable {
-    private static IntegerProperty health;
+    private static IntegerProperty health = new SimpleIntegerProperty();
     private static String name;
-    private static IntegerProperty balance;
+    private static IntegerProperty balance = new SimpleIntegerProperty();
     private static int strength;
     private static int speed;
     private int x;
@@ -37,11 +37,11 @@ public class Player implements Locatable {
     }
 
     public static void setBalance(int balance1) {
-        balance = new SimpleIntegerProperty(balance1);
+        balance.set(balance1);
     }
 
     public static void setHealth(int health1) {
-        health = new SimpleIntegerProperty(health1);
+        health.set(health1);
     }
 
     public static void setName(String name1) {

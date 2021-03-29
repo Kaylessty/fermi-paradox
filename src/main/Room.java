@@ -107,7 +107,7 @@ public class Room {
 
     public void removeObject(int x, int y) {
         room[y][x] = null;
-        System.out.println("removed");
+        //System.out.println("removed");
     }
 
     public Locatable[][] getRoom() {
