@@ -40,11 +40,11 @@ public class Room {
         this.monsterNum = 1 + rNum.nextInt(2);
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
-        special = rNum.nextInt(10);
+        special = rNum.nextInt(15);
         if (!roomName.equals("first") && !roomName.equals("last")) {
             addMonsters();
         }
-        if (special == 9) {
+        if (special == 14) {
             this.roomName = "Clown Room";
             addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
             addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 15, 15);
