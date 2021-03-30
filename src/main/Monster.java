@@ -10,6 +10,7 @@ public abstract class Monster implements Locatable {
     private int damage;
     private Random generator = new Random();
     private boolean hasBeenAttacked;
+    private String type;
 
     public Monster() {
         x = 3 + generator.nextInt(14);
@@ -60,4 +61,8 @@ public abstract class Monster implements Locatable {
     }
 
     public abstract int getOriginalHealth();
+
+    public String getType() {
+        return type;
+    }
 }

@@ -4,6 +4,7 @@ public class Monster2 extends Monster {
 
     private int health;
     private int speed;
+    private String type = "Teaff";
     private static final int ORIGINAL_HEALTH = 3200;
     public Monster2() {
         this(3200,5);
@@ -28,5 +29,10 @@ public class Monster2 extends Monster {
     @Override
     public int getOriginalHealth() {
         return ORIGINAL_HEALTH;
+    }
+
+    @Override
+    public String getType() {
+        return type;
     }
 }
