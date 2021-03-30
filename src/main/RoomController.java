@@ -152,6 +152,12 @@ public class RoomController {
                             player1 = (Player) important;
                             root.setOnKeyPressed(new MovementController());
                         }
+                        if (important instanceof Monster) {
+                            pictureView.setOnMouseClicked(e -> {
+                                System.out.println("yikes");
+                                attack((Monster) important);
+                            });
+                        }
                     } catch (IllegalArgumentException e) {
                         System.out.println("The file/image for the item could not be found.");
                     }
@@ -320,9 +326,59 @@ public class RoomController {
     }
 
 
-
-
-
+    public void attack(Monster monster) {
+        if (inv.getValue() != null) {
+            Item.Possession carrying = inv.getValue().getPossession();
+            int range = carrying.getRange();
+            boolean foundMonster = false;
+            // Iterating over the monsters in the room
+            for (int counter = 0; counter < monstersInRoom.length; counter++) {//*******************************_-_-_-_-
+                if (monstersInRoom[counter] == null) {
+                    continue;
+                }
+                // if player is close enough to a monster
+                double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
+                        (player1.getLocation()[1] - monster.getLocation()[1])));
+                if (distance <= range) {
+                    // attack monster
+                    monster.setHealth(monster.getHealth() - carrying.getDamage());
+                    // allow monster to attack back, assuming not yet attacked
+                    if (!monster.getHasBeenAttacked()) {
+                        monsterControllers[counter] = new MonsterController(monster, scene1, root,
+                                theStage, player1, currRoom);
+                        monster.setHasBeenAttacked(true);
+                    }
+                    foundMonster = true;
+                    // check if monster is alive
+                    if (monster.getHealth() <= 0) {//***********************************Check back later
+                        // Remove monster
+                        currRoom.removeObject(monster.getLocation()[0],
+                                monster.getLocation()[1]);
+                        System.out.println("Monster killed");
+                        monstersInRoom[counter] = null;
+                        monsterControllers[counter] = null;
+                        currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
+                        if (currRoom.getMonsterNum() == 0) {
+                            // Iterate over all doors and unlock them
+                            for (Door pathway : currRoom.getDoors()) {
+                                pathway.setLocked(false);
+                                pathway.getCon().setLocked(false);
+                            }
+                            // Restore health of Player
+                            player1.setHealth(5000);
+                        }
+                        refreshRoom();
+                    }
+                }
+                if (foundMonster) {
+                    break;
+                }
+            }
+            if (!foundMonster) {
+                System.out.println("No monster within range");
+            }
+        }
+    }
 
     /**
      * This class is where player movement functionality should be implemented.
@@ -337,58 +393,7 @@ public class RoomController {
         public void handle(KeyEvent e) {
             // Player tries to attack
             if (e.getCode() == KeyCode.E) {
-                if (inv.getValue() != null) {
-                    Item.Possession carrying = inv.getValue().getPossession();
-                    int range = carrying.getRange();
-                    boolean foundMonster = false;
-                    // Iterating over the monsters in the room
-                    for (int counter = 0; counter < monstersInRoom.length; counter++) {//*******************************_-_-_-_-
-                        if (monstersInRoom[counter] == null) {
-                            continue;
-                        }
-                        Monster monster = monstersInRoom[counter];
-                        // if player is close enough to a monster
-                        double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
-                                (player1.getLocation()[1] - monster.getLocation()[1])));
-                        if (distance <= range) {
-                            // attack monster
-                            monster.setHealth(monster.getHealth() - carrying.getDamage());
-                            // allow monster to attack back, assuming not yet attacked
-                            if (!monster.getHasBeenAttacked()) {
-                                monsterControllers[counter] = new MonsterController(monstersInRoom[counter], scene1, root,
-                                        theStage, player1, currRoom);
-                                monster.setHasBeenAttacked(true);
-                            }
-                            foundMonster = true;
-                            // check if monster is alive
-                            if (monster.getHealth() <= 0) {//***********************************Check back later
-                                // Remove monster
-                                currRoom.removeObject(monster.getLocation()[0],
-                                        monster.getLocation()[1]);
-                                System.out.println("Monster killed");
-                                monstersInRoom[counter] = null;
-                                monsterControllers[counter] = null;
-                                currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
-                                if (currRoom.getMonsterNum() == 0) {
-                                    // Iterate over all doors and unlock them
-                                    for (Door pathway : currRoom.getDoors()) {
-                                        pathway.setLocked(false);
-                                        pathway.getCon().setLocked(false);
-                                    }
-                                    // Restore health of Player
-                                    player1.setHealth(5000);
-                                }
-                                refreshRoom();
-                            }
-                        }
-                        if (foundMonster) {
-                            break;
-                        }
-                    }
-                    if (!foundMonster) {
-                        System.out.println("No monster within range");
-                    }
-                }
+                //attack();
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {
                 drop();
                 refreshRoom();
