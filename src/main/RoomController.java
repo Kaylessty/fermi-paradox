@@ -61,8 +61,6 @@ public class RoomController {
                 "Improvised Gun"), 7, 12);
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
                 "Visitor ID"), 3, 15);
-        currRoom.addObject(new Item(Item.Possession.PISTOL, 5, 15,
-                "Pistol"), 5, 15);
         //adds items to room
         currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
@@ -132,6 +130,8 @@ public class RoomController {
                         if (important instanceof Item) {
                             picture = new Image(imageURL, 64, 64, true, true);
 
+                        } else if(important instanceof ClownShop) {
+                            picture = new Image(imageURL, 40.0, 40.0, true, true);
                         } else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
                         }
@@ -388,7 +388,11 @@ public class RoomController {
                 }
             }
             if (!foundMonster) {
-                System.out.println("No monster within range");
+                if(monster.getType() == "Howard") {
+                    System.out.println("ayy, what are ya buyin?");
+                } else {
+                    System.out.println("No monster within range");
+                }
             }
         }
     }

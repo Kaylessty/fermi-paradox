@@ -135,7 +135,36 @@ public class MonsterController {
                         thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
                         room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
                     }
-                } else if(thisMonster.getType() == "Eyebore") {
+                } else if(thisMonster.getType() == "Howard") {
+                    int x = 0;
+                    int y = 0;
+                    if(thisMonster.getLocation()[1] > user.getLocation()[1]) {
+                        y = -1;
+                    } else if(thisMonster.getLocation() [1] < user.getLocation()[1]) {
+                        y = 1;
+                    }
+                    if(thisMonster.getLocation()[0] > user.getLocation()[0]) {
+                        x = -1;
+                    } else if(thisMonster.getLocation() [0] < user.getLocation()[0]) {
+                        x = 1;
+                    }
+                    if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x] == user) {
+                        System.out.println("Player is taking damage");
+                        Platform.runLater(() -> {
+                            Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
+                            System.out.println("Player's new damage: " + Player.getHealth().get());
+                        });
+                        if (Player.getHealth().get() <= 0) {
+                            timer.cancel();
+                            playerLoses();
+                        }
+                    } else {
+                        room.removeObject(thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                        thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
+                        room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
+                    }
+                }
+                else if(thisMonster.getType() == "Eyebore") {
                     Image picture = new Image("resources/images/Borepit.png", 75.0,
                             75.0, true, true);
                     ImageView target = new ImageView(picture);

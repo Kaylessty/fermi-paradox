@@ -41,11 +41,13 @@ public class Room {
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
-        if (!roomName.equals("first") && !roomName.equals("last")) {
-            addMonsters();
-        }
         if (special == 14) {
             this.roomName = "Clown Room";
+            Monster clown = new ClownShop();
+            monsterNum = 1;
+            room[clown.getLocation()[1]][clown.getLocation()[0]] = clown;
+            killThem[0] = clown;
+            //addObject(clown, clown.getLocation()[1], clown.getLocation()[0]);
             addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
             addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 15, 15);
             addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 15, 13);
@@ -59,6 +61,9 @@ public class Room {
             addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 0, 14);
             addObject(new Item(Item.Possession.BALLOON_B, 15, 15, "Red Balloon"), 0, 15);
             addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
+        }
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
         }
     }
 
