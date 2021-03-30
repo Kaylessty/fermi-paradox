@@ -327,6 +327,7 @@ public class RoomController {
 
 
     public void attack(Monster monster) {
+        refreshRoom();
         if (inv.getValue() != null) {
             Item.Possession carrying = inv.getValue().getPossession();
             int range = carrying.getRange();
