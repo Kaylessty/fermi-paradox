@@ -1,8 +1,11 @@
 package main;
 
-//import animatefx.animation.FadeOut;
-//import animatefx.animation.Flash;
+import animatefx.animation.FadeOut;
+import animatefx.animation.Flash;
 import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -10,6 +13,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.beans.binding.Bindings;
 
+import java.io.IOException;
 import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -31,13 +35,14 @@ public class MonsterController {
     private boolean hasBeenAttacked;
     private Room room;
     private Random rNum = new Random();
+    private RoomController con;
 
     // This default constructor should not be used
     private MonsterController() {
     }
 
     public MonsterController(Monster monster, Scene scene, Pane root, Stage stage, Player user,
-                             Room room) {
+                             Room room, RoomController con) {
         thisMonster = monster;
         timer = new Timer();
         scene1 = scene;
@@ -45,13 +50,14 @@ public class MonsterController {
         //theStage = stage;
         this.user = user;
         this.room = room;
+        this.con = con;
         attack();
     }
 
     public void attack() {
         if (thisMonster.getHealth() > 0) {
             timerTask = new innerClass();
-            timer.scheduleAtFixedRate(timerTask, 0, 3000);
+            timer.scheduleAtFixedRate(timerTask, 0, 500);
         } else {
             timer.cancel();
         }

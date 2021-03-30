@@ -358,7 +358,7 @@ public class RoomController {
                     // allow monster to attack back, assuming not yet attacked
                     if (!monster.getHasBeenAttacked()) {
                         monsterControllers[counter] = new MonsterController(monster, scene1, root,
-                                theStage, player1, currRoom);
+                                theStage, player1, currRoom, this);
                         monster.setHasBeenAttacked(true);
                     }
                     foundMonster = true;
