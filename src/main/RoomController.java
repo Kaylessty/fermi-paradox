@@ -61,6 +61,8 @@ public class RoomController {
                 "Improvised Gun"), 7, 12);
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
                 "Visitor ID"), 3, 15);
+        currRoom.addObject(new Item(Item.Possession.PISTOL, 5, 15,
+                "Pistol"), 5, 15);
         //adds items to room
         currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
@@ -154,7 +156,6 @@ public class RoomController {
                         }
                         if (important instanceof Monster) {
                             pictureView.setOnMouseClicked(e -> {
-                                System.out.println("yikes");
                                 attack((Monster) important);
                             });
                         }
@@ -342,7 +343,18 @@ public class RoomController {
                         (player1.getLocation()[1] - monster.getLocation()[1])));
                 if (distance <= range) {
                     // attack monster
+                    if (carrying.getimageURL() == "resources/images/PISTOL.png"
+                            || carrying.getimageURL() == "resources/images/RIFLE.png") {
+                        if (player1.getAmmo() == 0) {
+                            System.out.println("no ammo");
+                            return;
+                        } else {
+                            player1.removeAmmo(1);
+                            System.out.println(player1.getAmmo());
+                        }
+                    }
                     monster.setHealth(monster.getHealth() - carrying.getDamage());
+                    System.out.println(monster.getHealth());
                     // allow monster to attack back, assuming not yet attacked
                     if (!monster.getHasBeenAttacked()) {
                         monsterControllers[counter] = new MonsterController(monster, scene1, root,

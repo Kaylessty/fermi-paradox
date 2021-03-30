@@ -29,6 +29,10 @@ public class Item implements Locatable, Collectible {
                 "resources/images/LASER.png"),
         SHOCKRIFLE("Gun", 400, 10, 4, 0, 0, 0, 2000, 1000, true, false, -1,
                 "resources/images/SHOCKRIFLE.png"),
+        PISTOL("Gun", 400, 10, 4, 0, 0, 0, 2000, 1000, true, false, -1,
+                "resources/images/PISTOL.png"),
+        RIFLE("Gun", 900, 10, 4, 0, 0, 0, 2000, 1000, true, false, -1,
+                "resources/images/RIFLE.png"),
         SONICRIFLE("Gun", 350, 5, 4, 0, 0, 0, 500, 300, true, false, -1,
                 "resources/images/SONICRIFLE.png"),
         SONICCANNON("Gun", 850, 5, 4, 0, 0, 0, 500, 300, true, false, -1,
@@ -95,6 +99,10 @@ public class Item implements Locatable, Collectible {
 
         public int getDamage() {
             return damage;
+        }
+
+        public String getimageURL() {
+            return imageURL;
         }
     }
 

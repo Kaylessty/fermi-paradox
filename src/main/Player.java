@@ -13,6 +13,7 @@ public class Player implements Locatable {
     private static int speed;
     private int x;
     private int y;
+    private int ammo = 0;
     private String recentImageURL = "resources/images/player-down.png";
     private static Room box;
 
@@ -96,5 +97,17 @@ public class Player implements Locatable {
 
     public static void setRoom(Room box1) {
         box = box1;
+    }
+
+    public void addAmmo(int ammo1) {
+        ammo = ammo + ammo1;
+    }
+
+    public void removeAmmo(int ammo1) {
+        ammo = ammo - ammo1;
+    }
+
+    public int getAmmo() {
+        return ammo;
     }
 }
