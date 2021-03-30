@@ -16,10 +16,22 @@ public class Maze {
     private int x = 0;
     private int y = 0;
 
+
+    public Maze() {
+        boolean k = false;
+        while(k == false) {
+            rooms = null;
+            doors = null;
+            roomnum = 0;
+            x = 0;
+            y = 0;
+            k = mazeMaker();
+        }
+    }
     /**
      * Creates a maze and fills it with a random number between 10 and 20 random rooms.
      */
-    public Maze() {
+    public boolean mazeMaker() {
         roomnum = 26 + rNum.nextInt(10);
         rooms = new Room[roomnum];
         System.out.println("Number of rooms: " + rooms.length);
@@ -67,7 +79,11 @@ public class Maze {
                             Door newDoor = new Door(rooms[i], rooms[i + k]);
                             Door oppositeDoor = new Door(rooms[i + k], rooms[i]);
                             boolean found = false;
+                            int counter = 0;
                             while (!found) {
+                                if(counter == 10) {
+                                    return false;
+                                }
                                 int potentialLocation = rNum.nextInt(4);
                                 // Fixing the orientation of the doors (a right door when clicked
                                 // should appear on the left in next room)
@@ -85,6 +101,7 @@ public class Maze {
                                         oppositeDoor.setX(9);
                                         oppositeDoor.setImageURL("resources/images/new-door-down.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 } else if (potentialLocation == 1) {
@@ -101,6 +118,7 @@ public class Maze {
                                         oppositeDoor.setY(9);
                                         oppositeDoor.setImageURL("resources/images/new-door-left.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 } else if (potentialLocation == 2) {
@@ -117,6 +135,7 @@ public class Maze {
                                         oppositeDoor.setX(8);
                                         oppositeDoor.setImageURL("resources/images/new-door-up.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 } else if (potentialLocation == 3) {
@@ -133,6 +152,7 @@ public class Maze {
                                         oppositeDoor.setY(8);
                                         oppositeDoor.setImageURL("resources/images/new-door-right.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 }
@@ -155,6 +175,7 @@ public class Maze {
                 }
             }
         }
+        return true;
     }
 
     public Door[] getDoors() {

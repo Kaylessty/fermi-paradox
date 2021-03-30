@@ -131,8 +131,6 @@ public class MonsterController {
                     } else {
                         room.removeObject(thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
                         thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
-                        System.out.println(thisMonster.getLocation()[0]);
-                        System.out.println(thisMonster.getLocation()[1]);
                         room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
                     }
                 } else if(thisMonster.getType() == "Eyebore") {
@@ -200,8 +198,6 @@ public class MonsterController {
                     } else {
                         room.removeObject(thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
                         thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
-                        System.out.println(thisMonster.getLocation()[0]);
-                        System.out.println(thisMonster.getLocation()[1]);
                         room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
                     }
                 }
