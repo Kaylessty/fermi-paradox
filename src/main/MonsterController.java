@@ -10,10 +10,11 @@ import javafx.scene.layout.Pane;
 import javafx.scene.shape.Circle;
 import javafx.beans.binding.Bindings;
 
+import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-
+import java.util.Random;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
@@ -29,6 +30,7 @@ public class MonsterController {
     private Player user;
     private boolean hasBeenAttacked;
     private Room room;
+    private Random rNum = new Random();
 
     // This default constructor should not be used
     private MonsterController() {
@@ -172,7 +174,8 @@ public class MonsterController {
                     //theStage.setScene(scene1);
                     //new FadeOut(projectile).play();
                     MonsterController.this.damageCalculation(projectile);
-                } else {
+                } else if(thisMonster.getType() == "Tim"){
+                    int r = rNum.nextInt(3);
                     int x = 0;
                     int y = 0;
                     if(thisMonster.getLocation()[1] > user.getLocation()[1]) {
@@ -184,6 +187,10 @@ public class MonsterController {
                         x = -1;
                     } else if(thisMonster.getLocation() [0] < user.getLocation()[0]) {
                         x = 1;
+                    }
+                    if (r == 2) {
+                        x = x * 6;
+                        y = y * 6;
                     }
                     if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x] == user) {
                         System.out.println("Player is taking damage");

@@ -107,7 +107,7 @@ public class Room {
                 creature.setDamage(2000);
             } else {
                 creature = new Monster3();
-                creature.setHealth(70000);
+                creature.setHealth(20000);
                 creature.setDamage(4999);
             }
             killThem[index] = creature;//********************************************************
