@@ -15,7 +15,7 @@ public class Item implements Locatable, Collectible {
      * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
     */
     public enum Possession  {
-        A_ENERGYSWORD("Sword", 2000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+        A_ENERGYSWORD("Sword", 200000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
                 "resources/images/A_ENERGYSWORD.png"),
         ENERGYSWORD("Sword", 400, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
                 "resources/images/ENERGYSWORD.png"),
@@ -23,7 +23,7 @@ public class Item implements Locatable, Collectible {
                 "resources/images/LASER.png"),
         SONICRIFLE("Gun", 350, 6, 4, 0, 0, 0, 500, 300, true, false, -1,
                 "resources/images/SONICRIFLE.png"),
-        A_SHOCKRIFLE("Gun", 700, 10, 4, 0, 0, 0, 600, 250, true, false, -1,
+        A_SHOCKRIFLE("Gun", 60000, 10, 4, 0, 0, 0, 600, 250, true, false, -1,
                 "resources/images/A_SHOCKRIFLE.png"),
         IMPROVISEDSWORD("Sword", 56, 1, 3, 0, 0, 0, 600, 250, true, false, -1,
                 "resources/images/IMPROVISEDSWORD.png"),

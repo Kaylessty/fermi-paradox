@@ -99,15 +99,15 @@ public class Room {
             Monster creature;
             if(pick1 == 1 || pick1 == 2 || pick1 == 3) {
                 creature = new Monster1();
-                creature.setHealth(2800);
+                creature.setHealth(4800);
                 creature.setDamage(1000);
             } else if(pick1 == 4 || pick1 == 5 || pick1 == 6) {
                 creature = new Monster2();
-                creature.setHealth(4000);
+                creature.setHealth(9000);
                 creature.setDamage(2000);
             } else {
                 creature = new Monster3();
-                creature.setHealth(10000);
+                creature.setHealth(70000);
                 creature.setDamage(4999);
             }
             killThem[index] = creature;//********************************************************
