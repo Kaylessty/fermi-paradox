@@ -3,7 +3,7 @@ package main;
 import java.util.Random;
 
 public abstract class Monster implements Locatable {
-
+    private Item drop = new Item(Item.Possession.BALLOON_R, 15, 15, "Monster Balloon");
     private int x;
     private int y;
     private int health;
@@ -64,5 +64,13 @@ public abstract class Monster implements Locatable {
 
     public String getType() {
         return type;
+    }
+
+    public void setDrop(Item drop) {
+        this.drop = drop;
+    }
+
+    public Item getDrop() {
+        return drop;
     }
 }

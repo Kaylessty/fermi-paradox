@@ -2,6 +2,12 @@ package main;
 
 public class ClownShop extends Monster {
 
+    private Item[] shopInv = {new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"),
+            new Item(Item.Possession.BALLOON_Y, 15, 15, "Yellow Balloon"),
+            new Item(Item.Possession.BALLOON_B, 15, 15, "Blue Balloon"),
+            new Item(Item.Possession.BALLOON_G, 15, 15, "Green Balloon"),
+            new Item(Item.Possession.HORN, 15, 15, "Clown Horn")};
+    private Item drop = new Item(Item.Possession.HORN, 15, 15, "Clown's Prized Horn");
     private int health;
     private int speed;
     private String type = "Howard";
@@ -34,5 +40,14 @@ public class ClownShop extends Monster {
     @Override
     public String getType() {
         return type;
+    }
+
+    @Override
+    public void setDrop(Item drop) {
+        this.drop = drop;
+    }
+    @Override
+    public Item getDrop() {
+        return drop;
     }
 }

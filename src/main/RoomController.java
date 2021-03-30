@@ -368,6 +368,8 @@ public class RoomController {
                         currRoom.removeObject(monster.getLocation()[0],
                                 monster.getLocation()[1]);
                         System.out.println("Monster killed");
+                        monster.getDrop().setPosition(monster.getLocation());
+                        currRoom.addObject(monster.getDrop(), monster.getLocation()[0], monster.getLocation()[1]);
                         monstersInRoom[counter] = null;
                         monsterControllers[counter] = null;
                         currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);

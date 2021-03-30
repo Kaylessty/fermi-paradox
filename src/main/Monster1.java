@@ -1,7 +1,6 @@
 package main;
 
 public class Monster1 extends Monster {
-
     private int health;
     private int speed;
     private String type = "Eyebore";
