@@ -1,11 +1,8 @@
 import javafx.stage.Stage;
 import main.Main;
-import main.Player;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import org.testfx.matcher.base.NodeMatchers;
-
-import static org.junit.Assert.assertEquals;
 import static org.testfx.api.FxAssert.verifyThat;
 
 public class RoomDisplayTest extends ApplicationTest {

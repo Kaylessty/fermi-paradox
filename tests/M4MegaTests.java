@@ -1,10 +1,6 @@
-import javafx.stage.Stage;
 import main.*;
 import org.junit.Before;
 import org.junit.Test;
-import org.testfx.framework.junit.ApplicationTest;
-
-import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 
 public class M4MegaTests {

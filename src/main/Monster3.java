@@ -7,7 +7,7 @@ public class Monster3 extends Monster {
     private String type = "Tim";
     private static final int ORIGINAL_HEALTH = 999999999;
     public Monster3() {
-        this(999999999,1);
+        this(999999999, 1);
     }
     public Monster3(int health, int speed) {
         this.health = health;

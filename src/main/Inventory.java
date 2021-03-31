@@ -2,7 +2,7 @@ package main;
 
 public class Inventory {
     // Fixed spelling for contesnts to contents
-    public Item[] contents = new Item[8];
+    private Item[] contents = new Item[8];
     private String name;
     private int currHousingSpace;
     private final int maximumCAPACITY = 20;

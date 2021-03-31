@@ -1,18 +1,7 @@
-import main.Main;
 import main.Inventory;
 import main.Item;
-import main.Locatable;
-import main.Collectible;
-import main.RoomController;
-import javafx.stage.Stage;
-import org.junit.Before;
 import org.junit.Test;
-import org.junit.Assert;
-
-import org.testfx.framework.junit.ApplicationTest;
 import static org.junit.Assert.assertEquals;
-import org.testfx.matcher.base.NodeMatchers;
-import static org.testfx.api.FxAssert.verifyThat;
 
 public class M4InvintoryTest {
 
@@ -21,7 +10,7 @@ public class M4InvintoryTest {
         Inventory inv = new Inventory();
         Item it = new Item(Item.Possession.IMPROVISEDSWORD, 4, 11, "Improvised Sword");
         inv.addItem(it);
-        assertEquals(inv.contents[0],it);
+        assertEquals(inv.getItem(0), it);
     }
     @Test
     public void testInvintory2() {
@@ -29,13 +18,13 @@ public class M4InvintoryTest {
         Item it = new Item(Item.Possession.IMPROVISEDSWORD, 4, 11, "Improvised Sword");
         inv.addItem(it);
         inv.dropItem(it);
-        assertEquals(inv.contents[0],null);
+        assertEquals(inv.getItem(0), null);
     }
     @Test
     public void testInvintory3() {
         Inventory inv = new Inventory();
         Item it = new Item(Item.Possession.IMPROVISEDSWORD, 4, 11, "Improvised Sword");
         inv.addItem(it);
-        assertEquals(inv.getCurrHousingSpace(),3);
+        assertEquals(inv.getCurrHousingSpace(), 3);
     }
 }

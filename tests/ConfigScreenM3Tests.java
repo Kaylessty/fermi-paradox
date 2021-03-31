@@ -1,15 +1,9 @@
-import javafx.application.Platform;
 import main.Main;
 import main.Player;
 import javafx.stage.Stage;
-import org.junit.After;
-import org.junit.Before;
 import org.junit.Test;
 import org.testfx.framework.junit.ApplicationTest;
 import static org.junit.Assert.assertEquals;
-import org.testfx.matcher.base.NodeMatchers;
-import static org.testfx.api.FxAssert.verifyThat;
-
 
 public class ConfigScreenM3Tests extends ApplicationTest {
 

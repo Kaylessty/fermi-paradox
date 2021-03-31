@@ -23,25 +23,35 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/M4_Tests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ClownShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ClownShop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MathHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MathHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Monster1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster3.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Player.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4InvintoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M3_Tests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MazeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4InvintoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4MegaTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4MegaTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/RoomDisplayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/RoomDisplayTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +116,15 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="M4InvintoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpaceDungeon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="M4InvintoryTest.testInvintory2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
@@ -126,20 +145,10 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4_Tests.testMovement2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="M4Tests.testPlayerFaint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4_Tests" />
-      <option name="METHOD_NAME" value="testMovement2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="M4_Tests.testPlayerFaint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpaceDungeon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4_Tests" />
+      <option name="MAIN_CLASS_NAME" value="M4Tests" />
       <option name="METHOD_NAME" value="testPlayerFaint" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
@@ -147,19 +156,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
-      <item itemvalue="JUnit.M4_Tests.testMovement2" />
       <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
       <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
+      <item itemvalue="JUnit.M4Tests.testPlayerFaint" />
+      <item itemvalue="JUnit.M4InvintoryTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
+        <item itemvalue="JUnit.M4InvintoryTest" />
+        <item itemvalue="JUnit.M4Tests.testPlayerFaint" />
         <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
         <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
-        <item itemvalue="JUnit.M4_Tests.testMovement2" />
       </list>
     </recent_temporary>
   </component>
