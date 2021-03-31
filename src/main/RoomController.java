@@ -187,6 +187,7 @@ public class RoomController {
      * @param door The door that connects current room to other room that player will move to
      */
     private void changeRoom(Door door) {
+
         if (inv.getValue() != null) {
             int idlvl = inv.getValue().getPossession().getIdLevel();
             if (door.getLocked() && idlvl > door.getRoomA().getNumRoom()) {
@@ -195,9 +196,14 @@ public class RoomController {
                 door.getCon().setLocked(false);
             }
         }
-        if (door.getLocked()) {
+        if (door.getLocked() && !(inv.getValue().getImageURL() == "resources/images/TIMKEY.png")) {
             System.out.println("door locked");
             return;
+        } else if(inv.getValue().getImageURL() == "resources/images/TIMKEY.png") {
+            dropped = inv.getValue();
+            Item toDrop = inv.getValue();
+            playerInventory.dropItem(toDrop);
+            inv.getItems().remove(toDrop);
         }
         System.out.println("changed room");
         lastDoor = door;
@@ -380,7 +386,7 @@ public class RoomController {
                                 pathway.getCon().setLocked(false);
                             }
                             // Restore health of Player
-                            player1.setHealth(5000);
+                            //player1.setHealth(5000);
                         }
                         refreshRoom();
                     }
@@ -412,7 +418,27 @@ public class RoomController {
         public void handle(KeyEvent e) {
             // Player tries to attack
             if (e.getCode() == KeyCode.E) {
-                //attack();
+                if(inv.getValue().getImageURL() == "resources/images/BOREEYE.png") {
+                    if(Player.getHealth().get() < 4000) {
+                        Player.getHealth().set(Player.getHealth().get() + 1000);
+                        dropped = inv.getValue();
+                        Item toDrop = inv.getValue();
+                        playerInventory.dropItem(toDrop);
+                        inv.getItems().remove(toDrop);
+                    } else {
+                        Player.getHealth().set(5000);
+                        dropped = inv.getValue();
+                        Item toDrop = inv.getValue();
+                        playerInventory.dropItem(toDrop);
+                        inv.getItems().remove(toDrop);
+                    }
+                } else if(inv.getValue().getImageURL() == "resources/images/TEAFFHIDE.png") {
+                    Player.getHealth().set(Player.getHealth().get() + 500);
+                    dropped = inv.getValue();
+                    Item toDrop = inv.getValue();
+                    playerInventory.dropItem(toDrop);
+                    inv.getItems().remove(toDrop);
+                }
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {
                 drop();
                 refreshRoom();

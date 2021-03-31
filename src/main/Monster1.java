@@ -11,6 +11,7 @@ public class Monster1 extends Monster {
     public Monster1(int health, int speed) {
         this.health = health;
         this.speed = speed;
+        this.setDrop(new Item(Item.Possession.BOREEYE, 15, 15, "Bore Eye"));
     }
     @Override
     public String getImageURL() {
