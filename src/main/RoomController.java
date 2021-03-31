@@ -23,6 +23,9 @@ import java.util.List;
 public class RoomController {
 
     private Room currRoom;
+
+
+
     private Scene scene1;
     private BorderPane root;
     private Maze theMaze;
@@ -534,5 +537,6 @@ public class RoomController {
             }
         }
     }
+
 }
 

@@ -3,10 +3,13 @@ package main;
 import animatefx.animation.FadeOut;
 import animatefx.animation.Flash;
 import javafx.application.Platform;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Pane;
@@ -23,6 +26,8 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
+import javax.swing.*;
+
 public class MonsterController {
 
     private Monster thisMonster;
@@ -36,6 +41,8 @@ public class MonsterController {
     private Room room;
     private Random rNum = new Random();
     private RoomController con;
+    private Scene scene;
+
 
     // This default constructor should not be used
     private MonsterController() {
@@ -91,8 +98,22 @@ public class MonsterController {
         }
     }
 
+
+
     private void playerLoses() {
         System.out.println("You lost :(");
+
+        Platform.runLater(() -> {try {
+            Player.setBalance(3000);
+            Player.setHealth(5000);
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/losescreen.fxml"));
+            Main.getPrimaryStage().setScene(new Scene(loader.load()));
+            Main.getPrimaryStage().show();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }});
+
+
     }
 
     class innerClass extends TimerTask {
