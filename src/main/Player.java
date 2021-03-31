@@ -76,6 +76,10 @@ public class Player implements Locatable {
         return recentImageURL;
     }
 
+    public String getDeadImageURL() {
+        recentImageURL = "resources/images/player-dead.png";
+        return recentImageURL;
+    }
     public String getDownImageURL() {
         recentImageURL = "resources/images/player-down.png";
         return recentImageURL;

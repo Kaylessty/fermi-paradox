@@ -2,6 +2,9 @@ package main;
 
 import animatefx.animation.FadeOut;
 import animatefx.animation.Flash;
+import javafx.animation.KeyFrame;
+import javafx.animation.KeyValue;
+import javafx.animation.PauseTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -25,6 +28,7 @@ import java.util.Random;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import javax.swing.*;
 
@@ -99,13 +103,16 @@ public class MonsterController {
     }
 
 
-
-    private void playerLoses() {
+    /**
+     * If player loses, he can either quit or retry by spawning in maze again.
+     */
+    public void playerLoses() {
         System.out.println("You lost :(");
 
         Platform.runLater(() -> {try {
             Player.setBalance(3000);
             Player.setHealth(5000);
+
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/losescreen.fxml"));
             Main.getPrimaryStage().setScene(new Scene(loader.load()));
             Main.getPrimaryStage().show();

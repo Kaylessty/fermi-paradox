@@ -14,19 +14,28 @@ import static org.junit.Assert.assertEquals;
 import org.testfx.matcher.base.NodeMatchers;
 import static org.testfx.api.FxAssert.verifyThat;
 
-public class InvintoryTest {
-    private Inventory inv = new Inventory();
+public class M4InvintoryTest {
+
     @Test
     public void testInvintory1() {
+        Inventory inv = new Inventory();
         Item it = new Item(Item.Possession.IMPROVISEDSWORD, 4, 11, "Improvised Sword");
         inv.addItem(it);
         assertEquals(inv.contents[0],it);
     }
     @Test
-    public void testInvintory1() {
+    public void testInvintory2() {
+        Inventory inv = new Inventory();
         Item it = new Item(Item.Possession.IMPROVISEDSWORD, 4, 11, "Improvised Sword");
         inv.addItem(it);
         inv.dropItem(it);
         assertEquals(inv.contents[0],null);
+    }
+    @Test
+    public void testInvintory3() {
+        Inventory inv = new Inventory();
+        Item it = new Item(Item.Possession.IMPROVISEDSWORD, 4, 11, "Improvised Sword");
+        inv.addItem(it);
+        assertEquals(inv.getCurrHousingSpace(),3);
     }
 }

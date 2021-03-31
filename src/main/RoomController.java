@@ -1,5 +1,7 @@
 package main;
 
+import javafx.beans.value.ChangeListener;
+import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -103,6 +105,17 @@ public class RoomController {
         topRow.setAlignment(Pos.CENTER);
         bottomRow.setAlignment(Pos.CENTER);
         root.getChildren().add(pillar);
+        health.textProperty().addListener(new ChangeListener<String>() {
+            @Override
+            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+                String str = health.getText();
+                int foo = Integer.parseInt(str);
+                if (foo < 0) {
+                    player1.getDeadImageURL();
+                    refreshRoom();
+                }
+            }
+        });
         //keepTrack.add(pillar);//*****************************************************************
         displayRoom();
         scene1 = new Scene(root, 800, 600);
