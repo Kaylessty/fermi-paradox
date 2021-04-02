@@ -23,25 +23,37 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/tests/M4_Tests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/ProwlerShop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ClownShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ClownShop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Monster1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/ClownShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/ClownShop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Inventory.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Player.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Player.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Room.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4InvintoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M3_Tests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/FirstScreenTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MazeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/FirstScreenTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/FirstScreenTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4InvintoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4MegaTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4MegaTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4_Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MazeTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/RoomDisplayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/RoomDisplayTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -60,6 +72,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="1.8" />
@@ -85,11 +102,11 @@
     <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/resources/images" />
-    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="main" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/resources/images" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -147,9 +164,9 @@
       </method>
     </configuration>
     <list>
+      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
       <item itemvalue="JUnit.M4_Tests.testMovement2" />
-      <item itemvalue="Application.Main" />
       <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
       <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
     </list>
@@ -188,5 +205,27 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1617325123440">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617325123440" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1617325123440">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617325123440" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1617325123440">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617325123440" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1617325123440">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617325123440" />
+    <state x="440" y="94" key="SettingsEditor" timestamp="1617215001091">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="440" y="94" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617215001091" />
   </component>
 </project>

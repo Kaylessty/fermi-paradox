@@ -169,7 +169,7 @@ public class MonsterController {
                         thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
                         room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
                     }
-                } else if(thisMonster.getType() == "Howard") {
+                } else if(thisMonster.getType() == "Howard" || thisMonster.getType() == "Prowler") {
                     int x = 0;
                     int y = 0;
                     if(thisMonster.getLocation()[1] > user.getLocation()[1]) {

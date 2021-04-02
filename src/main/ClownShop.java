@@ -2,7 +2,7 @@ package main;
 
 public class ClownShop extends Monster {
 
-    private Item[] shopInv = {new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"),
+    private static Item[] shopInv = {new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"),
             new Item(Item.Possession.BALLOON_Y, 15, 15, "Yellow Balloon"),
             new Item(Item.Possession.BALLOON_B, 15, 15, "Blue Balloon"),
             new Item(Item.Possession.BALLOON_G, 15, 15, "Green Balloon"),
@@ -49,5 +49,9 @@ public class ClownShop extends Monster {
     @Override
     public Item getDrop() {
         return drop;
+    }
+
+    public static Item[] getShopInv() {
+        return shopInv;
     }
 }

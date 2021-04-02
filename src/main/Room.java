@@ -41,6 +41,12 @@ public class Room {
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
+        if (special == 13) {
+            Monster prowler = new ProwlerShop();
+            monsterNum = 1;
+            room[prowler.getLocation()[1]][prowler.getLocation()[0]] = prowler;
+            killThem[0] = prowler;
+        }
         if (special == 14) {
             this.roomName = "Clown Room";
             Monster clown = new ClownShop();

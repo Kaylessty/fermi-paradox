@@ -146,7 +146,7 @@ public class RoomController {
                         if (important instanceof Item) {
                             picture = new Image(imageURL, 64, 64, true, true);
 
-                        } else if(important instanceof ClownShop) {
+                        } else if(important instanceof ClownShop || important instanceof ProwlerShop) {
                             picture = new Image(imageURL, 40.0, 40.0, true, true);
                         } else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
@@ -159,12 +159,12 @@ public class RoomController {
                         //if (important instanceof Door) {
                             //pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
                         //}
-                        if (important instanceof Item) {
-                            pictureView.setOnMouseClicked(e -> {
-                                pickUp((Item) important);
-                                refreshRoom();
-                            });
-                        }
+//                        if (important instanceof Item) {
+//                            pictureView.setOnMouseClicked(e -> {
+//                                pickUp((Item) important);
+//                                refreshRoom();
+//                            });
+//                        }
                         if (important instanceof Player) {
                             //System.out.println("Reached instanceof Player");
                             player1 = (Player) important;
@@ -340,6 +340,11 @@ public class RoomController {
                 toDrop.getName()), loc[0], loc[1]);
     }
 
+    public void remove(Item toRemove) {
+        playerInventory.dropItem(toRemove);
+        inv.getItems().remove(toRemove);
+    }
+
     /**
      * returns the scene1
      * @return scene1
@@ -414,6 +419,10 @@ public class RoomController {
             if (!foundMonster) {
                 if(monster.getType() == "Howard") {
                     System.out.println("ayy, what are ya buyin?");
+                    Shop.display(playerInventory, ClownShop.getShopInv(), this);
+                } else if(monster.getType() == "Prowler") {
+                    System.out.println("See anything you like?");
+                    Shop.display(playerInventory, ProwlerShop.getShopInv(), this);
                 } else {
                     System.out.println("No monster within range");
                 }
@@ -437,23 +446,14 @@ public class RoomController {
                 if(inv.getValue().getImageURL() == "resources/images/BOREEYE.png") {
                     if(Player.getHealth().get() < 4000) {
                         Player.getHealth().set(Player.getHealth().get() + 1000);
-                        dropped = inv.getValue();
-                        Item toDrop = inv.getValue();
-                        playerInventory.dropItem(toDrop);
-                        inv.getItems().remove(toDrop);
+                        remove(inv.getValue());
                     } else {
                         Player.getHealth().set(5000);
-                        dropped = inv.getValue();
-                        Item toDrop = inv.getValue();
-                        playerInventory.dropItem(toDrop);
-                        inv.getItems().remove(toDrop);
+                        remove(inv.getValue());
                     }
                 } else if(inv.getValue().getImageURL() == "resources/images/TEAFFHIDE.png") {
                     Player.getHealth().set(Player.getHealth().get() + 500);
-                    dropped = inv.getValue();
-                    Item toDrop = inv.getValue();
-                    playerInventory.dropItem(toDrop);
-                    inv.getItems().remove(toDrop);
+                    remove(inv.getValue());
                 }
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {
                 drop();
