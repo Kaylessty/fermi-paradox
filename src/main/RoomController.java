@@ -391,6 +391,11 @@ public class RoomController {
                 monster.setHealth(monster.getHealth() - carrying.getDamage());
                 System.out.println(monster.getHealth());
                 // allow monster to attack back, assuming not yet attacked
+                if (!monster.getHasBeenAttacked()) {
+                    monsterControllers[0] = new MonsterController(monster, scene1, root,
+                            theStage, player1, currRoom, this);
+                    monster.setHasBeenAttacked(true);
+                }
                 foundMonster = true;
                 // check if monster is alive
                 if (monster.getHealth() <= 0) {//***********************************Check back later
