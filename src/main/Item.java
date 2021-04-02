@@ -8,18 +8,78 @@ public class Item implements Locatable, Collectible {
     private int y;
 
     public enum Possession  {
-        A_ENERGYSWORD("Sword", 100000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+        A_ENERGYSWORD("Sword", 200000, 1, 4, 0, 0, 0, 100000, 100000, true, false, -1,
                 "resources/images/A_ENERGYSWORD.png"),
-        A_SHOCKRIFLE("Gun", 100000, 100, 4, 0, 0, 0, 600, 250, true, false, -1,
+        ENERGYSWORD("Sword", 500, 1, 4, 0, 0, 0, 1000, 700, true, false, -1,
+                "resources/images/ENERGYSWORD.png"),
+        DB_ENERGYSWORD("Sword", 1000, 1, 4, 0, 0, 0, 20000, 17000, true, false, -1,
+                "resources/images/DB_ENERGYSWORD.png"),
+        SONICSWORD("Sword", 500, 3, 4, 0, 0, 0, 10000, 8000, true, false, -1,
+                "resources/images/SONICSWORD.png"),
+        DB_SONICSWORD("Sword", 1000, 3, 4, 0, 0, 0, 30000, 27000, true, false, -1,
+                "resources/images/DB_SONICSWORD.png"),
+        LASER("Gun", 150, 7, 4, 0, 0, 0, 1000, 700, true, false, -1,
+                "resources/images/LASER.png"),
+        SHOCKRIFLE("Gun", 400, 10, 4, 0, 0, 0, 4000, 3500, true, false, -1,
+                "resources/images/SHOCKRIFLE.png"),
+        PISTOL("Gun", 400, 10, 4, 0, 0, 0, 7000, 5000, true, false, -1,
+                "resources/images/PISTOL.png"),
+        A_RIFLE("Gun", 3000, 10, 4, 0, 0, 0, 90000, 70000, true, false, -1,
+                "resources/images/RIFLE.png"),
+        SONICRIFLE("Gun", 350, 5, 4, 0, 0, 0, 5000, 4000, true, false, -1,
+                "resources/images/SONICRIFLE.png"),
+        SONICCANNON("Gun", 850, 5, 4, 0, 0, 0, 10000, 7000, true, false, -1,
+                "resources/images/SONICCANNON.png"),
+        A_SHOCKRIFLE("Gun", 60000, 10, 4, 0, 0, 0, 100000, 100000, true, false, -1,
                 "resources/images/A_SHOCKRIFLE.png"),
-        IMPROVISEDSWORD("Sword", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1,
+        H_RIFLE("Gun", 1500, 10, 4, 0, 0, 0, 35000, 28000, true, false, -1,
+                "resources/images/H_RIFLE.png"),
+        IMPROVISEDSWORD("Sword", 56, 1, 3, 0, 0, 0, 300, 200, true, false, -1,
                 "resources/images/IMPROVISEDSWORD.png"),
-        IMPROVISEDGUN("Gun", 56, 0, 3, 0, 0, 0, 600, 250, true, false, -1,
+        IMPROVISEDGUN("Gun", 56, 3, 3, 0, 0, 0, 300, 200, true, false, -1,
                 "resources/images/IMPROVISEDGUN.png"),
-        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100,
+        AAID("ID", 4, 0, 1, 0, 0, 0, 100000, 1000000, true, true, 100,
                 "resources/images/ID.png"),
-        HORN("misc", 1, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+        HORN("misc", 1, 0, 1, 0, 0, 0, 70, 1, true, false, -1,
                 "resources/images/Horn.png"),
+        BOREEYE("heal", 1000, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
+                "resources/images/BOREEYE.png"),
+        BATTERYLV1("heal", 2500, 0, 1, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/BATTERYLV1.png"),
+        BATTERYLV2("heal", 5000, 0, 1, 0, 0, 0, 1000, 900, true, false, -1,
+                "resources/images/BATTERYLV2.png"),
+        BATTERYLV3("heal", 10000, 0, 1, 0, 0, 0, 1500, 1400, true, false, -1,
+                "resources/images/BATTERYLV3.png"),
+        BATTERYLV4("heal", 20000, 0, 1, 0, 0, 0, 2000, 1800, true, false, -1,
+                "resources/images/BATTERYLV4.png"),
+        G_BATTERYLV1("charge", 2, 0, 1, 0, 0, 0, 1000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV1.png"),
+        G_BATTERYLV2("charge", 5, 0, 1, 0, 0, 0, 5000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV2.png"),
+        G_BATTERYLV3("charge", 10, 0, 1, 0, 0, 0, 10000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV3.png"),
+        G_BATTERYLV4("charge", 20, 0, 1, 0, 0, 0, 20000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV4.png"),
+        HIDE("misc", 500, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
+                "resources/images/TEAFFHIDE.png"),
+        AMMOBOX("misc", 500, 0, 1, 0, 0, 0, 1000, 800, true, false, -1,
+                "resources/images/AMMOBOX.png"),
+        TIMKEY("misc", 0, 0, 1, 0, 0, 0, 1000, 700, true, false, -1,
+                "resources/images/TIMKEY.png"),
+        SHIELDGENERATOR_LV1("Shield", 2500, 0, 1, 0, 0, 0, 10000, 9000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV1.png"),
+        SHIELDGENERATOR_LV2("Shield", 5000, 0, 1, 0, 0, 0, 40000, 37000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV2.png"),
+        SHIELDGENERATOR_LV3("Shield", 10000, 0, 1, 0, 0, 0, 80000, 70000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV3.png"),
+        BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
+                "resources/images/BALLOON_R.png"),
+        BALLOON_G("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
+                "resources/images/BALLOON_G.png"),
+        BALLOON_Y("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
+                "resources/images/BALLOON_Y.png"),
+        BALLOON_B("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
+                "resources/images/BALLOON_B.png"),
         ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1,
                 "resources/images/ID.png");
         private final String type;
@@ -85,6 +145,10 @@ public class Item implements Locatable, Collectible {
         public int getDamage() {
             return damage;
         }
+
+        public String getimageURL() {
+            return imageURL;
+        }
     }
 
     /**
@@ -125,6 +189,10 @@ public class Item implements Locatable, Collectible {
         return position;
     }
 
+    public void setPosition(int[] pos) {
+        this.x = pos[0];
+        this.x = pos[1];
+    }
     /**
      * This method overrides the method from the Locatable interface.
      * @return the path to the image of this Item
@@ -161,4 +229,16 @@ public class Item implements Locatable, Collectible {
     public int getSize() {
         return thing.housingSpace;
     }
+
+    public int getBuyPrice() {
+        return thing.purchaseCost;
+    }
+
+    public int getSellPrice() {
+        return thing.returnCost;
+    }
+
+    public String getType() {return thing.type;}
+
+    public int getDamage() {return thing.damage;}
 }
