@@ -68,6 +68,14 @@ public class RoomController {
                 "Improvised Gun"), 7, 12);
         currRoom.addObject(new Item(Item.Possession.ONEID, 3, 15,
                 "Visitor ID"), 3, 15);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 6, 4, "Crate") , 6, 2);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 5, 4, "Crate") , 7, 2);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 6, 5, "Crate") , 6, 3);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 2, 4, "Crate") , 2, 3);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 2, 5, "Crate") , 2, 4);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 16, 10, "Crate") , 16, 14);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 16, 11, "Crate") , 16, 15);
+        currRoom.addObject(new Structure(Structure.Possession.CRATE, 16, 12, "Crate") , 16, 16);
         //adds items to room
         currRoom.addObject(Maze.getStartItem(), 4, 4);
         root = new BorderPane();
@@ -224,10 +232,10 @@ public class RoomController {
                 door.getCon().setLocked(false);
             }
         }
-        if (door.getLocked() && !(inv.getValue().getImageURL() == "resources/images/TIMKEY.png")) {
+        if ((door.getLocked() && (inv.getValue() == null || (!(inv.getValue().getImageURL() == "resources/images/TIMKEY.png"))))) {
             System.out.println("door locked");
             return;
-        } else if(inv.getValue().getImageURL() == "resources/images/TIMKEY.png") {
+        } else if(inv.getValue() != null && inv.getValue().getImageURL() == "resources/images/TIMKEY.png") {
             dropped = inv.getValue();
             Item toDrop = inv.getValue();
             playerInventory.dropItem(toDrop);

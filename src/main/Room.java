@@ -20,6 +20,7 @@ public class Room {
     private Monster[] killThem;
     private int numRoom;
     private int special;
+    private int roomType;
 
 
     /**
@@ -30,6 +31,7 @@ public class Room {
      * @param numRoom the number associated with the room. Helps to find relative depth in maze
      */
     public Room(int row, int column, String roomName, int numRoom) {
+        roomType = 1 + rNum.nextInt(3);
         this.row = row;
         this.column = column;
         room = new Locatable[18][18];
@@ -37,10 +39,18 @@ public class Room {
         distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
-        this.monsterNum = 1 + rNum.nextInt(2);
+        this.monsterNum = 1 + rNum.nextInt(3);
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
+        if (roomType == 1 && special != 14) {
+            int cnum = 30 + rNum.nextInt(20);
+            for (int i = 0; i < cnum; i++) {
+                int x = 1 + rNum.nextInt(17);
+                int y = 1 + rNum.nextInt(17);
+                addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+            }
+        }
         if (special == 13) {
             Monster prowler = new ProwlerShop();
             monsterNum = 1;
@@ -72,6 +82,16 @@ public class Room {
         }
         if (!roomName.equals("first") && !roomName.equals("last")) {
             addMonsters();
+        }
+        if (roomType == 1 && special != 14) {
+            int cnum = 30 + rNum.nextInt(20);
+            for (int i = 0; i < cnum; i++) {
+                int x = 1 + rNum.nextInt(17);
+                int y = 1 + rNum.nextInt(17);
+                if(getRoom()[x][y] == null) {
+                    addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+                }
+            }
         }
     }
 
