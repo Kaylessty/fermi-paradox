@@ -15,7 +15,7 @@ public class Item implements Locatable, Collectible {
      * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
     */
     public enum Possession  {
-        A_ENERGYSWORD("Sword", 200000, 1, 4, 0, 0, 0, 1000, 700, true, false, -1,
+        A_ENERGYSWORD("Sword", 200000, 1, 4, 0, 0, 0, 100000, 100000, true, false, -1,
                 "resources/images/A_ENERGYSWORD.png"),
         ENERGYSWORD("Sword", 500, 1, 4, 0, 0, 0, 1000, 700, true, false, -1,
                 "resources/images/ENERGYSWORD.png"),
@@ -47,10 +47,12 @@ public class Item implements Locatable, Collectible {
                 "resources/images/ID.png"),
         HORN("misc", 1, 0, 1, 0, 0, 0, 70, 1, true, false, -1,
                 "resources/images/Horn.png"),
-        BOREEYE("misc", 1000, 0, 1, 0, 0, 0, 500, 300, true, false, -1,
+        BOREEYE("misc", 1000, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
                 "resources/images/BOREEYE.png"),
-        HIDE("misc", 500, 0, 1, 0, 0, 0, 500, 300, true, false, -1,
+        HIDE("misc", 500, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
                 "resources/images/TEAFFHIDE.png"),
+        AMMOBOX("misc", 500, 0, 1, 0, 0, 0, 1000, 800, true, false, -1,
+                "resources/images/AMMOBOX.png"),
         TIMKEY("misc", 0, 0, 1, 0, 0, 0, 1000, 700, true, false, -1,
                 "resources/images/TIMKEY.png"),
         BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,

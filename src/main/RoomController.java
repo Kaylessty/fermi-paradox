@@ -454,6 +454,9 @@ public class RoomController {
                 } else if(inv.getValue().getImageURL() == "resources/images/TEAFFHIDE.png") {
                     Player.getHealth().set(Player.getHealth().get() + 500);
                     remove(inv.getValue());
+                } else if(inv.getValue().getImageURL() == "resources/images/AMMOBOX.png") {
+                    player1.addAmmo(10);
+                    remove(inv.getValue());
                 }
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {
                 drop();

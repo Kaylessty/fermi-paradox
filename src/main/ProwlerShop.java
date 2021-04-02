@@ -2,7 +2,8 @@ package main;
 
 public class ProwlerShop extends Monster {
 
-    private static Item[] shopInv = {new Item(Item.Possession.SONICCANNON, 15, 15, "Sonic Cannon"),
+    private static Item[] shopInv = {new Item(Item.Possession.AMMOBOX, 15, 15, "Ammo Box"),
+            new Item(Item.Possession.SONICCANNON, 15, 15, "Sonic Cannon"),
             new Item(Item.Possession.SONICRIFLE, 15, 15, "Sonic Rifle"),
             new Item(Item.Possession.SONICSWORD, 15, 15, "Sonic Sword"),
             new Item(Item.Possession.DB_SONICSWORD, 15, 15, "Double Bladed Sonic Sword"),
@@ -11,7 +12,8 @@ public class ProwlerShop extends Monster {
             new Item(Item.Possession.ENERGYSWORD, 15, 15, "Energy Sword"),
             new Item(Item.Possession.DB_ENERGYSWORD, 15, 15, "Double Bladed Energy Sword"),
             new Item(Item.Possession.PISTOL, 15, 15, "Pistol"),
-            new Item(Item.Possession.A_RIFLE, 15, 15, "Assault Rifle"),};
+            new Item(Item.Possession.A_RIFLE, 15, 15, "Assault Rifle"),
+            };
     private Item drop = new Item(Item.Possession.A_RIFLE, 15, 15, "Assault Rifle");
     private int health;
     private int speed;
