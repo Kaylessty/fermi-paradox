@@ -18,6 +18,8 @@ public class ProwlerShop extends Monster {
     private int health;
     private int speed;
     private String type = "Prowler";
+    private String intro = "Haya bud";
+    private String talk = "Whatd'ya wanna talk about";
     private static final int ORIGINAL_HEALTH = 20000;
     public ProwlerShop() {
         this(20000,1);
@@ -60,5 +62,30 @@ public class ProwlerShop extends Monster {
 
     public static Item[] getShopInv() {
         return shopInv;
+    }
+
+    @Override
+    public String[][] getSpeech() {
+        String[][] speech = {{"Names Prowler, you'll be hearin it around so remember it, bud"},
+                {"Hunting, these disgusting creatures have a lot of valuable materials"},
+                {"No clue really, people say we're in space, but with the impossible way these rooms are connected... " +
+                        "i don't know if i believe that."}};
+        return speech;
+    }
+
+    @Override
+    public String[] getTalks() {
+        String[] talks = {"Who are you?","What are you doing here?","Where are we?"};
+        return talks;
+    }
+
+    @Override
+    public String getIntro() {
+        return intro;
+    }
+
+    @Override
+    public String getTalk() {
+        return talk;
     }
 }

@@ -421,10 +421,10 @@ public class RoomController {
             if (!foundMonster) {
                 if(monster.getType() == "Howard") {
                     System.out.println("ayy, what are ya buyin?");
-                    Shop.display(playerInventory, ClownShop.getShopInv(), this);
+                    ChatScreenController.display(monster, playerInventory, ClownShop.getShopInv(), this);
                 } else if(monster.getType() == "Prowler") {
                     System.out.println("See anything you like?");
-                    Shop.display(playerInventory, ProwlerShop.getShopInv(), this);
+                    ChatScreenController.display(monster, playerInventory, ProwlerShop.getShopInv(), this);
                 } else {
                     System.out.println("No monster within range");
                 }

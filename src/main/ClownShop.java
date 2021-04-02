@@ -11,6 +11,8 @@ public class ClownShop extends Monster {
     private int health;
     private int speed;
     private String type = "Howard";
+    private String intro = "Howdy kid, need anything";
+    private String talk = "Whatcha wanna talk about";
     private static final int ORIGINAL_HEALTH = 5000;
     public ClownShop() {
         this(5000,1);
@@ -53,5 +55,32 @@ public class ClownShop extends Monster {
 
     public static Item[] getShopInv() {
         return shopInv;
+    }
+
+    @Override
+    public String[][] getSpeech() {
+        String[][] speech = {{"Names Howard, i'm the stations resident funny man. Not sure why the boys back home" +
+                " thought it necessary to higher a clown... but hay, a job's a job's... or... job"},
+                {"Working... these alien things don't seem to attack unless provoked so... my contract says if" +
+                        " I'm not in immediate danger... well, i'd rather deal with these fellas " +
+                        "than deal with boss man."},{"Kid... did ya bump yer head er something? We're in space, " +
+                "same as always... although... i can't really recall how we got here..."}};
+        return speech;
+    }
+
+    @Override
+    public String[] getTalks() {
+        String[] talks = {"Who are you?","What are you doing here?","Where are we?"};
+        return talks;
+    }
+
+    @Override
+    public String getIntro() {
+        return intro;
+    }
+
+    @Override
+    public String getTalk() {
+        return talk;
     }
 }

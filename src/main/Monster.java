@@ -11,6 +11,10 @@ public abstract class Monster implements Locatable {
     private Random generator = new Random();
     private boolean hasBeenAttacked;
     private String type;
+    private String[][] speech;
+    private String[] talks;
+    private String intro;
+    private String talk;
 
     public Monster() {
         x = 3 + generator.nextInt(14);
@@ -72,5 +76,21 @@ public abstract class Monster implements Locatable {
 
     public Item getDrop() {
         return drop;
+    }
+
+    public String[][] getSpeech() {
+        return speech;
+    }
+
+    public String[] getTalks() {
+        return talks;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public String getTalk() {
+        return talk;
     }
 }
