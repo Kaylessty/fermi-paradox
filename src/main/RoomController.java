@@ -50,6 +50,7 @@ public class RoomController {
     private Item dropped;
     private boolean prowlerL = true;
     private boolean howardL = true;
+    private boolean engiL = true;
 
     /**
      * This class controls the actions that occur within a room including keyEvents and
@@ -168,7 +169,14 @@ public class RoomController {
                             } else {
                                 picture = null;
                             }
-                        } else {
+                        } else if(important instanceof EngiShop) {
+                            if (engiL == true) {
+                                picture = new Image(imageURL, 35.0, 35.0, true, true);
+                            } else {
+                                picture = null;
+                            }
+                        }
+                        else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
                         }
                         ImageView pictureView = new ImageView(picture);
@@ -387,7 +395,8 @@ public class RoomController {
             if (distance <= range) {
                 // attack monster
                 if (carrying.getimageURL() == "resources/images/PISTOL.png"
-                        || carrying.getimageURL() == "resources/images/RIFLE.png") {
+                        || carrying.getimageURL() == "resources/images/RIFLE.png" ||
+                        carrying.getimageURL() == "resources/images/H_RIFLE.png") {
                     if (player1.getAmmo() == 0) {
                         System.out.println("no ammo");
                         return;
@@ -396,7 +405,8 @@ public class RoomController {
                         System.out.println(player1.getAmmo());
                     }
                 }
-                monster.setHealth(monster.getHealth() - carrying.getDamage());
+                monster.setHealth(monster.getHealth() - (carrying.getDamage() * Player.getGuncharged()));
+                Player.setGuncharged(1);
                 System.out.println(monster.getHealth());
                 // allow monster to attack back, assuming not yet attacked
                 if (!monster.getHasBeenAttacked()) {
@@ -414,6 +424,8 @@ public class RoomController {
                         prowlerL = false;
                     } else if(monster.getType() == "Howard") {
                         howardL = false;
+                    } else if(monster.getType() == "Engi") {
+                        engiL = false;
                     }
                     System.out.println("Monster killed");
                     monster.getDrop().setPosition(monster.getLocation());
@@ -433,11 +445,11 @@ public class RoomController {
             }
             if (!foundMonster) {
                 if(monster.getType() == "Howard") {
-                    System.out.println("ayy, what are ya buyin?");
                     ChatScreenController.display(monster, playerInventory, ClownShop.getShopInv(), this);
                 } else if(monster.getType() == "Prowler") {
-                    System.out.println("See anything you like?");
                     ChatScreenController.display(monster, playerInventory, ProwlerShop.getShopInv(), this);
+                } else if(monster.getType() == "Engi") {
+                    ChatScreenController.display(monster, playerInventory, EngiShop.getShopInv(), this);
                 } else {
                     System.out.println("No monster within range");
                 }
@@ -458,12 +470,12 @@ public class RoomController {
         public void handle(KeyEvent e) {
             // Player tries to attack
             if (e.getCode() == KeyCode.E) {
-                if(inv.getValue().getImageURL() == "resources/images/BOREEYE.png") {
-                    if(Player.getHealth().get() < 4000) {
-                        Player.getHealth().set(Player.getHealth().get() + 1000);
+                if(inv.getValue().getType() == "heal") {
+                    if(Player.getHealth().get() < Player.getMaxHealth() - inv.getValue().getDamage()) {
+                        Player.getHealth().set(Player.getHealth().get() + inv.getValue().getDamage());
                         remove(inv.getValue());
                     } else {
-                        Player.getHealth().set(5000);
+                        Player.getHealth().set(Player.getMaxHealth());
                         remove(inv.getValue());
                     }
                 } else if(inv.getValue().getImageURL() == "resources/images/TEAFFHIDE.png") {
@@ -471,6 +483,12 @@ public class RoomController {
                     remove(inv.getValue());
                 } else if(inv.getValue().getImageURL() == "resources/images/AMMOBOX.png") {
                     player1.addAmmo(10);
+                    remove(inv.getValue());
+                } else if(inv.getValue().getType() == "Shield") {
+                    Player.setMaxHealth(Player.getMaxHealth() + inv.getValue().getDamage());
+                    remove(inv.getValue());
+                } else if(inv.getValue().getType() == "charge") {
+                    Player.setGuncharged(inv.getValue().getDamage());
                     remove(inv.getValue());
                 }
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {

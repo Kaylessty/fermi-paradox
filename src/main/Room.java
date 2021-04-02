@@ -51,6 +51,14 @@ public class Room {
                 addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
             }
         }
+        if (special == 12 || special == 11) {
+            Monster engi = new EngiShop();
+            monsterNum = 1;
+            engi.setHealth(10000);
+            engi.setDamage(2000);
+            room[engi.getLocation()[1]][engi.getLocation()[0]] = engi;
+            killThem[0] = engi;
+        }
         if (special == 13) {
             Monster prowler = new ProwlerShop();
             monsterNum = 1;

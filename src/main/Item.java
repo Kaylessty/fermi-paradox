@@ -49,14 +49,36 @@ public class Item implements Locatable, Collectible {
                 "resources/images/ID.png"),
         HORN("misc", 1, 0, 1, 0, 0, 0, 70, 1, true, false, -1,
                 "resources/images/Horn.png"),
-        BOREEYE("misc", 1000, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
+        BOREEYE("heal", 1000, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
                 "resources/images/BOREEYE.png"),
+        BATTERYLV1("heal", 2500, 0, 1, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/BATTERYLV1.png"),
+        BATTERYLV2("heal", 5000, 0, 1, 0, 0, 0, 1000, 900, true, false, -1,
+                "resources/images/BATTERYLV2.png"),
+        BATTERYLV3("heal", 10000, 0, 1, 0, 0, 0, 1500, 1400, true, false, -1,
+                "resources/images/BATTERYLV3.png"),
+        BATTERYLV4("heal", 20000, 0, 1, 0, 0, 0, 2000, 1800, true, false, -1,
+                "resources/images/BATTERYLV4.png"),
+        G_BATTERYLV1("charge", 2, 0, 1, 0, 0, 0, 1000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV1.png"),
+        G_BATTERYLV2("charge", 5, 0, 1, 0, 0, 0, 5000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV2.png"),
+        G_BATTERYLV3("charge", 10, 0, 1, 0, 0, 0, 10000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV3.png"),
+        G_BATTERYLV4("charge", 20, 0, 1, 0, 0, 0, 20000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV4.png"),
         HIDE("misc", 500, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
                 "resources/images/TEAFFHIDE.png"),
         AMMOBOX("misc", 500, 0, 1, 0, 0, 0, 1000, 800, true, false, -1,
                 "resources/images/AMMOBOX.png"),
         TIMKEY("misc", 0, 0, 1, 0, 0, 0, 1000, 700, true, false, -1,
                 "resources/images/TIMKEY.png"),
+        SHIELDGENERATOR_LV1("Shield", 2500, 0, 1, 0, 0, 0, 10000, 9000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV1.png"),
+        SHIELDGENERATOR_LV2("Shield", 5000, 0, 1, 0, 0, 0, 40000, 37000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV2.png"),
+        SHIELDGENERATOR_LV3("Shield", 10000, 0, 1, 0, 0, 0, 80000, 70000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV3.png"),
         BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
                 "resources/images/BALLOON_R.png"),
         BALLOON_G("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
@@ -202,4 +224,8 @@ public class Item implements Locatable, Collectible {
     public int getSellPrice() {
         return thing.returnCost;
     }
+
+    public String getType() {return thing.type;}
+
+    public int getDamage() {return thing.damage;}
 }

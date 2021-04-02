@@ -63,14 +63,16 @@ public class ClownShop extends Monster {
                 " thought it necessary to higher a clown... but hay, a job's a job's... or... job"},
                 {"Working... these alien things don't seem to attack unless provoked so... my contract says if" +
                         " I'm not in immediate danger... well, i'd rather deal with these fellas " +
-                        "than deal with boss man."},{"Kid... did ya bump yer head er something? We're in space, " +
-                "same as always... although... i can't really recall how we got here..."}};
+                        "than deal with boss man."}, {"Kid... did ya bump yer head er something? We're in space, " +
+                "same as always... although... i can't really recall how we got here..."}, {"Kid... look... I.... " +
+                "It's.... Do i ask you about the minute details of every part of your life? Gimme a break kid."}};
         return speech;
     }
 
     @Override
     public String[] getTalks() {
-        String[] talks = {"Who are you?","What are you doing here?","Where are we?"};
+        String[] talks = {"Who are you?","What are you doing here?","Where are we?","How do you smoke your " +
+                "Cigarette with that helmet on?"};
         return talks;
     }
 
