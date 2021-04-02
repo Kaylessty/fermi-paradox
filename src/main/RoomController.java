@@ -48,6 +48,8 @@ public class RoomController {
     private MonsterController[] monsterControllers;
     private List<Node> keepTrack;
     private Item dropped;
+    private boolean prowlerL = true;
+    private boolean howardL = true;
 
     /**
      * This class controls the actions that occur within a room including keyEvents and
@@ -146,8 +148,18 @@ public class RoomController {
                         if (important instanceof Item) {
                             picture = new Image(imageURL, 64, 64, true, true);
 
-                        } else if(important instanceof ClownShop || important instanceof ProwlerShop) {
-                            picture = new Image(imageURL, 40.0, 40.0, true, true);
+                        } else if(important instanceof ClownShop) {
+                            if (howardL == true) {
+                                picture = new Image(imageURL, 40.0, 40.0, true, true);
+                            } else {
+                                picture = null;
+                            }
+                        } else if(important instanceof ProwlerShop) {
+                            if (prowlerL == true) {
+                                picture = new Image(imageURL, 35.0, 35.0, true, true);
+                            } else {
+                                picture = null;
+                            }
                         } else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
                         }
@@ -361,59 +373,49 @@ public class RoomController {
             int range = carrying.getRange();
             boolean foundMonster = false;
             // Iterating over the monsters in the room
-            for (int counter = 0; counter < monstersInRoom.length; counter++) {//*******************************_-_-_-_-
-                if (monstersInRoom[counter] == null) {
-                    continue;
-                }
-                // if player is close enough to a monster
-                double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
-                        (player1.getLocation()[1] - monster.getLocation()[1])));
-                if (distance <= range) {
-                    // attack monster
-                    if (carrying.getimageURL() == "resources/images/PISTOL.png"
-                            || carrying.getimageURL() == "resources/images/RIFLE.png") {
-                        if (player1.getAmmo() == 0) {
-                            System.out.println("no ammo");
-                            return;
-                        } else {
-                            player1.removeAmmo(1);
-                            System.out.println(player1.getAmmo());
-                        }
-                    }
-                    monster.setHealth(monster.getHealth() - carrying.getDamage());
-                    System.out.println(monster.getHealth());
-                    // allow monster to attack back, assuming not yet attacked
-                    if (!monster.getHasBeenAttacked()) {
-                        monsterControllers[counter] = new MonsterController(monster, scene1, root,
-                                theStage, player1, currRoom, this);
-                        monster.setHasBeenAttacked(true);
-                    }
-                    foundMonster = true;
-                    // check if monster is alive
-                    if (monster.getHealth() <= 0) {//***********************************Check back later
-                        // Remove monster
-                        currRoom.removeObject(monster.getLocation()[0],
-                                monster.getLocation()[1]);
-                        System.out.println("Monster killed");
-                        monster.getDrop().setPosition(monster.getLocation());
-                        currRoom.addObject(monster.getDrop(), monster.getLocation()[0], monster.getLocation()[1]);
-                        monstersInRoom[counter] = null;
-                        monsterControllers[counter] = null;
-                        currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
-                        if (currRoom.getMonsterNum() == 0) {
-                            // Iterate over all doors and unlock them
-                            for (Door pathway : currRoom.getDoors()) {
-                                pathway.setLocked(false);
-                                pathway.getCon().setLocked(false);
-                            }
-                            // Restore health of Player
-                            //player1.setHealth(5000);
-                        }
-                        refreshRoom();
+            // if player is close enough to a monster
+            double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
+                    (player1.getLocation()[1] - monster.getLocation()[1])));
+            if (distance <= range) {
+                // attack monster
+                if (carrying.getimageURL() == "resources/images/PISTOL.png"
+                        || carrying.getimageURL() == "resources/images/RIFLE.png") {
+                    if (player1.getAmmo() == 0) {
+                        System.out.println("no ammo");
+                        return;
+                    } else {
+                        player1.removeAmmo(1);
+                        System.out.println(player1.getAmmo());
                     }
                 }
-                if (foundMonster) {
-                    break;
+                monster.setHealth(monster.getHealth() - carrying.getDamage());
+                System.out.println(monster.getHealth());
+                // allow monster to attack back, assuming not yet attacked
+                foundMonster = true;
+                // check if monster is alive
+                if (monster.getHealth() <= 0) {//***********************************Check back later
+                    // Remove monster
+                    currRoom.removeObject(monster.getLocation()[0],
+                            monster.getLocation()[1]);
+                    if(monster.getType() == "Prowler") {
+                        prowlerL = false;
+                    } else if(monster.getType() == "Howard") {
+                        howardL = false;
+                    }
+                    System.out.println("Monster killed");
+                    monster.getDrop().setPosition(monster.getLocation());
+                    currRoom.addObject(monster.getDrop(), monster.getLocation()[0], monster.getLocation()[1]);
+                    currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
+                    if (currRoom.getMonsterNum() == 0) {
+                        // Iterate over all doors and unlock them
+                        for (Door pathway : currRoom.getDoors()) {
+                            pathway.setLocked(false);
+                            pathway.getCon().setLocked(false);
+                        }
+                        // Restore health of Player
+                        //player1.setHealth(5000);
+                    }
+                    refreshRoom();
                 }
             }
             if (!foundMonster) {

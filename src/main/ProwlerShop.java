@@ -12,7 +12,7 @@ public class ProwlerShop extends Monster {
             new Item(Item.Possession.ENERGYSWORD, 15, 15, "Energy Sword"),
             new Item(Item.Possession.DB_ENERGYSWORD, 15, 15, "Double Bladed Energy Sword"),
             new Item(Item.Possession.PISTOL, 15, 15, "Pistol"),
-            new Item(Item.Possession.A_RIFLE, 15, 15, "Assault Rifle"),
+            new Item(Item.Possession.H_RIFLE, 15, 15, "Hunting Rifle")
             };
     private Item drop = new Item(Item.Possession.A_RIFLE, 15, 15, "Assault Rifle");
     private int health;

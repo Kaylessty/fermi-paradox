@@ -44,6 +44,8 @@ public class Room {
         if (special == 13) {
             Monster prowler = new ProwlerShop();
             monsterNum = 1;
+            prowler.setHealth(20000);
+            prowler.setDamage(4000);
             room[prowler.getLocation()[1]][prowler.getLocation()[0]] = prowler;
             killThem[0] = prowler;
         }
