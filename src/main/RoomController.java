@@ -99,22 +99,23 @@ public class RoomController {
         money = new Label("");
         topRow = new HBox();
         bottomRow = new HBox();
-        moneyText = new Text("$: ");
-        healthText = new Text("Health: ");
+        moneyText = new Text(" $: ");
+        healthText = new Text(" Health: ");
         moneyText.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-fill: yellow; -fx-font: 32pt 'Lao MN'");
+                + " 10,0.7,0.0,0.0); -fx-fill: yellow; -fx-font: 30pt 'Lao MN'");
         healthText.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-fill: red; -fx-font: 32pt 'Lao MN'");
+                + " 10,0.7,0.0,0.0); -fx-fill: red; -fx-font: 25pt 'Lao MN'");
         money.textProperty().bind(Player.getBalance().asString());
         health.textProperty().bind(Player.getHealth().asString());
         money.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 32pt 'Lao MN'");
+                + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 30pt 'Lao MN'");
         health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 32pt 'Lao MN'");
+                + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 25pt 'Lao MN'");
         topRow.getChildren().addAll(moneyText, money);
-        bottomRow.getChildren().addAll(inv, healthText, health);
-        topRow.setAlignment(Pos.CENTER);
-        bottomRow.setAlignment(Pos.CENTER);
+        bottomRow.getChildren().addAll( healthText, health);
+        topRow.setAlignment(Pos.TOP_LEFT);
+        bottomRow.setAlignment(Pos.TOP_LEFT);
+        //pillar.getChildren().add(inv);
         root.getChildren().add(pillar);
         health.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -144,6 +145,7 @@ public class RoomController {
         keepTrack.add(t);
         root.setTop(topRow);
         root.setBottom(bottomRow);
+        root.setLeft(inv);
         keepTrack.add(topRow);
         keepTrack.add(bottomRow);
         // Displays the items currently in the room
