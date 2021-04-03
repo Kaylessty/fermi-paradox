@@ -57,4 +57,8 @@ public class Inventory {
     public Item[] getContents() {
         return contents;
     }
+
+    public int getMaximumCAPACITY() {
+        return maximumCAPACITY;
+    }
 }

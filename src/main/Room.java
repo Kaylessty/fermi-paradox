@@ -156,6 +156,13 @@ public class Room {
         }
     }
 
+    public void addMonster(Monster monster, int heath, int damage) {
+        monster.setHealth(heath);
+        monster.setDamage(damage);
+        killThem = new Monster[1];
+        killThem[0] = monster;
+        room[monster.getLocation()[1]][monster.getLocation()[0]] = monster;
+    }
     public void addObject(Locatable object, int x, int y) {
         room[y][x] = object;
     }

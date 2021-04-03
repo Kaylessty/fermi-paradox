@@ -23,17 +23,31 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/PlatformHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/Larry.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/TreeBore.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/EngiShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EngiShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ProwlerShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ProwlerShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Door.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/EngiShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/EngiShop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Inventory.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Item.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Monster.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Monster.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/ProwlerShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/ProwlerShop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Room.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/Ben_M3_Tests.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,18 +102,6 @@
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources/images" />
     </key>
-  </component>
-  <component name="RunDashboard">
-    <option name="ruleStates">
-      <list>
-        <RuleState>
-          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
-        </RuleState>
-        <RuleState>
-          <option name="name" value="StatusDashboardGroupingRule" />
-        </RuleState>
-      </list>
-    </option>
   </component>
   <component name="RunManager" selected="Application.Main">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -172,7 +174,7 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -191,35 +193,50 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1617343621282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617343621282" />
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1617403387340">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom" timestamp="1617487455742">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617403387340" />
-    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1617403387340">
+    <state width="1877" height="282" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617487455742" />
+    <state width="1877" height="282" key="GridCell.Tab.0.center" timestamp="1617487455739">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617403387340" />
-    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1617403387340">
+    <state width="1877" height="282" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617487455739" />
+    <state width="1877" height="282" key="GridCell.Tab.0.left" timestamp="1617487455738">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617403387340" />
-    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1617403387340">
+    <state width="1877" height="282" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617487455738" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right" timestamp="1617487455740">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617403387340" />
+    <state width="1877" height="282" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617487455740" />
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1617480585293">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617480585293" />
+    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1617480585292">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617480585292" />
+    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1617480585292">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617480585292" />
+    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1617480585292">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617480585292" />
     <state x="440" y="94" key="SettingsEditor" timestamp="1617215001091">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
@@ -234,7 +251,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/RoomController.java</url>
-          <line>421</line>
+          <line>442</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

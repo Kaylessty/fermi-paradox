@@ -18,6 +18,7 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
+import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,6 +52,8 @@ public class RoomController {
     private boolean prowlerL = true;
     private boolean howardL = true;
     private boolean engiL = true;
+    private boolean gauntlet = false;
+    private boolean heart = false;
 
     /**
      * This class controls the actions that occur within a room including keyEvents and
@@ -177,6 +180,8 @@ public class RoomController {
                             } else {
                                 picture = null;
                             }
+                        } else if(important instanceof Larry || important instanceof TreeBore) {
+                            picture = new Image(imageURL, 200, 200, true, true);
                         }
                         else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
@@ -189,12 +194,14 @@ public class RoomController {
                         //if (important instanceof Door) {
                             //pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
                         //}
-//                        if (important instanceof Item) {
-//                            pictureView.setOnMouseClicked(e -> {
-//                                pickUp((Item) important);
-//                                refreshRoom();
-//                            });
-//                        }
+                        if (important instanceof Item) {
+                            if(gauntlet) {
+                                pictureView.setOnMouseClicked(e -> {
+                                    pickUp((Item) important);
+                                    refreshRoom();
+                                });
+                            }
+                        }
                         if (important instanceof Player) {
                             //System.out.println("Reached instanceof Player");
                             player1 = (Player) important;
@@ -211,7 +218,7 @@ public class RoomController {
                 }
             }
         }
-        // Display the hatch if need be
+//         Display the hatch if need be
         if (currRoom.getHasHatch()) {
             try {
                 Image picture = new Image("resources/images/exit_portal.png", 100.0,
@@ -350,12 +357,20 @@ public class RoomController {
      * @param item Item the player picks up
      */
     public void pickUp(Item item) {
-        playerInventory.addItem(item);
-        inv.getItems().add(item);
-        int[] pos;
-        pos = item.getLocation();
-        currRoom.removeObject(pos[0], pos[1]);
-        //displayRoom();
+        if(playerInventory.getMaximumCAPACITY() > playerInventory.getCurrHousingSpace() + item.getSize()) {
+            playerInventory.addItem(item);
+            inv.getItems().add(item);
+            int[] pos;
+            pos = item.getLocation();
+            currRoom.removeObject(pos[0], pos[1]);
+            //displayRoom();
+        } else {
+            int[] loc = player1.getLocation();
+            loc[1] = loc[1] - 2;
+            item.setPosition(loc);
+            currRoom.addObject(new Item(item.getPossession(), loc[0], loc[1],
+                    item.getName()), loc[0], loc[1]);
+        }
     }
 
     public void drop() {
@@ -394,7 +409,11 @@ public class RoomController {
             // if player is close enough to a monster
             double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
                     (player1.getLocation()[1] - monster.getLocation()[1])));
-            if (distance <= range) {
+            if (monster instanceof Larry || monster instanceof TreeBore) {
+                distance = distance - 5;
+            }
+            if (distance <= range || (inv.getValue().getImageURL() == "resources/images/SHADOWSWORD.png" &&
+                    distance == 5)) {
                 // attack monster
                 if (carrying.getimageURL() == "resources/images/PISTOL.png"
                         || carrying.getimageURL() == "resources/images/RIFLE.png" ||
@@ -430,6 +449,10 @@ public class RoomController {
                         engiL = false;
                     }
                     System.out.println("Monster killed");
+                    if(monster.getBoss()) {
+                        currRoom.setHasHatch(true);
+                    }
+                    refreshRoom();
                     monster.getDrop().setPosition(monster.getLocation());
                     currRoom.addObject(monster.getDrop(), monster.getLocation()[0], monster.getLocation()[1]);
                     currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
@@ -491,6 +514,12 @@ public class RoomController {
                     remove(inv.getValue());
                 } else if(inv.getValue().getType() == "charge") {
                     Player.setGuncharged(inv.getValue().getDamage());
+                    remove(inv.getValue());
+                } else if(inv.getValue().getImageURL() == "resources/images/SHADOWGAUNTLET.png") {
+                    gauntlet = true;
+                    remove(inv.getValue());
+                } else if(inv.getValue().getImageURL() == "resources/images/BOREHEART.png") {
+                    heart = true;
                     remove(inv.getValue());
                 }
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {

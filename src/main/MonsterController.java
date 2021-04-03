@@ -200,8 +200,7 @@ public class MonsterController {
                         thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
                         room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
                     }
-                }
-                else if(thisMonster.getType() == "Eyebore") {
+                }  else if(thisMonster.getType() == "Eyebore") {
                     Image picture = new Image("resources/images/Borepit.png", 75.0,
                             75.0, true, true);
                     ImageView target = new ImageView(picture);
@@ -240,7 +239,70 @@ public class MonsterController {
                     //theStage.setScene(scene1);
                     //new FadeOut(projectile).play();
                     MonsterController.this.damageCalculation(projectile);
-                } else if(thisMonster.getType() == "Tim"){
+                } else if(thisMonster.getType() == "Tree Bore") {
+                    Image picture = new Image("resources/images/Borepit.png", 75.0,
+                            75.0, true, true);
+                    ImageView target = new ImageView(picture);
+                    target.setX(user.getLocation()[0] * 32 + 210);
+                    target.setY(user.getLocation()[1] * 32 - 30);
+                    ImageView targeta = new ImageView(picture);
+                    targeta.setX((user.getLocation()[0] + 1) * 32 + 210);
+                    targeta.setY(user.getLocation()[1] * 32 - 30);
+                    ImageView targetb = new ImageView(picture);
+                    targetb.setX((user.getLocation()[0] - 1) * 32 + 210);
+                    targetb.setY(user.getLocation()[1] * 32 - 30);
+                    ImageView targetc = new ImageView(picture);
+                    targetc.setX(user.getLocation()[0] * 32 + 210);
+                    targetc.setY((user.getLocation()[1] + 1) * 32 - 30);
+                    ImageView targetd = new ImageView(picture);
+                    targetd.setX(user.getLocation()[0] * 32 + 210);
+                    targetd.setY((user.getLocation()[1] - 1) * 32 - 30);
+                    //@
+                    Platform.runLater(() -> {
+                        root.getChildren().addAll(target, targeta, targetb, targetc, targetd);
+                    });
+                    //scene1.setRoot(root);
+                    //theStage.setScene(scene1);
+                    //new Flash(target).setCycleCount(3).playOnFinished(new FadeOut(target)).play();
+                    //target.setVisible(false);
+                    try {
+                        TimeUnit.SECONDS.sleep(2);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                    }
+                    Image picture1 = new Image("resources/images/Borespike.png", 75.0,
+                            75.0, true, true);
+                    ImageView projectile = new ImageView(picture1);
+                    projectile.setX(target.getX());
+                    projectile.setY(target.getY());
+                    ImageView projectilea = new ImageView(picture1);
+                    projectilea.setX(targeta.getX());
+                    projectilea.setY(targeta.getY());
+                    ImageView projectileb = new ImageView(picture1);
+                    projectileb.setX(targetb.getX());
+                    projectileb.setY(targetb.getY());
+                    ImageView projectilec = new ImageView(picture1);
+                    projectilec.setX(targetc.getX());
+                    projectilec.setY(targetc.getY());
+                    ImageView projectiled = new ImageView(picture1);
+                    projectiled.setX(targetd.getX());
+                    projectiled.setY(targetd.getY());
+
+//                Circle projectile = new Circle(target.getCenterX(), target.getCenterY(),
+//                        target.getRadius(), Color.DARKRED);
+                    Platform.runLater(() -> {
+                        root.getChildren().addAll(projectile, projectilea, projectileb, projectilec, projectiled);
+                    });
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException ie) {
+                        Thread.currentThread().interrupt();
+                    }
+                    //scene1.setRoot(root);
+                    //theStage.setScene(scene1);
+                    //new FadeOut(projectile).play();
+                    MonsterController.this.damageCalculation(projectile);
+                } else if(thisMonster.getType() == "Tim" || thisMonster.getType() == "Larry"){
                     int r = rNum.nextInt(3);
                     int x = 0;
                     int y = 0;
@@ -258,22 +320,26 @@ public class MonsterController {
                         x = x * 6;
                         y = y * 6;
                     }
-                    if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x] == user) {
-                        System.out.println("Player is taking damage");
-                        Platform.runLater(() -> {
-                            Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
-                            System.out.println("Player's new damage: " + Player.getHealth().get());
-                        });
-                        if (Player.getHealth().get() <= 0) {
-                            timer.cancel();
-                            playerLoses();
+                    try {
+                        if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x] == user) {
+                            System.out.println("Player is taking damage");
+                            Platform.runLater(() -> {
+                                Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
+                                System.out.println("Player's new damage: " + Player.getHealth().get());
+                            });
+                            if (Player.getHealth().get() <= 0) {
+                                timer.cancel();
+                                playerLoses();
+                            }
+                        } else if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x]
+                                == null || room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0]
+                                + x] instanceof Collectible) {
+                            room.removeObject(thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                            thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
+                            room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
                         }
-                    } else if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x]
-                            == null || room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0]
-                            + x] instanceof Collectible) {
-                        room.removeObject(thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
-                        thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
-                        room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);
+                    } catch (Exception e) {
+
                     }
                 }
             }

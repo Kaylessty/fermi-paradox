@@ -17,7 +17,7 @@ public class EngiShop extends Monster {
     private int health;
     private int speed;
     private String type = "Engi";
-    private String intro = "Haya! nice ta see you again!";
+    private String intro = "Heya! nice ta see you again!";
     private String talk = "Ask away!";
     private static final int ORIGINAL_HEALTH = 5000;
     public EngiShop() {

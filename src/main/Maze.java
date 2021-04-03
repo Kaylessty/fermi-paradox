@@ -48,7 +48,20 @@ public class Maze {
             doornum += rooms[i].getDoornumber();
         }
         rooms[rooms.length - 2] = new Room(x, y, 4, 0, "last", rooms.length - 2);
-        rooms[rooms.length - 2].setHasHatch(true);
+        //rooms[rooms.length - 2].setHasHatch(true);
+        int r = 1 + rNum.nextInt(2);
+        if (r == 1) {
+            Monster creature = new Larry();
+            rooms[rooms.length - 2].removeObject(creature.getLocation()[0], creature.getLocation()[1]);
+            creature.setLocation(8, 8);
+            rooms[rooms.length - 2].addMonster(creature, 30000, 4000);
+        } else {
+            Monster creature = new TreeBore();
+            rooms[rooms.length - 2].removeObject(creature.getLocation()[0], creature.getLocation()[1]);
+            creature.setLocation(8, 8);
+            rooms[rooms.length - 2].addMonster(creature, 30000, 4000);
+        }
+
         doors = new Door[doornum];
         Room curRoom;
         int dcount = 0;
