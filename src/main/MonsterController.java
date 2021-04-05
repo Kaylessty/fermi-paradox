@@ -91,6 +91,9 @@ public class MonsterController {
                 && y_coord >= projectile.getBoundsInParent().getMinY()
                 && y_coord <= projectile.getBoundsInParent().getMaxY()) {
             System.out.println("Player is taking damage");
+            if(thisMonster instanceof TreeBore) {
+                thisMonster.setHealth(thisMonster.getHealth() + 5000);
+            }
             Platform.runLater(() -> {
                 Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
                 System.out.println("Player's new damage: " + Player.getHealth().get());
@@ -302,6 +305,10 @@ public class MonsterController {
                     //theStage.setScene(scene1);
                     //new FadeOut(projectile).play();
                     MonsterController.this.damageCalculation(projectile);
+                    MonsterController.this.damageCalculation(projectilea);
+                    MonsterController.this.damageCalculation(projectileb);
+                    MonsterController.this.damageCalculation(projectilec);
+                    MonsterController.this.damageCalculation(projectiled);
                 } else if(thisMonster.getType() == "Tim" || thisMonster.getType() == "Larry"){
                     int r = rNum.nextInt(3);
                     int x = 0;

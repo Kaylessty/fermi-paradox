@@ -462,7 +462,14 @@ public class RoomController {
                             pathway.setLocked(false);
                             pathway.getCon().setLocked(false);
                         }
-                        // Restore health of Player
+                        // Restore health of Player if they have a bore heart
+                        if (heart == true) {
+                            if(Player.getHealth().get() < Player.getMaxHealth() - 5000) {
+                                Player.getHealth().set(Player.getHealth().get() + 5000);
+                            } else {
+                                Player.getHealth().set(Player.getMaxHealth());
+                            }
+                        }
                         //player1.setHealth(5000);
                     }
                     refreshRoom();
