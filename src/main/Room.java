@@ -88,9 +88,6 @@ public class Room {
             addObject(new Item(Item.Possession.BALLOON_B, 15, 15, "Red Balloon"), 0, 15);
             addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
         }
-        if (!roomName.equals("first") && !roomName.equals("last")) {
-            addMonsters();
-        }
         if (roomType == 1 && special != 14) {
             int cnum = 30 + rNum.nextInt(20);
             for (int i = 0; i < cnum; i++) {
@@ -100,6 +97,9 @@ public class Room {
                     addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
                 }
             }
+        }
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
         }
     }
 
