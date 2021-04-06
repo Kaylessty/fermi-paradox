@@ -144,7 +144,7 @@ public class MonsterController {
 //                target.setStrokeWidth(4);
                 //
                 //test of monster differentiation
-                if(thisMonster.getType() == "Teaff") {
+                if(thisMonster.getType() == "Teaff" || thisMonster.getType() == "Teeth") {
                     int x = 0;
                     int y = 0;
                     if(thisMonster.getLocation()[1] > user.getLocation()[1]) {

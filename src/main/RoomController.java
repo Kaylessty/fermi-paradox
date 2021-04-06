@@ -180,7 +180,7 @@ public class RoomController {
                             } else {
                                 picture = null;
                             }
-                        } else if(important instanceof Larry || important instanceof TreeBore) {
+                        } else if(important instanceof Larry || important instanceof TreeBore || important instanceof Teeth) {
                             picture = new Image(imageURL, 200, 200, true, true);
                         }
                         else {
