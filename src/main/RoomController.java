@@ -529,6 +529,8 @@ public class RoomController {
                     heart = true;
                     remove(inv.getValue());
                 }
+            } else if(e.getCode() == KeyCode.F) {
+                Description.display(inv.getValue());
             } else if (e.getCode() == KeyCode.Q && inv.getValue() != null && inv.getValue() != dropped) {
                 drop();
                 refreshRoom();
