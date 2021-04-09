@@ -167,7 +167,9 @@ public class MonsterController {
                             timer.cancel();
                             playerLoses();
                         }
-                    } else {
+                    } else if(room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0] + x]
+                            == null || room.getRoom()[thisMonster.getLocation()[1] + y][thisMonster.getLocation()[0]
+                            + x] instanceof Collectible) {
                         room.removeObject(thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
                         thisMonster.setLocation(thisMonster.getLocation()[0] + x, thisMonster.getLocation()[1] + y);
                         room.addObject(thisMonster,thisMonster.getLocation()[0],thisMonster.getLocation()[1]);

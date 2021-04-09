@@ -89,7 +89,7 @@ public class Room {
             addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
         }
         if (roomType == 1 && special != 14) {
-            int cnum = 30 + rNum.nextInt(20);
+            int cnum = rNum.nextInt(15);
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);

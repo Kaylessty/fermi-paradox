@@ -430,7 +430,18 @@ public class RoomController {
                 Player.setGuncharged(1);
                 System.out.println(monster.getHealth());
                 // allow monster to attack back, assuming not yet attacked
-                if (!monster.getHasBeenAttacked()) {
+
+                if(monster instanceof Monster2) {
+                    for(int i = 0; i < monstersInRoom.length; i++) {
+                        if(monstersInRoom[i] instanceof Monster2) {
+                            if (!monstersInRoom[i].getHasBeenAttacked()) {
+                                monsterControllers[0] = new MonsterController(monstersInRoom[i], scene1, root,
+                                        theStage, player1, currRoom, this);
+                                monstersInRoom[i].setHasBeenAttacked(true);
+                            }
+                        }
+                    }
+                } else if (!monster.getHasBeenAttacked()) {
                     monsterControllers[0] = new MonsterController(monster, scene1, root,
                             theStage, player1, currRoom, this);
                     monster.setHasBeenAttacked(true);
