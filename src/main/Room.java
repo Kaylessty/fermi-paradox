@@ -44,7 +44,7 @@ public class Room {
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
         if (roomType == 1 && special != 14) {
-            int cnum = 30 + rNum.nextInt(20);
+            int cnum = rNum.nextInt(15);
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
@@ -89,7 +89,7 @@ public class Room {
             addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
         }
         if (roomType == 1 && special != 14) {
-            int cnum = rNum.nextInt(15);
+            int cnum = rNum.nextInt(6);
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
@@ -105,6 +105,7 @@ public class Room {
 
     public Room(int row, int column, int doornumber, int distance, int monsterNum,
                 String roomName, int numRoom) {
+        roomType = 1 + rNum.nextInt(3);
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
@@ -120,6 +121,7 @@ public class Room {
     }
 
     public Room(int row, int column, int doornumber, int monsterNum, String roomName, int numRoom) {
+        roomType = 1 + rNum.nextInt(3);
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
@@ -270,5 +272,9 @@ public class Room {
 
     public Monster[] getMonsters() {
         return killThem;
+    }
+
+    public int getRoomType() {
+        return roomType;
     }
 }

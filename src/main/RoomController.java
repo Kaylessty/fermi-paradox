@@ -89,15 +89,24 @@ public class RoomController {
         playerInventory = new Inventory("Player Inventory ");
         inv = new ChoiceBox<>();
         //
+
+        //Add pillar/background before displayRoom()!
         try {
-            ImageView background = new ImageView(
-                    new Image("resources/images/room_background.png"));
+            ImageView background;
+            if(currRoom.getRoomType() == 1) {
+                background = new ImageView(
+                        new Image("resources/images/room_background_a.png"));
+            } else if(currRoom.getRoomType() == 2) {
+                background = new ImageView(
+                        new Image("resources/images/room_background_b.png"));
+            } else {
+                background = new ImageView(
+                        new Image("resources/images/room_background_c.png"));
+            }
             pillar.getChildren().add(background);
         } catch (IllegalArgumentException e) {
             System.out.println("background pic not found");
         }
-        //Add pillar/background before displayRoom()!
-
         health = new Label("");
         money = new Label("");
         topRow = new HBox();
@@ -240,7 +249,6 @@ public class RoomController {
      * @param door The door that connects current room to other room that player will move to
      */
     private void changeRoom(Door door) {
-
         if (inv.getValue() != null) {
             int idlvl = inv.getValue().getPossession().getIdLevel();
             if (door.getLocked() && idlvl > door.getRoomA().getNumRoom()) {
@@ -290,6 +298,22 @@ public class RoomController {
             currRoom.addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
         }
         player1.setRoom(currRoom);
+//        try {
+//            ImageView background;
+//            if(currRoom.getRoomType() == 1) {
+//                background = new ImageView(
+//                        new Image("resources/images/room_background_a.png"));
+//            } else if(currRoom.getRoomType() == 2) {
+//                background = new ImageView(
+//                        new Image("resources/images/room_background_b.png"));
+//            } else {
+//                background = new ImageView(
+//                        new Image("resources/images/room_background_c.png"));
+//            }
+//            pillar.getChildren().add(background);
+//        } catch (IllegalArgumentException e) {
+//            System.out.println("background pic not found");
+//        }
         // each scene needs its own group
         root = new BorderPane();
         root.getChildren().add(pillar);
@@ -312,6 +336,7 @@ public class RoomController {
         */
 
         // that changed the room
+
     }
 
     /**
@@ -432,8 +457,8 @@ public class RoomController {
                 // allow monster to attack back, assuming not yet attacked
 
                 if(monster instanceof Monster2) {
-                    for(int i = 0; i < monstersInRoom.length; i++) {
-                        if(monstersInRoom[i] instanceof Monster2) {
+                    for (int i = 0; i < monstersInRoom.length; i++) {
+                        if (monstersInRoom[i] instanceof Monster2) {
                             if (!monstersInRoom[i].getHasBeenAttacked()) {
                                 monsterControllers[0] = new MonsterController(monstersInRoom[i], scene1, root,
                                         theStage, player1, currRoom, this);
@@ -441,6 +466,10 @@ public class RoomController {
                             }
                         }
                     }
+//                } else if (monster instanceof TreeBore) {
+//                    monsterControllers[0] = new MonsterController(monster, scene1, root,
+//                            theStage, player1, currRoom, this);
+//                    monster.setHasBeenAttacked(true);
                 } else if (!monster.getHasBeenAttacked()) {
                     monsterControllers[0] = new MonsterController(monster, scene1, root,
                             theStage, player1, currRoom, this);
