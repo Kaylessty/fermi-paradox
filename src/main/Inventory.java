@@ -28,6 +28,15 @@ public class Inventory {
         }
     }
 
+    public void dropItem(Item ite) {
+        for (int i = 0; i < contents.length; i++) {
+            if (contents[i] == ite) {
+                Item cur = contents[i];
+                contents[i] = null;
+                currHousingSpace -= cur.getSize();
+            }
+        }
+    }
     public Item getItem(int index) {
         return contents[index];
     }
