@@ -3,13 +3,18 @@ package main;
 import java.util.Random;
 
 public abstract class Monster implements Locatable {
-
+    private Item drop = new Item(Item.Possession.BALLOON_R, 15, 15, "Monster Balloon");
     private int x;
     private int y;
     private int health;
     private int damage;
     private Random generator = new Random();
     private boolean hasBeenAttacked;
+    private String type;
+    private String[][] speech;
+    private String[] talks;
+    private String intro;
+    private String talk;
 
     public Monster() {
         x = 3 + generator.nextInt(14);
@@ -43,9 +48,12 @@ public abstract class Monster implements Locatable {
         return damage;
     }
 
+    public void setDamage(int damage) {
+        this.damage = damage;
+    }
 
     public String getImageURL() {
-        return "resources/images/Teaff.png";
+        return "resources/images/Eyebore.png";
     }
 
     public boolean getHasBeenAttacked() {
@@ -57,4 +65,32 @@ public abstract class Monster implements Locatable {
     }
 
     public abstract int getOriginalHealth();
+
+    public String getType() {
+        return type;
+    }
+
+    public void setDrop(Item drop) {
+        this.drop = drop;
+    }
+
+    public Item getDrop() {
+        return drop;
+    }
+
+    public String[][] getSpeech() {
+        return speech;
+    }
+
+    public String[] getTalks() {
+        return talks;
+    }
+
+    public String getIntro() {
+        return intro;
+    }
+
+    public String getTalk() {
+        return talk;
+    }
 }

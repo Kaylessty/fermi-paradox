@@ -1,16 +1,21 @@
 package main;
 
 public class Monster1 extends Monster {
-
     private int health;
     private int speed;
+    private String type = "Eyebore";
     private static final int ORIGINAL_HEALTH = 2800;
     public Monster1() {
-        this(2800,1);
+        this(2800,2);
     }
     public Monster1(int health, int speed) {
         this.health = health;
         this.speed = speed;
+        this.setDrop(new Item(Item.Possession.BOREEYE, 15, 15, "Bore Eye"));
+    }
+    @Override
+    public String getImageURL() {
+        return "resources/images/Eyebore.png";
     }
 
     @Override
@@ -25,4 +30,10 @@ public class Monster1 extends Monster {
     public int getOriginalHealth() {
         return ORIGINAL_HEALTH;
     }
+
+    @Override
+    public String getType() {
+        return type;
+    }
 }
+

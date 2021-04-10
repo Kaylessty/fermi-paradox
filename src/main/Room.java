@@ -20,6 +20,7 @@ public class Room {
     private Monster[] killThem;
     private int numRoom;
     private int special;
+    private int roomType;
 
 
     /**
@@ -30,6 +31,7 @@ public class Room {
      * @param numRoom the number associated with the room. Helps to find relative depth in maze
      */
     public Room(int row, int column, String roomName, int numRoom) {
+        roomType = 1 + rNum.nextInt(3);
         this.row = row;
         this.column = column;
         room = new Locatable[18][18];
@@ -37,15 +39,41 @@ public class Room {
         distance = 999;
         doors = new Door[doornumber];
         this.roomName = "room " + roomName;
-        this.monsterNum = 1 + rNum.nextInt(2);
+        this.monsterNum = 1 + rNum.nextInt(3);
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
-        special = rNum.nextInt(10);
-        if (!roomName.equals("first") && !roomName.equals("last")) {
-            addMonsters();
+        special = rNum.nextInt(15);
+        if (roomType == 1 && special != 14) {
+            int cnum = 30 + rNum.nextInt(20);
+            for (int i = 0; i < cnum; i++) {
+                int x = 1 + rNum.nextInt(17);
+                int y = 1 + rNum.nextInt(17);
+                addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+            }
         }
-        if (special == 9) {
+        if (special == 12 || special == 11) {
+            Monster engi = new EngiShop();
+            monsterNum = 1;
+            engi.setHealth(10000);
+            engi.setDamage(2000);
+            room[engi.getLocation()[1]][engi.getLocation()[0]] = engi;
+            killThem[0] = engi;
+        }
+        if (special == 13) {
+            Monster prowler = new ProwlerShop();
+            monsterNum = 1;
+            prowler.setHealth(20000);
+            prowler.setDamage(4000);
+            room[prowler.getLocation()[1]][prowler.getLocation()[0]] = prowler;
+            killThem[0] = prowler;
+        }
+        if (special == 14) {
             this.roomName = "Clown Room";
+            Monster clown = new ClownShop();
+            monsterNum = 1;
+            room[clown.getLocation()[1]][clown.getLocation()[0]] = clown;
+            killThem[0] = clown;
+            //addObject(clown, clown.getLocation()[1], clown.getLocation()[0]);
             addObject(new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), 11, 11);
             addObject(new Item(Item.Possession.BALLOON_R, 15, 15, "Red Balloon"), 15, 15);
             addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 15, 13);
@@ -59,6 +87,19 @@ public class Room {
             addObject(new Item(Item.Possession.BALLOON_G, 15, 15, "Red Balloon"), 0, 14);
             addObject(new Item(Item.Possession.BALLOON_B, 15, 15, "Red Balloon"), 0, 15);
             addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
+        }
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
+        if (roomType == 1 && special != 14) {
+            int cnum = 30 + rNum.nextInt(20);
+            for (int i = 0; i < cnum; i++) {
+                int x = 1 + rNum.nextInt(17);
+                int y = 1 + rNum.nextInt(17);
+                if(getRoom()[x][y] == null) {
+                    addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+                }
+            }
         }
     }
 
@@ -95,7 +136,21 @@ public class Room {
 
     private void addMonsters() {
         for (int index = 0; index < monsterNum; index++) {
-            Monster creature = new Monster1();
+            int pick1 = 1 + rNum.nextInt(7);
+            Monster creature;
+            if(pick1 == 1 || pick1 == 2 || pick1 == 3) {
+                creature = new Monster1();
+                creature.setHealth(4800);
+                creature.setDamage(3000);
+            } else if(pick1 == 4 || pick1 == 5 || pick1 == 6) {
+                creature = new Monster2();
+                creature.setHealth(5000);
+                creature.setDamage(2000);
+            } else {
+                creature = new Monster3();
+                creature.setHealth(10000);
+                creature.setDamage(4999);
+            }
             killThem[index] = creature;//********************************************************
             room[creature.getLocation()[1]][creature.getLocation()[0]] = creature;//******************
         }

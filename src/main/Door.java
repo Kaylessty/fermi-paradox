@@ -10,6 +10,7 @@ public class Door implements Locatable {
     private int x;
     private int y;
     private Boolean locked = true;
+    private Door con;
 
     public Door(Room roomA, Room roomB) {
         this.roomA = roomA;
@@ -84,28 +85,11 @@ public class Door implements Locatable {
         return roomA.equals(d.getRoomA()) && roomB.equals(d.getRoomB());
     }
 
-    //something to be used if row/column of rooms gets updated
-    public String doorPlacement(Room room) {
-        if (room.equals(roomA)) {
-            if (room.getRow() > roomB.getRow()) {
-                return "left";
-            } else if (room.getRow() < roomB.getRow()) {
-                return "right";
-            } else if (room.getColumn() > roomB.getColumn()) {
-                return "up";
-            } else {
-                return "down";
-            }
-        } else {
-            if (room.getRow() > roomA.getRow()) {
-                return "left";
-            } else if (room.getRow() < roomA.getRow()) {
-                return "right";
-            } else if (room.getColumn() > roomA.getColumn()) {
-                return "up";
-            } else {
-                return "down";
-            }
-        }
+    public Door getCon() {
+        return con;
+    }
+
+    public void setCon(Door con) {
+        this.con = con;
     }
 }
