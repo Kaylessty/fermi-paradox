@@ -16,10 +16,22 @@ public class Maze {
     private int x = 0;
     private int y = 0;
 
+
+    public Maze() {
+        boolean k = false;
+        while(k == false) {
+            rooms = null;
+            doors = null;
+            roomnum = 0;
+            x = 0;
+            y = 0;
+            k = mazeMaker();
+        }
+    }
     /**
      * Creates a maze and fills it with a random number between 10 and 20 random rooms.
      */
-    public Maze() {
+    public boolean mazeMaker() {
         roomnum = 26 + rNum.nextInt(10);
         rooms = new Room[roomnum];
         System.out.println("Number of rooms: " + rooms.length);
@@ -28,6 +40,7 @@ public class Maze {
         Player player1 = new Player();
         player1.setLocation(8, 8);
         rooms[0].addObject(player1, player1.getLocation()[0], player1.getLocation()[1]);
+        player1.setRoom(rooms[0]);
         doornum = 4;
         for (int i = 1; i < roomnum; i++) {
             rooms[i] = new Room(x, y, "" + i, i);
@@ -64,87 +77,97 @@ public class Maze {
                     } else {
                         if (rooms[i].getDoors().length > rooms[i].getCurDoors()) {
                             Door newDoor = new Door(rooms[i], rooms[i + k]);
+                            Door oppositeDoor = new Door(rooms[i + k], rooms[i]);
                             boolean found = false;
+                            int counter = 0;
                             while (!found) {
+                                if(counter == 10) {
+                                    return false;
+                                }
                                 int potentialLocation = rNum.nextInt(4);
                                 // Fixing the orientation of the doors (a right door when clicked
                                 // should appear on the left in next room)
                                 if (potentialLocation == 0) {
                                     // if top slot is available
-                                    if (curRoom.getRoom()[0][8] == null) {
+                                    if (curRoom.getRoom()[0][8] == null &&
+                                            (rooms[i + k]).getRoom()[17][9] == null) {
                                         newDoor.setX(8);
                                         newDoor.setY(0);
                                         newDoor.setImageURL("resources/images/new-door-up.png");
                                         curRoom.addObject(newDoor, 8, 0);
                                         found = true;
+                                        // Make opposite door in other room
+                                        oppositeDoor.setY(17);
+                                        oppositeDoor.setX(9);
+                                        oppositeDoor.setImageURL("resources/images/new-door-down.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 } else if (potentialLocation == 1) {
                                     // if right slot is available
-                                    if (curRoom.getRoom()[8][17] == null) {
+                                    if (curRoom.getRoom()[8][17] == null &&
+                                            rooms[i + k].getRoom()[9][0] == null) {
                                         newDoor.setX(17);
                                         newDoor.setY(8);
                                         newDoor.setImageURL("resources/images/new-door-right.png");
                                         curRoom.addObject(newDoor, 17, 8);
                                         found = true;
+                                        // Make opposite door in other room
+                                        oppositeDoor.setX(0);
+                                        oppositeDoor.setY(9);
+                                        oppositeDoor.setImageURL("resources/images/new-door-left.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 } else if (potentialLocation == 2) {
                                     // if bottom slot is available
-                                    if (curRoom.getRoom()[17][9] == null) {
+                                    if (curRoom.getRoom()[17][9] == null &&
+                                            rooms[i + k].getRoom()[0][8] == null) {
                                         newDoor.setX(9);
                                         newDoor.setY(17);
                                         newDoor.setImageURL("resources/images/new-door-down.png");
                                         curRoom.addObject(newDoor, 9, 17);
                                         found = true;
+                                        // Make opposite door in other room
+                                        oppositeDoor.setY(0);
+                                        oppositeDoor.setX(8);
+                                        oppositeDoor.setImageURL("resources/images/new-door-up.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 } else if (potentialLocation == 3) {
                                     // the left slot is available
-                                    if (curRoom.getRoom()[9][0] == null) {
+                                    if (curRoom.getRoom()[9][0] == null &&
+                                            rooms[i + k].getRoom()[8][17] == null) {
                                         newDoor.setX(0);
                                         newDoor.setY(9);
                                         newDoor.setImageURL("resources/images/new-door-left.png");
                                         curRoom.addObject(newDoor, 0, 9);
                                         found = true;
+                                        // Make opposite door in other room
+                                        oppositeDoor.setX(17);
+                                        oppositeDoor.setY(8);
+                                        oppositeDoor.setImageURL("resources/images/new-door-right.png");
                                     } else {
+                                        counter += 1;
                                         continue;
                                     }
                                 }
                             }
                             //curRoom.addDoor(newDoor);
                             // Adding similar door to other Room that the door connects to
-                            Door oppositeDoor = new Door(newDoor.getRoomA(), newDoor.getRoomB());
-                            if (newDoor.getLocation()[0] == 8 || newDoor.getLocation()[0] == 9) {
-                                if (newDoor.getLocation()[1] == 0) {
-                                    oppositeDoor.setY(17);
-                                    oppositeDoor.setX(9);
-                                    oppositeDoor.setImageURL("resources/images/new-door-down.png");
-                                } else {
-                                    oppositeDoor.setY(0);
-                                    oppositeDoor.setX(8);
-                                    oppositeDoor.setImageURL("resources/images/new-door-up.png");
-                                }
-                            } else {
-                                if (newDoor.getLocation()[0] == 0) {
-                                    oppositeDoor.setX(17);
-                                    oppositeDoor.setY(8);
-                                    oppositeDoor.setImageURL("resources/images/new-door-right.png");
-                                } else {
-                                    oppositeDoor.setX(0);
-                                    oppositeDoor.setY(9);
-                                    oppositeDoor.setImageURL("resources/images/new-door-left.png");
-                                }
-                            }
+                            oppositeDoor.setCon(newDoor);
+                            newDoor.setCon(oppositeDoor);
                             rooms[i + k].addDoor(oppositeDoor);
                             rooms[i + k].addObject(oppositeDoor, oppositeDoor.getLocation()[0],
                                     oppositeDoor.getLocation()[1]);
                             rooms[i].addDoor(newDoor);
                             doors[dcount] = newDoor;
                             dcount++;
+
                         }
                         k += 1;
                         v = 0; // added to stop infinite while loop
@@ -152,6 +175,7 @@ public class Maze {
                 }
             }
         }
+        return true;
     }
 
     public Door[] getDoors() {

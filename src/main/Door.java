@@ -9,6 +9,7 @@ public class Door implements Locatable {
     private int x;
     private int y;
     private Boolean locked = true;
+    private Door con;
 
     public Door(Room roomA, Room roomB) {
         this.roomA = roomA;
@@ -98,11 +99,18 @@ public class Door implements Locatable {
         return new int[] {x, y};
     }
 
-
+    /**
+     * setter for locked instance var
+     * @param locked boolean for locked to be set to
+     */
     public void setLocked(boolean locked) {
         this.locked = locked;
     }
 
+    /**
+     * getter for locked instance var
+     * @return boolean value of locked
+     */
     public boolean getLocked() {
         return locked;
     }
@@ -120,4 +128,20 @@ public class Door implements Locatable {
         return roomA.equals(d.getRoomA()) && roomB.equals(d.getRoomB());
     }
 
+    /**
+     * getter for con instance variable
+     * @return the Door value of con
+     */
+    public Door getCon() {
+        return con;
+    }
+
+    /**
+     * setter for con instance variable
+     * @param con the Door val for con to be set to
+     */
+    public void setCon(Door con) {
+        this.con = con;
+    }
 }
+

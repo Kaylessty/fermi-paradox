@@ -6,33 +6,86 @@ public class Item implements Locatable, Collectible {
     private Possession thing;
     private int x;
     private int y;
-
+    /**
+     * This enum represents all the possible Items the Player can carry with him/her.
+     * All of these items can be carried and therefore implement both Locatable and Collectible.
+     * The fields of each enum type passed into the constructor represent properties of the item.
+     * These fields are in the order
+     * (String type, damage, range, housingSpace, healthBoost, strengthBoost, speedBoost,
+     * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
+     */
     public enum Possession  {
-        A_ENERGYSWORD("Sword", 100000, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+        A_ENERGYSWORD("Sword", 200000, 1, 4, 0, 0, 0, 100000, 100000, true, false, -1,
                 "resources/images/A_ENERGYSWORD.png"),
-        ENERGYSWORD("Sword", 400, 1, 4, 0, 0, 0, 500, 300, true, false, -1,
+        ENERGYSWORD("Sword", 500, 1, 4, 0, 0, 0, 1000, 700, true, false, -1,
                 "resources/images/ENERGYSWORD.png"),
-        LASER("Gun", 150, 10, 4, 0, 0, 0, 500, 300, true, false, -1,
+        DB_ENERGYSWORD("Sword", 1000, 1, 4, 0, 0, 0, 20000, 17000, true, false, -1,
+                "resources/images/DB_ENERGYSWORD.png"),
+        SONICSWORD("Sword", 500, 3, 4, 0, 0, 0, 10000, 8000, true, false, -1,
+                "resources/images/SONICSWORD.png"),
+        DB_SONICSWORD("Sword", 1000, 3, 4, 0, 0, 0, 30000, 27000, true, false, -1,
+                "resources/images/DB_SONICSWORD.png"),
+        LASER("Gun", 150, 7, 4, 0, 0, 0, 1000, 700, true, false, -1,
                 "resources/images/LASER.png"),
-        SONICRIFLE("Gun", 350, 4, 4, 0, 0, 0, 500, 300, true, false, -1,
+        SHOCKRIFLE("Gun", 400, 10, 4, 0, 0, 0, 4000, 3500, true, false, -1,
+                "resources/images/SHOCKRIFLE.png"),
+        PISTOL("Gun", 400, 10, 4, 0, 0, 0, 7000, 5000, true, false, -1,
+                "resources/images/PISTOL.png"),
+        A_RIFLE("Gun", 3000, 10, 4, 0, 0, 0, 90000, 70000, true, false, -1,
+                "resources/images/RIFLE.png"),
+        SONICRIFLE("Gun", 350, 5, 4, 0, 0, 0, 5000, 4000, true, false, -1,
                 "resources/images/SONICRIFLE.png"),
-        A_SHOCKRIFLE("Gun", 100000, 100, 4, 0, 0, 0, 600, 250, true, false, -1,
+        SONICCANNON("Gun", 850, 5, 4, 0, 0, 0, 10000, 7000, true, false, -1,
+                "resources/images/SONICCANNON.png"),
+        A_SHOCKRIFLE("Gun", 60000, 10, 4, 0, 0, 0, 100000, 100000, true, false, -1,
                 "resources/images/A_SHOCKRIFLE.png"),
-        IMPROVISEDSWORD("Sword", 100, 1, 3, 0, 0, 0, 600, 250, true, false, -1,
+        H_RIFLE("Gun", 1500, 10, 4, 0, 0, 0, 35000, 28000, true, false, -1,
+                "resources/images/H_RIFLE.png"),
+        IMPROVISEDSWORD("Sword", 56, 1, 3, 0, 0, 0, 300, 200, true, false, -1,
                 "resources/images/IMPROVISEDSWORD.png"),
-        IMPROVISEDGUN("Gun", 56, 5, 3, 0, 0, 0, 600, 250, true, false, -1,
+        IMPROVISEDGUN("Gun", 56, 3, 3, 0, 0, 0, 300, 200, true, false, -1,
                 "resources/images/IMPROVISEDGUN.png"),
-        AAID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 100,
+        AAID("ID", 4, 0, 1, 0, 0, 0, 100000, 1000000, true, true, 100,
                 "resources/images/ID.png"),
-        HORN("misc", 1, 1, 1, 0, 0, 0, 999999, 0, true, false, -1,
+        HORN("misc", 1, 0, 1, 0, 0, 0, 70, 1, true, false, -1,
                 "resources/images/Horn.png"),
-        BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+        BOREEYE("heal", 1000, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
+                "resources/images/BOREEYE.png"),
+        BATTERYLV1("heal", 2500, 0, 1, 0, 0, 0, 500, 300, true, false, -1,
+                "resources/images/BATTERYLV1.png"),
+        BATTERYLV2("heal", 5000, 0, 1, 0, 0, 0, 1000, 900, true, false, -1,
+                "resources/images/BATTERYLV2.png"),
+        BATTERYLV3("heal", 10000, 0, 1, 0, 0, 0, 1500, 1400, true, false, -1,
+                "resources/images/BATTERYLV3.png"),
+        BATTERYLV4("heal", 20000, 0, 1, 0, 0, 0, 2000, 1800, true, false, -1,
+                "resources/images/BATTERYLV4.png"),
+        G_BATTERYLV1("charge", 2, 0, 1, 0, 0, 0, 1000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV1.png"),
+        G_BATTERYLV2("charge", 5, 0, 1, 0, 0, 0, 5000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV2.png"),
+        G_BATTERYLV3("charge", 10, 0, 1, 0, 0, 0, 10000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV3.png"),
+        G_BATTERYLV4("charge", 20, 0, 1, 0, 0, 0, 20000, 300, true, false, -1,
+                "resources/images/G_BATTERY_LV4.png"),
+        HIDE("misc", 500, 0, 1, 0, 0, 0, 300, 300, true, false, -1,
+                "resources/images/TEAFFHIDE.png"),
+        AMMOBOX("misc", 500, 0, 1, 0, 0, 0, 1000, 800, true, false, -1,
+                "resources/images/AMMOBOX.png"),
+        TIMKEY("misc", 0, 0, 1, 0, 0, 0, 1000, 700, true, false, -1,
+                "resources/images/TIMKEY.png"),
+        SHIELDGENERATOR_LV1("Shield", 2500, 0, 1, 0, 0, 0, 10000, 9000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV1.png"),
+        SHIELDGENERATOR_LV2("Shield", 5000, 0, 1, 0, 0, 0, 40000, 37000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV2.png"),
+        SHIELDGENERATOR_LV3("Shield", 10000, 0, 1, 0, 0, 0, 80000, 70000, true, false, -1,
+                "resources/images/SHIELDGENERATOR_LV3.png"),
+        BALLOON_R("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
                 "resources/images/BALLOON_R.png"),
-        BALLOON_G("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+        BALLOON_G("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
                 "resources/images/BALLOON_G.png"),
-        BALLOON_Y("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+        BALLOON_Y("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
                 "resources/images/BALLOON_Y.png"),
-        BALLOON_B("misc", 0, 0, 1, 0, 0, 0, 999999, 0, true, false, -1,
+        BALLOON_B("misc", 0, 0, 1, 0, 0, 0, 50, 0, true, false, -1,
                 "resources/images/BALLOON_B.png"),
         ONEID("ID", 4, 0, 1, 0, 0, 0, 999999, 0, true, true, 1,
                 "resources/images/ID.png");
@@ -50,29 +103,9 @@ public class Item implements Locatable, Collectible {
         private final int idLevel;
         private final String imageURL;
 
-        //Possession(String type, int damage, int range, int housingSpace, int healthBoost,
-        //int strengthBoost, int speedBoost, int purchaseCost, int returnCost,
-        //boolean walkable, String imageURL) {
-        Possession(String type, int damage, int range, int purchaseCost, String imageURL) {
-            this.type = type;
-            this.damage = damage;
-            this.range = range;
-            this.housingSpace = 0;
-            this.healthBoost = 0;
-            this.strengthBoost = 0;
-            this.speedBoost = 0;
-            this.purchaseCost = purchaseCost;
-            this.returnCost = 0;
-            this.walkable = false;
-            this.imageURL = imageURL;
-            this.idLevel = 0;
-            this.unlocker = false;
-        }
-
         Possession(String type, int damage, int range, int housingSpace, int healthBoost,
                    int strengthBoost, int speedBoost, int purchaseCost, int returnCost,
                    boolean walkable, boolean unlocker, int idLevel, String imageURL) {
-
             this.type = type;
             this.damage = damage;
             this.range = range;
@@ -98,6 +131,10 @@ public class Item implements Locatable, Collectible {
 
         public int getDamage() {
             return damage;
+        }
+
+        public String getimageURL() {
+            return imageURL;
         }
     }
 
@@ -179,4 +216,32 @@ public class Item implements Locatable, Collectible {
     public int getSize() {
         return thing.housingSpace;
     }
+
+    /**
+     * getter for amount it is to buy the item
+     * @return the purchaseCost of an Item
+     */
+    public int getBuyPrice() {
+        return thing.purchaseCost;
+    }
+
+    /**
+     * getter for the amount the item can be sold for
+     * @return the sell amount of the item
+     */
+    public int getSellPrice() {
+        return thing.returnCost;
+    }
+
+    /**
+     * getter for the type of the Item
+     * @return String type of the item
+     */
+    public String getType() {return thing.type;}
+
+    /**
+     * getter for the damage of the Item
+     * @return int damange of the Item
+     */
+    public int getDamage() {return thing.damage;}
 }
