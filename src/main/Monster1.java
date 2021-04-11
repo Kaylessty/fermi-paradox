@@ -13,7 +13,7 @@ public class Monster1 extends Monster {
      * default constructor
      */
     public Monster1() {
-        this(2800,2);
+        this(2800, 2);
     }
 
     /**
@@ -36,7 +36,7 @@ public class Monster1 extends Monster {
         this.health -= amount;
         int currX = super.getLocation()[0];
         int currY = super.getLocation()[1];
-        super.setLocation(currX + knockback.dirX * 90, currY + knockback.dirY * 90);
+        super.setLocation(currX + knockback.getDirX() * 90, currY + knockback.getDirY() * 90);
     }
 
     @Override

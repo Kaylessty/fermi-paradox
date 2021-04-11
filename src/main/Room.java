@@ -48,7 +48,7 @@ public class Room {
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
-                addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+                addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate"), x, y);
             }
         }
         if (special == 12 || special == 11) {
@@ -96,8 +96,8 @@ public class Room {
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
-                if(getRoom()[x][y] == null) {
-                    addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+                if (getRoom()[x][y] == null) {
+                    addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate"), x, y);
                 }
             }
         }
@@ -138,11 +138,11 @@ public class Room {
         for (int index = 0; index < monsterNum; index++) {
             int pick1 = 1 + rNum.nextInt(7);
             Monster creature;
-            if(pick1 == 1 || pick1 == 2 || pick1 == 3) {
+            if (pick1 == 1 || pick1 == 2 || pick1 == 3) {
                 creature = new Monster1();
                 creature.setHealth(4800);
                 creature.setDamage(3000);
-            } else if(pick1 == 4 || pick1 == 5 || pick1 == 6) {
+            } else if (pick1 == 4 || pick1 == 5 || pick1 == 6) {
                 creature = new Monster2();
                 creature.setHealth(5000);
                 creature.setDamage(2000);
@@ -151,8 +151,8 @@ public class Room {
                 creature.setHealth(10000);
                 creature.setDamage(4999);
             }
-            killThem[index] = creature;//********************************************************
-            room[creature.getLocation()[1]][creature.getLocation()[0]] = creature;//******************
+            killThem[index] = creature; //****************************************************
+            room[creature.getLocation()[1]][creature.getLocation()[0]] = creature; //************
         }
     }
 

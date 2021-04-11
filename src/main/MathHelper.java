@@ -7,7 +7,7 @@ import java.util.Random;
  */
 public class MathHelper {
 
-    private static final Random rand = new Random();
+    private static final Random RAND = new Random();
 
     /**
      * This function returns a random int
@@ -15,7 +15,7 @@ public class MathHelper {
      * @return the generated random integer
      */
     public static int randomInt(int upperBound) {
-        return rand.nextInt(upperBound);
+        return RAND.nextInt(upperBound);
     }
 
     /**
@@ -25,7 +25,7 @@ public class MathHelper {
      * @return the generated random integer
      */
     public static int randomInt(int lowerBound, int upperBound) {
-        return rand.nextInt((upperBound - lowerBound) + 1) + lowerBound;
+        return RAND.nextInt((upperBound - lowerBound) + 1) + lowerBound;
     }
 
     /**
@@ -33,7 +33,7 @@ public class MathHelper {
      * @return Direction randomly generated
      */
     public static Direction randomDirection() {
-        return Direction.values()[rand.nextInt(Direction.values().length)];
+        return Direction.values()[RAND.nextInt(Direction.values().length)];
     }
 
     public enum Direction {
@@ -42,9 +42,17 @@ public class MathHelper {
         WEST(-1, 0),
         EAST(1, 0);
 
-        public int dirX;
-        public int dirY;
-        public Direction opposite;
+        public int getDirX() {
+            return dirX;
+        }
+
+        public int getDirY() {
+            return dirY;
+        }
+
+        private int dirX;
+        private int dirY;
+        private Direction opposite;
 
         static {
             NORTH.opposite = SOUTH;

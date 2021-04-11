@@ -237,11 +237,15 @@ public class Item implements Locatable, Collectible {
      * getter for the type of the Item
      * @return String type of the item
      */
-    public String getType() {return thing.type;}
+    public String getType() {
+        return thing.type;
+    }
 
     /**
      * getter for the damage of the Item
      * @return int damange of the Item
      */
-    public int getDamage() {return thing.damage;}
+    public int getDamage() {
+        return thing.damage;
+    }
 }
