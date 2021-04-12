@@ -6,14 +6,18 @@ import javafx.beans.property.SimpleIntegerProperty;
 This acts as a data class for the player of the game.
  */
 public class Player implements Locatable {
-    private static IntegerProperty health;
+    private static IntegerProperty health = new SimpleIntegerProperty();
     private static String name;
-    private static IntegerProperty balance;
+    private static IntegerProperty balance = new SimpleIntegerProperty();
+    private static int maxHealth = 5000;
     private static int strength;
     private static int speed;
     private int x;
     private int y;
+    private int ammo = 0;
+    private static int guncharged = 1;
     private String recentImageURL = "resources/images/player-down.png";
+    private static Room box;
 
 
     public static String getName() {
@@ -37,11 +41,11 @@ public class Player implements Locatable {
     }
 
     public static void setBalance(int balance1) {
-        balance = new SimpleIntegerProperty(balance1);
+        balance.set(balance1);
     }
 
     public static void setHealth(int health1) {
-        health = new SimpleIntegerProperty(health1);
+        health.set(health1);
     }
 
     public static void setName(String name1) {
@@ -74,6 +78,10 @@ public class Player implements Locatable {
         return recentImageURL;
     }
 
+    public String getDeadImageURL() {
+        recentImageURL = "resources/images/player-dead.png";
+        return recentImageURL;
+    }
     public String getDownImageURL() {
         recentImageURL = "resources/images/player-down.png";
         return recentImageURL;
@@ -87,5 +95,41 @@ public class Player implements Locatable {
     public String getLeftImageURL() {
         recentImageURL = "resources/images/player-left.png";
         return recentImageURL;
+    }
+
+    public static Room getRoom() {
+        return box;
+    }
+
+    public static void setRoom(Room box1) {
+        box = box1;
+    }
+
+    public void addAmmo(int ammo1) {
+        ammo = ammo + ammo1;
+    }
+
+    public void removeAmmo(int ammo1) {
+        ammo = ammo - ammo1;
+    }
+
+    public int getAmmo() {
+        return ammo;
+    }
+
+    public static int getMaxHealth() {
+        return maxHealth;
+    }
+
+    public static void setMaxHealth(int maxHealth) {
+        Player.maxHealth = maxHealth;
+    }
+
+    public static void setGuncharged(int guncharged) {
+        Player.guncharged = guncharged;
+    }
+
+    public static int getGuncharged() {
+        return guncharged;
     }
 }

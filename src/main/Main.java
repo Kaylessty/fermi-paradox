@@ -6,6 +6,8 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class Main extends Application {
 
     private Parent rootNode;
@@ -34,7 +36,6 @@ public class Main extends Application {
         stage.setTitle("Elon Musk: Alien Destroyer");
         stage.setScene(new Scene(rootNode, 800, 600));
         stage.show();
-
     }
 
 }
