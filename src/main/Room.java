@@ -44,7 +44,7 @@ public class Room {
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
         if (roomType == 1 && special != 14) {
-            int cnum = 30 + rNum.nextInt(20);
+            int cnum = rNum.nextInt(15);
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
@@ -88,11 +88,8 @@ public class Room {
             addObject(new Item(Item.Possession.BALLOON_B, 15, 15, "Red Balloon"), 0, 15);
             addObject(new Item(Item.Possession.BALLOON_Y, 15, 15, "Red Balloon"), 1, 15);
         }
-        if (!roomName.equals("first") && !roomName.equals("last")) {
-            addMonsters();
-        }
         if (roomType == 1 && special != 14) {
-            int cnum = 30 + rNum.nextInt(20);
+            int cnum = rNum.nextInt(6);
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
@@ -101,10 +98,14 @@ public class Room {
                 }
             }
         }
+        if (!roomName.equals("first") && !roomName.equals("last")) {
+            addMonsters();
+        }
     }
 
     public Room(int row, int column, int doornumber, int distance, int monsterNum,
                 String roomName, int numRoom) {
+        roomType = 1 + rNum.nextInt(3);
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
@@ -120,6 +121,7 @@ public class Room {
     }
 
     public Room(int row, int column, int doornumber, int monsterNum, String roomName, int numRoom) {
+        roomType = 1 + rNum.nextInt(3);
         this.row = row;
         this.column = column;
         this.doornumber = doornumber;
@@ -140,15 +142,15 @@ public class Room {
             Monster creature;
             if(pick1 == 1 || pick1 == 2 || pick1 == 3) {
                 creature = new Monster1();
-                creature.setHealth(4800);
+                creature.setHealth(3800);
                 creature.setDamage(3000);
             } else if(pick1 == 4 || pick1 == 5 || pick1 == 6) {
                 creature = new Monster2();
-                creature.setHealth(5000);
+                creature.setHealth(2500);
                 creature.setDamage(2000);
             } else {
                 creature = new Monster3();
-                creature.setHealth(10000);
+                creature.setHealth(2000);
                 creature.setDamage(4999);
             }
             killThem[index] = creature;//********************************************************
@@ -156,6 +158,13 @@ public class Room {
         }
     }
 
+    public void addMonster(Monster monster, int heath, int damage) {
+        monster.setHealth(heath);
+        monster.setDamage(damage);
+        killThem = new Monster[1];
+        killThem[0] = monster;
+        room[monster.getLocation()[1]][monster.getLocation()[0]] = monster;
+    }
     public void addObject(Locatable object, int x, int y) {
         room[y][x] = object;
     }
@@ -263,5 +272,9 @@ public class Room {
 
     public Monster[] getMonsters() {
         return killThem;
+    }
+
+    public int getRoomType() {
+        return roomType;
     }
 }

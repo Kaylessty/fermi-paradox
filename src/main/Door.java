@@ -1,5 +1,4 @@
 package main;
-
 /**
  * This class acts as the door from room to room as well as the node connecting the rooms
  */
@@ -28,41 +27,78 @@ public class Door implements Locatable {
         this.y = y;
     }
 
+    /**
+     * Getter for the RoomA instance var
+     * @return Room A of the door
+     */
     public Room getRoomA() {
         return roomA;
     }
 
+    /**
+     * Getter for the RoomB instance var
+     * @return Room B of the door
+     */
     public Room getRoomB() {
         return roomB;
     }
 
+    /**
+     * Getter for the ImageURL instace var
+     * @return String imageURL
+     */
     public String getImageURL() {
         return imageUrl;
     }
 
+    /**
+     * setter for instance var roomA
+      * @param roomA Room for new value
+     */
     public void setRoomA(Room roomA) {
         this.roomA = roomA;
     }
 
+    /**
+     * setter for instance var roomB
+     * @param roomB Room for next value
+     */
     public void setRoomB(Room roomB) {
         this.roomB = roomB;
     }
 
+
+    /**
+     * setter for imageUrl
+     * @param url String for new val
+     */
     public void setImageURL(String url) {
         this.imageUrl = url;
     }
 
+
+    /**
+     * setter for X instance var
+     * @param x int for new val
+     */
     public void setX(int x) {
         this.x = x;
     }
 
+
+    /**
+     * setter for Y instance var
+     * @param y int for new val
+     */
     public void setY(int y) {
         this.y = y;
     }
 
+    @Override
     public int[] getLocation() {
         return new int[] {x, y};
     }
+
 
     public void setLocked(boolean locked) {
         this.locked = locked;

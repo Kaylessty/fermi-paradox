@@ -19,7 +19,7 @@ public class Maze {
 
     public Maze() {
         boolean k = false;
-        while(k == false) {
+        while(!k) {
             rooms = null;
             doors = null;
             roomnum = 0;
@@ -31,7 +31,7 @@ public class Maze {
     /**
      * Creates a maze and fills it with a random number between 10 and 20 random rooms.
      */
-    public boolean mazeMaker() {
+    private boolean mazeMaker() {
         roomnum = 26 + rNum.nextInt(10);
         rooms = new Room[roomnum];
         System.out.println("Number of rooms: " + rooms.length);
@@ -48,7 +48,25 @@ public class Maze {
             doornum += rooms[i].getDoornumber();
         }
         rooms[rooms.length - 2] = new Room(x, y, 4, 0, "last", rooms.length - 2);
-        rooms[rooms.length - 2].setHasHatch(true);
+        //rooms[rooms.length - 2].setHasHatch(true);
+        int r = 1 + rNum.nextInt(3);
+        if (r == 1) {
+            Monster creature = new Larry();
+            rooms[rooms.length - 2].removeObject(creature.getLocation()[0], creature.getLocation()[1]);
+            creature.setLocation(8, 8);
+            rooms[rooms.length - 2].addMonster(creature, 30000, 4000);
+        } else if (r == 2) {
+            Monster creature = new TreeBore();
+            rooms[rooms.length - 2].removeObject(creature.getLocation()[0], creature.getLocation()[1]);
+            creature.setLocation(8, 8);
+            rooms[rooms.length - 2].addMonster(creature, 50000, 4000);
+        } else if (r == 3) {
+            Monster creature = new Teeth();
+            rooms[rooms.length - 2].removeObject(creature.getLocation()[0], creature.getLocation()[1]);
+            creature.setLocation(8, 8);
+            rooms[rooms.length - 2].addMonster(creature, 40000, 4000);
+        }
+
         doors = new Door[doornum];
         Room curRoom;
         int dcount = 0;

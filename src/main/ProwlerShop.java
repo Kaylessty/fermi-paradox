@@ -18,7 +18,7 @@ public class ProwlerShop extends Monster {
     private int health;
     private int speed;
     private String type = "Prowler";
-    private String intro = "Haya bud";
+    private String intro = "Heya bud";
     private String talk = "Whatd'ya wanna talk about";
     private static final int ORIGINAL_HEALTH = 20000;
     public ProwlerShop() {
