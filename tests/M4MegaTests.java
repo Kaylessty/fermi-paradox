@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 //import javafx.stage.Stage;
 //import main.*;
 //import org.junit.Before;
@@ -31,3 +32,34 @@
 //        assertNull(creature3);
 //    }
 //}
+=======
+import main.*;
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.assertNull;
+
+public class M4MegaTests {
+    private Monster1 creature1;
+    private Monster2 creature2;
+    private Monster3 creature3;
+    private Maze maze;
+
+    @Before
+    public void setup() {
+        maze = new Maze();
+    }
+
+    @Test
+    public void testMonster1Exists() {
+        assertNull(creature1);
+    }
+    @Test
+    public void testMonster2Exists() {
+        assertNull(creature2);
+    }
+    @Test
+    public void testMonster3Exists() {
+        assertNull(creature3);
+    }
+}
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6

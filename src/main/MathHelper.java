@@ -4,18 +4,18 @@ import java.util.Random;
 
 public class MathHelper {
 
-    private static final Random rand = new Random();
+    private static final Random RANDOM = new Random();
 
     public static int randomInt(int upperBound) {
-        return rand.nextInt(upperBound);
+        return RANDOM.nextInt(upperBound);
     }
 
     public static int randomInt(int lowerBound, int upperBound) {
-        return rand.nextInt((upperBound - lowerBound) + 1) + lowerBound;
+        return RANDOM.nextInt((upperBound - lowerBound) + 1) + lowerBound;
     }
 
     public static Direction randomDirection() {
-        return Direction.values()[rand.nextInt(Direction.values().length)];
+        return Direction.values()[RANDOM.nextInt(Direction.values().length)];
     }
 
     public enum Direction {
@@ -24,9 +24,9 @@ public class MathHelper {
         WEST(-1, 0),
         EAST(1, 0);
 
-        public int dirX;
-        public int dirY;
-        public Direction opposite;
+        protected int dirX;
+        protected int dirY;
+        protected Direction opposite;
 
         static {
             NORTH.opposite = SOUTH;

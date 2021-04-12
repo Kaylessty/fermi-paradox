@@ -132,7 +132,8 @@ public class RoomController {
         root.getChildren().add(pillar);
         health.textProperty().addListener(new ChangeListener<String>() {
             @Override
-            public void changed(ObservableValue<? extends String> observableValue, String s, String t1) {
+            public void changed(ObservableValue<? extends String> observableValue,
+                                String s, String t1) {
                 String str = health.getText();
                 int foo = Integer.parseInt(str);
                 if (foo < 0) {
@@ -181,6 +182,9 @@ public class RoomController {
                         pictureView.setY(row * 32);
                         root.getChildren().add(pictureView);
                         keepTrack.add(pictureView);
+                        //if (important instanceof Door) {
+                        //pictureView.setOnMouseClicked(e -> changeRoom((Door) important));
+                        //}
                         if (important instanceof Item) {
                             if(gauntlet) {
                                 pictureView.setOnMouseClicked(e -> {
@@ -295,7 +299,7 @@ public class RoomController {
         root = new BorderPane();
         root.getChildren().add(pillar);
         keepTrack.clear();
-        //keepTrack.add(pillar);//*****************************************************************
+        //keepTrack.add(pillar);//********************
         displayRoom();
         scene1 = new Scene(root, 800, 600);
 
@@ -321,6 +325,7 @@ public class RoomController {
      */
     private void refreshRoom() {
         root.getChildren().removeAll(keepTrack);
+        //root.getChildren().add(pillar);//*******************
         displayRoom();
     }
 
@@ -373,7 +378,7 @@ public class RoomController {
         playerInventory.dropItem(toDrop);
         inv.getItems().remove(toDrop);
         int[] loc = player1.getLocation();
-        loc[1] = loc[1] -1;
+        loc[1] = loc[1] - 1;
         toDrop.setPosition(loc);
         currRoom.addObject(new Item(toDrop.getPossession(), loc[0], loc[1],
                 toDrop.getName()), loc[0], loc[1]);

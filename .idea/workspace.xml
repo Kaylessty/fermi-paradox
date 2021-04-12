@@ -23,6 +23,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
+<<<<<<< HEAD
       <change afterPath="$PROJECT_DIR$/run_checkstyle.py" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/Description.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/src/main/Larry.java" afterDir="false" />
@@ -57,12 +58,25 @@
       <change beforePath="$PROJECT_DIR$/src/main/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ProwlerShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ProwlerShop.java" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ClownShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ClownShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MathHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MathHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster3.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
       <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Shop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Door.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Door.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/EngiShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/EngiShop.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Inventory.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Inventory.class" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Item.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Item.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
@@ -75,6 +89,24 @@
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Shop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Shop.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4_Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/MazeTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4InvintoryTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4MegaTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4MegaTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4_Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/RoomDisplayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/RoomDisplayTest.java" afterDir="false" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,41 +185,73 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="ShopInteractionsTest.testBankruptPurchase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
       <option name="METHOD_NAME" value="testBankruptPurchase" />
       <option name="TEST_OBJECT" value="method" />
+=======
+    <configuration name="M4InvintoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpaceDungeon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
+      <option name="TEST_OBJECT" value="class" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="ShopInteractionsTest.testPurchase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
       <option name="METHOD_NAME" value="testPurchase" />
+=======
+    <configuration name="M4InvintoryTest.testInvintory2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpaceDungeon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
+      <option name="METHOD_NAME" value="testInvintory2" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="ShopInteractionsTest.testSellingItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
       <option name="METHOD_NAME" value="testSellingItem" />
+=======
+    <configuration name="M4InvintoryTest.testInvintory3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpaceDungeon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
+      <option name="METHOD_NAME" value="testInvintory3" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+<<<<<<< HEAD
     <configuration name="ShopInteractionsTest.testSellingItemMultipleTimes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
       <option name="METHOD_NAME" value="testSellingItemMultipleTimes" />
+=======
+    <configuration name="M4Tests.testPlayerFaint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpaceDungeon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="M4Tests" />
+      <option name="METHOD_NAME" value="testPlayerFaint" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -195,10 +259,17 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
+<<<<<<< HEAD
       <item itemvalue="JUnit.ShopInteractionsTest.testPurchase" />
       <item itemvalue="JUnit.ShopInteractionsTest.testBankruptPurchase" />
       <item itemvalue="JUnit.ShopInteractionsTest.testSellingItem" />
       <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes" />
+=======
+      <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
+      <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
+      <item itemvalue="JUnit.M4Tests.testPlayerFaint" />
+      <item itemvalue="JUnit.M4InvintoryTest" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
     </list>
     <recent_temporary>
       <list>
@@ -206,7 +277,14 @@
         <item itemvalue="JUnit.ShopInteractionsTest.testSellingItem" />
         <item itemvalue="JUnit.ShopInteractionsTest.testBankruptPurchase" />
         <item itemvalue="Application.Main" />
+<<<<<<< HEAD
         <item itemvalue="JUnit.ShopInteractionsTest.testPurchase" />
+=======
+        <item itemvalue="JUnit.M4InvintoryTest" />
+        <item itemvalue="JUnit.M4Tests.testPlayerFaint" />
+        <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
+        <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
+>>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
       </list>
     </recent_temporary>
   </component>

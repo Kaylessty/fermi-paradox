@@ -15,7 +15,7 @@ public class ClownShop extends Monster {
     private String talk = "Whatcha wanna talk about";
     private static final int ORIGINAL_HEALTH = 5000;
     public ClownShop() {
-        this(5000,1);
+        this(5000, 1);
     }
     public ClownShop(int health, int speed) {
         this.health = health;
