@@ -25,9 +25,15 @@ public class Main extends Application {
 
 
     @Override
-    public void init() throws Exception {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/firstscreen.fxml"));
-        rootNode = fxmlLoader.load();
+    public void init() { //throws Exception {
+        try {
+            FXMLLoader fxmlLoader =
+                    new FXMLLoader(getClass().getResource("/view/firstscreen.fxml"));
+            rootNode = fxmlLoader.load();
+        } catch (Exception e) {
+            System.out.println(e.getMessage() + "\n");
+            e.printStackTrace();
+        }
     }
 
     @Override
