@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //import javafx.stage.Stage;
 //import main.*;
 //import org.junit.Before;
@@ -32,7 +31,6 @@
 //        assertNull(creature3);
 //    }
 //}
-=======
 import main.*;
 import org.junit.Before;
 import org.junit.Test;
@@ -62,4 +60,3 @@ public class M4MegaTests {
         assertNull(creature3);
     }
 }
->>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6

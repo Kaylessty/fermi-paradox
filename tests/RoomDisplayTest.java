@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //import javafx.stage.Stage;
 //import main.Main;
 //import main.Player;
@@ -28,7 +27,6 @@
 //        verifyThat("room starting", NodeMatchers.isVisible());
 //    }
 //}
-=======
 import javafx.stage.Stage;
 import main.Main;
 import org.junit.Test;
@@ -55,5 +53,4 @@ public class RoomDisplayTest extends ApplicationTest {
         verifyThat("room starting", NodeMatchers.isVisible());
     }
 }
->>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6
 

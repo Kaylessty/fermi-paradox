@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 //import javafx.application.Platform;
 //import main.Main;
 //import main.Player;
@@ -79,7 +78,6 @@
 //        assertEquals(Player.getName(), "Lady Gaga");
 //    }
 //}
-=======
 import main.Main;
 import main.Player;
 import javafx.stage.Stage;
@@ -154,4 +152,3 @@ public class ConfigScreenM3Tests extends ApplicationTest {
         assertEquals(Player.getName(), "Lady Gaga");
     }
 }
->>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6

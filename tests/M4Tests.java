@@ -1,4 +1,3 @@
-<<<<<<< HEAD:tests/M4_Tests.java
 //import javafx.application.Platform;
 //import javafx.beans.property.IntegerProperty;
 //import javafx.scene.input.KeyCode;
@@ -85,7 +84,6 @@
 //
 //    }
 //}
-=======
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
 import javafx.scene.input.KeyCode;
@@ -169,4 +167,3 @@ public class M4Tests extends ApplicationTest {
 
     }
 }
->>>>>>> 69a96a33484e6e871d5a6c4d1727f562cf3989a6:tests/M4Tests.java

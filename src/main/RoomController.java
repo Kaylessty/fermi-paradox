@@ -19,7 +19,6 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
-import sun.reflect.generics.tree.Tree;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -354,14 +353,12 @@ public class RoomController {
      * @param item Item the player picks up
      */
     public void pickUp(Item item) {
+        if (playerInventory.getMaximumCAPACITY() > playerInventory.getCurrHousingSpace() + item.getSize()) {
         playerInventory.addItem(item);
         inv.getItems().add(item);
         int[] pos;
         pos = item.getLocation();
         currRoom.removeObject(pos[0], pos[1]);
-        if(playerInventory.getMaximumCAPACITY() > playerInventory.getCurrHousingSpace() + item.getSize()) {
-            pos = item.getLocation();
-            currRoom.removeObject(pos[0], pos[1]);
             //displayRoom();
         } else {
             int[] loc = player1.getLocation();
@@ -399,7 +396,6 @@ public class RoomController {
 
 
     public void attack(Monster monster) {
-        //System.out.println("Player attacking?");
         refreshRoom();
         boolean foundMonster = false;
         if (inv.getValue() != null) {
@@ -485,7 +481,6 @@ public class RoomController {
             }
         }
         if (!foundMonster) {
-            System.out.println("Recognized it's a shopkeeper");
             if(monster.getType().equals("Howard")) {
                 ChatScreenController.display(monster, playerInventory, ClownShop.getShopInv(), this);
             } else if(monster.getType().equals("Prowler")) {
