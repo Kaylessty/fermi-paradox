@@ -15,7 +15,7 @@ public abstract class Monster implements Locatable {
     private String[] talks;
     private String intro;
     private String talk;
-    private Boolean Boss = false;
+    private Boolean boss = false;
 
     public Monster() {
         x = 3 + generator.nextInt(14);
@@ -96,6 +96,6 @@ public abstract class Monster implements Locatable {
     }
 
     public Boolean getBoss() {
-        return Boss;
+        return boss;
     }
 }

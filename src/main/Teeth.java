@@ -8,7 +8,7 @@ public class Teeth extends Monster {
     private static final int ORIGINAL_HEALTH = 999999999;
     private Boolean boss = true;
     public Teeth() {
-        this(999999999,1);
+        this(999999999, 1);
     }
     public Teeth(int health, int speed) {
         this.health = health;
@@ -25,7 +25,7 @@ public class Teeth extends Monster {
         this.health -= amount;
         int currX = super.getLocation()[0];
         int currY = super.getLocation()[1];
-        super.setLocation(currX + knockback.dirX * 90, currY + knockback.dirY * 90);
+        super.setLocation(currX + knockback.getDirX() * 90, currY + knockback.getDirY() * 90);
     }
 
     @Override

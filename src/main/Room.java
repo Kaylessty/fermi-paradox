@@ -48,7 +48,7 @@ public class Room {
             for (int i = 0; i < cnum; i++) {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
-                addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+                addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate"), x, y);
             }
         }
         if (special == 12 || special == 11) {
@@ -94,7 +94,7 @@ public class Room {
                 int x = 1 + rNum.nextInt(17);
                 int y = 1 + rNum.nextInt(17);
                 if (getRoom()[x][y] == null) {
-                    addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate") , x, y);
+                    addObject(new Structure(Structure.Possession.CRATE, x, y, "Crate"), x, y);
                 }
             }
         }
@@ -153,8 +153,8 @@ public class Room {
                 creature.setHealth(2000);
                 creature.setDamage(4999);
             }
-            killThem[index] = creature;//********************************************************
-            room[creature.getLocation()[1]][creature.getLocation()[0]] = creature;//******************
+            killThem[index] = creature; //************************************
+            room[creature.getLocation()[1]][creature.getLocation()[0]] = creature;
         }
     }
 

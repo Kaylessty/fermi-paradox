@@ -1,6 +1,6 @@
 package main;
 
-import java.util.Random;
+
 
 public class Structure implements Locatable {
     private String name;

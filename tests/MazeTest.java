@@ -18,6 +18,7 @@
 //        assertEquals(maze.getRooms().length,maze.getRoomnum());
 //    }
 //    @Test
-//    public void portalRoom() { assertEquals(maze.getRooms()[(maze.getRooms().length)-2].getHasHatch(),false);}
+//    public void portalRoom() { assertEquals(
+//          maze.getRooms()[(maze.getRooms().length)-2].getHasHatch(),false);}
 //
 //}

@@ -1,35 +1,128 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-  </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ChatScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ChatScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ClownShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ClownShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Description.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Description.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/EngiShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/EngiShop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Inventory.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Inventory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Larry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Larry.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MathHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MathHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Monster.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Monster.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/PlatformHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PlatformHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ProwlerShop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ProwlerShop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Room.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Room.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Shop.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Structure.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Teeth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Teeth.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/TreeBore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/TreeBore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/ChatScreenController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/ChatScreenController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/ClownShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/ClownShop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Description.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Description.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/EngiShop.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/EngiShop.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Inventory.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Item$Possession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Item.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Larry.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Larry.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MathHelper$Direction.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MathHelper$Direction.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Monster1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Monster1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Monster2.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Monster2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Monster3.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Monster3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/PlatformHelper.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/ProwlerShop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Room.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Shop.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Structure$Possession.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Structure.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/Teeth.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Teeth.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/TreeBore.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/TreeBore.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/css/SecondScreen.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/AMMOBOX.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/A_ENERGYSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/A_SHOCKRIFLE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BALLOON_B.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BALLOON_G.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BALLOON_R.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BALLOON_Y.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BATTERYLV1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BATTERYLV2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BATTERYLV3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BATTERYLV4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BOREEYE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BOREHEART.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/BORESTAFF.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Borepit.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Borespike.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/CRATE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/DB_ENERGYSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/DB_SONICSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/ENERGYSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Engi.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Eyebore.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/G_BATTERY_LV1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/G_BATTERY_LV2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/G_BATTERY_LV3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/G_BATTERY_LV4.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/H_RIFLE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Horn.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Howard.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/ID.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/IMPROVISEDGUN.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/IMPROVISEDSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/LASER.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/PISTOL.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Prowler.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/RIFLE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SHADOWGAUNTLET.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SHADOWSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SHIELDGENERATOR_LV1.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SHIELDGENERATOR_LV2.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SHIELDGENERATOR_LV3.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SHOCKRIFLE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SONICCANNON.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SONICRIFLE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/SONICSWORD.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/TEAFFHIDE.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/TIMKEY.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/TOOTHBRUSH.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Teaff.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/Tim.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/door-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/exit_portal.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/initialscreen.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/new-door-down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/new-door-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/new-door-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/new-door-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/other-door.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/player-dead.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/player-down.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/player-left.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/player-right.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/player-up.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/resources/images/room_background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/configscreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/firstscreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/initialgamescreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/losescreen.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/view/roomcontroller.fxml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/MazeTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,65 +132,18 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="FxmlFile" />
         <option value="Class" />
       </list>
     </option>
   </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>changeRoom</find>
-    </findStrings>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectFrameBounds" extendedState="7">
-    <option name="x" value="-1659" />
-    <option name="y" value="-18" />
-    <option name="width" value="4221" />
-    <option name="height" value="1626" />
-  <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
-    <option name="importingSettings">
-      <MavenImportingSettings>
-        <option name="jdkForImporter" value="1.8" />
-        <option name="vmOptionsForImporter" value="-Xmx768m" />
-      </MavenImportingSettings>
-    </option>
-  </component>
-  <component name="ProjectId" id="1q4i10Igi9KHS2iqrkfUcJNEfbW" />
-  <component name="ProjectViewState">
-    <option name="hideEmptyMiddlePackages" value="true" />
-    <option name="showLibraryContents" value="true" />
-  </component>
   <component name="PropertiesComponent">
-    <property name="Downloaded.Files.Path.Enabled" value="true" />
-    <property name="Repository.Attach.Annotations" value="false" />
-    <property name="Repository.Attach.JavaDocs" value="false" />
-    <property name="Repository.Attach.Sources" value="false" />
-    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
-    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/AnimateFX-1.2.2.jar!/" />
-    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
-    <property name="settings.editor.selected.configurable" value="reference.settings.project.maven.importing" />
-  </component>
-  <component name="RecentsManager">
-    <key name="ExtractSuperBase.RECENT_KEYS">
-      <recent name="main" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="main" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/resources/images" />
-    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -125,75 +171,40 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest.testInvintory2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="tester" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="main.tester" />
       <module name="SpaceDungeon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
-      <option name="METHOD_NAME" value="testInvintory2" />
-      <option name="TEST_OBJECT" value="method" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="main.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest.testInvintory3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpaceDungeon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
-      <option name="METHOD_NAME" value="testInvintory3" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="M4_Tests.testMovement2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpaceDungeon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4_Tests" />
-      <option name="METHOD_NAME" value="testMovement2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="M4_Tests.testPlayerFaint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpaceDungeon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4_Tests" />
-      <option name="METHOD_NAME" value="testPlayerFaint" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <list>
-      <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
-      <item itemvalue="JUnit.M4_Tests.testMovement2" />
-      <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
-      <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
-    </list>
     <recent_temporary>
       <list>
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
-        <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
-        <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
-        <item itemvalue="JUnit.M4_Tests.testMovement2" />
+        <item itemvalue="Application.tester" />
       </list>
     </recent_temporary>
   </component>
-  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="ServiceViewManager">
+    <option name="allServicesViewState">
+      <serviceView>
+        <treeState>
+          <expand />
+          <select />
+        </treeState>
+      </serviceView>
+    </option>
+  </component>
   <component name="SvnConfiguration">
     <configuration />
   </component>
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="" />
-      <created>1616345047338</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1616345047338</updated>
-    </task>
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -208,78 +219,5 @@
         </entry>
       </map>
     </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1617343621282">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617343621282" />
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom" timestamp="1617948494070">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494070" />
-    <state width="1877" height="288" key="GridCell.Tab.0.center" timestamp="1617948494069">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494069" />
-    <state width="1877" height="288" key="GridCell.Tab.0.left" timestamp="1617948494068">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494068" />
-    <state width="1877" height="288" key="GridCell.Tab.0.right" timestamp="1617948494070">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494070" />
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom" timestamp="1617945732544">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1877" height="348" key="GridCell.Tab.1.center" timestamp="1617945732544">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1877" height="348" key="GridCell.Tab.1.left" timestamp="1617945732544">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1877" height="348" key="GridCell.Tab.1.right" timestamp="1617945732544">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1617215001091">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617215001091" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1617345755078">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1616515016749" />
-    <state x="163" y="0" key="SettingsEditor" timestamp="1616553897995">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1616553897995" />
-    <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1616429236505">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="391" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616429236505" />
-    <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1616432556628">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1616432556628" />
-    <option name="oldMeFiltersMigrated" value="true" />
-
-    <state x="616" y="240" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617345755078" />
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/RoomController.java</url>
-          <line>482</line>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
   </component>
 </project>

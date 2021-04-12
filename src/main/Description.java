@@ -1,21 +1,16 @@
 package main;
 
-import javafx.geometry.Pos;
+
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 
 /**
- * A temporary class to display the description of an item, will be replaced once we get a better UI
+ * A temporary class to display the description of an item,
+ * will be replaced once we get a better UI
  */
 public class Description {
     public static void display(Item ite) {
@@ -31,7 +26,7 @@ public class Description {
         t.setWrappingWidth(400);
         screen.getChildren().add(t);
         ScrollPane scroll = new ScrollPane(screen);
-        Scene scene = new Scene(scroll,400, 300);
+        Scene scene = new Scene(scroll, 400, 300);
         window.setScene(scene);
         window.showAndWait();
     }

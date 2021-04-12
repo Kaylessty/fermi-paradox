@@ -11,7 +11,7 @@ public class Larry extends Monster {
     private Boolean boss = true;
     private Random rNum = new Random();
     public Larry() {
-        this(999999999,1);
+        this(999999999, 1);
     }
     public Larry(int health, int speed) {
         this.health = health;
@@ -29,7 +29,7 @@ public class Larry extends Monster {
         this.health -= amount;
         int currX = super.getLocation()[0];
         int currY = super.getLocation()[1];
-        super.setLocation(currX + knockback.dirX * 90, currY + knockback.dirY * 90);
+        super.setLocation(currX + knockback.getDirX() * 90, currY + knockback.getDirY() * 90);
     }
 
     @Override
