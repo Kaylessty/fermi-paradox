@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-import javafx.stage.Stage;
+//import javafx.stage.Stage;
 
 public class MonsterController {
 
@@ -31,14 +31,15 @@ public class MonsterController {
     private Random rNum = new Random();
     private RoomController con;
     private Scene scene;
+    private ImageView monsterView;
 
 
     // This default constructor should not be used
     private MonsterController() {
     }
 
-    public MonsterController(Monster monster, Scene scene, Pane root, Stage stage, Player user,
-                             Room room, RoomController con) {
+    public MonsterController(Monster monster, Scene scene, Pane root, Player user,
+                             Room room, RoomController con, ImageView monsterView) {
         thisMonster = monster;
         timer = new Timer();
         scene1 = scene;
@@ -47,6 +48,7 @@ public class MonsterController {
         this.user = user;
         this.room = room;
         this.con = con;
+        this.monsterView = monsterView;
         attack();
     }
 
@@ -176,6 +178,9 @@ public class MonsterController {
                 thisMonster.setLocation(monstX, monstY);
                 room.addObject(thisMonster,
                         thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+
+                monsterView.setX(monstX * 32 + 210);
+                monsterView.setY(monstY * 32);
             }
         }
 
@@ -213,6 +218,8 @@ public class MonsterController {
                 thisMonster.setLocation(monstX, monstY);
                 room.addObject(thisMonster,
                         thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                monsterView.setX(monstX * 32 + 210);
+                monsterView.setY(monstY * 32);
             }
         }
 
@@ -367,6 +374,8 @@ public class MonsterController {
                     thisMonster.setLocation(monstX, monstY);
                     room.addObject(thisMonster,
                             thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                    monsterView.setX(monstX * 32 + 210);
+                    monsterView.setY(monstY * 32);
                 }
             } catch (Exception e) {
 
