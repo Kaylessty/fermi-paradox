@@ -16,7 +16,7 @@ public class M5InventoryTest {
     @Test
     public void testInventoryAttackPotion() {
         Inventory inv = new Inventory();
-        Item it = new Item(Item.Possession.HORN, 4, 11, "HORN");
+        Item it = new Item(Item.Possession.G_BATTERYLV3, 4, 11, "Gun Battery");
         inv.addItem(it);
         assertEquals(inv.getItem(0), it);
     }
