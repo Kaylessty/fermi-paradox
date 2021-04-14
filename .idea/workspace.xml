@@ -24,25 +24,9 @@
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ConfigScreenM3Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4MegaTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/M4Tests.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/M4Tests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/RoomDisplayTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4InvintoryTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4MegaTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4MegaTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/RoomDisplayTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/RoomDisplayTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M5InventoryTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,8 +37,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
-        <option value="Class" />
         <option value="JUnit4 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -62,11 +46,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="1.8" />
@@ -107,7 +86,7 @@
       <recent name="$PROJECT_DIR$/src/resources/images" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.Main">
+  <component name="RunManager" selected="JUnit.M5StartingWeaponsTest">
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="SpaceDungeon" />
@@ -121,87 +100,58 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="M5StartingWeaponsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
+      <option name="MAIN_CLASS_NAME" value="M5StartingWeaponsTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest.testInvintory2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="M5StartingWeaponsTest.testStartingSwordSpawn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
-      <option name="METHOD_NAME" value="testInvintory2" />
+      <option name="MAIN_CLASS_NAME" value="M5StartingWeaponsTest" />
+      <option name="METHOD_NAME" value="testStartingSwordSpawn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest.testInvintory3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShopInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
-      <option name="METHOD_NAME" value="testInvintory3" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4Tests.testPlayerFaint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShopInteractionsTest.testSellingItemMultipleTimes (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4Tests" />
-      <option name="METHOD_NAME" value="testPlayerFaint" />
+      <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
+      <option name="METHOD_NAME" value="testSellingItemMultipleTimes" />
       <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShopInteractionsTest.testBankruptPurchase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShopInteractionsTest.testPurchase" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShopInteractionsTest.testSellingItem" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ShopInteractionsTest.testSellingItemMultipleTimes" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.ShopInteractionsTest.testPurchase" />
-      <item itemvalue="JUnit.ShopInteractionsTest.testBankruptPurchase" />
-      <item itemvalue="JUnit.ShopInteractionsTest.testSellingItem" />
-      <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes" />
-      <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
-      <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
-      <item itemvalue="JUnit.M4Tests.testPlayerFaint" />
-      <item itemvalue="JUnit.M4InvintoryTest" />
+      <item itemvalue="JUnit.ShopInteractionsTest" />
+      <item itemvalue="JUnit.M5StartingWeaponsTest.testStartingSwordSpawn" />
+      <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes (1)" />
+      <item itemvalue="JUnit.M5StartingWeaponsTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.M5StartingWeaponsTest" />
+        <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes (1)" />
+        <item itemvalue="JUnit.M5StartingWeaponsTest.testStartingSwordSpawn" />
+        <item itemvalue="JUnit.ShopInteractionsTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes" />
-        <item itemvalue="JUnit.ShopInteractionsTest.testSellingItem" />
-        <item itemvalue="JUnit.ShopInteractionsTest.testBankruptPurchase" />
-        <item itemvalue="JUnit.ShopInteractionsTest.testPurchase" />
       </list>
     </recent_temporary>
   </component>
@@ -217,7 +167,7 @@
       </list>
     </option>
   </component>
-  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -236,100 +186,11 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="COLUMN_ORDER" />
-            </State>
+            <State />
           </value>
         </entry>
       </map>
     </option>
-  </component>
-  <component name="WindowStateProjectService">
-    <state x="286" y="33" key="#ShopInteractionsTest.testSellingItemMultipleTimes" timestamp="1618234084925">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="286" y="33" key="#ShopInteractionsTest.testSellingItemMultipleTimes/0.0.1366.728@0.0.1366.728" timestamp="1618234084925" />
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1617343621282">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617343621282" />
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog" timestamp="1618190894698">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="92" width="1182" height="544" key="DiffContextDialog/0.0.1366.728@0.0.1366.728" timestamp="1618190894698" />
-    <state x="325" y="143" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1616803620850" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1618234250928">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494070" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618234250928" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1618234250927">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494069" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1618234250927" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1618234250927">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494068" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1618234250927" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1618234250928">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617948494070" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1618234250928" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom" timestamp="1618187001570">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1323" height="223" key="GridCell.Tab.1.bottom/0.0.1366.728@0.0.1366.728" timestamp="1618187001570" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center" timestamp="1618187001569">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1323" height="223" key="GridCell.Tab.1.center/0.0.1366.728@0.0.1366.728" timestamp="1618187001569" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left" timestamp="1618187001569">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1323" height="223" key="GridCell.Tab.1.left/0.0.1366.728@0.0.1366.728" timestamp="1618187001569" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right" timestamp="1618187001569">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state width="1877" height="348" key="GridCell.Tab.1.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617945732544" />
-    <state width="1323" height="223" key="GridCell.Tab.1.right/0.0.1366.728@0.0.1366.728" timestamp="1618187001569" />
-    <state x="213" y="23" key="Maven.ArtifactSearchDialog" timestamp="1616804248519">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="213" y="23" key="Maven.ArtifactSearchDialog/0.0.1366.728@0.0.1366.728" timestamp="1616804248519" />
-    <state x="440" y="94" key="SettingsEditor" timestamp="1617215001091">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="440" y="94" key="SettingsEditor/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617215001091" />
-    <state x="163" y="0" key="SettingsEditor/0.0.1366.728@0.0.1366.728" timestamp="1617134988846" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog" timestamp="1618190894699">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.DirectoryHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1618190894699" />
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1618186337295">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="92" y="92" width="1182" height="544" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1366.728@0.0.1366.728" timestamp="1618186337295" />
-    <state x="391" y="193" key="com.intellij.ide.util.TipDialog" timestamp="1616845707281">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="391" y="193" key="com.intellij.ide.util.TipDialog/0.0.1366.728@0.0.1366.728" timestamp="1616845707281" />
-    <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD" timestamp="1617134687537">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="387" y="266" key="com.intellij.jarRepository.RepositoryAttachDialog-DOWNLOAD/0.0.1366.728@0.0.1366.728" timestamp="1617134687537" />
-    <state x="454" y="85" key="com.intellij.testIntegration.createTest.CreateTestDialog" timestamp="1618106181397">
-      <screen x="0" y="0" width="1366" height="728" />
-    </state>
-    <state x="454" y="85" key="com.intellij.testIntegration.createTest.CreateTestDialog/0.0.1366.728@0.0.1366.728" timestamp="1618106181397" />
-    <state x="616" y="240" key="run.anything.popup" timestamp="1617345755078">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state x="616" y="240" key="run.anything.popup/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1617345755078" />
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
 </project>
