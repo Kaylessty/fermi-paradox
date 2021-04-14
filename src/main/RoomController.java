@@ -1,5 +1,6 @@
 package main;
 
+//import javafx.application.Platform;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
@@ -394,9 +395,11 @@ public class RoomController {
             int[] pos;
             pos = item.getLocation();
             currRoom.removeObject(pos[0], pos[1]);
-            root.getChildren().remove(itemsInRoom.get(item));
+            //Platform.runLater(() -> root.getChildren().remove(itemsInRoom.get(item)));
+            //System.out.println("here");
+            //root.getChildren().remove(itemsInRoom.get(item));
             itemsInRoom.remove(item);
-            //displayRoom();
+            refreshRoom();
         } else {
             int[] loc = player1.getLocation();
             loc[1] = loc[1] - 2;
@@ -508,6 +511,7 @@ public class RoomController {
                     System.out.println("Monster killed");
                     if (monster.getBoss()) {
                         currRoom.setHasHatch(true);
+                        //refreshRoom();
                     }
                     //refreshRoom();
                     monster.getDrop().setPosition(monster.getLocation());
@@ -515,11 +519,12 @@ public class RoomController {
                             monster.getDrop(),
                             monster.getLocation()[0],
                             monster.getLocation()[1]);
-                    itemsInRoom.put(monster.getDrop(),
-                            new ImageView(monster.getDrop().getImageURL()));
-                    itemsInRoom.get(monster.getDrop()).setX(monster.getLocation()[0] * 32 + 210);
-                    itemsInRoom.get(monster.getDrop()).setY(monster.getLocation()[1] * 32);
-                    root.getChildren().add(itemsInRoom.get(monster.getDrop()));
+                    //itemsInRoom.put(monster.getDrop(),
+                    //        new ImageView(monster.getDrop().getImageURL()));
+                    //itemsInRoom.get(monster.getDrop()).setX(monster.getLocation()[0] * 32 + 210);
+                    //itemsInRoom.get(monster.getDrop()).setY(monster.getLocation()[1] * 32);
+                    //root.getChildren().add(itemsInRoom.get(monster.getDrop()));
+                    refreshRoom();
 
                     currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
                     if (currRoom.getMonsterNum() == 0) {
