@@ -27,8 +27,12 @@
       <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$innerClass.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
     </list>
-    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
