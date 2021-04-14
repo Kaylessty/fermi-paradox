@@ -22,5 +22,7 @@ hs_err_pid*
 
 out/
 
+target/
+
 .idea/
 checkstyle-*.jar
