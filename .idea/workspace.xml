@@ -24,6 +24,7 @@
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+<<<<<<< HEAD
       <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
@@ -32,6 +33,11 @@
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
+=======
+      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4InvintoryTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/tests/M4InvintoryTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M5InventoryTest.java" afterDir="false" />
+>>>>>>> a4da862a34cd39fc285f2b66f73a8e211355501d
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,6 +48,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="FxmlFile" />
+        <option value="JUnit4 Test Class" />
         <option value="Class" />
       </list>
     </option>
@@ -50,11 +57,6 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
-    <option name="generalSettings">
-      <MavenGeneralSettings>
-        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
-      </MavenGeneralSettings>
-    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="1.8" />
@@ -73,6 +75,8 @@
     <property name="Repository.Attach.JavaDocs" value="false" />
     <property name="Repository.Attach.Sources" value="false" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrary" value="JUnit4" />
+    <property name="com.intellij.testIntegration.createTest.CreateTestDialog.defaultLibrarySuperClass.JUnit4" value="" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/AnimateFX-1.2.2.jar!/" />
     <property name="project.structure.last.edited" value="Global Libraries" />
     <property name="project.structure.proportion" value="0.15" />
@@ -80,13 +84,20 @@
     <property name="settings.editor.selected.configurable" value="MavenSettings" />
   </component>
   <component name="RecentsManager">
+    <key name="CreateTestDialog.RecentsKey">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
       <recent name="main" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/resources/images" />
     </key>
   </component>
+<<<<<<< HEAD
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -100,6 +111,9 @@
     </option>
   </component>
   <component name="RunManager" selected="Application.Main">
+=======
+  <component name="RunManager" selected="JUnit.M5StartingWeaponsTest">
+>>>>>>> a4da862a34cd39fc285f2b66f73a8e211355501d
     <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="main.Main" />
       <module name="SpaceDungeon" />
@@ -113,41 +127,39 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest.testInvintory2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="M5StartingWeaponsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
-      <option name="METHOD_NAME" value="testInvintory2" />
+      <option name="MAIN_CLASS_NAME" value="M5StartingWeaponsTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="M5StartingWeaponsTest.testStartingSwordSpawn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SpaceDungeon" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="M5StartingWeaponsTest" />
+      <option name="METHOD_NAME" value="testStartingSwordSpawn" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4InvintoryTest.testInvintory3" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShopInteractionsTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4InvintoryTest" />
-      <option name="METHOD_NAME" value="testInvintory3" />
-      <option name="TEST_OBJECT" value="method" />
+      <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="M4_Tests.testMovement2" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="ShopInteractionsTest.testSellingItemMultipleTimes (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="SpaceDungeon" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4_Tests" />
-      <option name="METHOD_NAME" value="testMovement2" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="M4_Tests.testPlayerFaint" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="SpaceDungeon" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="M4_Tests" />
-      <option name="METHOD_NAME" value="testPlayerFaint" />
+      <option name="MAIN_CLASS_NAME" value="ShopInteractionsTest" />
+      <option name="METHOD_NAME" value="testSellingItemMultipleTimes" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -155,22 +167,38 @@
     </configuration>
     <list>
       <item itemvalue="Application.Main" />
-      <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
-      <item itemvalue="JUnit.M4_Tests.testMovement2" />
-      <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
-      <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
+      <item itemvalue="JUnit.ShopInteractionsTest" />
+      <item itemvalue="JUnit.M5StartingWeaponsTest.testStartingSwordSpawn" />
+      <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes (1)" />
+      <item itemvalue="JUnit.M5StartingWeaponsTest" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.M5StartingWeaponsTest" />
+        <item itemvalue="JUnit.ShopInteractionsTest.testSellingItemMultipleTimes (1)" />
+        <item itemvalue="JUnit.M5StartingWeaponsTest.testStartingSwordSpawn" />
+        <item itemvalue="JUnit.ShopInteractionsTest" />
         <item itemvalue="Application.Main" />
-        <item itemvalue="JUnit.M4_Tests.testPlayerFaint" />
-        <item itemvalue="JUnit.M4InvintoryTest.testInvintory3" />
-        <item itemvalue="JUnit.M4InvintoryTest.testInvintory2" />
-        <item itemvalue="JUnit.M4_Tests.testMovement2" />
       </list>
     </recent_temporary>
   </component>
+<<<<<<< HEAD
   <component name="SpellCheckerSettings" BundledDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
+=======
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand />
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="false" />
+>>>>>>> a4da862a34cd39fc285f2b66f73a8e211355501d
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -197,6 +225,7 @@
       </map>
     </option>
   </component>
+<<<<<<< HEAD
   <component name="WindowStateProjectService">
     <state x="765" y="226" key="#com.intellij.ide.util.MemberChooser" timestamp="1617343621282">
       <screen x="0" y="0" width="1920" height="1040" />
@@ -254,4 +283,6 @@
       </breakpoints>
     </breakpoint-manager>
   </component>
+=======
+>>>>>>> a4da862a34cd39fc285f2b66f73a8e211355501d
 </project>

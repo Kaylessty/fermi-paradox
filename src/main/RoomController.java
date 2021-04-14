@@ -4,6 +4,7 @@ package main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -39,17 +40,21 @@ public class RoomController {
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
+
+    @FXML
     private ChoiceBox<Item> inv;
+
     private Inventory playerInventory;
     private Player player1;
     private Monster[] monstersInRoom;
     private MonsterController[] monsterControllers;
     private List<Node> keepTrack;
     private Item dropped;
-    private boolean prowlerL = true;
-    private boolean howardL = true;
-    private boolean engiL = true;
     private boolean gauntlet = false;
+    private boolean engiL;
+    private boolean howardL;
+    private boolean prowlerL;
+    private boolean foundMonster = false;
     private boolean heart = false;
     private ImageView playerView;
     private HashMap<Item, ImageView> itemsInRoom;
@@ -277,7 +282,6 @@ public class RoomController {
         // Remove Player from previous room
         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
         //check which room we should be changing to, could be an issue with room equality
-        //System.out.println(door.getRoomA().getRoomName());
         if (currRoom.equals(door.getRoomA())) {
             currRoom = door.getRoomB();
         } else {
@@ -349,18 +353,10 @@ public class RoomController {
      * This method this refreshes the current room
      */
     private void refreshRoom() {
-
-        //System.out.println("refresh room");
-        // each scene needs its own group
-        //root = new BorderPane();
         root.getChildren().removeAll(keepTrack);
         //root.getChildren().add(pillar);//******************************
+
         displayRoom();
-        //scene1 = new Scene(root, 800, 600);
-        //theStage.setScene(scene1);
-        //theStage.show();
-        //System.out.println("Number of monsters: " + currRoom.getMonsterNum());
-        // that changed the room
     }
 
     /**
@@ -440,12 +436,12 @@ public class RoomController {
     }
 
 
+
     public void attack(Monster monster, ImageView monsterView) {
         //refreshRoom();
         if (inv.getValue() != null) {
             Item.Possession carrying = inv.getValue().getPossession();
             int range = carrying.getRange();
-            boolean foundMonster = false;
             // Iterating over the monsters in the room
             // if player is close enough to a monster
             double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
@@ -453,6 +449,7 @@ public class RoomController {
             if (monster instanceof Larry || monster instanceof TreeBore) {
                 distance = distance - 5;
             }
+
             if (distance <= range
                     || (inv.getValue().getImageURL() == "resources/images/SHADOWSWORD.png"
                     && distance == 5)) {
@@ -500,6 +497,7 @@ public class RoomController {
                     // Remove monster
                     currRoom.removeObject(monster.getLocation()[0],
                             monster.getLocation()[1]);
+
                     root.getChildren().remove(monsterView);
                     if (monster.getType() == "Prowler") {
                         prowlerL = false;

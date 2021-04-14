@@ -5,6 +5,8 @@ import javafx.application.Platform;
 
 import javafx.fxml.FXMLLoader;
 
+import javafx.application.Platform;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -12,15 +14,13 @@ import javafx.scene.layout.Pane;
 
 import java.io.IOException;
 import java.util.Random;
-import java.util.Timer;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
-//import javafx.stage.Stage;
 
 public class MonsterController {
 
     private Monster thisMonster;
-    private Timer timer;
+    private java.util.Timer timer;
     private TimerTask timerTask;
     private Scene scene1;
     private Pane root;
@@ -41,7 +41,7 @@ public class MonsterController {
     public MonsterController(Monster monster, Scene scene, Pane root, Player user,
                              Room room, RoomController con, ImageView monsterView) {
         thisMonster = monster;
-        timer = new Timer();
+        timer = new java.util.Timer();
         scene1 = scene;
         this.root = root;
         //theStage = stage;
@@ -54,7 +54,7 @@ public class MonsterController {
 
     public void attack() {
         if (thisMonster.getHealth() > 0) {
-            timerTask = new InnerClass();
+            timerTask = new Timer();
             timer.scheduleAtFixedRate(timerTask, 0, 500);
         } else {
             timer.cancel();
@@ -115,7 +115,8 @@ public class MonsterController {
 
     }
 
-    class InnerClass extends TimerTask {
+
+    class Timer extends TimerTask {
         public void run() {
             if (thisMonster.getHealth() <= 0) {
                 timer.cancel();
@@ -183,7 +184,6 @@ public class MonsterController {
                 monsterView.setY(monstY * 32);
             }
         }
-
         private void runHoward() {
             int x = 0;
             int y = 0;

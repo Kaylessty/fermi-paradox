@@ -21,8 +21,8 @@ public class Shop {
         window.initModality(Modality.APPLICATION_MODAL);
         window.setMinWidth(470);
         window.setMaxWidth(470);
-        window.setMaxHeight(800);
-        window.setMinHeight(800);
+        window.setMaxHeight(600);
+        window.setMinHeight(600);
         VBox shopv = new VBox(10);
         Label titel = new Label("Buy");
         shopv.getChildren().add(titel);
