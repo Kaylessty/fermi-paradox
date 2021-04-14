@@ -68,6 +68,9 @@ public class RoomController {
         //Create the maze
         theMaze = new Maze();
         lastDoor = null;
+        engiL = true;
+        howardL = true;
+        prowlerL = true;
         currRoom = theMaze.getRooms()[0];
         //this is to test
         currRoom.addObject(new Item(Item.Possession.IMPROVISEDSWORD, 4, 11,
@@ -216,7 +219,7 @@ public class RoomController {
                             if (gauntlet) {
                                 pictureView.setOnMouseClicked(e -> {
                                     pickUp((Item) important);
-                                    //refreshRoom();
+                                    refreshRoom();
                                 });
                                 itemsInRoom.put((Item) important, pictureView);
                             }
@@ -403,6 +406,7 @@ public class RoomController {
             currRoom.addObject(new Item(item.getPossession(), loc[0], loc[1],
                     item.getName()), loc[0], loc[1]);
         }
+        refreshRoom();
     }
 
     public void drop() {
@@ -415,10 +419,10 @@ public class RoomController {
         toDrop.setPosition(loc);
         currRoom.addObject(new Item(toDrop.getPossession(), loc[0], loc[1],
                 toDrop.getName()), loc[0], loc[1]);
-        itemsInRoom.put(toDrop, new ImageView(toDrop.getImageURL()));
-        itemsInRoom.get(toDrop).setX(loc[0] * 32 + 210);
-        itemsInRoom.get(toDrop).setY(loc[1] * 32);
-        root.getChildren().add(itemsInRoom.get(toDrop));
+//        itemsInRoom.put(toDrop, new ImageView(toDrop.getImageURL()));
+//        itemsInRoom.get(toDrop).setX(loc[0] * 32 + 210);
+//        itemsInRoom.get(toDrop).setY(loc[1] * 32);
+//        root.getChildren().add(itemsInRoom.get(toDrop));
     }
 
     public void remove(Item toRemove) {
@@ -440,6 +444,7 @@ public class RoomController {
     public void attack(Monster monster, ImageView monsterView) {
         //refreshRoom();
         if (inv.getValue() != null) {
+            refreshRoom();
             Item.Possession carrying = inv.getValue().getPossession();
             int range = carrying.getRange();
             // Iterating over the monsters in the room
@@ -509,7 +514,7 @@ public class RoomController {
                     System.out.println("Monster killed");
                     if (monster.getBoss()) {
                         currRoom.setHasHatch(true);
-                        //refreshRoom();
+                        refreshRoom();
                     }
                     //refreshRoom();
                     monster.getDrop().setPosition(monster.getLocation());
@@ -522,8 +527,6 @@ public class RoomController {
                     //itemsInRoom.get(monster.getDrop()).setX(monster.getLocation()[0] * 32 + 210);
                     //itemsInRoom.get(monster.getDrop()).setY(monster.getLocation()[1] * 32);
                     //root.getChildren().add(itemsInRoom.get(monster.getDrop()));
-                    refreshRoom();
-
                     currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
                     if (currRoom.getMonsterNum() == 0) {
                         // Iterate over all doors and unlock them
@@ -580,7 +583,7 @@ public class RoomController {
                     && inv.getValue() != null
                     && inv.getValue() != dropped) {
                 drop();
-                //refreshRoom();
+                refreshRoom();
             } else if (e.getCode() == KeyCode.P) {
                 handleP();
 
@@ -593,6 +596,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1] - 1][pos[0]]);
+                            refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
@@ -614,6 +618,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1] + 1][pos[0]]);
+                            refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
@@ -635,6 +640,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1]][pos[0] + 1]);
+                            refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] + 1,
@@ -656,6 +662,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1]][pos[0] - 1]);
+                            refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] - 1,
@@ -708,29 +715,26 @@ public class RoomController {
             Item temp = new Item(Item.Possession.A_ENERGYSWORD, 2, 2,
                     "Annihilative Energy Sword");
             currRoom.addObject(temp, 2, 2);
-            itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
-            itemsInRoom.get(temp).setX(2 * 32 + 210);
-            itemsInRoom.get(temp).setY(2 * 32);
-            root.getChildren().add(itemsInRoom.get(temp));
-
+//            itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
+//            itemsInRoom.get(temp).setX(2 * 32 + 210);
+//            itemsInRoom.get(temp).setY(2 * 32);
+//            root.getChildren().add(itemsInRoom.get(temp));
             temp = new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
                     "Annihilative Shock Rifle");
             currRoom.addObject(temp, 6, 10);
-            itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
-            itemsInRoom.get(temp).setX(6 * 32 + 210);
-            itemsInRoom.get(temp).setY(10 * 32);
-            root.getChildren().add(itemsInRoom.get(temp));
-
+//            itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
+//            itemsInRoom.get(temp).setX(6 * 32 + 210);
+//            itemsInRoom.get(temp).setY(10 * 32);
+//            root.getChildren().add(itemsInRoom.get(temp));
             temp = new Item(Item.Possession.AAID, 9, 10,
                     "Administrator ID");
             currRoom.addObject(temp, 9, 10);
             currRoom.addObject(temp, 9, 10);
-            itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
-            itemsInRoom.get(temp).setX(9 * 32 + 210);
-            itemsInRoom.get(temp).setY(10 * 32);
-            root.getChildren().add(itemsInRoom.get(temp));
-
-            //refreshRoom();
+//            itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
+//            itemsInRoom.get(temp).setX(9 * 32 + 210);
+//            itemsInRoom.get(temp).setY(10 * 32);
+//            root.getChildren().add(itemsInRoom.get(temp));
+            refreshRoom();
         }
     }
 
