@@ -3,12 +3,10 @@ import javafx.stage.Stage;
 import main.ClownShop;
 import main.Item;
 import main.Main;
-import main.Monster;
 import main.Player;
 import main.ProwlerShop;
 import org.junit.Test;
 import org.junit.Before;
-import org.junit.After;
 import org.testfx.api.FxRobot;
 import org.testfx.framework.junit.ApplicationTest;
 import static org.junit.Assert.assertEquals;
@@ -18,8 +16,8 @@ import static org.testfx.matcher.base.NodeMatchers.isVisible;
 
 public class ShopInteractionsTest extends ApplicationTest {
 
-    FxRobot robot;
-    Stage primaryStage;
+    private FxRobot robot;
+    private Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {
@@ -54,8 +52,9 @@ public class ShopInteractionsTest extends ApplicationTest {
         ClownShop shop = new ClownShop();
         shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         clickOn("Shop");
         Item[] contents = shop.getShopInv();
         String query = contents[0].getName() + ": " + contents[0].getBuyPrice();
@@ -71,8 +70,9 @@ public class ShopInteractionsTest extends ApplicationTest {
         shop.setLocation(8, 7);
         Player.getRoom().addMonster(shop, 100, 0);
         //Player.setBalance(5);// Creates thread errors
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         clickOn("Shop");
         Item[] contents = shop.getShopInv();
         String query = contents[1].getName() + ": " + contents[1].getBuyPrice();
@@ -90,8 +90,9 @@ public class ShopInteractionsTest extends ApplicationTest {
         ClownShop shop = new ClownShop();
         shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         clickOn("Shop");
         String query = toSell.getName() + ": " + toSell.getSellPrice();
         int expected = Player.getBalance().get() + toSell.getSellPrice();
@@ -108,8 +109,9 @@ public class ShopInteractionsTest extends ApplicationTest {
         ClownShop shop = new ClownShop();
         shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         clickOn("Shop");
         String query = toSell.getName() + ": " + toSell.getSellPrice();
         clickOn(query);

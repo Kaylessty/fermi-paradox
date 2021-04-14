@@ -9,7 +9,7 @@ import static org.junit.Assert.assertNotNull;
 
 
 public class M5StartingWeaponsTest extends ApplicationTest {
-    Stage primaryStage;
+    private Stage primaryStage;
 
     @Override
     public void start(Stage primaryStage) throws Exception {

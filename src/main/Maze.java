@@ -30,11 +30,7 @@ public class Maze {
     }
     /**
      * Creates a maze and fills it with a random number between 10 and 20 random rooms.
-<<<<<<< HEAD
      * @return boolean, 1 on success, 0 on fail
-=======
-     * @return a boolean
->>>>>>> a4da862a34cd39fc285f2b66f73a8e211355501d
      */
     private boolean mazeMaker() {
         roomnum = 26 + rNum.nextInt(10);
