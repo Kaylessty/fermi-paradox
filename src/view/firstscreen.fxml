@@ -1,25 +1,26 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.FirstScreenController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.FirstScreenController">
    <children>
       <VBox alignment="TOP_CENTER" prefHeight="600.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/Background.png&quot;);">
          <children>
-            <Label alignment="TOP_CENTER" prefHeight="62.0" prefWidth="434.0" text="Space Game!" textAlignment="CENTER">
+            <Label alignment="TOP_CENTER" prefHeight="96.0" prefWidth="516.0" text="The Fermi Paradox" textAlignment="CENTER" textFill="#7c90ff">
                <font>
-                  <Font name="Lao MN" size="40.0" />
+                  <Font name="Copperplate Gothic Light" size="50.0" />
                </font>
             </Label>
-            <Button fx:id="newButton" mnemonicParsing="false" onAction="#goToConfigScreen" text="New Game">
+            <Button fx:id="newButton" mnemonicParsing="false" onAction="#goToConfigScreen" prefHeight="42.0" prefWidth="162.0" text="New Game" textFill="#3a13ff">
                <font>
-                  <Font name="Lao MN" size="13.0" />
+                  <Font name="Copperplate Gothic Light" size="21.0" />
                </font></Button>
-            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#endGame" text="Exit Game">
+            <Button fx:id="exitButton" mnemonicParsing="false" onAction="#endGame" prefHeight="29.0" prefWidth="161.0" text="Exit Game" textFill="#181bff">
                <font>
-                  <Font name="Lao MN" size="13.0" />
+                  <Font name="Copperplate Gothic Light" size="22.0" />
                </font></Button>
          </children>
       </VBox>

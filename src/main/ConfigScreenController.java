@@ -84,18 +84,18 @@ public class ConfigScreenController {
                     Player.setStrength(600);
                 }
                 if (((RadioButton)
-                        (weapons.getSelectedToggle())).getText().equals("Blaster")) {
+                        (weapons.getSelectedToggle())).getText().equals("Laser")) {
                     Maze.setStartItem(new Item(Item.Possession.LASER, 4, 4,
                             "Laser"));
                     // else if the difficulty is "amateur"
                 } else if (((RadioButton)
-                        (weapons.getSelectedToggle())).getText().equals("Space Sword")
+                        (weapons.getSelectedToggle())).getText().equals("Energy Sword")
                 ) {
                     Maze.setStartItem(new Item(Item.Possession.ENERGYSWORD, 4, 4,
                             "Energy Sword"));
                     // else if the difficulty is "hard"
                 } else if (((RadioButton)
-                        (weapons.getSelectedToggle())).getText().equals("Sonar Gun")
+                        (weapons.getSelectedToggle())).getText().equals("Sonic Rifle")
                 ) {
                     Maze.setStartItem(new Item(Item.Possession.SONICRIFLE, 4, 4,
                             "Sonic Rifle"));

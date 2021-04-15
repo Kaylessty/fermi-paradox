@@ -37,7 +37,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception {
         stage = primaryStage;
-        stage.setTitle("Elon Musk: Alien Destroyer");
+        stage.setTitle("Fermi Paradox");
         stage.setScene(new Scene(rootNode, 800, 600));
         stage.show();
     }

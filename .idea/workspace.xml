@@ -24,10 +24,14 @@
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/resources/images/Background.png" beforeDir="false" afterPath="$PROJECT_DIR$/src/resources/images/Background.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/configscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/configscreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/firstscreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
@@ -194,29 +198,33 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom" timestamp="1618420791586">
+    <state x="740" y="261" key="FileChooserDialogImpl" timestamp="1618463187226">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618420791586" />
-    <state width="1877" height="288" key="GridCell.Tab.0.center" timestamp="1618420791586">
+    <state x="740" y="261" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618463187226" />
+    <state width="1877" height="288" key="GridCell.Tab.0.bottom" timestamp="1618465086391">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618420791586" />
-    <state width="1877" height="288" key="GridCell.Tab.0.left" timestamp="1618420791586">
+    <state width="1877" height="288" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618465086391" />
+    <state width="1877" height="288" key="GridCell.Tab.0.center" timestamp="1618465086390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618420791586" />
-    <state width="1877" height="288" key="GridCell.Tab.0.right" timestamp="1618420791586">
+    <state width="1877" height="288" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618465086390" />
+    <state width="1877" height="288" key="GridCell.Tab.0.left" timestamp="1618465086390">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="288" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618420791586" />
+    <state width="1877" height="288" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618465086390" />
+    <state width="1877" height="288" key="GridCell.Tab.0.right" timestamp="1618465086390">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="288" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618465086390" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/RoomController.java</url>
-          <line>496</line>
+          <line>509</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

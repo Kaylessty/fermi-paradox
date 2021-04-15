@@ -164,7 +164,7 @@ public class MonsterController {
                     Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
                     System.out.println("Player's new damage: " + Player.getHealth().get());
                 });
-                if (Player.getHealth().get() <= 0) {
+                if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
                     timer.cancel();
                     playerLoses();
                 }
@@ -203,7 +203,7 @@ public class MonsterController {
                     System.out.println(
                             "Player's new damage: " + Player.getHealth().get());
                 });
-                if (Player.getHealth().get() <= 0) {
+                if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
                     timer.cancel();
                     playerLoses();
                 }
@@ -359,7 +359,7 @@ public class MonsterController {
                         System.out.println("Player's new damage: "
                                 + Player.getHealth().get());
                     });
-                    if (Player.getHealth().get() <= 0) {
+                    if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
                         timer.cancel();
                         playerLoses();
                     }

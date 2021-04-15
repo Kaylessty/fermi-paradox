@@ -23,6 +23,8 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import java.util.TimerTask;
+import java.util.concurrent.TimeUnit;
 
 public class RoomController {
 
@@ -40,6 +42,8 @@ public class RoomController {
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
+    private TimerTask timerTask;
+    private java.util.Timer timer;
 
     @FXML
     private ChoiceBox<Item> inv;
@@ -59,12 +63,12 @@ public class RoomController {
     private ImageView playerView;
     private HashMap<Item, ImageView> itemsInRoom;
 
+
     /**
      * This class controls the actions that occur within a room including keyEvents and
      * displaying the room
      */
     public RoomController() {
-
         //Create the maze
         theMaze = new Maze();
         lastDoor = null;
@@ -154,8 +158,18 @@ public class RoomController {
         scene1 = new Scene(root, 800, 600);
         monstersInRoom = currRoom.getMonsters();
         monsterControllers = new MonsterController[monstersInRoom.length];
+
+        //Timer
+//        timerTask = new Timer();
+//        timer.scheduleAtFixedRate(timerTask, 0, 500);
     }
 
+
+//    class Timer extends TimerTask {
+//        public void run() {
+//            refreshRoom();
+//        }
+//    }
     /*
     This method displays the current room on the scene.
      */
@@ -518,9 +532,8 @@ public class RoomController {
                     }
                     //refreshRoom();
                     monster.getDrop().setPosition(monster.getLocation());
-                    currRoom.addObject(
-                            monster.getDrop(),
-                            monster.getLocation()[0],
+                    currRoom.addObject(new Item(monster.getDrop().getPossession(), monster.getLocation()[0],
+                            monster.getLocation()[1], monster.getDrop().getName()), monster.getLocation()[0],
                             monster.getLocation()[1]);
                     //itemsInRoom.put(monster.getDrop(),
                     //        new ImageView(monster.getDrop().getImageURL()));
@@ -528,6 +541,7 @@ public class RoomController {
                     //itemsInRoom.get(monster.getDrop()).setY(monster.getLocation()[1] * 32);
                     //root.getChildren().add(itemsInRoom.get(monster.getDrop()));
                     currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
+                    refreshRoom();
                     if (currRoom.getMonsterNum() == 0) {
                         // Iterate over all doors and unlock them
                         for (Door pathway : currRoom.getDoors()) {
