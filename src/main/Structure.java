@@ -1,6 +1,7 @@
 package main;
 
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class Structure implements Locatable {
     private String name;
@@ -16,18 +17,40 @@ public class Structure implements Locatable {
      * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
      */
     public enum Possession  {
-        CRATE("Prop",
-                "resources/images/CRATE.png");
+        CRATE("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"),
+                "resources/images/CRATE.png", "resources/images/CRATE.png");
 
         private final String type;
+        private final Item loot;
         private final String imageURL;
+        private final String openURL;
+        private Boolean looted;
 
-        Possession(String type, String imageURL) {
+        Possession(String type, Item loot, String imageURL, String openURL) {
             this.type = type;
             this.imageURL = imageURL;
+            this.loot = loot;
+            this.openURL = openURL;
+            this.looted = false;
         }
         public String getimageURL() {
             return imageURL;
+        }
+
+        public Item getLoot() {
+            return loot;
+        }
+
+        public String getOpenURL() {
+            return openURL;
+        }
+
+        public Boolean getLooted() {
+            return looted;
+        }
+
+        public void setLooted(boolean looted) {
+            this.looted = looted;
         }
     }
 
@@ -84,6 +107,7 @@ public class Structure implements Locatable {
         return name;
     }
 
+    public Possession getPossession() {return thing;}
     /**
      * function to get the appropriate size of the item based on type
      * @return int size based on the item type
