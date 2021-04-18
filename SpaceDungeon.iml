@@ -1,10 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <module org.jetbrains.idea.maven.project.MavenProjectsManager.isMavenModule="true" type="JAVA_MODULE" version="4">
-  <component name="CheckStyle-IDEA-Module">
-    <option name="configuration">
-      <map />
-    </option>
-  </component>
   <component name="NewModuleRootManager" LANGUAGE_LEVEL="JDK_1_8">
     <output url="file://$MODULE_DIR$/target/classes" />
     <output-test url="file://$MODULE_DIR$/target/test-classes" />
@@ -19,17 +14,16 @@
     <orderEntry type="library" name="JavaFX 11 SDK" level="project" />
     <orderEntry type="library" name="io.github.typhon0:AnimateFX:1.2.2" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.2" level="project" />
-    <orderEntry type="library" name="org.testfx:testfx-core:4.0.15-alpha" level="project" />
     <orderEntry type="library" name="org.testfx:testfx-junit:4.0.15-alpha" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.2" level="project" />
-    <orderEntry type="library" name="Maven: bbush9:GameFeatures:3.0" level="project" />
     <orderEntry type="library" name="lib" level="project" />
-    <orderEntry type="library" name="Maven: bbush9:GameFeatures:3.0" level="project" />
     <orderEntry type="library" name="org.testfx:testfx-core:4.0.15-alpha" level="project" />
     <orderEntry type="library" name="org.testfx:testfx-junit:4.0.15-alpha" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.2" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.2" level="application" />
     <orderEntry type="library" name="AnimateFX-1.2.2" level="project" />
     <orderEntry type="library" name="AnimateFX-1.2.2" level="project" />
+    <orderEntry type="library" name="Maven: bbush9:GameFeatures:3.0" level="project" />
+    <orderEntry type="library" name="org.testfx:testfx-core:4.0.15-alpha" level="project" />
   </component>
 </module>

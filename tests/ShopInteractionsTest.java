@@ -48,13 +48,17 @@ public class ShopInteractionsTest extends ApplicationTest {
     @Test
     public void testPurchaseTransaction() {
         Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
-        press(KeyCode.UP).release(KeyCode.UP);
         ClownShop shop = new ClownShop();
         shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
-                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.UP).release(KeyCode.UP);
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
         clickOn("Shop");
         Item[] contents = shop.getShopInv();
         String query = contents[0].getName() + ": " + contents[0].getBuyPrice();
@@ -66,13 +70,19 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testBankruptPurchase() {
+        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
         ProwlerShop shop = new ProwlerShop();
-        shop.setLocation(8, 7);
+        shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
         //Player.setBalance(5);// Creates thread errors
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
-                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.UP).release(KeyCode.UP);
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
         clickOn("Shop");
         Item[] contents = shop.getShopInv();
         String query = contents[1].getName() + ": " + contents[1].getBuyPrice();
@@ -84,15 +94,22 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testSellingItem() {
-        Item toSell = new Item(Item.Possession.SONICRIFLE, 8, 7, "Gun1");
-        Player.getRoom().addObject(toSell, 8, 7);
+        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
+        Item toSell = new Item(Item.Possession.SONICRIFLE, 8, 6, "Gun1");
+        Player.getRoom().addObject(toSell, 8, 6);
         press(KeyCode.UP).release(KeyCode.UP);
         ClownShop shop = new ClownShop();
-        shop.setLocation(8, 6);
+        shop.setLocation(8, 5);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
-                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.UP).release(KeyCode.UP);
+        press(KeyCode.UP).release(KeyCode.UP);
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
         clickOn("Shop");
         String query = toSell.getName() + ": " + toSell.getSellPrice();
         int expected = Player.getBalance().get() + toSell.getSellPrice();
@@ -103,15 +120,20 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testSellingItemMultipleTimes() {
-        Item toSell = new Item(Item.Possession.SONICRIFLE, 8, 7, "Gun1");
-        Player.getRoom().addObject(toSell, 8, 7);
+        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
+        Item toSell = new Item(Item.Possession.SONICRIFLE, 8, 6, "Gun1");
+        Player.getRoom().addObject(toSell, 8, 6);
         press(KeyCode.UP).release(KeyCode.UP);
         ClownShop shop = new ClownShop();
-        shop.setLocation(8, 6);
+        shop.setLocation(8, 5);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
-                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException ie) {
+            Thread.currentThread().interrupt();
+        }
         clickOn("Shop");
         String query = toSell.getName() + ": " + toSell.getSellPrice();
         clickOn(query);

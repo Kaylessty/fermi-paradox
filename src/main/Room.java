@@ -170,6 +170,13 @@ public class Room {
     }
 
     public void removeObject(int x, int y) {
+        if (room[y][x] instanceof Monster) {
+            for (int index = 0; index < monsterNum; index++) {
+                if (killThem[index] == room[y][x]) {
+                    killThem[index] = null;
+                }
+            }
+        }
         room[y][x] = null;
         //System.out.println("removed");
     }

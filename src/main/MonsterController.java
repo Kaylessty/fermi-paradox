@@ -61,14 +61,6 @@ public class MonsterController {
         double xCoord = user.getLocation()[0] * 32 + 210; //******player1
         double yCoord = user.getLocation()[1] * 32; //************player1
         // If the center of the player is inside the region of the projectile
-        /*
-        System.out.println("Projectile Min X: " + projectile.getBoundsInParent().getMinX());
-        System.out.println("Projectile Max X: " + projectile.getBoundsInParent().getMaxX());
-        System.out.println("Projectile Min Y: " + projectile.getBoundsInParent().getMinY());
-        System.out.println("Projectile Max Y: " + projectile.getBoundsInParent().getMaxY());
-        System.out.println("Player's X:" + x_coord);
-        System.out.println("Player's Y: " + y_coord);
-         */
         if (xCoord >= projectile.getBoundsInParent().getMinX()
                 && xCoord <= projectile.getBoundsInParent().getMaxX()
                 && yCoord >= projectile.getBoundsInParent().getMinY()
@@ -107,8 +99,6 @@ public class MonsterController {
                 e.printStackTrace();
             }
         });
-
-
     }
 
 
@@ -132,7 +122,7 @@ public class MonsterController {
                     runTeeth();
                 } else if (thisMonster.getType() == "Howard" || thisMonster.getType() == "Prowler"
                         || thisMonster.getType() == "Engi") {
-                    runHoward();
+                    runTeeth();
                 }  else if (thisMonster.getType() == "Eyebore") {
                     runEyebore();
                 } else if (thisMonster.getType() == "Tree Bore") {
@@ -144,6 +134,11 @@ public class MonsterController {
         }
 
         private void runTeeth() {
+            try {
+                TimeUnit.SECONDS.sleep(2);
+            } catch (InterruptedException ie) {
+                Thread.currentThread().interrupt();
+            }
             int x = 0;
             int y = 0;
             if (thisMonster.getLocation()[1] > user.getLocation()[1]) {
@@ -162,46 +157,7 @@ public class MonsterController {
                 System.out.println("Player is taking damage");
                 Platform.runLater(() -> {
                     Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
-                    System.out.println("Player's new damage: " + Player.getHealth().get());
-                });
-                if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
-                    timer.cancel();
-                    playerLoses();
-                }
-            } else if (room.getRoom()[monstY][monstX] == null
-                    || room.getRoom()[monstY][monstX] instanceof Collectible) {
-                room.removeObject(thisMonster.getLocation()[0],
-                        thisMonster.getLocation()[1]);
-                thisMonster.setLocation(monstX, monstY);
-                room.addObject(thisMonster,
-                        thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
-
-                monsterView.setX(monstX * 32 + 210);
-                monsterView.setY(monstY * 32);
-            }
-        }
-        private void runHoward() {
-            int x = 0;
-            int y = 0;
-            if (thisMonster.getLocation()[1] > user.getLocation()[1]) {
-                y = -1;
-            } else if (thisMonster.getLocation()[1] < user.getLocation()[1]) {
-                y = 1;
-            }
-            if (thisMonster.getLocation()[0] > user.getLocation()[0]) {
-                x = -1;
-            } else if (thisMonster.getLocation()[0] < user.getLocation()[0]) {
-                x = 1;
-            }
-            int monstX = thisMonster.getLocation()[0] + x;
-            int monstY = thisMonster.getLocation()[1] + y;
-            if (room.getRoom()[monstY][monstX] == user) {
-                System.out.println("Player is taking damage");
-                Platform.runLater(() -> {
-                    Player.setHealth(Player.getHealth().get()
-                            - thisMonster.getDamage());
-                    System.out.println(
-                            "Player's new damage: " + Player.getHealth().get());
+                    System.out.println("Player's new health: " + Player.getHealth().get());
                 });
                 if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
                     timer.cancel();

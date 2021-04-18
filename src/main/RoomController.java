@@ -23,8 +23,6 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
-import java.util.TimerTask;
-import java.util.concurrent.TimeUnit;
 
 public class RoomController {
 
@@ -42,8 +40,6 @@ public class RoomController {
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
-    private TimerTask timerTask;
-    private java.util.Timer timer;
 
     @FXML
     private ChoiceBox<Item> inv;
@@ -62,6 +58,7 @@ public class RoomController {
     private boolean heart = false;
     private ImageView playerView;
     private HashMap<Item, ImageView> itemsInRoom;
+    private int monstersAttacked = 0;
 
 
     /**
@@ -158,18 +155,9 @@ public class RoomController {
         scene1 = new Scene(root, 800, 600);
         monstersInRoom = currRoom.getMonsters();
         monsterControllers = new MonsterController[monstersInRoom.length];
-
-        //Timer
-//        timerTask = new Timer();
-//        timer.scheduleAtFixedRate(timerTask, 0, 500);
     }
 
 
-//    class Timer extends TimerTask {
-//        public void run() {
-//            refreshRoom();
-//        }
-//    }
     /*
     This method displays the current room on the scene.
      */
@@ -284,11 +272,11 @@ public class RoomController {
             }
         }
         if ((door.getLocked() && (inv.getValue() == null
-                || (!(inv.getValue().getImageURL() == "resources/images/TIMKEY.png"))))) {
+                || (!(inv.getValue().getImageURL().equals("resources/images/TIMKEY.png")))))) {
             System.out.println("door locked");
             return;
         } else if (inv.getValue() != null
-                && inv.getValue().getImageURL() == "resources/images/TIMKEY.png") {
+                && inv.getValue().getImageURL().equals("resources/images/TIMKEY.png")) {
             dropped = inv.getValue();
             Item toDrop = inv.getValue();
             playerInventory.dropItem(toDrop);
@@ -355,15 +343,6 @@ public class RoomController {
         System.out.println("Number of doors: " + currRoom.getDoors().length);
         monstersInRoom = currRoom.getMonsters();
         monsterControllers = new MonsterController[monstersInRoom.length];
-        /*
-        for (int j = 0; j < monstersInRoom.length; j++) {
-            monsterControllers[j] = new MonsterController(monstersInRoom[j], scene1, root,
-                    theStage, player1);
-        }
-        */
-
-        // that changed the room
-
     }
 
     /**
@@ -372,7 +351,6 @@ public class RoomController {
     public void refreshRoom() {
         root.getChildren().removeAll(keepTrack);
         //root.getChildren().add(pillar);//******************************
-
         displayRoom();
     }
 
@@ -412,7 +390,7 @@ public class RoomController {
             //System.out.println("here");
             //root.getChildren().remove(itemsInRoom.get(item));
             itemsInRoom.remove(item);
-            refreshRoom();
+            //refreshRoom();
         } else {
             int[] loc = player1.getLocation();
             loc[1] = loc[1] - 2;
@@ -472,7 +450,7 @@ public class RoomController {
             }
         }
         if (inv.getValue() != null) {
-            refreshRoom();
+            //refreshRoom();
             Item.Possession carrying = inv.getValue().getPossession();
             int range = carrying.getRange();
             // Iterating over the monsters in the room
@@ -508,10 +486,11 @@ public class RoomController {
                     for (int i = 0; i < monstersInRoom.length; i++) {
                         if (monstersInRoom[i] instanceof Monster2) {
                             if (!monstersInRoom[i].getHasBeenAttacked()) {
-                                monsterControllers[0] = new MonsterController(
+                                monsterControllers[monstersAttacked] = new MonsterController(
                                         monstersInRoom[i], scene1, root,
                                         player1, currRoom, this, monsterView);
                                 monstersInRoom[i].setHasBeenAttacked(true);
+                                monstersAttacked++;
                             }
                         }
                     }
@@ -520,8 +499,8 @@ public class RoomController {
                     //theStage, player1, currRoom, this);
                     //monster.setHasBeenAttacked(true);
                 } else if (!monster.getHasBeenAttacked()) {
-                    monsterControllers[0] = new MonsterController(monster, scene1, root,
-                            player1, currRoom, this, monsterView);
+                    monsterControllers[monstersAttacked] = new MonsterController(monster, scene1,
+                            root, player1, currRoom, this, monsterView);
                     monster.setHasBeenAttacked(true);
                 }
                 foundMonster = true;
@@ -542,7 +521,7 @@ public class RoomController {
                     System.out.println("Monster killed");
                     if (monster.getBoss()) {
                         currRoom.setHasHatch(true);
-                        refreshRoom();
+                        //refreshRoom();
                     }
                     //refreshRoom();
                     monster.getDrop().setPosition(monster.getLocation());
@@ -557,6 +536,7 @@ public class RoomController {
                     currRoom.setMonsterNum(currRoom.getMonsterNum() - 1);
                     refreshRoom();
                     if (currRoom.getMonsterNum() == 0) {
+                        monstersAttacked = 0;
                         // Iterate over all doors and unlock them
                         for (Door pathway : currRoom.getDoors()) {
                             pathway.setLocked(false);
@@ -565,9 +545,9 @@ public class RoomController {
                         // Restore health of Player if they have a bore heart
                         if (heart) {
                             if (Player.getHealth().get() < Player.getMaxHealth() - 5000) {
-                                Player.getHealth().set(Player.getHealth().get() + 5000);
+                                Player.setHealth(Player.getHealth().get() + 5000);
                             } else {
-                                Player.getHealth().set(Player.getMaxHealth());
+                                Player.setHealth(Player.getMaxHealth());
                             }
                         }
                         //player1.setHealth(5000);
@@ -610,7 +590,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1] - 1][pos[0]]);
-                            refreshRoom();
+                            //refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
@@ -642,7 +622,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1] + 1][pos[0]]);
-                            refreshRoom();
+                            //refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0],
@@ -674,7 +654,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1]][pos[0] + 1]);
-                            refreshRoom();
+                            //refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] + 1,
@@ -706,7 +686,7 @@ public class RoomController {
                             || currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
                         if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1]][pos[0] - 1]);
-                            refreshRoom();
+                            //refreshRoom();
                         }
                         currRoom.removeObject(player1.getLocation()[0], player1.getLocation()[1]);
                         player1.setLocation(player1.getLocation()[0] - 1,
