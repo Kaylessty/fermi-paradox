@@ -1,7 +1,7 @@
 package main;
 
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
+//import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class Structure implements Locatable {
     private String name;
@@ -107,7 +107,9 @@ public class Structure implements Locatable {
         return name;
     }
 
-    public Possession getPossession() {return thing;}
+    public Possession getPossession() {
+        return thing;
+    }
     /**
      * function to get the appropriate size of the item based on type
      * @return int size based on the item type

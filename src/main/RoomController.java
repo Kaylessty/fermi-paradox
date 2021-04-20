@@ -4,15 +4,14 @@ package main;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
+import javafx.fxml.FXML;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-//import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ToggleGroup;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.BorderPane;
@@ -42,8 +41,8 @@ public class RoomController {
     private Text healthText;
     private Text moneyText;
 
-    private ToggleGroup inv;
-    private VBox inventory;
+    @FXML
+    private ChoiceBox<Item> inv;
 
     private Inventory playerInventory;
     private Player player1;
@@ -97,8 +96,7 @@ public class RoomController {
         itemsInRoom = new HashMap<>();
         //makes Inventory
         playerInventory = new Inventory("Player Inventory ");
-        inv = new ToggleGroup();
-        inventory = new VBox();
+        inv = new ChoiceBox<>();
         //
 
         //Add pillar/background before displayRoom()!
@@ -170,7 +168,7 @@ public class RoomController {
         keepTrack.add(t);
         root.setTop(topRow);
         root.setBottom(bottomRow);
-        root.setLeft(inventory);
+        root.setLeft(inv);
         keepTrack.add(topRow);
         keepTrack.add(bottomRow);
         // Displays the items currently in the room
@@ -265,26 +263,24 @@ public class RoomController {
      * @param door The door that connects current room to other room that player will move to
      */
     private void changeRoom(Door door) {
-        if (inv.getSelectedToggle().getUserData() != null) {
-            int idlvl = ((Item) inv.getSelectedToggle().getUserData()).getPossession().getIdLevel();
+        if (inv.getValue() != null) {
+            int idlvl = inv.getValue().getPossession().getIdLevel();
             if (door.getLocked() && idlvl > door.getRoomA().getNumRoom()) {
                 System.out.println("door unlocked");
                 door.setLocked(false);
                 door.getCon().setLocked(false);
             }
         }
-        if ((door.getLocked() && (inv.getSelectedToggle().getUserData() == null
-                || (!(((Item) inv.getSelectedToggle().getUserData()).getImageURL()
-                .equals("resources/images/TIMKEY.png")))))) {
+        if ((door.getLocked() && (inv.getValue() == null
+                || (!(inv.getValue().getImageURL().equals("resources/images/TIMKEY.png")))))) {
             System.out.println("door locked");
             return;
-        } else if (inv.getSelectedToggle().getUserData() != null
-                && ((Item) inv.getSelectedToggle().getUserData()).getImageURL().equals(
-                        "resources/images/TIMKEY.png")) {
-            dropped = ((Item) inv.getSelectedToggle().getUserData());
-            Item toDrop = ((Item) inv.getSelectedToggle().getUserData());
+        } else if (inv.getValue() != null
+                && inv.getValue().getImageURL().equals("resources/images/TIMKEY.png")) {
+            dropped = inv.getValue();
+            Item toDrop = inv.getValue();
             playerInventory.dropItem(toDrop);
-            inventory.getChildren().remove(inv.getSelectedToggle());
+            inv.getItems().remove(toDrop);
         }
         System.out.println("changed room");
         lastDoor = door;
@@ -386,10 +382,7 @@ public class RoomController {
         if (playerInventory.getMaximumCapacity()
                 > playerInventory.getCurrHousingSpace() + item.getSize()) {
             playerInventory.addItem(item);
-            RadioButton b = new RadioButton(item.getName());
-            b.setToggleGroup(inv);
-            b.setUserData(item);
-            inventory.getChildren().add(b);
+            inv.getItems().add(item);
             int[] pos;
             pos = item.getLocation();
             currRoom.removeObject(pos[0], pos[1]);
@@ -409,37 +402,24 @@ public class RoomController {
     }
 
     public void drop() {
-        dropped = ((Item) inv.getSelectedToggle().getUserData());
-        Item toDrop = ((Item) inv.getSelectedToggle().getUserData());
+        dropped = inv.getValue();
+        Item toDrop = inv.getValue();
         playerInventory.dropItem(toDrop);
-        inventory.getChildren().remove(toDrop);
+        inv.getItems().remove(toDrop);
         int[] loc = player1.getLocation();
         loc[1] = loc[1] - 1;
         toDrop.setPosition(loc);
         currRoom.addObject(new Item(toDrop.getPossession(), loc[0], loc[1],
                 toDrop.getName()), loc[0], loc[1]);
         //itemsInRoom.put(toDrop, new ImageView(toDrop.getImageURL()));
-        //itemsInRoom.get(toDrop).setX(loc[0] * 32 + 210);
-        //itemsInRoom.get(toDrop).setY(loc[1] * 32);
+        //itemsInRoom.get(toDrop).setX(9 * 32 + 210);
+        //itemsInRoom.get(toDrop).setY(10 * 32);
         //root.getChildren().add(itemsInRoom.get(toDrop));
     }
 
-    public void remove(RadioButton b) {
-        playerInventory.dropItem((Item) b.getUserData());
-        inventory.getChildren().remove(b);
-    }
-
-    public void remove(Item item) {
-        playerInventory.dropItem(item);
-        int toDrop = 0;
-        for (int i = 0; i < inventory.getChildren().size(); i++) {
-            String name = ((Item) ((RadioButton)
-                    inventory.getChildren().get(i)).getUserData()).getName();
-            if (name.equals(item.getName())) {
-                toDrop = i;
-            }
-        }
-        inventory.getChildren().remove(toDrop);
+    public void remove(Item toRemove) {
+        playerInventory.dropItem(toRemove);
+        inv.getItems().remove(toRemove);
     }
 
 
@@ -455,8 +435,7 @@ public class RoomController {
 
     public void attack(Monster monster, ImageView monsterView) {
         //refreshRoom();
-        if (((Item) inv.getSelectedToggle().getUserData()).getPossession().getRange()
-                == 0) {
+        if (inv.getValue().getPossession().getRange() == 0) {
             if (monster.getType() == "Howard") {
                 ChatScreenController.display(
                         monster, playerInventory, ClownShop.getShopInv(), this);
@@ -470,23 +449,18 @@ public class RoomController {
                 System.out.println("No monster within range");
             }
         }
-        if (inv.getSelectedToggle() != null) {
-            //refreshRoom();
-            Item.Possession carrying =
-                    ((Item) inv.getSelectedToggle().getUserData()).getPossession();
+        if (inv.getValue() != null) {
+            Item.Possession carrying = inv.getValue().getPossession();
             int range = carrying.getRange();
-            // Iterating over the monsters in the room
-            // if player is close enough to a monster
+            // Iterating over the monsters in the room if player is close enough to a monster
             double distance = (Math.hypot((player1.getLocation()[0] - monster.getLocation()[0]),
                     (player1.getLocation()[1] - monster.getLocation()[1])));
             if (monster instanceof Larry || monster instanceof TreeBore) {
                 distance = distance - 5;
             }
 
-            if (distance <= range
-                    || (((Item) inv.getSelectedToggle().getUserData()).getImageURL()
-                    == "resources/images/SHADOWSWORD.png"
-                    && distance == 5)) {
+            if (distance <= range || (distance == 5
+                    && inv.getValue().getImageURL() == "resources/images/SHADOWSWORD.png")) {
                 // attack monster
                 if (carrying.getimageURL() == "resources/images/PISTOL.png"
                         || carrying.getimageURL() == "resources/images/RIFLE.png"
@@ -517,7 +491,7 @@ public class RoomController {
                             }
                         }
                     }
-                //} else if (monster instanceof TreeBore) {
+                    //} else if (monster instanceof TreeBore) {
                     //monsterControllers[0] = new MonsterController(monster, scene1, root,
                     //theStage, player1, currRoom, this);
                     //monster.setHasBeenAttacked(true);
@@ -544,14 +518,12 @@ public class RoomController {
                     System.out.println("Monster killed");
                     if (monster.getBoss()) {
                         currRoom.setHasHatch(true);
-                        //refreshRoom();
                     }
-                    //refreshRoom();
                     monster.getDrop().setPosition(monster.getLocation());
                     currRoom.addObject(new Item(monster.getDrop().getPossession(),
-                            monster.getLocation()[0], monster.getLocation()[1],
-                            monster.getDrop().getName()), monster.getLocation()[0],
-                            monster.getLocation()[1]);
+                                    monster.getLocation()[0], monster.getLocation()[1],
+                                    monster.getDrop().getName()),
+                            monster.getLocation()[0], monster.getLocation()[1]);
                     //itemsInRoom.put(monster.getDrop(),
                     //        new ImageView(monster.getDrop().getImageURL()));
                     //itemsInRoom.get(monster.getDrop()).setX(monster.getLocation()[0] * 32 + 210);
@@ -574,9 +546,7 @@ public class RoomController {
                                 Player.setHealth(Player.getMaxHealth());
                             }
                         }
-                        //player1.setHealth(5000);
                     }
-                    //refreshRoom();
                 }
             }
         }
@@ -596,10 +566,10 @@ public class RoomController {
             if (e.getCode() == KeyCode.E) {
                 handleE();
             } else if (e.getCode() == KeyCode.F) {
-                Description.display(((Item) inv.getSelectedToggle().getUserData()));
+                Description.display(inv.getValue());
             } else if (e.getCode() == KeyCode.Q
-                    && ((Item) inv.getSelectedToggle().getUserData()) != null
-                    && ((Item) inv.getSelectedToggle().getUserData()) != dropped) {
+                    && inv.getValue() != null
+                    && inv.getValue() != dropped) {
                 drop();
                 refreshRoom();
             } else if (e.getCode() == KeyCode.P) {
@@ -626,21 +596,16 @@ public class RoomController {
                         playerView.setY(player1.getLocation()[1] * 32);
                     } else if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1] - 1][pos[0]]);
-                    } else if (currRoom.getRoom()[pos[1] - 1][pos[0]]
-                            instanceof Structure) {
-                        if (!((Structure) currRoom.getRoom()[pos[1]
-                                - 1][pos[0]]).getPossession().getLooted()) {
+                    } else if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Structure) {
+                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
                             System.out.println("looted");
                             int[] loc = player1.getLocation();
                             loc[0] = loc[0] - 1;
-                            Item loot =
-                                    new Item(((Structure) currRoom.getRoom()[pos[1] - 1][pos[0]])
-                                    .getPossession().getLoot().getPossession(),
-                                    loc[0], loc[1],
-                                    ((Structure) currRoom.getRoom()[pos[1] - 1][pos[0]])
-                                            .getPossession().getLoot().getName());
-                            ((Structure) currRoom.getRoom()[pos[1] - 1][pos[0]])
-                                    .getPossession().setLooted(true);
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
                             currRoom.addObject(loot, loc[0], loc[1]);
                             refreshRoom();
                         }
@@ -667,19 +632,15 @@ public class RoomController {
                     } else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1] + 1][pos[0]]);
                     } else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Structure) {
-                        if (!((Structure) currRoom.getRoom()[pos[1] + 1][pos[0]])
-                                .getPossession().getLooted()) {
+                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
                             System.out.println("looted");
                             int[] loc = player1.getLocation();
                             loc[0] = loc[0] + 1;
-                            Item loot =
-                                    new Item(((Structure) currRoom.getRoom()[pos[1] + 1][pos[0]])
-                                            .getPossession().getLoot().getPossession(),
-                                            loc[0], loc[1], ((Structure)
-                                            currRoom.getRoom()[pos[1] + 1][pos[0]]).
-                                            getPossession().getLoot().getName());
-                            ((Structure) currRoom.getRoom()[pos[1] + 1][pos[0]])
-                                    .getPossession().setLooted(true);
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
                             currRoom.addObject(loot, loc[0], loc[1]);
                             refreshRoom();
                         }
@@ -706,19 +667,15 @@ public class RoomController {
                     } else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1]][pos[0] + 1]);
                     } else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Structure) {
-                        if (!((Structure) currRoom.getRoom()[pos[1]][pos[0] + 1])
-                                .getPossession().getLooted()) {
+                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
                             System.out.println("looted");
                             int[] loc = player1.getLocation();
                             loc[1] = loc[1] + 1;
-                            Item loot =
-                                    new Item(((Structure) currRoom.getRoom()[pos[1]][pos[0] + 1])
-                                            .getPossession().getLoot().getPossession(),
-                                            loc[0], loc[1],
-                                            ((Structure) currRoom.getRoom()[pos[1]][pos[0] + 1])
-                                                    .getPossession().getLoot().getName());
-                            ((Structure) currRoom.getRoom()[pos[1]][pos[0] + 1])
-                                    .getPossession().setLooted(true);
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
                             currRoom.addObject(loot, loc[0], loc[1]);
                             refreshRoom();
                         }
@@ -745,19 +702,15 @@ public class RoomController {
                     } else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1]][pos[0] - 1]);
                     } else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Structure) {
-                        if (!((Structure) currRoom.getRoom()[pos[1]][pos[0] - 1])
-                                .getPossession().getLooted()) {
+                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
                             System.out.println("looted");
                             int[] loc = player1.getLocation();
                             loc[1] = loc[1] - 1;
-                            Item loot =
-                                    new Item(((Structure) currRoom.getRoom()[pos[1]][pos[0] - 1])
-                                            .getPossession().getLoot().getPossession(),
-                                            loc[0], loc[1],
-                                            ((Structure) currRoom.getRoom()[pos[1]][pos[0] - 1])
-                                                    .getPossession().getLoot().getName());
-                            ((Structure) currRoom.getRoom()[pos[1]][pos[0] - 1])
-                                    .getPossession().setLooted(true);
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
                             currRoom.addObject(loot, loc[0], loc[1]);
                             refreshRoom();
                         }
@@ -767,42 +720,34 @@ public class RoomController {
         }
 
         private void handleE() {
-            if (((Item) inv.getSelectedToggle().getUserData()).getType() == "heal") {
+            if (inv.getValue().getType() == "heal") {
                 if (Player.getHealth().get()
-                        < Player.getMaxHealth()
-                        - ((Item) inv.getSelectedToggle().getUserData()).getDamage()) {
+                        < Player.getMaxHealth() - inv.getValue().getDamage()) {
                     Player.getHealth().set(
-                            Player.getHealth().get()
-                                    + ((Item) inv.getSelectedToggle().getUserData()).getDamage());
-                    remove((RadioButton) inv.getSelectedToggle());
+                            Player.getHealth().get() + inv.getValue().getDamage());
+                    remove(inv.getValue());
                 } else {
                     Player.getHealth().set(Player.getMaxHealth());
-                    remove((RadioButton) inv.getSelectedToggle());
+                    remove(inv.getValue());
                 }
-            } else if (((Item) inv.getSelectedToggle().getUserData()).getImageURL()
-                    == "resources/images/TEAFFHIDE.png") {
+            } else if (inv.getValue().getImageURL() == "resources/images/TEAFFHIDE.png") {
                 Player.getHealth().set(Player.getHealth().get() + 500);
-                remove((RadioButton) inv.getSelectedToggle());
-            } else if (((Item) inv.getSelectedToggle().getUserData()).getImageURL()
-                    == "resources/images/AMMOBOX.png") {
+                remove(inv.getValue());
+            } else if (inv.getValue().getImageURL() == "resources/images/AMMOBOX.png") {
                 player1.addAmmo(10);
-                remove((RadioButton) inv.getSelectedToggle());
-            } else if (((Item) inv.getSelectedToggle().getUserData()).getType()
-                    == "Shield") {
-                Player.setMaxHealth(Player.getMaxHealth()
-                        + ((Item) inv.getSelectedToggle().getUserData()).getDamage());
-                remove((RadioButton) inv.getSelectedToggle());
-            } else if (((Item) inv.getSelectedToggle().getUserData()).getType() == "charge") {
-                Player.setGuncharged(((Item) inv.getSelectedToggle().getUserData()).getDamage());
-                remove((RadioButton) inv.getSelectedToggle());
-            } else if (((Item) inv.getSelectedToggle().getUserData()).getImageURL()
-                    == "resources/images/SHADOWGAUNTLET.png") {
+                remove(inv.getValue());
+            } else if (inv.getValue().getType() == "Shield") {
+                Player.setMaxHealth(Player.getMaxHealth() + inv.getValue().getDamage());
+                remove(inv.getValue());
+            } else if (inv.getValue().getType() == "charge") {
+                Player.setGuncharged(inv.getValue().getDamage());
+                remove(inv.getValue());
+            } else if (inv.getValue().getImageURL() == "resources/images/SHADOWGAUNTLET.png") {
                 gauntlet = true;
-                remove((RadioButton) inv.getSelectedToggle());
-            } else if (((Item) inv.getSelectedToggle().getUserData()).getImageURL()
-                    == "resources/images/BOREHEART.png") {
+                remove(inv.getValue());
+            } else if (inv.getValue().getImageURL() == "resources/images/BOREHEART.png") {
                 heart = true;
-                remove((RadioButton) inv.getSelectedToggle());
+                remove(inv.getValue());
             }
         }
 
@@ -811,14 +756,14 @@ public class RoomController {
                     "Annihilative Energy Sword");
             currRoom.addObject(temp, 2, 2);
             //itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
-            //itemsInRoom.get(temp).setX(2 * 32 + 210);
-            //itemsInRoom.get(temp).setY(2 * 32);
+            //itemsInRoom.get(temp).setX(9 * 32 + 210);
+            //itemsInRoom.get(temp).setY(10 * 32);
             //root.getChildren().add(itemsInRoom.get(temp));
             temp = new Item(Item.Possession.A_SHOCKRIFLE, 6, 10,
                     "Annihilative Shock Rifle");
             currRoom.addObject(temp, 6, 10);
             //itemsInRoom.put(temp, new ImageView(temp.getImageURL()));
-            //itemsInRoom.get(temp).setX(6 * 32 + 210);
+            //itemsInRoom.get(temp).setX(9 * 32 + 210);
             //itemsInRoom.get(temp).setY(10 * 32);
             //root.getChildren().add(itemsInRoom.get(temp));
             temp = new Item(Item.Possession.AAID, 9, 10,
