@@ -76,7 +76,7 @@ public class ConfigScreenController {
                     Player.setBalance(2000);
                     Player.setSpeed(7);
                     Player.setStrength(900);
-                    Room.setDifficulty(3);
+                    Room.setDifficulty(2);
                     // else if the difficulty is "hard"
                 } else if (((RadioButton)
                         (difficulties.getSelectedToggle())).getText().equals("Hard")
@@ -84,7 +84,7 @@ public class ConfigScreenController {
                     Player.setBalance(1000);
                     Player.setSpeed(5);
                     Player.setStrength(600);
-                    Room.setDifficulty(5);
+                    Room.setDifficulty(3);
                 }
                 if (((RadioButton)
                         (weapons.getSelectedToggle())).getText().equals("Laser")) {

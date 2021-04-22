@@ -51,19 +51,19 @@ public class Room {
                 removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(8, 8);
-                addMonster(creature, 6000 * difficulty, 4000);
+                addMonster(creature, 10000 * difficulty, 4000);
             } else if (r == 2) {
                 Monster creature = new TreeBore();
                 removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(8, 8);
-                addMonster(creature, 10000 * difficulty, 4000);
+                addMonster(creature, 17000 * difficulty, 4000);
             } else if (r == 3) {
                 Monster creature = new Teeth();
                 removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(8, 8);
-                addMonster(creature, 8000 * difficulty, 4000);
+                addMonster(creature, 13000 * difficulty, 4000);
             }
             monsterNum = 1;
         }
@@ -179,7 +179,7 @@ public class Room {
                 creature.setDamage(3000);
             } else if (pick1 == 4 || pick1 == 5 || pick1 == 6) {
                 creature = new Monster2();
-                creature.setHealth(1000 * difficulty);
+                creature.setHealth(1400 * difficulty);
                 creature.setDamage(2000);
             } else {
                 creature = new Monster3();

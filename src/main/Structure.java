@@ -93,6 +93,7 @@ public class Structure implements Locatable {
 
     public Item getLV1Loot() {
         int ite = rNum.nextInt(21);
+        System.out.println(ite);
         Item toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");;
         int pick;
         if(ite < 13) {
@@ -162,7 +163,7 @@ public class Structure implements Locatable {
                     toret = new Item(Item.Possession.DB_SONICSWORD, 11, 11, "Double Bladed Sonic Sword");
                     break;
                 case 1:
-                    toret = new Item(Item.Possession.SONICCANNON, 11, 11, "Double Bladed Energy Sword");
+                    toret = new Item(Item.Possession.SONICCANNON, 11, 11, "Sonic Cannon");
                     break;
             }
         }

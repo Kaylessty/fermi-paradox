@@ -189,7 +189,7 @@ public class RoomController {
                             } else {
                                 picture = null;
                             }
-                        } else if (important instanceof Watcher) {
+                        } else if (important instanceof Watcher || important instanceof Slugger) {
                             picture = new Image(imageURL, 50.0, 50.0, true, true);
                         } else if (important instanceof ProwlerShop) {
                             if (prowlerL) {
@@ -484,23 +484,24 @@ public class RoomController {
                 System.out.println(monster.getHealth());
                 // allow monster to attack back, assuming not yet attacked
 
-                if (monster instanceof Monster2) {
-                    for (int i = 0; i < monstersInRoom.length; i++) {
-                        if (monstersInRoom[i] instanceof Monster2) {
-                            if (!monstersInRoom[i].getHasBeenAttacked()) {
-                                monsterControllers[monstersAttacked] = new MonsterController(
-                                        monstersInRoom[i], scene1, root,
-                                        player1, currRoom, this, monsterView);
-                                monstersInRoom[i].setHasBeenAttacked(true);
-                                monstersAttacked++;
-                            }
-                        }
-                    }
-                    //} else if (monster instanceof TreeBore) {
-                    //monsterControllers[0] = new MonsterController(monster, scene1, root,
-                    //theStage, player1, currRoom, this);
-                    //monster.setHasBeenAttacked(true);
-                } else if (!monster.getHasBeenAttacked()) {
+//                if (monster instanceof Monster2) {
+//                    for (int i = 0; i < monstersInRoom.length; i++) {
+//                        if (monstersInRoom[i] instanceof Monster2) {
+//                            if (!monstersInRoom[i].getHasBeenAttacked()) {
+//                                monsterControllers[monstersAttacked] = new MonsterController(
+//                                        monstersInRoom[i], scene1, root,
+//                                        player1, currRoom, this, monsterView);
+//                                monstersInRoom[i].setHasBeenAttacked(true);
+//                                monstersAttacked++;
+//                            }
+//                        }
+//                    }
+//                    //} else if (monster instanceof TreeBore) {
+//                    //monsterControllers[0] = new MonsterController(monster, scene1, root,
+//                    //theStage, player1, currRoom, this);
+//                    //monster.setHasBeenAttacked(true);
+//                }
+                if (!monster.getHasBeenAttacked()) {
                     monsterControllers[monstersAttacked] = new MonsterController(monster, scene1,
                             root, player1, currRoom, this, monsterView);
                     monster.setHasBeenAttacked(true);
