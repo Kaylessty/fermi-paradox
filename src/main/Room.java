@@ -125,6 +125,15 @@ public class Room {
         if (!roomName.equals("first") && !roomName.equals("last")) {
             addMonsters();
         }
+        Boolean cnf = true;
+        while(cnf) {
+            int xc = 4 + rNum.nextInt(9);
+            int yc = 4 + rNum.nextInt(9);
+            if(getRoom()[yc][xc] == null) {
+                addObject(new Structure(Structure.Possession.C_Chest, xc, yc, "Chest"), xc, yc);
+                cnf = false;
+            }
+        }
     }
 
     public Room(int row, int column, int doornumber, int distance, int monsterNum,

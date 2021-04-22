@@ -1,6 +1,8 @@
 package main;
 
+import com.sun.org.apache.xpath.internal.operations.Bool;
 
+import java.util.Random;
 //import com.sun.org.apache.xpath.internal.operations.Bool;
 
 public class Structure implements Locatable {
@@ -8,6 +10,8 @@ public class Structure implements Locatable {
     private Structure.Possession thing;
     private int x;
     private int y;
+    private Random rNum = new Random();
+
     /**
      * This enum represents all the possible Items the Player can carry with him/her.
      * All of these items can be carried and therefore implement both Locatable and Collectible.
@@ -17,20 +21,19 @@ public class Structure implements Locatable {
      * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
      */
     public enum Possession  {
-        CRATE("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"),
-                "resources/images/CRATE.png", "resources/images/CRATE.png");
+        CRATE("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), true,"resources/images/CRATE.png"),
+        C_Chest("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), false,"resources/images/Chest.png"),
+        O_Chest("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), true, "resources/images/Chest.png");
         private final String type;
         private final Item loot;
         private final String imageURL;
-        private final String openURL;
         private Boolean looted;
 
-        Possession(String type, Item loot, String imageURL, String openURL) {
+        Possession(String type, Item loot, Boolean looted, String imageURL) {
             this.type = type;
             this.imageURL = imageURL;
             this.loot = loot;
-            this.openURL = openURL;
-            this.looted = false;
+            this.looted = looted;
         }
         public String getimageURL() {
             return imageURL;
@@ -38,10 +41,6 @@ public class Structure implements Locatable {
 
         public Item getLoot() {
             return loot;
-        }
-
-        public String getOpenURL() {
-            return openURL;
         }
 
         public Boolean getLooted() {
@@ -92,7 +91,83 @@ public class Structure implements Locatable {
         return thing.imageURL;
     }
 
-
+    public Item getLV1Loot() {
+        int ite = rNum.nextInt(21);
+        Item toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");;
+        int pick;
+        if(ite < 13) {
+            pick = rNum.nextInt(3);
+            switch (pick) {
+                case 0:
+                    toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
+                    break;
+                case 1:
+                    toret = new Item(Item.Possession.BATTERYLV1, 11, 11, "Regeneron Battery LV1");
+                    break;
+                case 2:
+                    toret = new Item(Item.Possession.G_BATTERYLV1, 11, 11, "Gun Battery");
+                    break;
+            }
+        } else if( ite <18) {
+            pick = rNum.nextInt(8);
+            switch (pick) {
+                case 0:
+                    toret = new Item(Item.Possession.LASER, 11, 11, "Laser");
+                    break;
+                case 1:
+                    toret = new Item(Item.Possession.ENERGYSWORD, 11, 11, "Energy Sword");
+                    break;
+                case 2:
+                    toret = new Item(Item.Possession.SONICRIFLE, 11, 11, "Sonic Rifle");
+                    break;
+                case 3:
+                    toret = new Item(Item.Possession.SHIELDGENERATOR_LV1, 11, 11, "Shield Generator LV1");
+                    break;
+                case 4:
+                    toret = new Item(Item.Possession.BATTERYLV2, 11, 11, "Regeneron Battery LV2");
+                    break;
+                case 5:
+                    toret = new Item(Item.Possession.G_BATTERYLV2, 11, 11, "Gun Battery LV2");
+                    break;
+                case 6:
+                    toret = new Item(Item.Possession.AMMOBOX, 11, 11, "Ammo");
+                    break;
+                case 7:
+                    toret = new Item(Item.Possession.SHOCKRIFLE, 11, 11, "Shock Rifle");
+                    break;
+            }
+        } else if(ite < 20) {
+            pick = rNum.nextInt(5);
+            switch (pick) {
+                case 0:
+                    toret = new Item(Item.Possession.SONICSWORD, 11, 11, "Sonic Sword");
+                    break;
+                case 1:
+                    toret = new Item(Item.Possession.BATTERYLV3, 11, 11, "Regeneron Battery LV3");
+                    break;
+                case 2:
+                    toret = new Item(Item.Possession.G_BATTERYLV3, 11, 11, "Gun Battery LV3");
+                    break;
+                case 3:
+                    toret = new Item(Item.Possession.SHIELDGENERATOR_LV2, 11, 11, "Shield Generator LV2");
+                    break;
+                case 4:
+                    toret = new Item(Item.Possession.DB_ENERGYSWORD, 11, 11, "Double Bladed Energy Sword");
+                    break;
+            }
+        } else if(ite == 20) {
+            pick = rNum.nextInt(2);
+            switch (pick) {
+                case 0:
+                    toret = new Item(Item.Possession.DB_SONICSWORD, 11, 11, "Double Bladed Sonic Sword");
+                    break;
+                case 1:
+                    toret = new Item(Item.Possession.SONICCANNON, 11, 11, "Double Bladed Energy Sword");
+                    break;
+            }
+        }
+        return toret;
+    }
     /**
      * getter for the name instance variable
      * @return String name
