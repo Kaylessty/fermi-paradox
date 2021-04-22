@@ -1,27 +1,23 @@
 package main;
 
-import java.util.Random;
+public class Watcher extends Monster {
 
-public class Larry extends Monster {
-    private Item[] drop = new Item[2];
     private int health;
     private int speed;
-    private String type = "Larry";
+    private String type = "Watcher";
     private static final int ORIGINAL_HEALTH = 999999999;
-    private Boolean boss = false;
-    private Random rNum = new Random();
-    public Larry() {
+    private Boolean boss = true;
+    public Watcher() {
         this(999999999, 1);
     }
-    public Larry(int health, int speed) {
+    public Watcher(int health, int speed) {
         this.health = health;
         this.speed = speed;
-        drop[0] = new Item(Item.Possession.SHADOWSWORD, 15, 15, "Shadow Sword");
-        drop[1] = new Item(Item.Possession.SHADOWGAUNTLET, 15, 15, "Shadow Gauntlet");
+        this.setDrop(new Item(Item.Possession.TOOTHBRUSH, 15, 15, "Tooth Brush"));
     }
     @Override
     public String getImageURL() {
-        return "resources/images/Larry.png";
+        return "resources/images/Watcher.png";
     }
 
     @Override
@@ -45,10 +41,5 @@ public class Larry extends Monster {
     @Override
     public Boolean getBoss() {
         return boss;
-    }
-
-    @Override
-    public Item getDrop() {
-        return drop[rNum.nextInt(2)];
     }
 }

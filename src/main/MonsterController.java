@@ -118,7 +118,8 @@ public class MonsterController {
                 //target.setStrokeWidth(4);
 
                 //test of monster differentiation
-                if (thisMonster.getType() == "Teaff" || thisMonster.getType() == "Teeth") {
+                if (thisMonster.getType() == "Teaff" || thisMonster.getType() == "Teeth" ||
+                        thisMonster.getType() == "Slugger") {
                     runTeeth();
                 } else if (thisMonster.getType() == "Howard" || thisMonster.getType() == "Prowler"
                         || thisMonster.getType() == "Engi") {
@@ -129,16 +130,14 @@ public class MonsterController {
                     runTreeBore();
                 } else if (thisMonster.getType() == "Tim" || thisMonster.getType() == "Larry") {
                     runTim();
+                } else if (thisMonster.getType() == "Watcher") {
+                    runWatcher();
                 }
             }
         }
 
         private void runTeeth() {
-            try {
-                TimeUnit.SECONDS.sleep(2);
-            } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt();
-            }
+            int r = 0;
             int x = 0;
             int y = 0;
             if (thisMonster.getLocation()[1] > user.getLocation()[1]) {
@@ -151,27 +150,37 @@ public class MonsterController {
             } else if (thisMonster.getLocation()[0] < user.getLocation()[0]) {
                 x = 1;
             }
-            int monstX = thisMonster.getLocation()[0] + x;
-            int monstY = thisMonster.getLocation()[1] + y;
-            if (room.getRoom()[monstY][monstX] == user) {
-                System.out.println("Player is taking damage");
-                Platform.runLater(() -> {
-                    Player.setHealth(Player.getHealth().get() - thisMonster.getDamage());
-                    System.out.println("Player's new health: " + Player.getHealth().get());
-                });
-                if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
-                    timer.cancel();
-                    playerLoses();
+            if (r == 2) {
+                x = x * 6;
+                y = y * 6;
+            }
+            try {
+                int monstY = thisMonster.getLocation()[1] + y;
+                int monstX = thisMonster.getLocation()[0] + x;
+                if (room.getRoom()[monstY][monstX] == user) {
+                    System.out.println("Player is taking damage");
+                    Platform.runLater(() -> {
+                        Player.setHealth(
+                                Player.getHealth().get() - thisMonster.getDamage());
+                        System.out.println("Player's new damage: "
+                                + Player.getHealth().get());
+                    });
+                    if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
+                        timer.cancel();
+                        playerLoses();
+                    }
+                } else if (room.getRoom()[monstY][monstX] == null
+                        || room.getRoom()[monstY][monstX] instanceof Collectible) {
+                    room.removeObject(
+                            thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                    thisMonster.setLocation(monstX, monstY);
+                    room.addObject(thisMonster,
+                            thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                    monsterView.setX(monstX * 32 + 210);
+                    monsterView.setY(monstY * 32);
                 }
-            } else if (room.getRoom()[monstY][monstX] == null
-                    || room.getRoom()[monstY][monstX] instanceof Collectible) {
-                room.removeObject(thisMonster.getLocation()[0],
-                        thisMonster.getLocation()[1]);
-                thisMonster.setLocation(monstX, monstY);
-                room.addObject(thisMonster,
-                        thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
-                monsterView.setX(monstX * 32 + 210);
-                monsterView.setY(monstY * 32);
+            } catch (Exception e) {
+
             }
         }
 
@@ -331,6 +340,51 @@ public class MonsterController {
                 }
             } catch (Exception e) {
 
+            }
+        }
+
+        private void runWatcher() {
+            int r = rNum.nextInt(20);
+            int x = rNum.nextInt(15);
+            int y = rNum.nextInt(15);
+            if (r == 0) {
+                Monster creature = new Slugger();
+                room.removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(thisMonster.getLocation()[0] + 1, thisMonster.getLocation()[1] + 1);
+                room.addMonster(creature, 3000, 5000);
+                room.setSlugNum(room.getSlugNum() + 1);
+            }
+            if(r < 6) {
+                thisMonster.setHealth(thisMonster.getHealth() + (5000 * room.getSlugNum()));
+                try {
+                    int monstY = y;
+                    int monstX = x;
+                    if (room.getRoom()[monstY][monstX] == user) {
+                        System.out.println("Player is taking damage");
+                        Platform.runLater(() -> {
+                            Player.setHealth(
+                                    Player.getHealth().get() - thisMonster.getDamage());
+                            System.out.println("Player's new damage: "
+                                    + Player.getHealth().get());
+                        });
+                        if (Player.getHealth().get() - thisMonster.getDamage() <= 0) {
+                            timer.cancel();
+                            playerLoses();
+                        }
+                    } else if (room.getRoom()[monstY][monstX] == null
+                            || room.getRoom()[monstY][monstX] instanceof Collectible) {
+                        room.removeObject(
+                                thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                        thisMonster.setLocation(monstX, monstY);
+                        room.addObject(thisMonster,
+                                thisMonster.getLocation()[0], thisMonster.getLocation()[1]);
+                        monsterView.setX(monstX * 32 + 210);
+                        monsterView.setY(monstY * 32);
+                    }
+                } catch (Exception e) {
+
+                }
             }
         }
     }

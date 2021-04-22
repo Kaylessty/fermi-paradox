@@ -1,23 +1,21 @@
 package main;
 
-public class Teeth extends Monster {
+public class Slugger extends Monster {
 
     private int health;
     private int speed;
-    private String type = "Teeth";
-    private static final int ORIGINAL_HEALTH = 999999999;
-    private Boolean boss = false;
-    public Teeth() {
-        this(999999999, 1);
+    private String type = "Slugger";
+    private static final int ORIGINAL_HEALTH = 3200;
+    public Slugger() {
+        this(3200, 5);
     }
-    public Teeth(int health, int speed) {
+    public Slugger(int health, int speed) {
         this.health = health;
         this.speed = speed;
-        this.setDrop(new Item(Item.Possession.TOOTHBRUSH, 15, 15, "Tooth Brush"));
     }
     @Override
     public String getImageURL() {
-        return "resources/images/Teeth.png";
+        return "resources/images/Slugger.png";
     }
 
     @Override
@@ -36,10 +34,5 @@ public class Teeth extends Monster {
     @Override
     public String getType() {
         return type;
-    }
-
-    @Override
-    public Boolean getBoss() {
-        return boss;
     }
 }

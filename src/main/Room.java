@@ -21,6 +21,7 @@ public class Room {
     private int numRoom;
     private int special;
     private int roomType;
+    private int slugNum;
 
 
     /**
@@ -43,6 +44,29 @@ public class Room {
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
+        if (doornumber == 1 && special != 14) {
+            int r = 1 + rNum.nextInt(3);
+            if (r == 1) {
+                Monster creature = new Larry();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 30000, 4000);
+            } else if (r == 2) {
+                Monster creature = new TreeBore();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 50000, 4000);
+            } else if (r == 3) {
+                Monster creature = new Teeth();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 40000, 4000);
+            }
+            monsterNum = 1;
+        }
         if (roomType == 1 && special != 14) {
             int cnum = rNum.nextInt(15);
             for (int i = 0; i < cnum; i++) {
@@ -283,5 +307,13 @@ public class Room {
 
     public int getRoomType() {
         return roomType;
+    }
+
+    public int getSlugNum() {
+        return slugNum;
+    }
+
+    public void setSlugNum(int slugNum) {
+        this.slugNum = slugNum;
     }
 }

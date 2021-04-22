@@ -19,7 +19,6 @@ public class Structure implements Locatable {
     public enum Possession  {
         CRATE("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"),
                 "resources/images/CRATE.png", "resources/images/CRATE.png");
-
         private final String type;
         private final Item loot;
         private final String imageURL;

@@ -50,26 +50,13 @@ public class Maze {
         }
         rooms[rooms.length - 2] = new Room(x, y, 4, 0, "last", rooms.length - 2);
         //rooms[rooms.length - 2].setHasHatch(true);
-        int r = 1 + rNum.nextInt(3);
-        if (r == 1) {
-            Monster creature = new Larry();
-            rooms[rooms.length - 2].removeObject(
-                    creature.getLocation()[0], creature.getLocation()[1]);
-            creature.setLocation(8, 8);
-            rooms[rooms.length - 2].addMonster(creature, 30000, 4000);
-        } else if (r == 2) {
-            Monster creature = new TreeBore();
-            rooms[rooms.length - 2].removeObject(
-                    creature.getLocation()[0], creature.getLocation()[1]);
-            creature.setLocation(8, 8);
-            rooms[rooms.length - 2].addMonster(creature, 50000, 4000);
-        } else if (r == 3) {
-            Monster creature = new Teeth();
-            rooms[rooms.length - 2].removeObject(
-                    creature.getLocation()[0], creature.getLocation()[1]);
-            creature.setLocation(8, 8);
-            rooms[rooms.length - 2].addMonster(creature, 40000, 4000);
-        }
+
+        Monster creature = new Watcher();
+        rooms[rooms.length - 2].removeObject(
+                creature.getLocation()[0], creature.getLocation()[1]);
+        creature.setLocation(8, 8);
+        rooms[rooms.length - 2].addMonster(creature, 500000, 10000);
+
 
         doors = new Door[doornum];
         Room curRoom;

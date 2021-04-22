@@ -6,7 +6,7 @@ public class TreeBore extends Monster {
     private int speed;
     private String type = "Tree Bore";
     private static final int ORIGINAL_HEALTH = 999999999;
-    private Boolean boss = true;
+    private Boolean boss = false;
     public TreeBore() {
         this(999999999, 1);
     }

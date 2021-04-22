@@ -188,6 +188,8 @@ public class RoomController {
                             } else {
                                 picture = null;
                             }
+                        } else if (important instanceof Watcher) {
+                            picture = new Image(imageURL, 50.0, 50.0, true, true);
                         } else if (important instanceof ProwlerShop) {
                             if (prowlerL) {
                                 picture = new Image(imageURL, 35.0, 35.0, true, true);
@@ -434,7 +436,9 @@ public class RoomController {
 
 
     public void attack(Monster monster, ImageView monsterView) {
-        //refreshRoom();
+        if(monster instanceof Watcher) {
+            refreshRoom();
+        }
         if (inv.getValue().getPossession().getRange() == 0) {
             if (monster.getType() == "Howard") {
                 ChatScreenController.display(
@@ -516,6 +520,9 @@ public class RoomController {
                         engiL = false;
                     }
                     System.out.println("Monster killed");
+                    if (monster instanceof Slugger) {
+                        currRoom.setSlugNum(currRoom.getSlugNum() - 1);
+                    }
                     if (monster.getBoss()) {
                         currRoom.setHasHatch(true);
                     }
