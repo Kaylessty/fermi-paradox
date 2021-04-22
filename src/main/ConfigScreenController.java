@@ -68,6 +68,7 @@ public class ConfigScreenController {
                     Player.setBalance(3000);
                     Player.setSpeed(10);
                     Player.setStrength(1200);
+                    Room.setDifficulty(1);
                     // else if the difficulty is "amateur"
                 } else if (((RadioButton)
                         (difficulties.getSelectedToggle())).getText().equals("Amateur")
@@ -75,6 +76,7 @@ public class ConfigScreenController {
                     Player.setBalance(2000);
                     Player.setSpeed(7);
                     Player.setStrength(900);
+                    Room.setDifficulty(3);
                     // else if the difficulty is "hard"
                 } else if (((RadioButton)
                         (difficulties.getSelectedToggle())).getText().equals("Hard")
@@ -82,6 +84,7 @@ public class ConfigScreenController {
                     Player.setBalance(1000);
                     Player.setSpeed(5);
                     Player.setStrength(600);
+                    Room.setDifficulty(5);
                 }
                 if (((RadioButton)
                         (weapons.getSelectedToggle())).getText().equals("Laser")) {

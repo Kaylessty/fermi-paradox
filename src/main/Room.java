@@ -22,7 +22,7 @@ public class Room {
     private int special;
     private int roomType;
     private int slugNum;
-
+    public static int difficulty;
 
     /**
      * This constructor initializes the location of this room on the grid-like maze
@@ -51,19 +51,19 @@ public class Room {
                 removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(8, 8);
-                addMonster(creature, 30000, 4000);
+                addMonster(creature, 6000 * difficulty, 4000);
             } else if (r == 2) {
                 Monster creature = new TreeBore();
                 removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(8, 8);
-                addMonster(creature, 50000, 4000);
+                addMonster(creature, 10000 * difficulty, 4000);
             } else if (r == 3) {
                 Monster creature = new Teeth();
                 removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(8, 8);
-                addMonster(creature, 40000, 4000);
+                addMonster(creature, 8000 * difficulty, 4000);
             }
             monsterNum = 1;
         }
@@ -166,15 +166,15 @@ public class Room {
             Monster creature;
             if (pick1 == 1 || pick1 == 2 || pick1 == 3) {
                 creature = new Monster1();
-                creature.setHealth(3800);
+                creature.setHealth(3000 * difficulty);
                 creature.setDamage(3000);
             } else if (pick1 == 4 || pick1 == 5 || pick1 == 6) {
                 creature = new Monster2();
-                creature.setHealth(2500);
+                creature.setHealth(1000 * difficulty);
                 creature.setDamage(2000);
             } else {
                 creature = new Monster3();
-                creature.setHealth(2000);
+                creature.setHealth(960 * difficulty);
                 creature.setDamage(4999);
             }
             killThem[index] = creature; //************************************
@@ -315,5 +315,13 @@ public class Room {
 
     public void setSlugNum(int slugNum) {
         this.slugNum = slugNum;
+    }
+
+    public static int getDifficulty() {
+        return difficulty;
+    }
+
+    public static void setDifficulty(int difficulty) {
+        Room.difficulty = difficulty;
     }
 }

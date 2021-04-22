@@ -23,31 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/Slugger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Watcher.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Larry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Larry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Teeth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Teeth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/TreeBore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/TreeBore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/FirstScreenTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4MegaTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M5InventoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M5StartingWeaponsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/RoomDisplayTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ShopInteractionsTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
