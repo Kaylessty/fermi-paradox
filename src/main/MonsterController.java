@@ -347,16 +347,16 @@ public class MonsterController {
             int r = rNum.nextInt(20);
             int x = rNum.nextInt(15);
             int y = rNum.nextInt(15);
-            if (r == 0) {
+            if (r == 0 && room.getSlugNum() < 5) {
                 Monster creature = new Slugger();
                 room.removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(thisMonster.getLocation()[0] + 1, thisMonster.getLocation()[1] + 1);
-                room.addMonster(creature, 666 * Room.getDifficulty(), 5000);
+                room.addMonster(creature, 1666 * Room.getDifficulty(), 5000);
                 room.setSlugNum(room.getSlugNum() + 1);
             }
             if(r < 6) {
-                thisMonster.setHealth(thisMonster.getHealth() + (5000 * room.getSlugNum()));
+                thisMonster.setHealth(thisMonster.getHealth() + (1000 * room.getSlugNum()));
                 try {
                     int monstY = y;
                     int monstX = x;

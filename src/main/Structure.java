@@ -92,11 +92,12 @@ public class Structure implements Locatable {
     }
 
     public Item getLV1Loot() {
-        int ite = rNum.nextInt(21);
+        int ite = rNum.nextInt(31);
+        Player.setBalance(Player.getBalance().get() + rNum.nextInt(1000));
         System.out.println(ite);
         Item toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");;
         int pick;
-        if(ite < 13) {
+        if(ite < 18) {
             pick = rNum.nextInt(3);
             switch (pick) {
                 case 0:
@@ -109,7 +110,7 @@ public class Structure implements Locatable {
                     toret = new Item(Item.Possession.G_BATTERYLV1, 11, 11, "Gun Battery");
                     break;
             }
-        } else if( ite <18) {
+        } else if( ite < 25) {
             pick = rNum.nextInt(8);
             switch (pick) {
                 case 0:
@@ -137,7 +138,7 @@ public class Structure implements Locatable {
                     toret = new Item(Item.Possession.SHOCKRIFLE, 11, 11, "Shock Rifle");
                     break;
             }
-        } else if(ite < 20) {
+        } else if(ite < 29) {
             pick = rNum.nextInt(5);
             switch (pick) {
                 case 0:
@@ -156,14 +157,20 @@ public class Structure implements Locatable {
                     toret = new Item(Item.Possession.DB_ENERGYSWORD, 11, 11, "Double Bladed Energy Sword");
                     break;
             }
-        } else if(ite == 20) {
-            pick = rNum.nextInt(2);
+        } else if(ite == 30) {
+            pick = rNum.nextInt(4);
             switch (pick) {
                 case 0:
                     toret = new Item(Item.Possession.DB_SONICSWORD, 11, 11, "Double Bladed Sonic Sword");
                     break;
                 case 1:
                     toret = new Item(Item.Possession.SONICCANNON, 11, 11, "Sonic Cannon");
+                    break;
+                case 2:
+                    toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
+                    break;
+                case 3:
+                    toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
                     break;
             }
         }

@@ -23,6 +23,7 @@ import javafx.scene.text.Text;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
+import java.util.Random;
 
 public class RoomController {
 
@@ -40,6 +41,7 @@ public class RoomController {
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
+    private static Random rNum = new Random();
 
     @FXML
     private ChoiceBox<Item> inv;
@@ -205,7 +207,7 @@ public class RoomController {
                             }
                         } else if (important instanceof Larry
                                 || important instanceof TreeBore
-                                || important instanceof Teeth) {
+                                || important instanceof Teeth || important instanceof Challenge) {
                             picture = new Image(imageURL, 200, 200, true, true);
                         } else {
                             picture = new Image(imageURL, 32.0, 32.0, true, true);
@@ -439,6 +441,40 @@ public class RoomController {
     public void attack(Monster monster, ImageView monsterView) {
         if(monster instanceof Watcher) {
             refreshRoom();
+        }
+        if(monster instanceof Challenge) {
+            for(int i = 0; i < currRoom.getDoors().length; i++) {
+                if(currRoom.getDoors()[i] != null) {
+                    currRoom.getDoors()[i].setLocked(true);
+                    currRoom.getDoors()[i].getCon().setLocked(true);
+                }
+            }
+
+            currRoom.getRoom()[monster.getLocation()[0]][monster.getLocation()[1]] = null;
+            Monster creature;
+            int r = 1 + rNum.nextInt(3);
+            if (r == 1) {
+                creature = new Larry();
+                currRoom.removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                currRoom.addMonster(creature, 10000 * Room.getDifficulty(), 4000);
+            } else if (r == 2) {
+                creature = new TreeBore();
+                currRoom.removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                currRoom.addMonster(creature, 17000 * Room.getDifficulty(), 4000);
+            } else if (r == 3) {
+                creature = new Teeth();
+                currRoom.removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                currRoom.addMonster(creature, 13000 * Room.getDifficulty(), 4000);
+            }
+            currRoom.setMonsterNum(1);
+            refreshRoom();
+            return;
         }
         if (inv.getValue().getPossession().getRange() == 0) {
             if (monster.getType() == "Howard") {

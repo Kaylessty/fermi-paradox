@@ -21,7 +21,7 @@ public class Room {
     private int numRoom;
     private int special;
     private int roomType;
-    private int slugNum;
+    private int slugNum = 0;
     public static int difficulty;
 
     /**
@@ -44,28 +44,34 @@ public class Room {
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
-        if (doornumber == 1 && special != 14) {
-            int r = 1 + rNum.nextInt(3);
-            if (r == 1) {
-                Monster creature = new Larry();
-                removeObject(
-                        creature.getLocation()[0], creature.getLocation()[1]);
-                creature.setLocation(8, 8);
-                addMonster(creature, 10000 * difficulty, 4000);
-            } else if (r == 2) {
-                Monster creature = new TreeBore();
-                removeObject(
-                        creature.getLocation()[0], creature.getLocation()[1]);
-                creature.setLocation(8, 8);
-                addMonster(creature, 17000 * difficulty, 4000);
-            } else if (r == 3) {
-                Monster creature = new Teeth();
-                removeObject(
-                        creature.getLocation()[0], creature.getLocation()[1]);
-                creature.setLocation(8, 8);
-                addMonster(creature, 13000 * difficulty, 4000);
-            }
-            monsterNum = 1;
+        if (doornumber == 1 || special < 2) {
+            Monster orb = new Challenge();
+            removeObject(
+                    orb.getLocation()[0], orb.getLocation()[1]);
+            orb.setLocation(8, 8);
+            addMonster(orb, 1 * difficulty, 0);
+//            int r = 1 + rNum.nextInt(3);
+//            if (r == 1) {
+//                Monster creature = new Larry();
+//                removeObject(
+//                        creature.getLocation()[0], creature.getLocation()[1]);
+//                creature.setLocation(8, 8);
+//                addMonster(creature, 10000 * difficulty, 4000);
+//            } else if (r == 2) {
+//                Monster creature = new TreeBore();
+//                removeObject(
+//                        creature.getLocation()[0], creature.getLocation()[1]);
+//                creature.setLocation(8, 8);
+//                addMonster(creature, 17000 * difficulty, 4000);
+//            } else if (r == 3) {
+//                Monster creature = new Teeth();
+//                removeObject(
+//                        creature.getLocation()[0], creature.getLocation()[1]);
+//                creature.setLocation(8, 8);
+//                addMonster(creature, 13000 * difficulty, 4000);
+//            }
+            monsterNum = 0;
+            return;
         }
         if (roomType == 1 && special != 14) {
             int cnum = rNum.nextInt(15);
