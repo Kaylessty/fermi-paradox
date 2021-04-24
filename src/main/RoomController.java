@@ -626,7 +626,9 @@ public class RoomController {
                 // If the player isn't already at top of room
                 if (pos[1] != 0) {
                     if (currRoom.getRoom()[pos[1] - 1][pos[0]] == null
-                            || currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
+                            || (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible
+                            && playerInventory.getMaximumCapacity() > playerInventory.getCurrHousingSpace()
+                            + ((Item) currRoom.getRoom()[pos[1] - 1][pos[0]]).getSize())) {
                         if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1] - 1][pos[0]]);
                             //refreshRoom();
@@ -675,7 +677,9 @@ public class RoomController {
                 // If the player isn't already at bottom of room
                 if (pos[1] != currRoom.getRoom()[0].length - 1) {
                     if (currRoom.getRoom()[pos[1] + 1][pos[0]] == null
-                            || currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
+                            || (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible
+                            && playerInventory.getMaximumCapacity() > playerInventory.getCurrHousingSpace()
+                            + ((Item) currRoom.getRoom()[pos[1] + 1][pos[0]]).getSize())) {
                         if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1] + 1][pos[0]]);
                             //refreshRoom();
@@ -710,7 +714,9 @@ public class RoomController {
                 // If the player isn't already at very right of room
                 if (pos[0] != currRoom.getRoom().length - 1) {
                     if (currRoom.getRoom()[pos[1]][pos[0] + 1] == null
-                            || currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
+                            || (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible
+                            && playerInventory.getMaximumCapacity() > playerInventory.getCurrHousingSpace()
+                            + ((Item) currRoom.getRoom()[pos[1]][pos[0] + 1]).getSize())) {
                         if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1]][pos[0] + 1]);
                             //refreshRoom();
@@ -745,7 +751,9 @@ public class RoomController {
                 // If the player isn't already at very left of room
                 if (pos[0] != 0) {
                     if (currRoom.getRoom()[pos[1]][pos[0] - 1] == null
-                            || currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
+                            || (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible
+                            && playerInventory.getMaximumCapacity() > playerInventory.getCurrHousingSpace()
+                            + ((Item) currRoom.getRoom()[pos[1]][pos[0] - 1]).getSize())) {
                         if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Collectible) {
                             pickUp((Item) currRoom.getRoom()[pos[1]][pos[0] - 1]);
                             //refreshRoom();
