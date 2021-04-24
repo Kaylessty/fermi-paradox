@@ -1,6 +1,5 @@
 package main;
 
-import com.sun.org.apache.xpath.internal.operations.Bool;
 
 import java.util.Random;
 //import com.sun.org.apache.xpath.internal.operations.Bool;
@@ -21,9 +20,12 @@ public class Structure implements Locatable {
      * purchaseCost, returnCost, walkable, unlocker, idLevel, url)
      */
     public enum Possession  {
-        CRATE("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), true,"resources/images/CRATE.png"),
-        C_Chest("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), false,"resources/images/Chest.png"),
-        O_Chest("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"), true, "resources/images/Chest.png");
+        CRATE("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"),
+                true, "resources/images/CRATE.png"),
+        C_Chest("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"),
+                false, "resources/images/Chest.png"),
+        O_Chest("Prop", new Item(Item.Possession.HORN, 11, 11, "Clown Horn"),
+                true, "resources/images/Chest.png");
         private final String type;
         private final Item loot;
         private final String imageURL;
@@ -95,83 +97,95 @@ public class Structure implements Locatable {
         int ite = rNum.nextInt(31);
         Player.setBalance(Player.getBalance().get() + rNum.nextInt(1000));
         System.out.println(ite);
-        Item toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");;
+        Item toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
         int pick;
-        if(ite < 18) {
+        if (ite < 18) {
             pick = rNum.nextInt(3);
             switch (pick) {
-                case 0:
-                    toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
-                    break;
-                case 1:
-                    toret = new Item(Item.Possession.BATTERYLV1, 11, 11, "Regeneron Battery LV1");
-                    break;
-                case 2:
-                    toret = new Item(Item.Possession.G_BATTERYLV1, 11, 11, "Gun Battery");
-                    break;
+            case 0:
+                toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
+                break;
+            case 1:
+                toret = new Item(Item.Possession.BATTERYLV1, 11, 11, "Regeneron Battery LV1");
+                break;
+            case 2:
+                toret = new Item(Item.Possession.G_BATTERYLV1, 11, 11, "Gun Battery");
+                break;
+            default:
+                break;
             }
-        } else if( ite < 25) {
+        } else if (ite < 25) {
             pick = rNum.nextInt(8);
             switch (pick) {
-                case 0:
-                    toret = new Item(Item.Possession.LASER, 11, 11, "Laser");
-                    break;
-                case 1:
-                    toret = new Item(Item.Possession.ENERGYSWORD, 11, 11, "Energy Sword");
-                    break;
-                case 2:
-                    toret = new Item(Item.Possession.SONICRIFLE, 11, 11, "Sonic Rifle");
-                    break;
-                case 3:
-                    toret = new Item(Item.Possession.SHIELDGENERATOR_LV1, 11, 11, "Shield Generator LV1");
-                    break;
-                case 4:
-                    toret = new Item(Item.Possession.BATTERYLV2, 11, 11, "Regeneron Battery LV2");
-                    break;
-                case 5:
-                    toret = new Item(Item.Possession.G_BATTERYLV2, 11, 11, "Gun Battery LV2");
-                    break;
-                case 6:
-                    toret = new Item(Item.Possession.AMMOBOX, 11, 11, "Ammo");
-                    break;
-                case 7:
-                    toret = new Item(Item.Possession.SHOCKRIFLE, 11, 11, "Shock Rifle");
-                    break;
+            case 0:
+                toret = new Item(Item.Possession.LASER, 11, 11, "Laser");
+                break;
+            case 1:
+                toret = new Item(Item.Possession.ENERGYSWORD, 11, 11, "Energy Sword");
+                break;
+            case 2:
+                toret = new Item(Item.Possession.SONICRIFLE, 11, 11, "Sonic Rifle");
+                break;
+            case 3:
+                toret = new Item(Item.Possession.SHIELDGENERATOR_LV1,
+                        11, 11, "Shield Generator LV1");
+                break;
+            case 4:
+                toret = new Item(Item.Possession.BATTERYLV2, 11, 11, "Regeneron Battery LV2");
+                break;
+            case 5:
+                toret = new Item(Item.Possession.G_BATTERYLV2, 11, 11, "Gun Battery LV2");
+                break;
+            case 6:
+                toret = new Item(Item.Possession.AMMOBOX, 11, 11, "Ammo");
+                break;
+            case 7:
+                toret = new Item(Item.Possession.SHOCKRIFLE, 11, 11, "Shock Rifle");
+                break;
+            default:
+                break;
             }
-        } else if(ite < 29) {
+        } else if (ite < 29) {
             pick = rNum.nextInt(5);
             switch (pick) {
-                case 0:
-                    toret = new Item(Item.Possession.SONICSWORD, 11, 11, "Sonic Sword");
-                    break;
-                case 1:
-                    toret = new Item(Item.Possession.BATTERYLV3, 11, 11, "Regeneron Battery LV3");
-                    break;
-                case 2:
-                    toret = new Item(Item.Possession.G_BATTERYLV3, 11, 11, "Gun Battery LV3");
-                    break;
-                case 3:
-                    toret = new Item(Item.Possession.SHIELDGENERATOR_LV2, 11, 11, "Shield Generator LV2");
-                    break;
-                case 4:
-                    toret = new Item(Item.Possession.DB_ENERGYSWORD, 11, 11, "Double Bladed Energy Sword");
-                    break;
+            case 0:
+                toret = new Item(Item.Possession.SONICSWORD, 11, 11, "Sonic Sword");
+                break;
+            case 1:
+                toret = new Item(Item.Possession.BATTERYLV3, 11, 11, "Regeneron Battery LV3");
+                break;
+            case 2:
+                toret = new Item(Item.Possession.G_BATTERYLV3, 11, 11, "Gun Battery LV3");
+                break;
+            case 3:
+                toret = new Item(Item.Possession.SHIELDGENERATOR_LV2,
+                        11, 11, "Shield Generator LV2");
+                break;
+            case 4:
+                toret = new Item(Item.Possession.DB_ENERGYSWORD,
+                        11, 11, "Double Bladed Energy Sword");
+                break;
+            default:
+                break;
             }
-        } else if(ite == 30) {
+        } else if (ite == 30) {
             pick = rNum.nextInt(4);
             switch (pick) {
-                case 0:
-                    toret = new Item(Item.Possession.DB_SONICSWORD, 11, 11, "Double Bladed Sonic Sword");
-                    break;
-                case 1:
-                    toret = new Item(Item.Possession.SONICCANNON, 11, 11, "Sonic Cannon");
-                    break;
-                case 2:
-                    toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
-                    break;
-                case 3:
-                    toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
-                    break;
+            case 0:
+                toret = new Item(Item.Possession.DB_SONICSWORD,
+                        11, 11, "Double Bladed Sonic Sword");
+                break;
+            case 1:
+                toret = new Item(Item.Possession.SONICCANNON, 11, 11, "Sonic Cannon");
+                break;
+            case 2:
+                toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
+                break;
+            case 3:
+                toret = new Item(Item.Possession.HORN, 11, 11, "Clown Horn");
+                break;
+            default:
+                break;
             }
         }
         return toret;

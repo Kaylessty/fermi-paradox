@@ -320,10 +320,10 @@ public class RoomController {
         player1.setRoom(currRoom);
         /* try {
             ImageView background;
-            if(currRoom.getRoomType() == 1) {
+            if (currRoom.getRoomType() == 1) {
                 background = new ImageView(
                         new Image("resources/images/room_background_a.png"));
-            } else if(currRoom.getRoomType() == 2) {
+            } else if (currRoom.getRoomType() == 2) {
                 background = new ImageView(
                         new Image("resources/images/room_background_b.png"));
             } else {
@@ -439,12 +439,12 @@ public class RoomController {
 
 
     public void attack(Monster monster, ImageView monsterView) {
-        if(monster instanceof Watcher) {
+        if (monster instanceof Watcher) {
             refreshRoom();
         }
-        if(monster instanceof Challenge) {
-            for(int i = 0; i < currRoom.getDoors().length; i++) {
-                if(currRoom.getDoors()[i] != null) {
+        if (monster instanceof Challenge) {
+            for (int i = 0; i < currRoom.getDoors().length; i++) {
+                if (currRoom.getDoors()[i] != null) {
                     currRoom.getDoors()[i].setLocked(true);
                     currRoom.getDoors()[i].getCon().setLocked(true);
                 }
@@ -520,23 +520,23 @@ public class RoomController {
                 System.out.println(monster.getHealth());
                 // allow monster to attack back, assuming not yet attacked
 
-//                if (monster instanceof Monster2) {
-//                    for (int i = 0; i < monstersInRoom.length; i++) {
-//                        if (monstersInRoom[i] instanceof Monster2) {
-//                            if (!monstersInRoom[i].getHasBeenAttacked()) {
-//                                monsterControllers[monstersAttacked] = new MonsterController(
-//                                        monstersInRoom[i], scene1, root,
-//                                        player1, currRoom, this, monsterView);
-//                                monstersInRoom[i].setHasBeenAttacked(true);
-//                                monstersAttacked++;
-//                            }
-//                        }
-//                    }
-//                    //} else if (monster instanceof TreeBore) {
-//                    //monsterControllers[0] = new MonsterController(monster, scene1, root,
-//                    //theStage, player1, currRoom, this);
-//                    //monster.setHasBeenAttacked(true);
-//                }
+                /*if (monster instanceof Monster2) {
+                    for (int i = 0; i < monstersInRoom.length; i++) {
+                        if (monstersInRoom[i] instanceof Monster2) {
+                            if (!monstersInRoom[i].getHasBeenAttacked()) {
+                                monsterControllers[monstersAttacked] = new MonsterController(
+                                        monstersInRoom[i], scene1, root,
+                                        player1, currRoom, this, monsterView);
+                                monstersInRoom[i].setHasBeenAttacked(true);
+                                monstersAttacked++;
+                            }
+                        }
+                    }
+                    //} else if (monster instanceof TreeBore) {
+                    //monsterControllers[0] = new MonsterController(monster, scene1, root,
+                    //theStage, player1, currRoom, this);
+                    //monster.setHasBeenAttacked(true);
+                }*/
                 if (!monster.getHasBeenAttacked()) {
                     monsterControllers[monstersAttacked] = new MonsterController(monster, scene1,
                             root, player1, currRoom, this, monsterView);
@@ -643,7 +643,7 @@ public class RoomController {
                         changeRoom((Door) currRoom.getRoom()[pos[1] - 1][pos[0]]);
                     } else if (currRoom.getRoom()[pos[1] - 1][pos[0]] instanceof Structure) {
                         Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
-                        if(struct.getPossession().getLooted() == false) {
+                        if (!struct.getPossession().getLooted()) {
                             System.out.println("looted");
                             int[] loc = player1.getLocation();
                             loc[0] = loc[0] - 1;
@@ -652,20 +652,22 @@ public class RoomController {
                                     loot1.getPossession(), loc[0],
                                     loc[1], loot1.getName());
                             currRoom.addObject(loot, loc[0], loc[1]);
-                            currRoom.addObject(new Structure(Structure.Possession.O_Chest, struct.getLocation()[0], struct.getLocation()[1], "Chest"), struct.getLocation()[0], struct.getLocation()[1]);
+                            currRoom.addObject(new Structure(Structure.Possession.O_Chest,
+                                    struct.getLocation()[0], struct.getLocation()[1], "Chest"),
+                                    struct.getLocation()[0], struct.getLocation()[1]);
                             refreshRoom();
                         }
-//                        if (!struct.getPossession().getLooted()) {
-//                            System.out.println("looted");
-//                            int[] loc = player1.getLocation();
-//                            loc[0] = loc[0] - 1;
-//                            Item loot = new Item(
-//                                    struct.getPossession().getLoot().getPossession(), loc[0],
-//                                    loc[1], struct.getPossession().getLoot().getName());
-//                            struct.getPossession().setLooted(true);
-//                            currRoom.addObject(loot, loc[0], loc[1]);
-//                            refreshRoom();
-                        // }
+                        /*if (!struct.getPossession().getLooted()) {
+                            System.out.println("looted");
+                            int[] loc = player1.getLocation();
+                            loc[0] = loc[0] - 1;
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
+                            currRoom.addObject(loot, loc[0], loc[1]);
+                            refreshRoom();
+                         }*/
                     }
                 }
             } else if (e.getCode() == KeyCode.DOWN || e.getCode() == KeyCode.S) {
@@ -688,19 +690,19 @@ public class RoomController {
                         playerView.setY(player1.getLocation()[1] * 32);
                     } else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1] + 1][pos[0]]);
-                    } else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Structure) {
-//                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
-//                        if (!struct.getPossession().getLooted()) {
-//                            System.out.println("looted");
-//                            int[] loc = player1.getLocation();
-//                            loc[0] = loc[0] + 1;
-//                            Item loot = new Item(
-//                                    struct.getPossession().getLoot().getPossession(), loc[0],
-//                                    loc[1], struct.getPossession().getLoot().getName());
-//                            struct.getPossession().setLooted(true);
-//                            currRoom.addObject(loot, loc[0], loc[1]);
-//                            refreshRoom();
-//                        }
+                        /*} else if (currRoom.getRoom()[pos[1] + 1][pos[0]] instanceof Structure) {
+                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
+                            System.out.println("looted");
+                            int[] loc = player1.getLocation();
+                            loc[0] = loc[0] + 1;
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
+                            currRoom.addObject(loot, loc[0], loc[1]);
+                            refreshRoom();
+                        }*/
                     }
                 }
             } else if (e.getCode() == KeyCode.RIGHT || e.getCode() == KeyCode.D) {
@@ -723,19 +725,19 @@ public class RoomController {
                         playerView.setY(player1.getLocation()[1] * 32);
                     } else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1]][pos[0] + 1]);
-                    } else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Structure) {
-//                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
-//                        if (!struct.getPossession().getLooted()) {
-//                            System.out.println("looted");
-//                            int[] loc = player1.getLocation();
-//                            loc[1] = loc[1] + 1;
-//                            Item loot = new Item(
-//                                    struct.getPossession().getLoot().getPossession(), loc[0],
-//                                    loc[1], struct.getPossession().getLoot().getName());
-//                            struct.getPossession().setLooted(true);
-//                            currRoom.addObject(loot, loc[0], loc[1]);
-//                            refreshRoom();
-//                        }
+                        /*} else if (currRoom.getRoom()[pos[1]][pos[0] + 1] instanceof Structure) {
+                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
+                            System.out.println("looted");
+                            int[] loc = player1.getLocation();
+                            loc[1] = loc[1] + 1;
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
+                            currRoom.addObject(loot, loc[0], loc[1]);
+                            refreshRoom();
+                        }*/
                     }
                 }
             } else if (e.getCode() == KeyCode.LEFT || e.getCode() == KeyCode.A) {
@@ -758,19 +760,19 @@ public class RoomController {
                         playerView.setY(player1.getLocation()[1] * 32);
                     } else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Door) {
                         changeRoom((Door) currRoom.getRoom()[pos[1]][pos[0] - 1]);
-                    } else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Structure) {
-//                        Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
-//                        if (!struct.getPossession().getLooted()) {
-//                            System.out.println("looted");
-//                            int[] loc = player1.getLocation();
-//                            loc[1] = loc[1] - 1;
-//                            Item loot = new Item(
-//                                    struct.getPossession().getLoot().getPossession(), loc[0],
-//                                    loc[1], struct.getPossession().getLoot().getName());
-//                            struct.getPossession().setLooted(true);
-//                            currRoom.addObject(loot, loc[0], loc[1]);
-//                            refreshRoom();
-//                        }
+                        /*} else if (currRoom.getRoom()[pos[1]][pos[0] - 1] instanceof Structure) {
+                        /*Structure struct = (Structure) currRoom.getRoom()[pos[1] - 1][pos[0]];
+                        if (!struct.getPossession().getLooted()) {
+                            System.out.println("looted");
+                            int[] loc = player1.getLocation();
+                            loc[1] = loc[1] - 1;
+                            Item loot = new Item(
+                                    struct.getPossession().getLoot().getPossession(), loc[0],
+                                    loc[1], struct.getPossession().getLoot().getName());
+                            struct.getPossession().setLooted(true);
+                            currRoom.addObject(loot, loc[0], loc[1]);
+                            refreshRoom();
+                        }*/
                     }
                 }
             }

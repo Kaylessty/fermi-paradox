@@ -118,8 +118,8 @@ public class MonsterController {
                 //target.setStrokeWidth(4);
 
                 //test of monster differentiation
-                if (thisMonster.getType() == "Teaff" || thisMonster.getType() == "Teeth" ||
-                        thisMonster.getType() == "Slugger") {
+                if (thisMonster.getType() == "Teaff" || thisMonster.getType() == "Teeth"
+                        || thisMonster.getType() == "Slugger") {
                     runTeeth();
                 } else if (thisMonster.getType() == "Howard" || thisMonster.getType() == "Prowler"
                         || thisMonster.getType() == "Engi") {
@@ -351,11 +351,12 @@ public class MonsterController {
                 Monster creature = new Slugger();
                 room.removeObject(
                         creature.getLocation()[0], creature.getLocation()[1]);
-                creature.setLocation(thisMonster.getLocation()[0] + 1, thisMonster.getLocation()[1] + 1);
+                creature.setLocation(thisMonster.getLocation()[0] + 1,
+                        thisMonster.getLocation()[1] + 1);
                 room.addMonster(creature, 1666 * Room.getDifficulty(), 5000);
                 room.setSlugNum(room.getSlugNum() + 1);
             }
-            if(r < 6) {
+            if (r < 6) {
                 thisMonster.setHealth(thisMonster.getHealth() + (1000 * room.getSlugNum()));
                 try {
                     int monstY = y;

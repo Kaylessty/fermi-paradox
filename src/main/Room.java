@@ -22,7 +22,7 @@ public class Room {
     private int special;
     private int roomType;
     private int slugNum = 0;
-    public static int difficulty;
+    private static int difficulty;
 
     /**
      * This constructor initializes the location of this room on the grid-like maze
@@ -50,26 +50,26 @@ public class Room {
                     orb.getLocation()[0], orb.getLocation()[1]);
             orb.setLocation(8, 8);
             addMonster(orb, 1 * difficulty, 0);
-//            int r = 1 + rNum.nextInt(3);
-//            if (r == 1) {
-//                Monster creature = new Larry();
-//                removeObject(
-//                        creature.getLocation()[0], creature.getLocation()[1]);
-//                creature.setLocation(8, 8);
-//                addMonster(creature, 10000 * difficulty, 4000);
-//            } else if (r == 2) {
-//                Monster creature = new TreeBore();
-//                removeObject(
-//                        creature.getLocation()[0], creature.getLocation()[1]);
-//                creature.setLocation(8, 8);
-//                addMonster(creature, 17000 * difficulty, 4000);
-//            } else if (r == 3) {
-//                Monster creature = new Teeth();
-//                removeObject(
-//                        creature.getLocation()[0], creature.getLocation()[1]);
-//                creature.setLocation(8, 8);
-//                addMonster(creature, 13000 * difficulty, 4000);
-//            }
+            /*int r = 1 + rNum.nextInt(3);
+            if (r == 1) {
+                Monster creature = new Larry();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 10000 * difficulty, 4000);
+            } else if (r == 2) {
+                Monster creature = new TreeBore();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 17000 * difficulty, 4000);
+            } else if (r == 3) {
+                Monster creature = new Teeth();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 13000 * difficulty, 4000);
+            }*/
             monsterNum = 0;
             return;
         }
@@ -132,10 +132,10 @@ public class Room {
             addMonsters();
         }
         Boolean cnf = true;
-        while(cnf) {
+        while (cnf) {
             int xc = 4 + rNum.nextInt(9);
             int yc = 4 + rNum.nextInt(9);
-            if(getRoom()[yc][xc] == null) {
+            if (getRoom()[yc][xc] == null) {
                 addObject(new Structure(Structure.Possession.C_Chest, xc, yc, "Chest"), xc, yc);
                 cnf = false;
             }
