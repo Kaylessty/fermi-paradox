@@ -8,7 +8,6 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-
 <BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
    <right>
    </right>
@@ -41,6 +40,21 @@
                </font>
             </Text>
             <Text fill="WHITE" layoutX="10.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(e) to use currently selected item">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="10.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(q) to drop current item">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(f) to show item information">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="10.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(f) to show item information">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -105,7 +119,7 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #4">
+            <Text fill="WHITE" layoutX="10.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LEFT and RIGHT arrows to swiftly switch between items in inventory">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
