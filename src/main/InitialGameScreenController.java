@@ -27,13 +27,6 @@ public class InitialGameScreenController {
     @FXML
     private Button enteringMaze;
 
-
-    @FXML
-    public void initialize() {
-        money.textProperty().bind(Player.getBalance().asString());
-        health.textProperty().bind(Player.getHealth().asString());
-    }
-
     @FXML
     private void enterMaze(ActionEvent event) {
         try {
