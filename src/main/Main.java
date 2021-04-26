@@ -16,7 +16,8 @@ public class Main extends Application {
 
     private Parent rootNode;
     private static Stage stage;
-    private MediaPlayer mediaPlayer;
+    public static MediaPlayer mediaPlayer;
+    public static String musicFile;
 
 
 
@@ -51,7 +52,7 @@ public class Main extends Application {
     }
 
     public void music() throws URISyntaxException {
-        String musicFile = getClass().getResource("/resources/sounds/song.mp3").toURI().toString();
+        String musicFile = getClass().getResource("/resources/sounds/song1.mp3").toURI().toString();
         Media sound = new Media(musicFile);
         mediaPlayer = new MediaPlayer(sound);
         mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
