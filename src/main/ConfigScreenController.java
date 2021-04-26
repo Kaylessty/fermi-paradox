@@ -61,11 +61,13 @@ public class ConfigScreenController {
                     && difficulties.getSelectedToggle() != null
                     && weapons.getSelectedToggle() != null) {
                 Player.setName(nameEntry.getText());
-                Player.setHealth(5000);
+
                 // If the difficulty is "easy"
                 if (((RadioButton)
                         (difficulties.getSelectedToggle())).getText().equals("Easy")) {
-                    Player.setBalance(3000);
+                    Player.setMaxHealth(15000);
+                    Player.setHealth(15000);
+                    Player.setBalance(25000);
                     Player.setSpeed(10);
                     Player.setStrength(1200);
                     Room.setDifficulty(1);
@@ -73,7 +75,9 @@ public class ConfigScreenController {
                 } else if (((RadioButton)
                         (difficulties.getSelectedToggle())).getText().equals("Amateur")
                 ) {
-                    Player.setBalance(2000);
+                    Player.setMaxHealth(10000);
+                    Player.setHealth(10000);
+                    Player.setBalance(15000);
                     Player.setSpeed(7);
                     Player.setStrength(900);
                     Room.setDifficulty(2);
@@ -81,6 +85,8 @@ public class ConfigScreenController {
                 } else if (((RadioButton)
                         (difficulties.getSelectedToggle())).getText().equals("Hard")
                 ) {
+                    Player.setMaxHealth(15000);
+                    Player.setHealth(5000);
                     Player.setBalance(1000);
                     Player.setSpeed(5);
                     Player.setStrength(600);

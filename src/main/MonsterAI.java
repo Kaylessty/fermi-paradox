@@ -353,11 +353,11 @@ public class MonsterAI {
                         creature.getLocation()[0], creature.getLocation()[1]);
                 creature.setLocation(thisMonster.getLocation()[0] + 1,
                         thisMonster.getLocation()[1] + 1);
-                room.addMonster(creature, 1666 * Room.getDifficulty(), 5000);
+                room.addMonster(creature, 666 * Room.getDifficulty(), 5000);
                 room.setSlugNum(room.getSlugNum() + 1);
             }
             if (r < 6) {
-                thisMonster.setHealth(thisMonster.getHealth() + (1000 * room.getSlugNum()));
+                thisMonster.setHealth(thisMonster.getHealth() + ((333 * Room.getDifficulty()) * room.getSlugNum()));
                 try {
                     int monstY = y;
                     int monstX = x;
