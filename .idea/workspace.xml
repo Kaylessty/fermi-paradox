@@ -23,49 +23,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/Challenge.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Slugger.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/StatScreenController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/Watcher.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/css/combo.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/C_ORB.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/Chest.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/Slugger.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/images/Watcher.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sounds/song.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/resources/sounds/song1.mp3" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/view/statsscreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/SpaceDungeon.iml" beforeDir="false" afterPath="$PROJECT_DIR$/SpaceDungeon.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Item.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Item.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Larry.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Larry.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/LoseScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/LoseScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Room.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Room.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Structure.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Structure.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Teeth.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Teeth.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/TreeBore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/TreeBore.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/configscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/configscreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/firstscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/firstscreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/losescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/losescreen.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/view/roomcontroller.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/roomcontroller.fxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MonsterAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterAI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/statsscreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/statsscreen.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/main/Maze.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Maze.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController$Timer.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/MonsterController.class" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ShopInteractionsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ShopInteractionsTest.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ShopInteractionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/ShopInteractionsTest.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,6 +47,11 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2020.2.2\plugins\maven\lib\maven3" />
+      </MavenGeneralSettings>
+    </option>
     <option name="importingSettings">
       <MavenImportingSettings>
         <option name="jdkForImporter" value="1.8" />
@@ -237,26 +205,26 @@
     </state>
     <state x="740" y="261" key="FileChooserDialogImpl/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618463187226" />
     <state x="526" y="183" key="FileChooserDialogImpl/0.0.1366.728@0.0.1366.728" timestamp="1618700179626" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1619477442444">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom" timestamp="1619477861877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618498107861" />
-    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619477442444" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1619477442444">
+    <state width="1323" height="179" key="GridCell.Tab.0.bottom/0.0.1366.728@0.0.1366.728" timestamp="1619477861877" />
+    <state width="1323" height="179" key="GridCell.Tab.0.center" timestamp="1619477861868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618498107860" />
-    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619477442444" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1619477442444">
+    <state width="1323" height="179" key="GridCell.Tab.0.center/0.0.1366.728@0.0.1366.728" timestamp="1619477861868" />
+    <state width="1323" height="179" key="GridCell.Tab.0.left" timestamp="1619477861868">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618498107860" />
-    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619477442444" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1619477442444">
+    <state width="1323" height="179" key="GridCell.Tab.0.left/0.0.1366.728@0.0.1366.728" timestamp="1619477861868" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right" timestamp="1619477861877">
       <screen x="0" y="0" width="1366" height="728" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1618498107861" />
-    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619477442444" />
+    <state width="1323" height="179" key="GridCell.Tab.0.right/0.0.1366.728@0.0.1366.728" timestamp="1619477861877" />
     <state x="213" y="23" key="Maven.ArtifactSearchDialog" timestamp="1619475335107">
       <screen x="0" y="0" width="1366" height="728" />
     </state>

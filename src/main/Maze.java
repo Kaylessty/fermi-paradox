@@ -55,7 +55,7 @@ public class Maze {
         rooms[rooms.length - 2].removeObject(
                 creature.getLocation()[0], creature.getLocation()[1]);
         creature.setLocation(8, 8);
-        rooms[rooms.length - 2].addMonster(creature, 500000, 10000);
+        rooms[rooms.length - 2].addMonster(creature, 166000 * Room.getDifficulty(), 10000);
 
 
         doors = new Door[doornum];
