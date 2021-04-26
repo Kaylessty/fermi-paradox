@@ -5,6 +5,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Scene;
@@ -37,7 +38,8 @@ public class RoomController {
     private Label money;
     private Label health;
     private InitialGameScreenController temp = new InitialGameScreenController();
-    private HBox topRow;
+    private VBox healthMoneyVBox;
+    private VBox invVBox;
     private HBox bottomRow;
     private Text healthText;
     private Text moneyText;
@@ -100,6 +102,7 @@ public class RoomController {
         //makes Inventory
         playerInventory = new Inventory("Player Inventory ");
         inv = new ChoiceBox<>();
+        inv.setStyle("-fx-background-color: pink");
         //
 
         //Add pillar/background before displayRoom()!
@@ -121,7 +124,10 @@ public class RoomController {
         }
         health = new Label("");
         money = new Label("");
-        topRow = new HBox();
+        healthMoneyVBox = new VBox();
+        invVBox = new VBox();
+        healthMoneyVBox.setPadding(new Insets(30,0,0,100));
+        healthMoneyVBox.setSpacing(10);
         bottomRow = new HBox();
         moneyText = new Text(" $: ");
         healthText = new Text(" Health: ");
@@ -135,11 +141,13 @@ public class RoomController {
                 + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 30pt 'Lao MN'");
         health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
                 + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 25pt 'Lao MN'");
-        topRow.getChildren().addAll(moneyText, money);
-        bottomRow.getChildren().addAll(healthText, health);
-        topRow.setAlignment(Pos.TOP_LEFT);
+        healthMoneyVBox.getChildren().addAll(health, money);
+        //bottomRow.getChildren().addAll(health);
+        healthMoneyVBox.setAlignment(Pos.TOP_LEFT);
         bottomRow.setAlignment(Pos.TOP_LEFT);
         //pillar.getChildren().add(inv);
+        invVBox.setPadding(new Insets(50,50,50,50));
+        invVBox.getChildren().add(inv);
         root.getChildren().add(pillar);
         health.textProperty().addListener(new ChangeListener<String>() {
             @Override
@@ -166,13 +174,15 @@ public class RoomController {
      */
     public void displayRoom() {
         // For testing: shows the room that we are in
-        Text t = new Text(50, 50, currRoom.getRoomName());
+        Text t = new Text(20, 570, currRoom.getRoomName());
+        t.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
+                + " 10,0.7,0.0,0.0); -fx-fill: white; -fx-font: 12pt 'Lao MN'");
         root.getChildren().add(t);
         keepTrack.add(t);
-        root.setTop(topRow);
+        root.setTop(healthMoneyVBox);
         root.setBottom(bottomRow);
-        root.setLeft(inv);
-        keepTrack.add(topRow);
+        root.setLeft(invVBox);
+        keepTrack.add(healthMoneyVBox);
         keepTrack.add(bottomRow);
         // Displays the items currently in the room
         for (int row = 0; row < currRoom.getRoom().length; row++) {
