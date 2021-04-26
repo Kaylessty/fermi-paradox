@@ -6,7 +6,7 @@ public class Teeth extends Monster {
     private int speed;
     private String type = "Teeth";
     private static final int ORIGINAL_HEALTH = 999999999;
-    private Boolean boss = true;
+    private Boolean boss = false;
     public Teeth() {
         this(999999999, 1);
     }

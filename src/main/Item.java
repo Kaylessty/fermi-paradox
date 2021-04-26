@@ -13,11 +13,11 @@ public class Item implements Locatable, Collectible {
                         + "of central command to erase anything which displeased them, "
                         + "you feel powerful just holding it.",
                 "resources/images/A_ENERGYSWORD.png"),
-        SHADOWSWORD("Sword", new int[]{1500, 1, 4, 80000, 50000, -1},
+        SHADOWSWORD("Sword", new int[]{2000, 1, 4, 80000, 50000, -1},
                 "A powerful weapon that resonates with a strange energy, "
                         + "can hit a target up close and from exactly 6 meters away",
                 "resources/images/SHADOWSWORD.png"),
-        TOOTHBRUSH("Sword", new int[]{2500, 1, 4, 80000, 50000, -1},
+        TOOTHBRUSH("Sword", new int[]{3000, 1, 4, 80000, 50000, -1},
                 "A very sharp axe made from the monster Teeth",
                 "resources/images/TOOTHBRUSH.png"),
         BORESTAFF("Sword", new int[]{4000, 0, 4, 80000, 50000, -1},
@@ -27,7 +27,7 @@ public class Item implements Locatable, Collectible {
                 "A bladed weapon vibrating with a powerful "
                         + "energy source, can cut through almost anything",
                 "resources/images/ENERGYSWORD.png"),
-        DB_ENERGYSWORD("Sword", new int[]{1000, 1, 4, 20000, 17000, -1},
+        DB_ENERGYSWORD("Sword", new int[]{2500, 1, 4, 20000, 17000, -1},
                 "A energy sword with an extra blade, a very powerful energy "
                         + "weapon for those with high skill, double blades double damage",
                 "resources/images/DB_ENERGYSWORD.png"),
@@ -35,17 +35,17 @@ public class Item implements Locatable, Collectible {
                 "A sword that uses the power of sound the extend the rage beyond"
                         + " what most weapons are capable of",
                 "resources/images/SONICSWORD.png"),
-        DB_SONICSWORD("Sword", new int[]{1000, 3, 4, 30000, 27000, -1},
+        DB_SONICSWORD("Sword", new int[]{2500, 3, 4, 30000, 27000, -1},
                 "A sonic sword with an extra blade, a very powerful sonic weapon"
                         + " for those with high skill, double blades double damage",
                 "resources/images/DB_SONICSWORD.png"),
         LASER("Gun", new int[]{150, 7, 4, 1000, 700, -1},
                 "A small and fairly week laser weapon typically used for personal defense",
                 "resources/images/LASER.png"),
-        SHOCKRIFLE("Gun", new int[]{400, 10, 4, 8000, 6500, -1},
+        SHOCKRIFLE("Gun", new int[]{500, 10, 4, 8000, 6500, -1},
                 "The rifle version of the smaller laser pistol.",
                 "resources/images/SHOCKRIFLE.png"),
-        PISTOL("Gun", new int[]{400, 10, 1, 5500, 3000, -1},
+        PISTOL("Gun", new int[]{700, 10, 1, 5500, 3000, -1},
                 "A small yet powerful ballistic weapon, needs ammo to function",
                 "resources/images/PISTOL.png"),
         A_RIFLE("Gun", new int[]{3000, 20, 4, 9000000, 7000000, -1},
@@ -55,7 +55,7 @@ public class Item implements Locatable, Collectible {
         SONICRIFLE("Gun", new int[]{350, 5, 4, 1000, 700, -1},
                 "A weapon that uses a burst of low frequency  sound to deal high damage.",
                 "resources/images/SONICRIFLE.png"),
-        SONICCANNON("Gun", new int[]{850, 5, 4, 20000, 17000, -1},
+        SONICCANNON("Gun", new int[]{1850, 5, 4, 20000, 17000, -1},
                 "A very powerful sonic weapon. High damage, low range",
                 "resources/images/SONICCANNON.png"),
         A_SHOCKRIFLE("Gun", new int[]{60000, 20, 4, 100000, 100000, -1},
@@ -63,7 +63,7 @@ public class Item implements Locatable, Collectible {
                         + " central command to erase anything which displeased them, "
                         + "you feel powerful just holding it.",
                 "resources/images/A_SHOCKRIFLE.png"),
-        H_RIFLE("Gun", new int[]{1500, 20, 4, 95000, 88000, -1},
+        H_RIFLE("Gun", new int[]{2200, 20, 4, 95000, 88000, -1},
                 "A hunting rifle, it seems very old and worn out, yet still "
                         + "very powerful. High damage, High range, needs ammo to function",
                 "resources/images/H_RIFLE.png"),
@@ -78,7 +78,7 @@ public class Item implements Locatable, Collectible {
                 "An administrator identification card, used by central "
                         + "members of central command. Almost like a skeleton key",
                 "resources/images/ID.png"),
-        HORN("misc", new int[]{1, 0, 1, 70, 1, -1},
+        HORN("misc", new int[]{1, 0, 1, 500, 500, -1},
                 "A simple clown horn, it goes honk, nothing more",
                 "resources/images/Horn.png"),
         BOREEYE("heal", new int[]{1000, 0, 1, 300, 300, -1},

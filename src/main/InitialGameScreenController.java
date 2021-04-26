@@ -9,13 +9,17 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
 import javafx.stage.Stage;
 
 import java.io.IOException;
+import java.net.URISyntaxException;
 
 public class InitialGameScreenController {
 
     private Scene scene;
+    protected static long startTime;
 
     @FXML
     private Label health;
@@ -26,16 +30,10 @@ public class InitialGameScreenController {
     @FXML
     private Button enteringMaze;
 
-
-    @FXML
-    public void initialize() {
-        money.textProperty().bind(Player.getBalance().asString());
-        health.textProperty().bind(Player.getHealth().asString());
-    }
-
     @FXML
     private void enterMaze(ActionEvent event) {
         try {
+            startTime = System.currentTimeMillis();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/roomcontroller.fxml"));
             Parent viewParent = loader.load();
             RoomController roomControl = loader.getController();

@@ -47,13 +47,17 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testPurchaseTransaction() {
-        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
+        Player.getRoom().addObject(
+                new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
+                8, 7);
         ClownShop shop = new ClownShop();
         shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
         press(KeyCode.UP).release(KeyCode.UP);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        // Allows for the room to be refreshed so that the shop appears
+        press(KeyCode.D).release(KeyCode.D);
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         try {
             Thread.sleep(500);
         } catch (InterruptedException ie) {
@@ -70,14 +74,18 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testBankruptPurchase() {
-        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
+        Player.getRoom().addObject(
+                new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
+                8, 7);
         ProwlerShop shop = new ProwlerShop();
         shop.setLocation(8, 6);
         Player.getRoom().addMonster(shop, 100, 0);
         //Player.setBalance(5);// Creates thread errors
         press(KeyCode.UP).release(KeyCode.UP);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        // Allows for the room to be refreshed so that the shop appears
+        press(KeyCode.D).release(KeyCode.D);
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         try {
             Thread.sleep(500);
         } catch (InterruptedException ie) {
@@ -94,7 +102,9 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testSellingItem() {
-        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
+        Player.getRoom().addObject(
+                new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
+                8, 7);
         Item toSell = new Item(Item.Possession.SONICRIFLE, 8, 6, "Gun1");
         Player.getRoom().addObject(toSell, 8, 6);
         press(KeyCode.UP).release(KeyCode.UP);
@@ -103,8 +113,10 @@ public class ShopInteractionsTest extends ApplicationTest {
         Player.getRoom().addMonster(shop, 100, 0);
         press(KeyCode.UP).release(KeyCode.UP);
         press(KeyCode.UP).release(KeyCode.UP);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        // Allows for the room to be refreshed so that the shop appears
+        press(KeyCode.D).release(KeyCode.D);
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         try {
             Thread.sleep(500);
         } catch (InterruptedException ie) {
@@ -120,15 +132,19 @@ public class ShopInteractionsTest extends ApplicationTest {
 
     @Test
     public void testSellingItemMultipleTimes() {
-        Player.getRoom().addObject(new Item(Item.Possession.AAID, 8, 7, "Administrator ID"), 8, 7);
+        Player.getRoom().addObject(
+                new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
+                8, 7);
         Item toSell = new Item(Item.Possession.SONICRIFLE, 8, 6, "Gun1");
         Player.getRoom().addObject(toSell, 8, 6);
         press(KeyCode.UP).release(KeyCode.UP);
         ClownShop shop = new ClownShop();
         shop.setLocation(8, 5);
         Player.getRoom().addMonster(shop, 100, 0);
-        press(KeyCode.D).release(KeyCode.D); // Allows for the room to be refreshed so that the shop appears
-        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(), shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
+        // Allows for the room to be refreshed so that the shop appears
+        press(KeyCode.D).release(KeyCode.D);
+        clickOn(shop.getLocation()[0] * 32 + 220 + primaryStage.getX(),
+                shop.getLocation()[1] * 32 + 10 + primaryStage.getY());
         try {
             Thread.sleep(500);
         } catch (InterruptedException ie) {

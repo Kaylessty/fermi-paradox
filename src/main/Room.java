@@ -21,7 +21,8 @@ public class Room {
     private int numRoom;
     private int special;
     private int roomType;
-
+    private int slugNum = 0;
+    private static int difficulty;
 
     /**
      * This constructor initializes the location of this room on the grid-like maze
@@ -43,6 +44,35 @@ public class Room {
         killThem = new Monster[monsterNum];
         this.numRoom = numRoom;
         special = rNum.nextInt(15);
+        if (doornumber == 1 || special < 2) {
+            Monster orb = new Challenge();
+            removeObject(
+                    orb.getLocation()[0], orb.getLocation()[1]);
+            orb.setLocation(8, 8);
+            addMonster(orb, 1 * difficulty, 0);
+            /*int r = 1 + rNum.nextInt(3);
+            if (r == 1) {
+                Monster creature = new Larry();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 10000 * difficulty, 4000);
+            } else if (r == 2) {
+                Monster creature = new TreeBore();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 17000 * difficulty, 4000);
+            } else if (r == 3) {
+                Monster creature = new Teeth();
+                removeObject(
+                        creature.getLocation()[0], creature.getLocation()[1]);
+                creature.setLocation(8, 8);
+                addMonster(creature, 13000 * difficulty, 4000);
+            }*/
+            monsterNum = 0;
+            return;
+        }
         if (roomType == 1 && special != 14) {
             int cnum = rNum.nextInt(15);
             for (int i = 0; i < cnum; i++) {
@@ -101,6 +131,15 @@ public class Room {
         if (!roomName.equals("first") && !roomName.equals("last")) {
             addMonsters();
         }
+        Boolean cnf = true;
+        while (cnf) {
+            int xc = 4 + rNum.nextInt(9);
+            int yc = 4 + rNum.nextInt(9);
+            if (getRoom()[yc][xc] == null) {
+                addObject(new Structure(Structure.Possession.C_Chest, xc, yc, "Chest"), xc, yc);
+                cnf = false;
+            }
+        }
     }
 
     public Room(int row, int column, int doornumber, int distance, int monsterNum,
@@ -142,15 +181,15 @@ public class Room {
             Monster creature;
             if (pick1 == 1 || pick1 == 2 || pick1 == 3) {
                 creature = new Monster1();
-                creature.setHealth(3800);
+                creature.setHealth(3000 * difficulty);
                 creature.setDamage(3000);
             } else if (pick1 == 4 || pick1 == 5 || pick1 == 6) {
                 creature = new Monster2();
-                creature.setHealth(2500);
+                creature.setHealth(1400 * difficulty);
                 creature.setDamage(2000);
             } else {
                 creature = new Monster3();
-                creature.setHealth(2000);
+                creature.setHealth(960 * difficulty);
                 creature.setDamage(4999);
             }
             killThem[index] = creature; //************************************
@@ -283,5 +322,21 @@ public class Room {
 
     public int getRoomType() {
         return roomType;
+    }
+
+    public int getSlugNum() {
+        return slugNum;
+    }
+
+    public void setSlugNum(int slugNum) {
+        this.slugNum = slugNum;
+    }
+
+    public static int getDifficulty() {
+        return difficulty;
+    }
+
+    public static void setDifficulty(int difficulty) {
+        Room.difficulty = difficulty;
     }
 }

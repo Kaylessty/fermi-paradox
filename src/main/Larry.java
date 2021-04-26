@@ -8,7 +8,7 @@ public class Larry extends Monster {
     private int speed;
     private String type = "Larry";
     private static final int ORIGINAL_HEALTH = 999999999;
-    private Boolean boss = true;
+    private Boolean boss = false;
     private Random rNum = new Random();
     public Larry() {
         this(999999999, 1);

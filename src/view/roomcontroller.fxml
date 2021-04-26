@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(&quot;/resources/images/room_background.png&quot;);" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RoomController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(&quot;/resources/images/room_background.png&quot;);" stylesheets="@../resources/css/combo.css" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.RoomController">
 
 
 
