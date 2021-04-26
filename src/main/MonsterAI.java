@@ -89,8 +89,8 @@ public class MonsterAI {
 
         Platform.runLater(() -> {
             try {
-                Player.setBalance(3000);
-                Player.setHealth(5000);
+                Player.setBalance(25000);
+                Player.setHealth(20000);
 
                 FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/losescreen.fxml"));
                 Main.getPrimaryStage().setScene(new Scene(loader.load()));
