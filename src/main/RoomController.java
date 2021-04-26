@@ -49,7 +49,7 @@ public class RoomController {
     private Inventory playerInventory;
     private Player player1;
     private Monster[] monstersInRoom;
-    private MonsterController[] monsterControllers;
+    private MonsterAI[] monsterAIs;
     private List<Node> keepTrack;
     private Item dropped;
     private boolean gauntlet = false;
@@ -157,7 +157,7 @@ public class RoomController {
         displayRoom();
         scene1 = new Scene(root, 800, 600);
         monstersInRoom = currRoom.getMonsters();
-        monsterControllers = new MonsterController[monstersInRoom.length];
+        monsterAIs = new MonsterAI[monstersInRoom.length];
     }
 
 
@@ -347,7 +347,7 @@ public class RoomController {
         System.out.println("Number of monsters:" + currRoom.getMonsterNum());
         System.out.println("Number of doors: " + currRoom.getDoors().length);
         monstersInRoom = currRoom.getMonsters();
-        monsterControllers = new MonsterController[monstersInRoom.length];
+        monsterAIs = new MonsterAI[monstersInRoom.length];
     }
 
     /**
@@ -539,7 +539,7 @@ public class RoomController {
                     //monster.setHasBeenAttacked(true);
                 }*/
                 if (!monster.getHasBeenAttacked()) {
-                    monsterControllers[monstersAttacked] = new MonsterController(monster, scene1,
+                    monsterAIs[monstersAttacked] = new MonsterAI(monster, scene1,
                             root, player1, currRoom, this, monsterView);
                     monster.setHasBeenAttacked(true);
                 }

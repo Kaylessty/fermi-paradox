@@ -23,17 +23,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/StatScreenController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/InitialGameScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/LoseScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/LoseScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Player.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Player.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/MonsterController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterAI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/RoomController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/RoomController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController$MovementController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/classes/main/RoomController.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/main/RoomController.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/target/test-classes/ShopInteractionsTest.class" beforeDir="false" afterPath="$PROJECT_DIR$/target/test-classes/ShopInteractionsTest.class" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +83,7 @@
       <module name="SpaceDungeon" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="main.*" />
+          <option name="PATTERN" value="main.MonsterAI" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>

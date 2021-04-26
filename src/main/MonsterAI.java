@@ -13,7 +13,7 @@ import java.util.Random;
 import java.util.TimerTask;
 import java.util.concurrent.TimeUnit;
 
-public class MonsterController {
+public class MonsterAI {
 
     private Monster thisMonster;
     private java.util.Timer timer;
@@ -31,11 +31,11 @@ public class MonsterController {
 
 
     // This default constructor should not be used
-    private MonsterController() {
+    private MonsterAI() {
     }
 
-    public MonsterController(Monster monster, Scene scene, Pane root, Player user,
-                             Room room, RoomController con, ImageView monsterView) {
+    public MonsterAI(Monster monster, Scene scene, Pane root, Player user,
+                     Room room, RoomController con, ImageView monsterView) {
         thisMonster = monster;
         timer = new java.util.Timer();
         scene1 = scene;
@@ -222,7 +222,7 @@ public class MonsterController {
             //scene1.setRoot(root);
             //theStage.setScene(scene1);
             //new FadeOut(projectile).play();
-            MonsterController.this.damageCalculation(projectile);
+            MonsterAI.this.damageCalculation(projectile);
         }
 
         private void runTreeBore() {
@@ -288,11 +288,11 @@ public class MonsterController {
             //scene1.setRoot(root);
             //theStage.setScene(scene1);
             //new FadeOut(projectile).play();
-            MonsterController.this.damageCalculation(projectile);
-            MonsterController.this.damageCalculation(projectilea);
-            MonsterController.this.damageCalculation(projectileb);
-            MonsterController.this.damageCalculation(projectilec);
-            MonsterController.this.damageCalculation(projectiled);
+            MonsterAI.this.damageCalculation(projectile);
+            MonsterAI.this.damageCalculation(projectilea);
+            MonsterAI.this.damageCalculation(projectileb);
+            MonsterAI.this.damageCalculation(projectilec);
+            MonsterAI.this.damageCalculation(projectiled);
         }
 
         private void runTim() {
