@@ -26,13 +26,13 @@ public class LastScreenController {
 
     @FXML
     void goToConfigScreen(ActionEvent event) {
-        Parent tableViewParent = null;
+        Parent parent = null;
         try {
-            tableViewParent = FXMLLoader.load(getClass().getResource("/view/configscreen.fxml"));
+            parent = FXMLLoader.load(getClass().getResource("/view/configscreen.fxml"));
         } catch (IOException e) {
             e.printStackTrace();
         }
-        Scene tableViewScene = new Scene(tableViewParent);
+        Scene tableViewScene = new Scene(parent);
 
         //This line gets the Stage information
         Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();

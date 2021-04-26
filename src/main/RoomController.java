@@ -6,6 +6,7 @@ import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
@@ -25,6 +26,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.scene.text.Text;
+
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.HashMap;
@@ -280,7 +283,13 @@ public class RoomController {
                 ImageView pictureView = new ImageView(picture);
                 pictureView.setX(350);
                 pictureView.setY(250);
-                pictureView.setOnMouseClicked(e -> escape());
+                pictureView.setOnMouseClicked(e -> {
+                    try {
+                        escape();
+                    } catch (IOException ioException) {
+                        ioException.printStackTrace();
+                    }
+                });
                 root.getChildren().add(pictureView);
                 keepTrack.add(pictureView);
             } catch (IllegalArgumentException e) {
@@ -390,20 +399,9 @@ public class RoomController {
     /**
      * This method escapes the maze and displays the ending scene
      */
-    public void escape() {
-        root = new BorderPane();
-        try {
-            Image background = new Image("resources/images/Background.png");
-            ImageView doneBackground = new ImageView(background);
-            root.getChildren().add(doneBackground);
-        } catch (IllegalArgumentException e) {
-            System.out.println("The file/image for the item could not be found.");
-        }
-        Text congrats = new Text(375, 280, "YOU ESCAPED!");
-        congrats.setFill(Color.AQUAMARINE);
-        root.getChildren().add(congrats);
-        scene1 = new Scene(root, 800, 600);
-        theStage.setScene(scene1);
+    public void escape() throws IOException {
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/winscreen.fxml"));
+        theStage.setScene(new Scene(loader.load()));
         theStage.show();
     }
 
