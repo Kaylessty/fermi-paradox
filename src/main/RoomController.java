@@ -127,7 +127,7 @@ public class RoomController {
         healthMoneyVBox = new VBox();
         invVBox = new VBox();
         healthMoneyVBox.setPadding(new Insets(30,0,0,100));
-        healthMoneyVBox.setSpacing(10);
+        healthMoneyVBox.setSpacing(20);
         bottomRow = new HBox();
         moneyText = new Text(" $: ");
         healthText = new Text(" Health: ");
@@ -138,7 +138,7 @@ public class RoomController {
         money.textProperty().bind(Player.getBalance().asString());
         health.textProperty().bind(Player.getHealth().asString());
         money.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
-                + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 30pt 'Lao MN'");
+                + " 10,0.7,0.0,0.0); -fx-text-fill: yellow; -fx-font: 25pt 'Lao MN'");
         health.setStyle("-fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3),"
                 + " 10,0.7,0.0,0.0); -fx-text-fill: red; -fx-font: 25pt 'Lao MN'");
         healthMoneyVBox.getChildren().addAll(health, money);
