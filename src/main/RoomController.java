@@ -517,6 +517,7 @@ public class RoomController {
                 monster.setHealth(monster.getHealth()
                         - (carrying.getDamage() * Player.getGuncharged()));
                 Player.setGuncharged(1);
+                Player.incDamageDealt(carrying.getDamage() * Player.getGuncharged());
                 System.out.println(monster.getHealth());
                 // allow monster to attack back, assuming not yet attacked
 
@@ -558,6 +559,7 @@ public class RoomController {
                         engiL = false;
                     }
                     System.out.println("Monster killed");
+                    Player.incMonstersKilled();
                     if (monster instanceof Slugger) {
                         currRoom.setSlugNum(currRoom.getSlugNum() - 1);
                     }

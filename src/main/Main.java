@@ -9,8 +9,9 @@ import javafx.stage.Stage;
 public class Main extends Application {
 
     private Parent rootNode;
-
     private static Stage stage;
+
+
 
 
     public static void main(final String[] args) {

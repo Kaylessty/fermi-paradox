@@ -16,6 +16,7 @@ import java.io.IOException;
 public class InitialGameScreenController {
 
     private Scene scene;
+    protected static long startTime;
 
     @FXML
     private Label health;
@@ -36,6 +37,7 @@ public class InitialGameScreenController {
     @FXML
     private void enterMaze(ActionEvent event) {
         try {
+            startTime = System.currentTimeMillis();
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/roomcontroller.fxml"));
             Parent viewParent = loader.load();
             RoomController roomControl = loader.getController();

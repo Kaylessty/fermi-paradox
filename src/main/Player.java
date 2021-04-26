@@ -18,8 +18,16 @@ public class Player implements Locatable {
     private static int guncharged = 1;
     private String recentImageURL = "resources/images/player-down.png";
     private static Room box;
+    private static int monstersKilled;
+    private static int damageDealt;
 
 
+    public static void incDamageDealt(int damage) {
+        damageDealt += damage;
+    }
+    public static void incMonstersKilled() {
+        monstersKilled++;
+    }
     public static String getName() {
         return name;
     }
@@ -31,7 +39,12 @@ public class Player implements Locatable {
     public static IntegerProperty getBalance() {
         return balance;
     }
-
+    public static int getMonstersKilled() {
+        return monstersKilled;
+    }
+    public static int getDamageDealt() {
+        return damageDealt;
+    }
     public static int getStrength() {
         return strength;
     }

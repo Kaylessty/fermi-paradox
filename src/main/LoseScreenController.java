@@ -14,6 +14,10 @@ import java.io.IOException;
 public class LoseScreenController {
 
     private Scene scene;
+    protected static long endTime = 0;
+    public static int timeElapsed;
+    public static String timeElapsedFormatted;
+
 
     @FXML
     private Button tryAgainButton;
@@ -23,7 +27,23 @@ public class LoseScreenController {
 
     @FXML
     void quit(ActionEvent event) {
-        Platform.exit();
+        Parent tableViewParent = null;
+        endTime = System.currentTimeMillis();
+        long timeDiff = endTime - InitialGameScreenController.startTime;
+        timeElapsed = (int) (timeDiff/1000);
+        try {
+            tableViewParent = FXMLLoader.load(getClass().getResource("/view/statsscreen.fxml"));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        Scene tableViewScene = new Scene(tableViewParent);
+
+        //This line gets the Stage information
+        Stage window = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+        window.setScene(tableViewScene);
+        window.show();
+
     }
 
     @FXML
