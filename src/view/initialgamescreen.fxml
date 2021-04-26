@@ -90,6 +90,21 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
+            <Text fill="WHITE" layoutX="10.0" layoutY="284.0" strokeType="OUTSIDE" strokeWidth="0.0" text="  ">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="10.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #4">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font>
+            </Text>
+            <Text fill="WHITE" layoutX="10.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open Chests to find cool useful items!">
+               <font>
+                  <Font name="Lao MN" size="13.0" />
+               </font>
+            </Text>
          </children>
       </VBox>
    </left>
