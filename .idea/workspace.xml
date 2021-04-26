@@ -24,18 +24,6 @@
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/ConfigScreenController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/ConfigScreenController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/Maze.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Maze.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/MonsterAI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/MonsterAI.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ConfigScreenM3Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/FirstScreenTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4MegaTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M4Tests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M5InventoryTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M5StartingWeaponsTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/MazeTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/RoomDisplayTest.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ShopInteractionsTest.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -188,23 +176,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom" timestamp="1619457177438">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619457177438" />
-    <state width="1877" height="294" key="GridCell.Tab.0.center" timestamp="1619457177438">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619457177438" />
-    <state width="1877" height="294" key="GridCell.Tab.0.left" timestamp="1619457177437">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619457177437" />
-    <state width="1877" height="294" key="GridCell.Tab.0.right" timestamp="1619457177438">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619457177438" />
   </component>
 </project>
