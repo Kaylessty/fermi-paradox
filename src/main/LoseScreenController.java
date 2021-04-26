@@ -14,6 +14,9 @@ import java.io.IOException;
 public class LoseScreenController {
 
     private Scene scene;
+
+
+
     protected static long endTime = 0;
     public static int timeElapsed;
     public static String timeElapsedFormatted;
@@ -59,5 +62,7 @@ public class LoseScreenController {
             ioException.printStackTrace();
         }
     }
-
+    public static void setTimeElapsed(int timeElapsed) {
+        LoseScreenController.timeElapsed = timeElapsed;
+    }
 }

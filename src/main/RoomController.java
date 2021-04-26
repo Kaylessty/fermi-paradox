@@ -400,6 +400,10 @@ public class RoomController {
      * This method escapes the maze and displays the ending scene
      */
     public void escape() throws IOException {
+        long endTime = System.currentTimeMillis();
+        long timeDiff = endTime - InitialGameScreenController.startTime;
+        int timeElapsed = (int) (timeDiff / 1000);
+        LoseScreenController.setTimeElapsed(timeElapsed);
         FXMLLoader loader = new FXMLLoader(getClass().getResource("/view/winscreen.fxml"));
         theStage.setScene(new Scene(loader.load()));
         theStage.show();
