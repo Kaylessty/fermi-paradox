@@ -1,16 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.RadioButton?>
-<?import javafx.scene.control.TextField?>
-<?import javafx.scene.control.ToggleGroup?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.VBox?>
-<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(&quot;/resources/images/Background.png&quot;);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ConfigScreenController">
+<AnchorPane prefHeight="600.0" prefWidth="800.0" style="-fx-background-image: url(&quot;/resources/images/Background.png&quot;);" xmlns="http://javafx.com/javafx/11.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.ConfigScreenController">
    <children>
       <VBox prefHeight="400.0" prefWidth="608.0">
          <children>
@@ -18,7 +12,7 @@
                <children>
                   <Label prefHeight="25.0" prefWidth="182.0" text="Enter your Name:" textFill="#583fff">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="19.0" />
+                        <Font name="Lao MN" size="19.0" />
                      </font>
                   </Label>
                   <TextField fx:id="nameEntry" prefHeight="25.0" prefWidth="247.0" />
@@ -28,7 +22,7 @@
                <children>
                   <Label prefHeight="30.0" prefWidth="180.0" text="Select the difficulty:" textFill="#4643ff">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="15.0" />
+                        <Font name="Lao MN" size="15.0" />
                      </font>
                   </Label>
                   <RadioButton fx:id="easy" mnemonicParsing="false" prefHeight="30.0" prefWidth="66.0" text="Easy" textFill="#4834ff">
@@ -36,17 +30,17 @@
                         <ToggleGroup fx:id="difficulties" />
                      </toggleGroup>
                      <font>
-                        <Font name="Copperplate Gothic Light" size="13.0" />
+                        <Font name="Lao MN" size="13.0" />
                      </font>
                   </RadioButton>
                   <RadioButton fx:id="amateur" mnemonicParsing="false" prefHeight="30.0" prefWidth="105.0" text="Amateur" textFill="#3b1cff" toggleGroup="$difficulties">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="14.0" />
+                        <Font name="Lao MN" size="14.0" />
                      </font>
                   </RadioButton>
                   <RadioButton fx:id="hard" mnemonicParsing="false" prefHeight="30.0" prefWidth="92.0" text="Hard" textFill="#4335ff" toggleGroup="$difficulties">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="13.0" />
+                        <Font name="Lao MN" size="13.0" />
                      </font>
                   </RadioButton>
                </children>
@@ -55,12 +49,12 @@
                <children>
                   <Label prefHeight="27.0" prefWidth="232.0" text="Select your starting weapon:" textFill="#5242ff">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="14.0" />
+                        <Font name="Lao MN" size="14.0" />
                      </font>
                   </Label>
                   <RadioButton fx:id="blaster" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" text="Laser" textFill="#4a36ff">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="15.0" />
+                        <Font name="Lao MN" size="15.0" />
                      </font>
                      <toggleGroup>
                         <ToggleGroup fx:id="weapons" />
@@ -68,12 +62,12 @@
                   </RadioButton>
                   <RadioButton fx:id="spaceSword" mnemonicParsing="false" prefHeight="30.0" prefWidth="144.0" text="Energy Sword" textFill="#3d4eff" toggleGroup="$weapons">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="14.0" />
+                        <Font name="Lao MN" size="14.0" />
                      </font>
                   </RadioButton>
                   <RadioButton fx:id="sonarGun" mnemonicParsing="false" prefHeight="30.0" prefWidth="137.0" text="Sonic Rifle" textFill="#4c3cff" toggleGroup="$weapons">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="15.0" />
+                        <Font name="Lao MN" size="15.0" />
                      </font>
                   </RadioButton>
                </children>
@@ -82,7 +76,7 @@
                <children>
                   <Button fx:id="continueButton" mnemonicParsing="false" onAction="#startGame" text="START" textFill="#3a3afc">
                      <font>
-                        <Font name="Copperplate Gothic Light" size="21.0" />
+                        <Font name="Lao MN" size="21.0" />
                      </font>
                   </Button>
                </children>

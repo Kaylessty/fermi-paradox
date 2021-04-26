@@ -102,7 +102,7 @@ public class RoomController {
         //makes Inventory
         playerInventory = new Inventory("Player Inventory ");
         inv = new ChoiceBox<>();
-        inv.setStyle("-fx-background-color: pink");
+        inv.setStyle("-fx-background-color: pink; -fx-font: 8pt 'Lao MN'");
         //
 
         //Add pillar/background before displayRoom()!
@@ -163,6 +163,8 @@ public class RoomController {
         });
         //keepTrack.add(pillar);//******************************************
         displayRoom();
+
+
         scene1 = new Scene(root, 800, 600);
         monstersInRoom = currRoom.getMonsters();
         monsterAIs = new MonsterAI[monstersInRoom.length];
@@ -351,7 +353,6 @@ public class RoomController {
         //keepTrack.add(pillar);//*******************************************
         displayRoom();
         scene1 = new Scene(root, 800, 600);
-
         theStage.setScene(scene1);
         theStage.show();
         System.out.println("Number of monsters:" + currRoom.getMonsterNum());

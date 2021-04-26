@@ -1,0 +1,6 @@
+.choice-box {
+-fx-background-color: lightskyblue;
+}
+.choice-box .menu-item:focused{
+-fx-border-color: lightskyblue;
+}
