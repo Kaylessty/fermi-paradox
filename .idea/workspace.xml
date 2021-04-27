@@ -23,9 +23,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="56238609-24a9-4469-9bce-e1bc966cebae" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/tests/M4Tests.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M4Tests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/M5StartingWeaponsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M5StartingWeaponsTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tests/ShopInteractionsTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/tests/M6Tests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/view/initialgamescreen.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M4Tests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/M5StartingWeaponsTest.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/test-classes/ShopInteractionsTest.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -175,23 +176,5 @@
       </map>
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
-  </component>
-  <component name="WindowStateProjectService">
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom" timestamp="1619482257541">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.bottom/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619482257541" />
-    <state width="1877" height="294" key="GridCell.Tab.0.center" timestamp="1619482257541">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.center/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619482257541" />
-    <state width="1877" height="294" key="GridCell.Tab.0.left" timestamp="1619482257541">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.left/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619482257541" />
-    <state width="1877" height="294" key="GridCell.Tab.0.right" timestamp="1619482257541">
-      <screen x="0" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="294" key="GridCell.Tab.0.right/-1920.0.1920.1040/0.0.1920.1040/1920.0.1920.1040@0.0.1920.1040" timestamp="1619482257541" />
   </component>
 </project>
