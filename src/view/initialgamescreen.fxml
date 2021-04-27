@@ -8,23 +8,23 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" style="-fx-background-image: url(&quot;/resources/images/initialscreen.png&quot;);" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.InitialGameScreenController">
    <right>
    </right>
    <left>
       <VBox prefHeight="259.0" prefWidth="275.0" BorderPane.alignment="CENTER">
          <children>
-            <Text fill="WHITE" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello! You are about to enter the most dangerous space dungeon in the galaxy, the Fermi Paradox!">
+            <Text layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Hello! You are about to enter the most dangerous space dungeon in the galaxy, the Fermi Paradox!">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   ">
+            <Text layoutX="10.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="   ">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions:">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Instructions:">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -34,32 +34,27 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="WASD to move">
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="WASD to move">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(e) to use currently selected item">
+            <Text layoutX="10.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(e) to use currently selected item">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(q) to drop current item">
+            <Text layoutX="10.0" layoutY="130.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(q) to drop current item">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(f) to show item information">
+            <Text layoutX="10.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(f) to show item information">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="(f) to show item information">
-               <font>
-                  <Font name="Lao MN" size="13.0" />
-               </font>
-            </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Left Mouse Click to attack monster">
+            <Text layoutX="10.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Left Mouse Click to attack monster">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -74,12 +69,12 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #1">
+            <Text layoutX="10.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #1">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Each monster has a different method of attack.">
+            <Text layoutX="10.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Each monster has a different method of attack.">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -89,12 +84,12 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #2">
+            <Text layoutX="10.0" layoutY="214.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #2">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Talk to shopkeepers.">
+            <Text layoutX="10.0" layoutY="235.0" strokeType="OUTSIDE" strokeWidth="0.0" text="To talk to shopkeepers, click them with a non weapon item. Clicking them with a weapon will attack them" wrappingWidth="574.89404296875">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -104,12 +99,12 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #3">
+            <Text layoutX="10.0" layoutY="232.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Tip #3">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get close to the monster to effectively use your weapon! The farther you are, the less likely you are to hit the monster!">
+            <Text layoutX="10.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Get close to the monster to effectively use your weapon! The farther you are, the less likely you are to hit the monster!">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -119,12 +114,12 @@
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LEFT and RIGHT arrows to swiftly switch between items in inventory">
+            <Text layoutX="10.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="LEFT and RIGHT arrows to swiftly switch between items in inventory">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
             </Text>
-            <Text fill="WHITE" layoutX="10.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open Chests to find cool useful items!">
+            <Text layoutX="10.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open Chests to find cool useful items!">
                <font>
                   <Font name="Lao MN" size="13.0" />
                </font>
@@ -133,7 +128,7 @@
       </VBox>
    </left>
    <top>
-      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+      <HBox alignment="CENTER" prefHeight="80.0" prefWidth="536.0" BorderPane.alignment="CENTER">
          <children>
             <Button fx:id="enteringMaze" alignment="TOP_CENTER" mnemonicParsing="false" onAction="#enterMaze" text="Enter the Fermi Paradox" textAlignment="CENTER" textFill="#f80000">
                <font>
@@ -147,7 +142,7 @@
       <Insets left="10.0" right="10.0" />
    </padding>
    <bottom>
-      <Text fill="WHITE" strokeType="OUTSIDE" strokeWidth="0.0" text="You will spawn in a room with four doors. First, pick up your starting weapon and the Visitor ID on the floor. The Visitor ID will allow you to go through doors. Without it, you will not be able to enter any rooms! To use, select the Visitor ID in inventory, then you will be allowed to walk through doors. In this maze, you will find: shopkeepers, monsters, challenge rooms, bosses and more! Find the final boss and defeat him to escape out of the maze! Good Luck, Space Warrior!" wrappingWidth="584.93701171875" BorderPane.alignment="CENTER_LEFT">
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="You will spawn in a room with four doors. First, pick up your starting weapon and the Visitor ID on the floor. The Visitor ID will allow you to go through doors. Without it, you will not be able to enter any rooms! To use, select the Visitor ID in inventory, then you will be allowed to walk through doors. In this maze, you will find: shopkeepers, monsters, challenge rooms, bosses and more! Find the final boss and defeat him to escape out of the maze! Good Luck, Space Warrior!" wrappingWidth="584.93701171875" BorderPane.alignment="CENTER_LEFT">
          <font>
             <Font name="Lao MN" size="13.0" />
          </font>

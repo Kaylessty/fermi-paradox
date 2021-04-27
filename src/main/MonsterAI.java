@@ -372,7 +372,7 @@ public class MonsterAI {
                 room.addMonster(creature, 666 * Room.getDifficulty(), 5000);
                 room.setSlugNum(room.getSlugNum() + 1);
             }
-            if (r < 6) {
+            if (r < 6 * room.getSlugNum()) {
                 thisMonster.setHealth(thisMonster.getHealth() + ((333 * Room.getDifficulty()) * room.getSlugNum()));
                 try {
                     int monstY = y;

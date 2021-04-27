@@ -22,7 +22,7 @@ public class Description {
         window.setMaxHeight(300);
         window.setMinHeight(300);
         VBox screen = new VBox();
-        Text t = new Text(ite.getDiscription());
+        Text t = new Text(ite.getName() + ": " + ite.getDiscription());
         t.setWrappingWidth(400);
         screen.getChildren().add(t);
         ScrollPane scroll = new ScrollPane(screen);
