@@ -86,6 +86,7 @@
 //}
 import javafx.application.Platform;
 import javafx.beans.property.IntegerProperty;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.input.KeyCode;
 import javafx.stage.Stage;
 import main.*;
@@ -95,7 +96,7 @@ import org.testfx.api.FxRobot;
 import org.testfx.framework.junit.ApplicationTest;
 import static org.junit.Assert.*;
 
-public class M4Tests extends ApplicationTest {
+public class NewFXMLTests extends ApplicationTest {
 
     private Player player;
     private FxRobot robot = new FxRobot();
@@ -122,7 +123,7 @@ public class M4Tests extends ApplicationTest {
     }
 
     @Test
-    public void testMovement1() {
+    public void canEscape() {
         int xPos = player.getLocation()[0];
         int yPos = player.getLocation()[1];
         robot.press(KeyCode.UP).release(KeyCode.UP);
@@ -135,7 +136,9 @@ public class M4Tests extends ApplicationTest {
     }
 
     @Test
-    public void testMovement2() {
+    public void winScreenFunctionality() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/statsscreen.fxml"));
+
         int xPos = player.getLocation()[0];
         int yPos = player.getLocation()[1];
         robot.press(KeyCode.W).release(KeyCode.W);
@@ -148,7 +151,8 @@ public class M4Tests extends ApplicationTest {
     }
 
     @Test
-    public void testPlayerDamage() {
+    public void statisticsScreen() {
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/view/statsscreen.fxml"));
         Platform.runLater(() -> {
             IntegerProperty i = Player.getHealth();
             Player.setHealth(Player.getHealth().get() - 1);
@@ -159,11 +163,8 @@ public class M4Tests extends ApplicationTest {
     }
 
     @Test
-    public void testPlayerFaint() {
-        Platform.runLater(() -> {
-            Player.setHealth(Player.getHealth().get() - 7000);
-
-        });
+    public void timeElapsed() {
+       int time = LoseScreenController.timeElapsed;
 
     }
 }

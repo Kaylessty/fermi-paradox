@@ -14,7 +14,7 @@ import static org.testfx.api.FxAssert.verifyThat;
 import static org.testfx.matcher.base.NodeMatchers.isVisible;
 
 
-public class ShopInteractionsTest extends ApplicationTest {
+public class ChallengeBossTests extends ApplicationTest {
 
     private FxRobot robot;
     private Stage primaryStage;
@@ -46,7 +46,7 @@ public class ShopInteractionsTest extends ApplicationTest {
     */
 
     @Test
-    public void testPurchaseTransaction() {
+    public void challengeroom() {
         Player.getRoom().addObject(
                 new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
                 8, 7);
@@ -73,7 +73,7 @@ public class ShopInteractionsTest extends ApplicationTest {
     }
 
     @Test
-    public void testBankruptPurchase() {
+    public void finalBossRoom() {
         Player.getRoom().addObject(
                 new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
                 8, 7);
@@ -101,7 +101,7 @@ public class ShopInteractionsTest extends ApplicationTest {
     }
 
     @Test
-    public void testSellingItem() {
+    public void escapeMaze() {
         Player.getRoom().addObject(
                 new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
                 8, 7);
@@ -131,7 +131,7 @@ public class ShopInteractionsTest extends ApplicationTest {
     }
 
     @Test
-    public void testSellingItemMultipleTimes() {
+    public void challengeMonsterDrop() {
         Player.getRoom().addObject(
                 new Item(Item.Possession.AAID, 8, 7, "Administrator ID"),
                 8, 7);

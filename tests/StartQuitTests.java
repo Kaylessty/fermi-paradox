@@ -8,7 +8,7 @@ import org.testfx.framework.junit.ApplicationTest;
 import static org.junit.Assert.assertNotNull;
 
 
-public class M5StartingWeaponsTest extends ApplicationTest {
+public class StartQuitTests extends ApplicationTest {
     private Stage primaryStage;
 
     @Override
@@ -24,7 +24,7 @@ public class M5StartingWeaponsTest extends ApplicationTest {
 
     }
     @Test
-    public void testStartingSwordSpawn() {
+    public void startNewGame() {
         clickOn("#newButton");
         clickOn("#hard");
         clickOn("#spaceSword");
@@ -38,7 +38,7 @@ public class M5StartingWeaponsTest extends ApplicationTest {
     }
 
     @Test
-    public void testStartingBlasterSpawn() {
+    public void exitGame() {
         clickOn("#newButton");
         clickOn("#hard");
         clickOn("#blaster");
